@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------
-[[1462,1],0]: A high-performance Open MPI point-to-point messaging module
+[[3931,1],1]: A high-performance Open MPI point-to-point messaging module
 was unable to find any relevant network interfaces:
 
 Module: OpenFabrics (openib)
@@ -34,7 +34,7 @@ message: |
 src_file: m_dtfil.F90
 src_line: 1183
 message: |
-    Renaming old tbase3_1.out to tbase3_1.out0003
+    Renaming old tbase3_1.out to tbase3_1.out0004
 ...
 
 
@@ -53,8 +53,8 @@ message: |
  acknowledgments of the ABINIT effort.
  For more information, see https://www.abinit.org .
 
-.Starting date : Thu 17 Oct 2019.
-- ( at 16h05 )
+.Starting date : Fri 18 Oct 2019.
+- ( at 10h42 )
   
 
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -199,12 +199,16 @@ message: |
  invars2: take the default value of fband=  1.25000000E-01
  chkneu : initialized the occupation numbers for occopt=    1, spin-unpolarized or antiferromagnetic case :
   2.00  2.00  2.00  2.00  0.00
+npfft, npband, npspinor and npkpt:     1    1    1    2
 mpi_setup: mkmem  undefined in the input file.Use default mkmem  = nkpt
- mpi_setup: With nkpt_me=2 and mkmem  = 2, ground state wf handled in core.
+ mpi_setup: With nkpt_me=1 and mkmem  = 2, ground state wf handled in core.
+ Resetting mkmem  to nkpt_me to save memory space.
 mpi_setup: mkqmem undefined in the input file.Use default mkqmem = nkpt
- mpi_setup: With nkpt_me=2 and mkqmem = 2, ground state wf handled in core.
+ mpi_setup: With nkpt_me=1 and mkqmem = 2, ground state wf handled in core.
+ Resetting mkqmem to nkpt_me to save memory space.
 mpi_setup: mk1mem undefined in the input file.Use default mk1mem = nkpt
- mpi_setup: With nkpt_me=2 and mk1mem = 2, ground state wf handled in core.
+ mpi_setup: With nkpt_me=1 and mk1mem = 2, ground state wf handled in core.
+ Resetting mk1mem to nkpt_me to save memory space.
  For input ecut=  8.000000E+00 best grid ngfft=      20      20      20
        max ecut=  9.523667E+00
 
@@ -227,17 +231,17 @@ memory : analysis of memory needs
      natom =       2  nloc_mem =       1    nspden =       1   nspinor =       1
     nsppol =       1      nsym =      48    n1xccc =    2501    ntypat =       1
     occopt =       1   xclevel =       1
--    mband =           5        mffmem =           1         mkmem =           2
+-    mband =           5        mffmem =           1         mkmem =           1
        mpw =         289          nfft =        8000          nkpt =           2
 ================================================================================
-P This job should need less than                       2.870 Mbytes of memory.
+P This job should need less than                       2.845 Mbytes of memory.
   Rough estimation (10% accuracy) of disk space for files :
 _ WF disk file :      0.046 Mbytes ; DEN or POT disk file :      0.063 Mbytes.
 ================================================================================
 
  Biggest array : f_fftgr(disk), with      0.9786 MBytes.
  memana : allocated an array of      0.979 Mbytes, for testing purposes.
- memana: allocated       2.870Mbytes, for testing purposes. 
+ memana: allocated       2.845Mbytes, for testing purposes. 
  The job will continue.
 --------------------------------------------------------------------------------
 ------------- Echo of variables that govern the present computation ------------
@@ -262,7 +266,7 @@ _ WF disk file :      0.046 Mbytes ; DEN or POT disk file :      0.063 Mbytes.
                       -2.50000000E-01  0.00000000E+00  0.00000000E+00
          kptrlatt        2   -2    2     -2    2    2     -2   -2    2
           kptrlen      2.03600000E+01
-P           mkmem           2
+P           mkmem           1
             natom           2
             nband           5
             ngfft          20      20      20
@@ -376,7 +380,7 @@ P           mkmem           2
 
 ================================================================================
 == DATASET  1 ==================================================================
--   nproc =    1
+-   nproc =    2
 
 
 --- !COMMENT
@@ -399,6 +403,7 @@ message: |
 
  getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  20  20  20
          ecut(hartree)=      8.000   => boxcut(ratio)=   2.18216
+ kpgio: loop on k-points done in parallel
 - pspini: atom type   1  psp file is ../../../../../Psps_for_tests/14si.pspnc
 - pspatm: opening atomic psp file    ../../../../../Psps_for_tests/14si.pspnc
 -  Troullier-Martins psp for element  Si        Thu Oct 27 17:31:21 EDT 1994
@@ -446,7 +451,6 @@ message: |
   Pseudo valence available: no
 
  wfconv:     5 bands initialized randomly with npw=   283, for ikpt=     1
- wfconv:     5 bands initialized randomly with npw=   289, for ikpt=     2
 _setup2: Arith. and geom. avg. npw (full set) are     284.500     284.488
  initro: for itypat=  1, take decay length=      1.1000,
  initro: indeed, coreel=     10.0000, nval=  4 and densty=  0.0000E+00.
@@ -468,7 +472,7 @@ _setup2: Arith. and geom. avg. npw (full set) are     284.500     284.488
  scprqt: <Vxc>= -3.5272105E-01 hartree
 
 Simple mixing update:
-  residual square of the potential :   2.7174443035260527
+  residual square of the potential :   2.7174443035260500
  scfcv_core: previous iteration took 00 [s]
 
  ITER STEP NUMBER     2
@@ -598,7 +602,7 @@ Simple mixing update:
                       -2.50000000E-01  0.00000000E+00  0.00000000E+00
          kptrlatt        2   -2    2     -2    2    2     -2   -2    2
           kptrlen      2.03600000E+01
-P           mkmem           2
+P           mkmem           1
             natom           2
             nband           5
             ngfft          20      20      20
@@ -743,25 +747,25 @@ P           mkmem           2
 - Computational Materials Science 25, 478-492 (2002). http://dx.doi.org/10.1016/S0927-0256(02)00325-7
 - Comment : the original paper describing the ABINIT project.
 - DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2002
- Proc.   0 individual time (sec): cpu=          0.6  wall=          0.6
+ Proc.   0 individual time (sec): cpu=          0.8  wall=          1.7
 
  Calculation completed.
-.Delivered   2 WARNINGs and   3 COMMENTs to log file.
+.Delivered   0 WARNINGs and   0 COMMENTs to log file.
 
 --- !FinalSummary
 program: abinit
 version: 8.10.3
-start_datetime: Thu Oct 17 16:05:58 2019
-end_datetime: Thu Oct 17 16:05:59 2019
-overall_cpu_time:           0.6
-overall_wall_time:           0.6
+start_datetime: Fri Oct 18 10:42:34 2019
+end_datetime: Fri Oct 18 10:42:36 2019
+overall_cpu_time:           1.8
+overall_wall_time:           3.4
 exit_requested_by_user: no 
 timelimit: 0
 pseudos: 
     Si  : 3916b143991b1cfa1542b130be320e5e
 usepaw: 0
-mpi_procs: 1
+mpi_procs: 2
 omp_threads: 2
-num_warnings: 2
-num_comments: 3
+num_warnings: 0
+num_comments: 0
 ...

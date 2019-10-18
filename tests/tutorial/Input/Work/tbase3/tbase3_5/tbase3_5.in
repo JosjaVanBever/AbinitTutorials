@@ -1,0 +1,99 @@
+# Crystalline silicon : computation of the total energy
+#
+
+ndtset 2          # number of data sets
+#Dataset 1 : usual self-consistent calculation
+#Dataset 2 : the band structure
+
+# prtkpt 1        # print extra kpt-grid informations
+# prtden1 1       # print density information
+# getwfk -1       # This is to speed up the calculation, by restarting
+                  # from previous wavefunctions, transferred from the old 
+                  # to the new k-points.
+
+#Definition of the unit cell
+acell 3*10.216         # This is equivalent to   10.18 10.18 10.18
+# rprim gives FCC (https://physics.stackexchange.com/questions/210963/primitive-unit-cell-of-fcc)
+rprim  0.0  0.5  0.5   # In tutorials 1 and 2, these primitive vectors 
+       0.5  0.0  0.5   # (to be scaled by acell) were 1 0 0  0 1 0  0 0 1 
+       0.5  0.5  0.0   # that is, the default.
+
+#Definition of the atom types
+ntypat 1          # There is only one type of atom
+znucl 14          # The keyword "znucl" refers to the atomic number of the 
+                  # possible type(s) of atom (here Si). The pseudopotential(s) 
+                  # mentioned in the "files" file must correspond
+                  # to the type(s) of atom. Here, the only type is Silicon.
+                         
+
+#Definition of the atoms
+# remark that bulk Si has a diamond structure, containing double the amount of
+# atoms in the primitive cell as would be for a FFC lattice with 1 atom as motif
+natom 2           # There are two atoms
+typat 1 1         # They both are of type 1, that is, Silicon.
+xred              # This keyword indicate that the location of the atoms
+                  # will follow, one triplet of number for each atom
+   0.0  0.0  0.0  # Triplet giving the REDUCED coordinate of atom 1.
+   1/4  1/4  1/4  # Triplet giving the REDUCED coordinate of atom 2.
+                  # Note the use of fractions (remember the limited 
+                  # interpreter capabilities of ABINIT)
+
+#Definition of the planewave basis set
+ecut  8.0         # Maximal kinetic energy cut-off, in Hartree
+
+#Definition of the k-point grid
+kptopt1 1         # Option for the automatic generation of k points, taking
+                  # into account the symmetry
+ngkpt1 *4         # Grid based on the primitive vectors
+nshiftk1 4        # of the reciprocal space (that form a BCC lattice !),
+                  # repeated four times, with different shifts :
+shiftk1 0.5 0.5 0.5
+        0.5 0.0 0.0
+        0.0 0.5 0.0
+        0.0 0.0 0.5
+                  # In cartesian coordinates, this grid is simple cubic, and
+                  # actually corresponds to the
+                  # so-called 4x4x4 Monkhorst-Pack grid
+
+kptopt2 -3        # band structure calculation with 3 segments
+ndivk2 10 12 17   # amount of k-pts on each segment
+kptbounds2        # reduced coordinates of end points defining the segments
+     0.5 0.0 0.0  # L point
+     0.0 0.0 0.0  # Gamma point
+     0.0 0.5 0.5  # X point
+     1.0 1.0 1.0  # Gamma point in another cell
+
+
+#Definition of the SCF procedure
+nstep 10         # Maximal number of SCF cycles
+toldfe1 1.0d-6    # Will stop when, twice in a row, the difference 
+                  # between two consecutive evaluations of total energy 
+                  # differ by less than toldfe (in Hartree) 
+                  # This value is way too large for most realistic studies of materials
+diemac 12.0       # Although this is not mandatory, it is worth to
+                  # precondition the SCF cycle. The model dielectric
+                  # function used as the standard preconditioner
+                  # is described in the "dielng" input variable section.
+                  # Here, we follow the prescription for bulk silicon.
+
+iscf2 -2          # non-SCF based on density input (getden2 -1)
+getden2 -1        # get the density from data set 1
+nband2 8          # 4 valence and 4 conduction bands for band analysis
+enunit2 1         # get energies in eV
+tolwfr2 1.0d-10  # only convergence criterium applicable to non-SCF calculation
+
+## After modifying the following section, one might need to regenerate the pickle database with runtests.py -r
+#%%<BEGIN TEST_INFO>
+#%% [setup]
+#%% executable = abinit
+#%% [files]
+#%% files_to_test = 
+#%%   tbase3_1.out, tolnlines=  0, tolabs=  0.000e+00, tolrel=  0.000e+00
+#%% psp_files =  14si.pspnc
+#%% [paral_info]
+#%% max_nprocs = 4
+#%% [extra_info]
+#%% authors = Unknown
+#%% keywords = 
+#%% description = Crystalline silicon: computation of the total energy
+#%%<END TEST_INFO>
