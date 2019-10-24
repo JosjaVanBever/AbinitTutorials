@@ -1,0 +1,2242 @@
+--------------------------------------------------------------------------
+[[14607,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: abipy
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+  ABINIT 8.10.3
+  
+  Give name for formatted input file: 
+tbase4_6.in
+  Give name for formatted output file:
+tbase4_6.out
+  Give root name for generic input files:
+tbase4_6i
+  Give root name for generic output files:
+tbase4_6o
+  Give root name for generic temporary files:
+tbase4_6
+
+.Version 8.10.3 of ABINIT 
+.(MPI version, prepared for a x86_64_linux_gnu5.4 computer) 
+
+.Copyright (C) 1998-2018 ABINIT group . 
+ ABINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Thu 24 Oct 2019.
+- ( at 15h58 )
+  
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ === Build Information === 
+  Version       : 8.10.3
+  Build target  : x86_64_linux_gnu5.4
+  Build date    : 20191016
+
+ === Compiler Suite === 
+  C compiler       : gnu5.4
+  C++ compiler     : gnu5.4
+  Fortran compiler : gnu5.4
+  CFLAGS           :  -g -O2 -mtune=native -march=native
+  CXXFLAGS         :  -g -O2 -mtune=native -march=native
+  FCFLAGS          :  -g -ffree-line-length-none  -fopenmp
+  FC_LDFLAGS       : 
+
+ === Optimizations === 
+  Debug level        : basic
+  Optimization level : standard
+  Architecture       : unknown_unknown
+
+ === Multicore === 
+  Parallel build : yes
+  Parallel I/O   : yes
+  openMP support : yes
+  GPU support    : no
+
+ === Connectors / Fallbacks === 
+  Connectors on : yes
+  Fallbacks on  : yes
+  DFT flavor    : none
+  FFT flavor    : fftw3
+  LINALG flavor : atlas
+  MATH flavor   : none
+  TIMER flavor  : abinit
+  TRIO flavor   : netcdf
+
+ === Experimental features === 
+  Bindings            : @enable_bindings@
+  Exports             : no
+  GW double-precision : no
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Default optimizations:
+   -O2 -mtune=native -march=native
+
+
+ Optimizations for 43_ptgroups:
+   -O0
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ CPP options activated during the build:
+
+                    CC_GNU                   CXX_GNU                    FC_GNU
+ 
+ HAVE_FC_ALLOCATABLE_DT...             HAVE_FC_ASYNC         HAVE_FC_BACKTRACE
+ 
+  HAVE_FC_COMMAND_ARGUMENT      HAVE_FC_COMMAND_LINE        HAVE_FC_CONTIGUOUS
+ 
+           HAVE_FC_CPUTIME              HAVE_FC_EXIT             HAVE_FC_FLUSH
+ 
+             HAVE_FC_GAMMA            HAVE_FC_GETENV   HAVE_FC_IEEE_EXCEPTIONS
+ 
+          HAVE_FC_INT_QUAD             HAVE_FC_IOMSG     HAVE_FC_ISO_C_BINDING
+ 
+  HAVE_FC_ISO_FORTRAN_2008        HAVE_FC_LONG_LINES        HAVE_FC_MOVE_ALLOC
+ 
+           HAVE_FC_PRIVATE         HAVE_FC_PROTECTED         HAVE_FC_STREAM_IO
+ 
+            HAVE_FC_SYSTEM                  HAVE_FFT            HAVE_FFT_FFTW3
+ 
+              HAVE_FFT_MPI           HAVE_FFT_SERIAL          HAVE_FORTRAN2003
+ 
+        HAVE_LIBPAW_ABINIT      HAVE_LIBTETRA_ABINIT               HAVE_LINALG
+ 
+        HAVE_LINALG_SERIAL                  HAVE_MPI                 HAVE_MPI2
+ 
+       HAVE_MPI_IALLREDUCE        HAVE_MPI_IALLTOALL       HAVE_MPI_IALLTOALLV
+ 
+        HAVE_MPI_INTEGER16               HAVE_MPI_IO HAVE_MPI_TYPE_CREATE_S...
+ 
+               HAVE_NETCDF           HAVE_NETCDF_MPI         HAVE_OMP_COLLAPSE
+ 
+               HAVE_OPENMP             HAVE_OS_LINUX         HAVE_TIMER_ABINIT
+ 
+              USE_MACROAVE                                                      
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- input  file    -> tbase4_6.in
+- output file    -> tbase4_6.out
+- root for input  files -> tbase4_6i
+- root for output files -> tbase4_6o
+
+
+--- !WARNING
+src_file: m_nctk.F90
+src_line: 572
+message: |
+    netcdf lib does not support MPI-IO and: NetCDF: Parallel operation on file opened for non-parallel access
+...
+
+  Asked to delete not existent file: __TMP_FILE__
+
+--- !WARNING
+src_file: m_nctk.F90
+src_line: 592
+message: |
+    The netcdf library does not support parallel IO, see message above
+    Abinit won't be able to produce files in parallel e.g. when paral_kgb==1 is used.
+    Action: install a netcdf4+HDF5 library with MPI-IO support.
+...
+
+-instrng: 97 lines of input have been read from file tbase4_6.in
+
+
+ Please give name of formatted atomic psp file
+ iofn2 : for atom type 1, psp file is ../../../../../Psps_for_tests/13al.981214.fhi
+  read the values zionpsp=  3.0 , pspcod=   6 , lmax=   2
+
+ inpspheads: deduce mpsang = 3, n1xccc = 0.
+ invars1 : treat image number: 1
+
+ symlatt : the Bravais lattice is tP (primitive tetragonal)
+  xcart  is defined in input file
+ ingeo: takes atomic coordinates from input array xcart
+
+ symlatt : the Bravais lattice is tP (primitive tetragonal)
+
+ symlatt : the Bravais lattice is tP (primitive tetragonal)
+
+--- !COMMENT
+src_file: m_symfind.F90
+src_line: 815
+message: |
+    The Bravais lattice determined only from the primitive
+    vectors, bravais(1)=  4, is more symmetric
+    than the real one, iholohedry=  3, obtained by taking into
+    account the atomic positions. Start deforming the primitive vector set.
+...
+
+
+ symlatt : the Bravais lattice is oC (one-face-centered orthorhombic)
+ symspgr : spgroup=  38  Am m 2   (=C2v^14)
+ ingeo: angdeg(1:3)=   90.00000000   90.00000000   90.00000000
+ invars1 : treat image number: 1
+
+ symlatt : the Bravais lattice is tP (primitive tetragonal)
+  xcart  is defined in input file
+ ingeo: takes atomic coordinates from input array xcart
+
+ symlatt : the Bravais lattice is tP (primitive tetragonal)
+
+ symlatt : the Bravais lattice is tP (primitive tetragonal)
+
+--- !COMMENT
+src_file: m_symfind.F90
+src_line: 815
+message: |
+    The Bravais lattice determined only from the primitive
+    vectors, bravais(1)=  4, is more symmetric
+    than the real one, iholohedry=  3, obtained by taking into
+    account the atomic positions. Start deforming the primitive vector set.
+...
+
+
+ symlatt : the Bravais lattice is oC (one-face-centered orthorhombic)
+ symspgr : spgroup=  38  Am m 2   (=C2v^14)
+ ingeo: angdeg(1:3)=   90.00000000   90.00000000   90.00000000
+ invars2: take the default value of fband=  5.00000000E-01
+ chkneu : initialized the occupation numbers for occopt=    4, spin-unpolarized or antiferromagnetic case :
+  2.00  2.00  2.00  2.00  1.00  0.00  0.00
+ invars2: take the default value of fband=  5.00000000E-01
+ chkneu : initialized the occupation numbers for occopt=    4, spin-unpolarized or antiferromagnetic case :
+  2.00  2.00  2.00  2.00  1.00  0.00  0.00
+mpi_setup: mkmem  undefined in the input file.Use default mkmem  = nkpt
+ mpi_setup: With nkpt_me=8 and mkmem  = 8, ground state wf handled in core.
+mpi_setup: mkqmem undefined in the input file.Use default mkqmem = nkpt
+ mpi_setup: With nkpt_me=8 and mkqmem = 8, ground state wf handled in core.
+mpi_setup: mk1mem undefined in the input file.Use default mk1mem = nkpt
+ mpi_setup: With nkpt_me=8 and mk1mem = 8, ground state wf handled in core.
+ For input ecut=  6.000000E+00 best grid ngfft=      12      12      45
+       max ecut=  6.307140E+00
+
+ ==== FFT mesh ====
+  FFT mesh divisions ........................    12   12   45
+  Augmented FFT divisions ...................    13   13   45
+  FFT algorithm .............................   312
+  FFT cache size ............................    16
+ getmpw: optimal value of mpw= 378
+mpi_setup: mkmem  undefined in the input file.Use default mkmem  = nkpt
+ mpi_setup: With nkpt_me=8 and mkmem  = 8, ground state wf handled in core.
+mpi_setup: mkqmem undefined in the input file.Use default mkqmem = nkpt
+ mpi_setup: With nkpt_me=8 and mkqmem = 8, ground state wf handled in core.
+mpi_setup: mk1mem undefined in the input file.Use default mk1mem = nkpt
+ mpi_setup: With nkpt_me=8 and mk1mem = 8, ground state wf handled in core.
+ For input ecut=  6.000000E+00 best grid ngfft=      12      12      50
+       max ecut=  6.083275E+00
+
+ ==== FFT mesh ====
+  FFT mesh divisions ........................    12   12   50
+  Augmented FFT divisions ...................    13   13   50
+  FFT algorithm .............................   312
+  FFT cache size ............................    16
+ getmpw: optimal value of mpw= 452
+
+ DATASET    1 : space group Am m 2 (# 38); Bravais oC (1-face-center ortho.)
+
+ getdim_nloc : deduce lmnmax  =   9, lnmax  =   3,
+                      lmnmaxso=   9, lnmaxso=   3.
+memory : analysis of memory needs
+================================================================================
+ Values of the parameters that define the memory need for DATASET  1.
+     intxc =       0    ionmov =       2      iscf =       7    lmnmax =       3
+     lnmax =       3     mgfft =      45  mpssoang =       3    mqgrid =    3001
+     natom =       3  nloc_mem =       1    nspden =       1   nspinor =       1
+    nsppol =       1      nsym =       4    n1xccc =       0    ntypat =       1
+    occopt =       4   xclevel =       1
+-    mband =           7        mffmem =           1         mkmem =           8
+       mpw =         378          nfft =        6480          nkpt =           8
+================================================================================
+P This job should need less than                       3.430 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+_ WF disk file :      0.325 Mbytes ; DEN or POT disk file :      0.051 Mbytes.
+================================================================================
+
+ Biggest array : f_fftgr(disk), with      0.7930 MBytes.
+ memana : allocated an array of      0.793 Mbytes, for testing purposes.
+ memana: allocated       3.430Mbytes, for testing purposes. 
+ The job will continue.
+
+ DATASET    2 : space group Am m 2 (# 38); Bravais oC (1-face-center ortho.)
+
+ getdim_nloc : deduce lmnmax  =   9, lnmax  =   3,
+                      lmnmaxso=   9, lnmaxso=   3.
+memory : analysis of memory needs
+================================================================================
+ Values of the parameters that define the memory need for DATASET  2.
+     intxc =       0    ionmov =       2      iscf =       7    lmnmax =       3
+     lnmax =       3     mgfft =      50  mpssoang =       3    mqgrid =    3001
+     natom =       3  nloc_mem =       1    nspden =       1   nspinor =       1
+    nsppol =       1      nsym =       4    n1xccc =       0    ntypat =       1
+    occopt =       4   xclevel =       1
+-    mband =           7        mffmem =           1         mkmem =           8
+       mpw =         452          nfft =        7200          nkpt =           8
+================================================================================
+P This job should need less than                       3.713 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+_ WF disk file :      0.388 Mbytes ; DEN or POT disk file :      0.057 Mbytes.
+================================================================================
+
+ Biggest array : f_fftgr(disk), with      0.8809 MBytes.
+ memana : allocated an array of      0.881 Mbytes, for testing purposes.
+ memana: allocated       3.713Mbytes, for testing purposes. 
+ The job will continue.
+--------------------------------------------------------------------------------
+------------- Echo of variables that govern the present computation ------------
+--------------------------------------------------------------------------------
+-
+- outvars: echo of selected default values                                      
+-   iomode0 =  0 , fftalg0 =312 , wfoptalg0 =  0
+-
+- outvars: echo of global parameters not present in the input file              
+-  max_nthreads =    1
+-
+ -outvars: echo values of preprocessed input variables --------
+ 
+ These variables are accessible in NetCDF format (tbase4_6o_OUT.nc)
+
+            acell      7.5055909000E+00  7.5055909000E+00  7.5055909000E+00 Bohr
+              amu      2.69815390E+01
+             ecut      6.00000000E+00 Hartree
+-          fftalg         312
+           ionmov           2
+           jdtset        1    2
+              kpt     -1.25000000E-01  0.00000000E+00  0.00000000E+00
+                      -3.75000000E-01  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  1.25000000E-01  0.00000000E+00
+                       5.00000000E-01  1.25000000E-01  0.00000000E+00
+                      -3.75000000E-01  2.50000000E-01  0.00000000E+00
+                       2.50000000E-01  1.25000000E-01  0.00000000E+00
+                       3.75000000E-01  2.50000000E-01  0.00000000E+00
+                       5.00000000E-01  3.75000000E-01  0.00000000E+00
+         kptrlatt        4    4    0     -4    4    0      0    0    1
+          kptrlen      3.00223636E+01
+P           mkmem           8
+            natom           3
+            nband           7
+           ndtset           2
+            ngfft1         12      12      45
+            ngfft2         12      12      50
+             nkpt           8
+            nstep          10
+             nsym           4
+            ntime          10
+           ntypat           1
+              occ      2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+                       2.000000  2.000000  2.000000  2.000000  1.000000  0.000000
+                       0.000000
+           occopt           4
+        optforces           1
+            rprim1     5.0000000000E-01 -5.0000000000E-01  0.0000000000E+00
+                       5.0000000000E-01  5.0000000000E-01  0.0000000000E+00
+                       0.0000000000E+00  0.0000000000E+00  2.5000000000E+00
+            rprim2     5.0000000000E-01 -5.0000000000E-01  0.0000000000E+00
+                       5.0000000000E-01  5.0000000000E-01  0.0000000000E+00
+                       0.0000000000E+00  0.0000000000E+00  3.0000000000E+00
+           shiftk      5.00000000E-01  5.00000000E-01  0.00000000E+00
+          spgroup          38
+           symrel      1  0  0   0  1  0   0  0  1       1  0  0   0  1  0   0  0 -1
+                       0 -1  0  -1  0  0   0  0 -1       0 -1  0  -1  0  0   0  0  1
+            tnons1     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.4000000
+                       0.0000000  0.0000000  0.4000000     0.0000000  0.0000000  0.0000000
+            tnons2     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.3333333
+                       0.0000000  0.0000000  0.3333333     0.0000000  0.0000000  0.0000000
+           toldff      5.00000000E-05
+           tolmxf      5.00000000E-04
+           tsmear      4.00000000E-02 Hartree
+            typat      1  1  1
+              wtk        0.12500    0.12500    0.12500    0.12500    0.12500    0.12500
+                         0.12500    0.12500
+           xangst      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       0.0000000000E+00  1.9858937942E+00  1.9858937942E+00
+                       0.0000000000E+00  0.0000000000E+00  3.9717876413E+00
+            xcart      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       0.0000000000E+00  3.7527954000E+00  3.7527954000E+00
+                       0.0000000000E+00  0.0000000000E+00  7.5055909000E+00
+             xred1     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                      -4.9999999334E-01  4.9999999334E-01  1.9999999734E-01
+                       0.0000000000E+00  0.0000000000E+00  4.0000000000E-01
+             xred2     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                      -4.9999999334E-01  4.9999999334E-01  1.6666666445E-01
+                       0.0000000000E+00  0.0000000000E+00  3.3333333333E-01
+            znucl       13.00000
+
+================================================================================
+
+ chkinp: Checking input parameters for consistency, jdtset=   1.
+
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    2
+   symrel is   1  0  0  0  1  0  0  0 -1
+   tnons is     0.000000E+00    0.000000E+00    4.000000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    3
+   symrel is   0 -1  0 -1  0  0  0  0 -1
+   tnons is     0.000000E+00    0.000000E+00    4.000000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+
+ chkinp: Checking input parameters for consistency, jdtset=   2.
+ DATA TYPE INFORMATION: 
+ REAL:      Data type name: REAL(DP) 
+            Kind value:      8
+            Precision:      15
+            Smallest nonnegligible quantity relative to 1:  0.22204460E-15
+            Smallest positive number:                       0.22250739-307
+            Largest representable number:                   0.17976931+309
+ INTEGER:   Data type name: INTEGER(default) 
+            Kind value: 4
+            Bit size:   32
+            Largest representable number: 2147483647
+ LOGICAL:   Data type name: LOGICAL 
+            Kind value: 4
+ CHARACTER: Data type name: CHARACTER             Kind value: 1
+
+  ==== OpenMP parallelism is ON ====
+- Max_threads:       1
+- Num_threads:       1
+- Num_procs:         8
+- Dynamic:           F
+- Nested:            F
+ 
+  ==== Using MPI-2 specifications ==== 
+  MPI-IO support is ON
+  xmpi_tag_ub ................   2147483647
+  xmpi_bsize_ch ..............            1
+  xmpi_bsize_int .............            4
+  xmpi_bsize_sp ..............            4
+  xmpi_bsize_dp ..............            8
+  xmpi_bsize_spc .............            8
+  xmpi_bsize_dpc .............           16
+  xmpio_bsize_frm ............            4
+  xmpi_address_kind ..........            8
+  xmpi_offset_kind ...........            8
+  MPI_WTICK ..................    9.9999999999999995E-007
+
+================================================================================
+== DATASET  1 ==================================================================
+-   nproc =    1
+
+
+--- !COMMENT
+src_file: m_xgScalapack.F90
+src_line: 251
+message: |
+    xgScalapack in auto mode
+...
+
+
+ getdim_nloc : deduce lmnmax  =   9, lnmax  =   3,
+                      lmnmaxso=   9, lnmaxso=   3.
+ Exchange-correlation functional for the present dataset will be:
+  LDA: new Teter (4/93) with spin-polarized option - ixc=1
+ Citation for XC functional:
+  S. Goedecker, M. Teter, J. Huetter, PRB 54, 1703 (1996)
+
+ Unit cell volume ucvol=  5.2852396E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  45
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.05055
+- pspini: atom type   1  psp file is ../../../../../Psps_for_tests/13al.981214.fhi
+- pspatm: opening atomic psp file    ../../../../../Psps_for_tests/13al.981214.fhi
+- Aluminum, fhi98PP : Hamann-type, LDA CA PerdewWang, l=2 local
+- 13.00000   3.00000    981214                znucl, zion, pspdat
+    6    7    2    2       493   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+
+--- !WARNING
+src_file: m_pspini.F90
+src_line: 1088
+message: |
+    Pseudopotential file pspxc= 7,
+    not equal to input ixc= 1.
+    These parameters must agree to get the same xc 
+    in ABINIT code as in psp construction.
+    Action: check psp design or input file.
+    Assume experienced user. Execution will continue.
+...
+
+  No XC core correction.
+  1.024700          amesh (Hamman grid)
+  pspatm : epsatm=    1.36305739
+         --- l  ekb(1:nproj) -->
+             0    1.768744
+             1    0.900554
+ pspatm: atomic psp has been read  and splines computed
+
+   3.68025494E+01                                ecore*ucvol(ha*bohr**3)
+ ==== Info on pseudopotentials ====
+  Norm-conserving pseudopotentials
+  Number of pseudopotentials ..    1
+  Number of types of atoms   ..    1
+  Scalar calculation (no spin-orbit term)
+  Nonlocal part applied using Legendre polynomials
+  Max number of non-local projectors over l and type   1
+  Highest angular momentum +1 .......   3
+  Max number of (l,n)   components ..   3
+  Max number of (l,m,n) components ..   3
+
+ Info on the Q-grid used for form factors in spline form: 
+   Number of q-points for radial functions ffspl ..   3001
+   Number of q-points for vlspl ...................   3001
+   vloc is computed in Reciprocal Space
+   model core charge treated in real-space
+
+  XC functional for type 1 is 7
+  Pseudo valence available: no
+
+ wfconv:     7 bands initialized randomly with npw=   356, for ikpt=     1
+ wfconv:     7 bands initialized randomly with npw=   368, for ikpt=     2
+ wfconv:     7 bands initialized randomly with npw=   362, for ikpt=     3
+ wfconv:     7 bands initialized randomly with npw=   368, for ikpt=     4
+ wfconv:     7 bands initialized randomly with npw=   378, for ikpt=     5
+ wfconv:     7 bands initialized randomly with npw=   362, for ikpt=     6
+ wfconv:     7 bands initialized randomly with npw=   378, for ikpt=     7
+ wfconv:     7 bands initialized randomly with npw=   372, for ikpt=     8
+_setup2: Arith. and geom. avg. npw (full set) are     368.000     367.927
+ initro: for itypat=  1, take decay length=      1.2500,
+ initro: indeed, coreel=     10.0000, nval=  3 and densty=  0.0000E+00.
+
+================================================================================
+
+=== [ionmov= 2] Broyden-Fletcher-Goldfard-Shanno method (forces)            
+================================================================================
+
+--- Iteration: ( 1/10) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  3.75279540000000E+00  3.75279540000000E+00
+  0.00000000000000E+00  0.00000000000000E+00  7.50559090000000E+00
+ Reduced coordinates (xred)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ -4.99999993338299E-01  4.99999993338299E-01  1.99999997335320E-01
+  0.00000000000000E+00  0.00000000000000E+00  4.00000000000000E-01
+ WARNING: ATOMIC COORDINATES WERE SYMMETRIZED
+ DIFFERENCES:
+   0.0000000000000000        0.0000000000000000        0.0000000000000000     
+   0.0000000000000000        0.0000000000000000        2.6646802542273917E-009
+   0.0000000000000000        0.0000000000000000        0.0000000000000000     
+
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  45
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.05055
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ newocc: new Fermi energy is       0.092313 , with nelect=      9.000000
+  Number of bissection calls =  46
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.068 0.003 0.001 0.000
+ 2.000 2.000 2.000 2.060 2.139 0.003 0.003
+ 2.000 2.000 2.001 1.854 0.693 0.005 0.000
+ 2.000 2.000 2.000 2.000 0.901 0.204 0.001
+ 2.000 2.000 2.003 2.018 1.464 0.005 0.004
+ 2.000 2.000 2.001 1.865 0.694 0.005 0.000
+ 2.000 2.000 2.003 2.017 1.471 0.005 0.003
+ 2.000 2.000 2.124 2.140 0.208 0.030 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.7426E-02  at reduced coord.    0.0000    0.3333    0.3556
+      Minimum=    1.0827E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.7426E-02  at reduced coord.    0.0000    0.3333    0.3556
+      Minimum=    1.0827E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  1  -6.1840771996829    -6.184E+00 3.666E-03 1.848E+02 9.162E-03 9.162E-03
+ scprqt: <Vxc>= -2.6176074E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :   3.4633617594665660
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ newocc: new Fermi energy is       0.107986 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.138 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.030 2.141 0.029 0.004
+ 2.000 2.000 2.000 1.235 1.127 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.467 0.325 0.002
+ 2.000 2.000 2.017 2.122 1.259 0.005 0.004
+ 2.000 2.000 2.000 1.235 1.127 0.005 0.000
+ 2.000 2.000 2.017 2.122 1.259 0.005 0.004
+ 2.000 2.000 2.141 2.141 0.020 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.6015E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.2641E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.6015E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.2641E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  2  -6.2521961425000    -6.812E-02 1.034E-04 4.169E+00 1.332E-02 4.156E-03
+ scprqt: <Vxc>= -2.6611841E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=  0.945      0.552E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ newocc: new Fermi energy is       0.105934 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.140 0.004 0.001 0.000
+ 2.000 2.000 2.000 2.032 2.137 0.032 0.004
+ 2.000 2.000 2.000 1.327 1.155 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.432 0.303 0.002
+ 2.000 2.000 2.014 2.117 1.170 0.005 0.004
+ 2.000 2.000 2.000 1.327 1.155 0.005 0.000
+ 2.000 2.000 2.014 2.117 1.170 0.005 0.004
+ 2.000 2.000 2.142 2.139 0.030 0.001 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5351E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.3997E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5351E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.3997E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  3  -6.2525248637826    -3.287E-04 2.997E-05 5.728E+00 6.386E-04 3.517E-03
+ scprqt: <Vxc>= -2.6660092E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.47     -0.345     -0.124
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ newocc: new Fermi energy is       0.108697 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.141 0.005 0.001 0.000
+ 2.000 2.000 2.000 2.031 2.135 0.040 0.004
+ 2.000 2.000 2.000 1.279 1.216 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.461 0.304 0.002
+ 2.000 2.000 2.016 2.120 1.138 0.005 0.004
+ 2.000 2.000 2.000 1.279 1.216 0.005 0.000
+ 2.000 2.000 2.016 2.120 1.138 0.005 0.004
+ 2.000 2.000 2.141 2.137 0.024 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5110E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.6001E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5110E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.6001E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  4  -6.2536794891992    -1.155E-03 1.690E-05 1.224E+00 4.921E-04 4.009E-03
+ scprqt: <Vxc>= -2.6753111E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   2.30      -1.48      0.116      0.662E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ newocc: new Fermi energy is       0.111277 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.005 0.000 0.000
+ 2.000 2.000 2.000 2.030 2.133 0.046 0.004
+ 2.000 2.000 2.000 1.255 1.250 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.473 0.307 0.002
+ 2.000 2.000 2.017 2.122 1.119 0.005 0.004
+ 2.000 2.000 2.000 1.255 1.250 0.005 0.000
+ 2.000 2.000 2.017 2.122 1.119 0.005 0.004
+ 2.000 2.000 2.140 2.136 0.021 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4966E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.8383E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4966E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.8383E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  5  -6.2539517326528    -2.722E-04 1.191E-05 5.142E-03 2.500E-04 4.259E-03
+ scprqt: <Vxc>= -2.6837314E-01 hartree
+
+ Pulay update with  4 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.47     -0.955      0.559     -0.458E-01 -0.232E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     6
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 6
+ newocc: new Fermi energy is       0.110757 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.005 0.000 0.000
+ 2.000 2.000 2.000 2.030 2.133 0.046 0.004
+ 2.000 2.000 2.000 1.255 1.250 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.475 0.309 0.002
+ 2.000 2.000 2.017 2.122 1.117 0.005 0.004
+ 2.000 2.000 2.000 1.255 1.250 0.005 0.000
+ 2.000 2.000 2.017 2.122 1.117 0.005 0.004
+ 2.000 2.000 2.140 2.136 0.021 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4953E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8578E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4953E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8578E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  6  -6.2539524307562    -6.981E-07 1.434E-07 2.026E-05 4.943E-05 4.309E-03
+ scprqt: <Vxc>= -2.6842215E-01 hartree
+
+ Pulay update with  5 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.25     -0.334      0.174     -0.105      0.105E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     7
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 7
+ newocc: new Fermi energy is       0.110726 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.005 0.000 0.000
+ 2.000 2.000 2.000 2.030 2.133 0.046 0.004
+ 2.000 2.000 2.000 1.255 1.249 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.475 0.309 0.002
+ 2.000 2.000 2.017 2.122 1.117 0.005 0.004
+ 2.000 2.000 2.000 1.255 1.249 0.005 0.000
+ 2.000 2.000 2.017 2.122 1.117 0.005 0.004
+ 2.000 2.000 2.140 2.136 0.021 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4954E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.8591E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4954E-02  at reduced coord.    0.0000    0.6667    0.3778
+      Minimum=    1.8591E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  7  -6.2539524360010    -5.245E-09 2.220E-09 7.051E-07 9.807E-07 4.310E-03
+ scprqt: <Vxc>= -2.6842405E-01 hartree
+
+ At SCF step    7, forces are converged : 
+  for the second time, max diff in force=  9.807E-07 < toldff=  5.000E-05
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.30994876E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.30995517E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.46606740E-05  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tbase4_6o_DS1_TIM1_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+ Write iteration in HIST netCDF file
+
+---OUTPUT-----------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  3.75279540000000E+00  3.75279545000000E+00
+  0.00000000000000E+00  0.00000000000000E+00  7.50559090000000E+00
+ Reduced coordinates (xred)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ -4.99999993338299E-01  4.99999993338299E-01  2.00000000000000E-01
+  0.00000000000000E+00  0.00000000000000E+00  4.00000000000000E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 4.30962E-03 2.03158E-03 (free atoms)
+ -0.00000000000000E+00 -3.15931298544039E-08 -4.30962484491285E-03
+ -0.00000000000000E+00  6.31862597088079E-08 -0.00000000000000E+00
+ -0.00000000000000E+00 -3.15931298544039E-08  4.30962484491285E-03
+ Reduced forces (fred)
+ -1.18562553968866E-07  1.18562553968866E-07  8.08657025459795E-02
+  2.37125107937733E-07 -2.37125107937733E-07 -0.00000000000000E+00
+ -1.18562553968866E-07  1.18562553968866E-07 -8.08657025459795E-02
+ Total energy (etotal) [Ha]= -6.25395243600102E+00
+ fconv : at Broyd/MD step   1, gradients have not converged yet. 
+  max grad (force/stress) = 4.3096E-03 > tolmxf= 5.0000E-04 ha/bohr (free atoms)
+
+Inverse hessian has been initialized.
+ EXIT:           1           1
+ mover: previous time step took 01 [s]
+
+--- Iteration: ( 2/10) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -3.15931298544039E-08 -4.30962484491285E-03
+  0.00000000000000E+00  3.75279546318626E+00  3.75279545000000E+00
+  0.00000000000000E+00 -3.15931298544039E-08  7.50990052484491E+00
+ Reduced coordinates (xred)
+  4.20927949249192E-09 -4.20927949249192E-09 -2.29675446068496E-04
+ -5.00000001756858E-01  5.00000001756858E-01  2.00000000000000E-01
+  4.20927949249192E-09 -4.20927949249192E-09  4.00229675446069E-01
+
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  45
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.05055
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ newocc: new Fermi energy is       0.110749 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.005 0.000 0.000
+ 2.000 2.000 2.000 2.029 2.133 0.047 0.004
+ 2.000 2.000 2.000 1.262 1.237 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.481 0.314 0.002
+ 2.000 2.000 2.017 2.123 1.116 0.005 0.004
+ 2.000 2.000 2.000 1.262 1.237 0.005 0.000
+ 2.000 2.000 2.017 2.123 1.116 0.005 0.004
+ 2.000 2.000 2.140 2.136 0.019 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4943E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8651E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4943E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8651E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  1  -6.2539884607739    -6.254E+00 4.470E-10 1.177E-03 1.081E-04 4.202E-03
+ scprqt: <Vxc>= -2.6849994E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :   8.7701228474801584E-005
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ newocc: new Fermi energy is       0.110749 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.005 0.000 0.000
+ 2.000 2.000 2.000 2.029 2.133 0.047 0.004
+ 2.000 2.000 2.000 1.261 1.240 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.480 0.314 0.002
+ 2.000 2.000 2.017 2.123 1.114 0.005 0.004
+ 2.000 2.000 2.000 1.261 1.240 0.005 0.000
+ 2.000 2.000 2.017 2.123 1.114 0.005 0.004
+ 2.000 2.000 2.140 2.136 0.020 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4935E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8653E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4935E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8653E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  2  -6.2539890529023    -5.921E-07 2.175E-11 1.543E-04 1.096E-05 4.191E-03
+ scprqt: <Vxc>= -2.6849274E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=  0.929      0.714E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ newocc: new Fermi energy is       0.110762 , with nelect=      9.000000
+  Number of bissection calls =  46
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.005 0.000 0.000
+ 2.000 2.000 2.000 2.029 2.133 0.047 0.004
+ 2.000 2.000 2.000 1.261 1.239 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.480 0.314 0.002
+ 2.000 2.000 2.017 2.123 1.115 0.005 0.004
+ 2.000 2.000 2.000 1.261 1.239 0.005 0.000
+ 2.000 2.000 2.017 2.123 1.115 0.005 0.004
+ 2.000 2.000 2.140 2.136 0.020 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4936E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8657E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4936E-02  at reduced coord.    0.0000    0.3333    0.3778
+      Minimum=    1.8657E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  3  -6.2539890984069    -4.550E-08 2.509E-10 1.507E-05 6.385E-06 4.197E-03
+ scprqt: <Vxc>= -2.6849500E-01 hartree
+
+ At SCF step    3, forces are converged : 
+  for the second time, max diff in force=  6.385E-06 < toldff=  5.000E-05
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.32137784E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.32137787E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.34553228E-05  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tbase4_6o_DS1_TIM2_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+ Write iteration in HIST netCDF file
+
+---OUTPUT-----------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -3.15931298544039E-08 -4.30962484491285E-03
+  0.00000000000000E+00  3.75279546318626E+00  3.75279545000000E+00
+  0.00000000000000E+00 -3.15931298544039E-08  7.50990052484491E+00
+ Reduced coordinates (xred)
+  4.20927949249192E-09 -4.20927949249192E-09 -2.29675446068496E-04
+ -5.00000001756858E-01  5.00000001756858E-01  2.00000000000000E-01
+  4.20927949249192E-09 -4.20927949249192E-09  4.00229675446069E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 4.19693E-03 1.97845E-03 (free atoms)
+  3.44658588563762E-26  6.84565965363506E-10 -4.19692804159857E-03
+ -6.89317177127523E-26 -1.36913193072701E-09 -0.00000000000000E+00
+  3.44658588563762E-26  6.84565965363506E-10  4.19692804159857E-03
+ Reduced forces (fred)
+  2.56903604004102E-09 -2.56903604004102E-09  7.87510622924426E-02
+ -5.13807208008204E-09  5.13807208008204E-09  0.00000000000000E+00
+  2.56903604004102E-09 -2.56903604004102E-09 -7.87510622924426E-02
+ Total energy (etotal) [Ha]= -6.25398909840690E+00
+
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-3.66624E-05
+           Relative     =-5.86226E-06
+ fconv : at Broyd/MD step   2, gradients have not converged yet. 
+  max grad (force/stress) = 4.1969E-03 > tolmxf= 5.0000E-04 ha/bohr (free atoms)
+
+ EXIT:           1           1
+ mover: previous time step took 00 [s]
+
+--- Iteration: ( 3/10) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -5.41473299208254E-09 -1.64803843233822E-01
+  0.00000000000000E+00  3.75279541082946E+00  3.75279545000000E+00
+  0.00000000000000E+00 -5.41473299208254E-09  7.67039474323383E+00
+ Reduced coordinates (xred)
+  7.21426609073849E-10 -7.21426609073849E-10 -8.78299099588931E-03
+ -4.99999994781152E-01  4.99999994781152E-01  2.00000000000000E-01
+  7.21426609073849E-10 -7.21426609073849E-10  4.08782990995890E-01
+
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  45
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.05055
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ newocc: new Fermi energy is       0.112441 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.133 0.003 0.000 0.000
+ 2.000 2.000 2.001 2.016 2.125 0.103 0.005
+ 2.000 2.000 2.000 1.499 0.804 0.005 0.001
+ 2.000 2.000 2.000 2.000 1.697 0.579 0.003
+ 2.000 2.000 2.039 2.142 1.034 0.005 0.002
+ 2.000 2.000 2.000 1.499 0.804 0.005 0.001
+ 2.000 2.000 2.039 2.142 1.034 0.005 0.002
+ 2.000 2.001 2.133 2.132 0.000 0.002 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4437E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1602E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4437E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1602E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  1  -6.2541348637488    -6.254E+00 5.989E-07 1.135E+00 4.073E-03 1.236E-04
+ scprqt: <Vxc>= -2.7129599E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :   7.8084145166654212E-002
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ newocc: new Fermi energy is       0.112110 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.134 0.003 0.000 0.000
+ 2.000 2.000 2.001 2.018 2.122 0.098 0.005
+ 2.000 2.000 2.000 1.480 0.884 0.005 0.001
+ 2.000 2.000 2.000 2.000 1.664 0.558 0.003
+ 2.000 2.000 2.034 2.142 1.010 0.005 0.003
+ 2.000 2.000 2.000 1.480 0.884 0.005 0.001
+ 2.000 2.000 2.034 2.142 1.010 0.005 0.003
+ 2.000 2.001 2.130 2.130 0.001 0.001 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4155E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1588E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4155E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1588E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  2  -6.2546670194917    -5.322E-04 7.594E-08 9.890E-02 7.782E-06 1.159E-04
+ scprqt: <Vxc>= -2.7108731E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=  0.950      0.499E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ newocc: new Fermi energy is       0.112457 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.134 0.003 0.000 0.000
+ 2.000 2.000 2.001 2.017 2.123 0.099 0.005
+ 2.000 2.000 2.000 1.484 0.871 0.005 0.001
+ 2.000 2.000 2.000 2.000 1.670 0.560 0.003
+ 2.000 2.000 2.034 2.142 1.014 0.005 0.003
+ 2.000 2.000 2.000 1.484 0.871 0.005 0.001
+ 2.000 2.000 2.034 2.142 1.014 0.005 0.003
+ 2.000 2.001 2.131 2.130 0.001 0.002 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4196E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1737E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4196E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1737E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  3  -6.2546955661499    -2.855E-05 1.761E-07 1.013E-02 1.304E-04 2.462E-04
+ scprqt: <Vxc>= -2.7113345E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.21     -0.181     -0.327E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ newocc: new Fermi energy is       0.112543 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.134 0.003 0.000 0.000
+ 2.000 2.000 2.001 2.017 2.122 0.099 0.005
+ 2.000 2.000 2.000 1.484 0.872 0.005 0.001
+ 2.000 2.000 2.000 2.000 1.670 0.560 0.003
+ 2.000 2.000 2.034 2.142 1.013 0.005 0.003
+ 2.000 2.000 2.000 1.484 0.872 0.005 0.001
+ 2.000 2.000 2.034 2.142 1.013 0.005 0.003
+ 2.000 2.001 2.131 2.130 0.001 0.002 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4185E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1870E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4185E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.1870E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  4  -6.2546956135506    -4.740E-08 7.379E-09 8.296E-03 1.241E-05 2.586E-04
+ scprqt: <Vxc>= -2.7115248E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.87     -0.843     -0.502E-01  0.242E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ newocc: new Fermi energy is       0.112698 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.134 0.003 0.000 0.000
+ 2.000 2.000 2.001 2.017 2.122 0.100 0.005
+ 2.000 2.000 2.000 1.485 0.871 0.005 0.001
+ 2.000 2.000 2.000 2.000 1.671 0.560 0.003
+ 2.000 2.000 2.034 2.142 1.012 0.005 0.003
+ 2.000 2.000 2.000 1.485 0.871 0.005 0.001
+ 2.000 2.000 2.034 2.142 1.012 0.005 0.003
+ 2.000 2.001 2.131 2.130 0.001 0.002 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4178E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.2030E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4178E-02  at reduced coord.    0.0000    0.3333    0.4000
+      Minimum=    2.2030E-04  at reduced coord.    0.5000    0.5000    0.6889
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  5  -6.2546971881293    -1.575E-06 1.730E-08 1.401E-03 1.339E-05 2.720E-04
+ scprqt: <Vxc>= -2.7119081E-01 hartree
+
+ At SCF step    5, forces are converged : 
+  for the second time, max diff in force=  1.339E-05 < toldff=  5.000E-05
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.70303840E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.70303840E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -3.70231532E-06  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tbase4_6o_DS1_TIM3_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+ Write iteration in HIST netCDF file
+
+---OUTPUT-----------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -5.41473299208254E-09 -1.64803843233822E-01
+  0.00000000000000E+00  3.75279541082946E+00  3.75279545000000E+00
+  0.00000000000000E+00 -5.41473299208254E-09  7.67039474323383E+00
+ Reduced coordinates (xred)
+  7.21426609073849E-10 -7.21426609073849E-10 -8.78299099588931E-03
+ -4.99999994781152E-01  4.99999994781152E-01  2.00000000000000E-01
+  7.21426609073849E-10 -7.21426609073849E-10  4.08782990995890E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 2.72041E-04 1.28241E-04 (free atoms)
+ -0.00000000000000E+00 -2.86531034347439E-10 -2.72041110124066E-04
+ -0.00000000000000E+00  5.73062068694877E-10 -0.00000000000000E+00
+ -0.00000000000000E+00 -2.86531034347439E-10  2.72041110124066E-04
+ Reduced forces (fred)
+ -1.07529236198286E-09  1.07529236198286E-09  5.10457320143272E-03
+  2.15058472396572E-09 -2.15058472396572E-09 -0.00000000000000E+00
+ -1.07529236198286E-09  1.07529236198286E-09 -5.10457320143272E-03
+ Total energy (etotal) [Ha]= -6.25469718812927E+00
+
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-7.08090E-04
+           Relative     =-1.13216E-04
+
+ At Broyd/MD step   3, gradients are converged : 
+  max grad (force/stress) = 2.7204E-04 < tolmxf= 5.0000E-04 ha/bohr (free atoms)
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   21.237E-10; max=  17.296E-09
+  -0.1250  0.0000  0.0000    1  1.65120E-08 kpt; spin; max resid(k); each band:
+  5.74E-10 9.81E-10 1.43E-08 1.29E-09 1.65E-08 2.55E-09 2.38E-10
+  -0.3750  0.0000  0.0000    1  1.02405E-09 kpt; spin; max resid(k); each band:
+  3.28E-10 9.18E-10 3.03E-10 6.36E-10 1.19E-10 1.02E-09 9.29E-10
+  -0.2500  0.1250  0.0000    1  1.72963E-08 kpt; spin; max resid(k); each band:
+  5.48E-10 9.54E-10 1.33E-08 1.22E-09 4.45E-10 1.40E-11 1.73E-08
+   0.5000  0.1250  0.0000    1  1.01855E-09 kpt; spin; max resid(k); each band:
+  3.24E-10 3.08E-10 9.89E-10 3.60E-12 3.91E-10 3.88E-10 1.02E-09
+  -0.3750  0.2500  0.0000    1  9.81286E-10 kpt; spin; max resid(k); each band:
+  3.24E-10 8.84E-10 6.87E-12 5.15E-10 9.46E-11 9.81E-10 3.64E-10
+   0.2500  0.1250  0.0000    1  1.72963E-08 kpt; spin; max resid(k); each band:
+  5.48E-10 9.54E-10 1.33E-08 1.22E-09 4.45E-10 1.40E-11 1.73E-08
+   0.3750  0.2500  0.0000    1  9.81286E-10 kpt; spin; max resid(k); each band:
+  3.24E-10 8.84E-10 6.87E-12 5.15E-10 9.46E-11 9.81E-10 3.64E-10
+   0.5000  0.3750  0.0000    1  5.38058E-10 kpt; spin; max resid(k); each band:
+  3.00E-10 6.61E-12 6.66E-12 4.75E-12 1.08E-10 1.74E-11 5.38E-10
+
+ outwf: write wavefunction to file tbase4_6o_DS1_WFK, with iomode -1
+ outwf with iomode: -1, cpu_time:     0.00[s], walltime:     0.00 [s]
+ prteigrs : about to open file tbase4_6o_DS1_EIG
+ Fermi (or HOMO) energy (hartree) =   0.11270   Average Vxc (hartree)=  -0.27119
+ Eigenvalues (hartree) for nkpt=   8  k points:
+ kpt#   1, nband=  7, wtk=  0.12500, kpt= -0.1250  0.0000  0.0000 (reduced coord)
+  -0.25715   -0.17611   -0.05905    0.05823    0.17192    0.23020    0.30432
+      occupation numbers for kpt#   1
+   2.00000    2.00000    2.00000    2.13356    0.00305    0.00020    0.00000
+ kpt#   2, nband=  7, wtk=  0.12500, kpt= -0.3750  0.0000  0.0000 (reduced coord)
+  -0.17234   -0.09222   -0.00675    0.02375    0.07075    0.13883    0.18640
+      occupation numbers for kpt#   2
+   2.00000    2.00000    2.00056    2.01733    2.12239    0.09982    0.00516
+ kpt#   3, nband=  7, wtk=  0.12500, kpt= -0.2500  0.1250  0.0000 (reduced coord)
+  -0.21456   -0.13397   -0.01732    0.09778    0.11200    0.18951    0.21336
+      occupation numbers for kpt#   3
+   2.00000    2.00000    2.00013    1.48536    0.87071    0.00486    0.00114
+ kpt#   4, nband=  7, wtk=  0.12500, kpt=  0.5000  0.1250  0.0000 (reduced coord)
+  -0.09115   -0.08655   -0.01142   -0.00816    0.09291    0.11980    0.20092
+      occupation numbers for kpt#   4
+   2.00000    2.00000    2.00029    2.00046    1.67079    0.56039    0.00292
+ kpt#   5, nband=  7, wtk=  0.12500, kpt= -0.3750  0.2500  0.0000 (reduced coord)
+  -0.13049   -0.05085    0.03197    0.06455    0.10874    0.17766    0.20299
+      occupation numbers for kpt#   5
+   2.00000    2.00000    2.03440    2.14161    1.01235    0.00469    0.00256
+ kpt#   6, nband=  7, wtk=  0.12500, kpt=  0.2500  0.1250  0.0000 (reduced coord)
+  -0.21456   -0.13397   -0.01732    0.09778    0.11200    0.18951    0.21336
+      occupation numbers for kpt#   6
+   2.00000    2.00000    2.00013    1.48536    0.87071    0.00486    0.00114
+ kpt#   7, nband=  7, wtk=  0.12500, kpt=  0.3750  0.2500  0.0000 (reduced coord)
+  -0.13049   -0.05085    0.03197    0.06455    0.10874    0.17766    0.20299
+      occupation numbers for kpt#   7
+   2.00000    2.00000    2.03440    2.14161    1.01235    0.00469    0.00256
+ kpt#   8, nband=  7, wtk=  0.12500, kpt=  0.5000  0.3750  0.0000 (reduced coord)
+  -0.01059   -0.00635    0.06913    0.06929    0.15837    0.16795    0.17278
+      occupation numbers for kpt#   8
+   2.00033    2.00059    2.13077    2.13006    0.00082    0.00154    0.00335
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4178E-02  at reduced coord.    0.0000    0.3333    0.4000
+ Next maximum=    3.4178E-02  at reduced coord.    0.6667    0.0000    0.4000
+      Minimum=    2.2030E-04  at reduced coord.    0.5000    0.5000    0.6889
+ Next minimum=    2.2030E-04  at reduced coord.    0.5000    0.5000    0.7111
+   Integrated=    9.0000E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.70303840E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.70303840E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -3.70231532E-06  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -3.3040E+00 GPa]
+- sigma(1 1)=  5.01051111E+00  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)=  5.01051112E+00  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -1.08925859E-01  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  2 ==================================================================
+-   nproc =    1
+
+
+--- !COMMENT
+src_file: m_xgScalapack.F90
+src_line: 251
+message: |
+    xgScalapack in auto mode
+...
+
+
+ getdim_nloc : deduce lmnmax  =   9, lnmax  =   3,
+                      lmnmaxso=   9, lnmaxso=   3.
+ Exchange-correlation functional for the present dataset will be:
+  LDA: new Teter (4/93) with spin-polarized option - ixc=1
+ Citation for XC functional:
+  S. Goedecker, M. Teter, J. Huetter, PRB 54, 1703 (1996)
+
+ Unit cell volume ucvol=  6.3422875E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  50
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.01383
+ wfconv:     7 bands initialized randomly with npw=   432, for ikpt=     1
+ wfconv:     7 bands initialized randomly with npw=   442, for ikpt=     2
+ wfconv:     7 bands initialized randomly with npw=   438, for ikpt=     3
+ wfconv:     7 bands initialized randomly with npw=   452, for ikpt=     4
+ wfconv:     7 bands initialized randomly with npw=   450, for ikpt=     5
+ wfconv:     7 bands initialized randomly with npw=   438, for ikpt=     6
+ wfconv:     7 bands initialized randomly with npw=   450, for ikpt=     7
+ wfconv:     7 bands initialized randomly with npw=   452, for ikpt=     8
+_setup2: Arith. and geom. avg. npw (full set) are     444.250     444.191
+ initro: for itypat=  1, take decay length=      1.2500,
+ initro: indeed, coreel=     10.0000, nval=  3 and densty=  0.0000E+00.
+
+================================================================================
+
+=== [ionmov= 2] Broyden-Fletcher-Goldfard-Shanno method (forces)            
+================================================================================
+
+--- Iteration: ( 1/10) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  3.75279540000000E+00  3.75279540000000E+00
+  0.00000000000000E+00  0.00000000000000E+00  7.50559090000000E+00
+ Reduced coordinates (xred)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ -4.99999993338299E-01  4.99999993338299E-01  1.66666664446100E-01
+  0.00000000000000E+00  0.00000000000000E+00  3.33333333333333E-01
+ WARNING: ATOMIC COORDINATES WERE SYMMETRIZED
+ DIFFERENCES:
+   0.0000000000000000        0.0000000000000000        0.0000000000000000     
+   0.0000000000000000        0.0000000000000000        2.2205668970265435E-009
+   0.0000000000000000        0.0000000000000000        0.0000000000000000     
+
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  50
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.01383
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ newocc: new Fermi energy is       0.037153 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.095 0.003 0.000 0.000
+ 2.000 2.000 2.000 2.066 2.140 0.006 0.003
+ 2.000 2.000 2.001 1.825 0.796 0.005 0.000
+ 2.000 2.000 2.000 2.000 0.852 0.178 0.000
+ 2.000 2.000 2.003 1.983 1.429 0.005 0.004
+ 2.000 2.000 2.001 1.844 0.793 0.005 0.000
+ 2.000 2.000 2.003 1.984 1.440 0.005 0.004
+ 2.000 2.000 2.126 2.141 0.216 0.042 0.003
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.7453E-02  at reduced coord.    0.0000    0.3333    0.0400
+      Minimum=    1.1276E-05  at reduced coord.    0.1667    0.6667    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.7453E-02  at reduced coord.    0.0000    0.3333    0.0400
+      Minimum=    1.1276E-05  at reduced coord.    0.1667    0.6667    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  1  -6.1876696115762    -6.188E+00 5.886E-03 2.081E+02 8.045E-03 8.045E-03
+ scprqt: <Vxc>= -2.2545048E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :   2.9221542520770418
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ newocc: new Fermi energy is       0.050774 , with nelect=      9.000000
+  Number of bissection calls =  46
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.141 0.002 0.000 0.000
+ 2.000 2.000 2.000 2.035 2.140 0.041 0.004
+ 2.000 2.000 2.000 1.233 1.218 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.387 0.286 0.002
+ 2.000 2.000 2.017 2.110 1.234 0.005 0.004
+ 2.000 2.000 2.000 1.233 1.218 0.005 0.000
+ 2.000 2.000 2.017 2.110 1.234 0.005 0.004
+ 2.000 2.000 2.142 2.141 0.020 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5971E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    4.5651E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5971E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    4.5651E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  2  -6.2528808793405    -6.521E-02 2.294E-04 9.678E+00 1.268E-02 4.631E-03
+ scprqt: <Vxc>= -2.2824179E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=  0.946      0.541E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ newocc: new Fermi energy is       0.050701 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.142 0.002 0.000 0.000
+ 2.000 2.000 2.000 2.037 2.136 0.045 0.004
+ 2.000 2.000 2.000 1.314 1.249 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.346 0.264 0.002
+ 2.000 2.000 2.014 2.102 1.158 0.005 0.004
+ 2.000 2.000 2.000 1.314 1.249 0.005 0.000
+ 2.000 2.000 2.014 2.102 1.158 0.005 0.004
+ 2.000 2.000 2.141 2.138 0.029 0.001 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5428E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    5.1597E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5428E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    5.1597E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  3  -6.2528817789212    -8.996E-07 3.402E-05 1.202E+01 6.210E-04 4.010E-03
+ scprqt: <Vxc>= -2.2874671E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.42     -0.316     -0.105
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ newocc: new Fermi energy is       0.054113 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.141 0.002 0.000 0.000
+ 2.000 2.000 2.000 2.037 2.135 0.055 0.004
+ 2.000 2.000 2.000 1.307 1.272 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.364 0.261 0.002
+ 2.000 2.000 2.016 2.104 1.132 0.005 0.004
+ 2.000 2.000 2.000 1.307 1.272 0.005 0.000
+ 2.000 2.000 2.016 2.104 1.132 0.005 0.004
+ 2.000 2.000 2.141 2.137 0.024 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5246E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    6.0881E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5246E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    6.0881E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  4  -6.2541035131952    -1.222E-03 1.455E-05 5.220E+00 4.635E-04 4.473E-03
+ scprqt: <Vxc>= -2.2964132E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   3.00      -2.20      0.117      0.851E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ newocc: new Fermi energy is       0.060540 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.140 0.003 0.000 0.000
+ 2.000 2.000 2.000 2.036 2.132 0.067 0.004
+ 2.000 2.000 2.000 1.371 1.233 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.369 0.258 0.003
+ 2.000 2.000 2.017 2.104 1.103 0.005 0.004
+ 2.000 2.000 2.000 1.371 1.233 0.005 0.000
+ 2.000 2.000 2.017 2.104 1.103 0.005 0.004
+ 2.000 2.000 2.139 2.135 0.020 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5048E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    8.3024E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.5048E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    8.3024E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  5  -6.2547551968296    -6.517E-04 2.442E-05 5.110E-01 4.255E-04 4.899E-03
+ scprqt: <Vxc>= -2.3104011E-01 hartree
+
+ Pulay update with  4 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   2.22      -2.82       1.73     -0.680E-01 -0.614E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     6
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 6
+ newocc: new Fermi energy is       0.062488 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.139 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.036 2.131 0.071 0.004
+ 2.000 2.000 2.000 1.387 1.222 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.373 0.260 0.003
+ 2.000 2.000 2.018 2.105 1.094 0.005 0.004
+ 2.000 2.000 2.000 1.387 1.222 0.005 0.000
+ 2.000 2.000 2.018 2.105 1.094 0.005 0.004
+ 2.000 2.000 2.139 2.134 0.019 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4990E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    9.3885E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4990E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    9.3885E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  6  -6.2547987227488    -4.353E-05 4.773E-06 1.118E-02 2.386E-04 5.137E-03
+ scprqt: <Vxc>= -2.3153802E-01 hartree
+
+ Pulay update with  5 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.64      -1.07      0.872     -0.471      0.783E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     7
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 7
+ newocc: new Fermi energy is       0.062625 , with nelect=      9.000000
+  Number of bissection calls =  45
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.139 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.036 2.131 0.071 0.004
+ 2.000 2.000 2.000 1.389 1.222 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.373 0.259 0.003
+ 2.000 2.000 2.018 2.105 1.093 0.005 0.004
+ 2.000 2.000 2.000 1.389 1.222 0.005 0.000
+ 2.000 2.000 2.018 2.105 1.093 0.005 0.004
+ 2.000 2.000 2.139 2.134 0.019 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4986E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    9.6275E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4986E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    9.6275E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  7  -6.2547991128140    -3.901E-07 4.587E-07 2.397E-05 2.091E-05 5.158E-03
+ scprqt: <Vxc>= -2.3160673E-01 hartree
+
+ Pulay update with  6 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.32     -0.500      0.291     -0.219      0.118
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     8
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 8
+ newocc: new Fermi energy is       0.062554 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.139 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.036 2.131 0.071 0.004
+ 2.000 2.000 2.000 1.389 1.222 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.373 0.259 0.003
+ 2.000 2.000 2.018 2.105 1.093 0.005 0.004
+ 2.000 2.000 2.000 1.389 1.222 0.005 0.000
+ 2.000 2.000 2.018 2.105 1.093 0.005 0.004
+ 2.000 2.000 2.139 2.134 0.019 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4985E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    9.6284E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4985E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    9.6284E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  8  -6.2547991203074    -7.493E-09 1.478E-08 5.529E-07 1.101E-06 5.157E-03
+ scprqt: <Vxc>= -2.3160781E-01 hartree
+
+ At SCF step    8, forces are converged : 
+  for the second time, max diff in force=  1.101E-06 < toldff=  5.000E-05
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.16687849E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.16688206E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.23793994E-05  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tbase4_6o_DS2_TIM1_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+ Write iteration in HIST netCDF file
+
+---OUTPUT-----------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  3.75279540000000E+00  3.75279545000000E+00
+  0.00000000000000E+00  0.00000000000000E+00  7.50559090000000E+00
+ Reduced coordinates (xred)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+ -4.99999993338299E-01  4.99999993338299E-01  1.66666666666667E-01
+  0.00000000000000E+00  0.00000000000000E+00  3.33333333333333E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 5.15730E-03 2.43117E-03 (free atoms)
+ -0.00000000000000E+00 -4.41104292100573E-09 -5.15729993789860E-03
+ -0.00000000000000E+00  8.82208584201146E-09 -2.89120579329468E-19
+ -0.00000000000000E+00 -4.41104292100573E-09  5.15729993789860E-03
+ Reduced forces (fred)
+ -1.65537418037050E-08  1.65537418037050E-08  1.16125750447387E-01
+  3.31074836074100E-08 -3.31074836074100E-08  6.51006236765394E-18
+ -1.65537418037050E-08  1.65537418037050E-08 -1.16125750447387E-01
+ Total energy (etotal) [Ha]= -6.25479912030737E+00
+ fconv : at Broyd/MD step   1, gradients have not converged yet. 
+  max grad (force/stress) = 5.1573E-03 > tolmxf= 5.0000E-04 ha/bohr (free atoms)
+
+Inverse hessian has been initialized.
+ EXIT:           1           1
+ mover: previous time step took 01 [s]
+
+--- Iteration: ( 2/10) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -4.41104292100573E-09 -5.15729993789860E-03
+  0.00000000000000E+00  3.75279540882209E+00  3.75279545000000E+00
+  0.00000000000000E+00 -4.41104292100573E-09  7.51074819993790E+00
+ Reduced coordinates (xred)
+  5.87700952500053E-10 -5.87700952500053E-10 -2.29042590011072E-04
+ -4.99999994513701E-01  4.99999994513701E-01  1.66666666666667E-01
+  5.87700952500053E-10 -5.87700952500053E-10  3.33562375923344E-01
+
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  50
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.01383
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ newocc: new Fermi energy is       0.062571 , with nelect=      9.000000
+  Number of bissection calls =  45
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.139 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.035 2.131 0.073 0.004
+ 2.000 2.000 2.000 1.397 1.207 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.381 0.265 0.003
+ 2.000 2.000 2.018 2.107 1.091 0.005 0.004
+ 2.000 2.000 2.000 1.397 1.207 0.005 0.000
+ 2.000 2.000 2.018 2.107 1.091 0.005 0.004
+ 2.000 2.000 2.139 2.134 0.017 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4970E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    9.6579E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4970E-02  at reduced coord.    0.0000    0.6667    0.0200
+      Minimum=    9.6579E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  1  -6.2548505345441    -6.255E+00 1.363E-08 1.996E-03 1.237E-04 5.034E-03
+ scprqt: <Vxc>= -2.3169535E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :   1.3030233118960341E-004
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ newocc: new Fermi energy is       0.062558 , with nelect=      9.000000
+  Number of bissection calls =  43
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.139 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.036 2.131 0.073 0.004
+ 2.000 2.000 2.000 1.396 1.210 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.379 0.265 0.003
+ 2.000 2.000 2.018 2.106 1.090 0.005 0.004
+ 2.000 2.000 2.000 1.396 1.210 0.005 0.000
+ 2.000 2.000 2.018 2.106 1.090 0.005 0.004
+ 2.000 2.000 2.139 2.134 0.017 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4961E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    9.6582E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4961E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    9.6582E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  2  -6.2548515661884    -1.032E-06 1.232E-10 3.170E-04 1.655E-05 5.017E-03
+ scprqt: <Vxc>= -2.3168684E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=  0.923      0.769E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ newocc: new Fermi energy is       0.062574 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.139 0.004 0.000 0.000
+ 2.000 2.000 2.000 2.036 2.131 0.073 0.004
+ 2.000 2.000 2.000 1.397 1.210 0.005 0.000
+ 2.000 2.000 2.000 2.000 1.379 0.265 0.003
+ 2.000 2.000 2.018 2.106 1.090 0.005 0.004
+ 2.000 2.000 2.000 1.397 1.210 0.005 0.000
+ 2.000 2.000 2.018 2.106 1.090 0.005 0.004
+ 2.000 2.000 2.139 2.134 0.017 0.000 0.005
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4962E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    9.6607E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4962E-02  at reduced coord.    0.0000    0.3333    0.0200
+      Minimum=    9.6607E-06  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  3  -6.2548516401006    -7.391E-08 3.886E-10 5.205E-05 8.130E-06 5.025E-03
+ scprqt: <Vxc>= -2.3168946E-01 hartree
+
+ At SCF step    3, forces are converged : 
+  for the second time, max diff in force=  8.130E-06 < toldff=  5.000E-05
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.17854777E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.17854781E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.11622674E-05  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tbase4_6o_DS2_TIM2_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+ Write iteration in HIST netCDF file
+
+---OUTPUT-----------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -4.41104292100573E-09 -5.15729993789860E-03
+  0.00000000000000E+00  3.75279540882209E+00  3.75279545000000E+00
+  0.00000000000000E+00 -4.41104292100573E-09  7.51074819993790E+00
+ Reduced coordinates (xred)
+  5.87700952500053E-10 -5.87700952500053E-10 -2.29042590011072E-04
+ -4.99999994513701E-01  4.99999994513701E-01  1.66666666666667E-01
+  5.87700952500053E-10 -5.87700952500053E-10  3.33562375923344E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 5.02520E-03 2.36890E-03 (free atoms)
+ -0.00000000000000E+00 -4.75135748735817E-10 -5.02519516955607E-03
+ -0.00000000000000E+00  9.50271497471634E-10 -0.00000000000000E+00
+ -0.00000000000000E+00 -4.75135748735817E-10  5.02519516955607E-03
+ Reduced forces (fred)
+ -1.78308727598812E-09  1.78308727598812E-09  1.13151177406032E-01
+  3.56617455197623E-09 -3.56617455197623E-09 -0.00000000000000E+00
+ -1.78308727598812E-09  1.78308727598812E-09 -1.13151177406032E-01
+ Total energy (etotal) [Ha]= -6.25485164010060E+00
+
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-5.25198E-05
+           Relative     =-8.39668E-06
+ fconv : at Broyd/MD step   2, gradients have not converged yet. 
+  max grad (force/stress) = 5.0252E-03 > tolmxf= 5.0000E-04 ha/bohr (free atoms)
+
+ EXIT:           1           1
+ mover: previous time step took 01 [s]
+
+--- Iteration: ( 3/10) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -2.29600900104871E-08 -2.01338248292986E-01
+  0.00000000000000E+00  3.75279544592018E+00  3.75279545000000E+00
+  0.00000000000000E+00 -2.29600900104871E-08  7.70692914829297E+00
+ Reduced coordinates (xred)
+  3.05906494457180E-09 -3.05906494457180E-09 -8.94170097000561E-03
+ -4.99999999456429E-01  4.99999999456429E-01  1.66666666666667E-01
+  3.05906494457180E-09 -3.05906494457180E-09  3.42275034303338E-01
+
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  50
+         ecut(hartree)=      6.000   => boxcut(ratio)=   2.01383
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ newocc: new Fermi energy is       0.064618 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.115 0.005 0.000 0.000
+ 2.000 2.000 2.001 2.018 2.119 0.171 0.005
+ 2.000 2.000 2.000 1.676 0.683 0.005 0.000
+ 2.000 2.000 2.000 2.001 1.640 0.564 0.004
+ 2.000 2.000 2.048 2.141 0.988 0.003 0.002
+ 2.000 2.000 2.000 1.676 0.683 0.005 0.000
+ 2.000 2.000 2.048 2.141 0.988 0.003 0.002
+ 2.001 2.001 2.129 2.125 0.000 0.003 0.004
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4428E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1472E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4428E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1472E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  1  -6.2550860777306    -6.255E+00 3.796E-05 1.687E+00 4.822E-03 2.036E-04
+ scprqt: <Vxc>= -2.3504011E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :  0.10404493088248641
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ newocc: new Fermi energy is       0.063741 , with nelect=      9.000000
+  Number of bissection calls =  45
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.117 0.005 0.000 0.000
+ 2.000 2.000 2.001 2.020 2.115 0.163 0.005
+ 2.000 2.000 2.000 1.659 0.775 0.005 0.000
+ 2.000 2.000 2.000 2.001 1.602 0.541 0.004
+ 2.000 2.000 2.041 2.140 0.960 0.004 0.002
+ 2.000 2.000 2.000 1.659 0.775 0.005 0.000
+ 2.000 2.000 2.041 2.140 0.960 0.004 0.002
+ 2.000 2.001 2.126 2.123 0.000 0.002 0.004
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4104E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1436E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4104E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1436E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  2  -6.2558668758551    -7.808E-04 7.658E-07 1.441E-01 2.969E-05 2.333E-04
+ scprqt: <Vxc>= -2.3482351E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=  0.961      0.394E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ newocc: new Fermi energy is       0.064099 , with nelect=      9.000000
+  Number of bissection calls =  48
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.117 0.005 0.000 0.000
+ 2.000 2.000 2.001 2.020 2.116 0.165 0.005
+ 2.000 2.000 2.000 1.662 0.760 0.005 0.000
+ 2.000 2.000 2.000 2.001 1.608 0.542 0.004
+ 2.000 2.000 2.042 2.140 0.965 0.004 0.002
+ 2.000 2.000 2.000 1.662 0.760 0.005 0.000
+ 2.000 2.000 2.042 2.140 0.965 0.004 0.002
+ 2.000 2.001 2.127 2.123 0.000 0.002 0.004
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4153E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1495E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4153E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1495E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  3  -6.2559001689093    -3.329E-05 7.621E-07 2.366E-02 1.359E-04 3.692E-04
+ scprqt: <Vxc>= -2.3486668E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.13     -0.101     -0.262E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ newocc: new Fermi energy is       0.064203 , with nelect=      9.000000
+  Number of bissection calls =  46
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.117 0.005 0.000 0.000
+ 2.000 2.000 2.001 2.020 2.116 0.165 0.005
+ 2.000 2.000 2.000 1.662 0.762 0.005 0.000
+ 2.000 2.000 2.000 2.001 1.607 0.542 0.004
+ 2.000 2.000 2.042 2.140 0.964 0.004 0.002
+ 2.000 2.000 2.000 1.662 0.762 0.005 0.000
+ 2.000 2.000 2.042 2.140 0.964 0.004 0.002
+ 2.000 2.001 2.127 2.123 0.000 0.002 0.004
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4144E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1563E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4144E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1563E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  4  -6.2558995540688     6.148E-07 5.788E-07 2.389E-02 1.151E-05 3.807E-04
+ scprqt: <Vxc>= -2.3488388E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.83     -0.820     -0.332E-01  0.206E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ newocc: new Fermi energy is       0.064412 , with nelect=      9.000000
+  Number of bissection calls =  47
+ newocc : computed new occ. numbers for occopt= 4 , spin-unpolarized case.
+ 2.000 2.000 2.000 2.116 0.005 0.000 0.000
+ 2.000 2.000 2.001 2.020 2.116 0.165 0.005
+ 2.000 2.000 2.000 1.663 0.761 0.005 0.000
+ 2.000 2.000 2.000 2.001 1.607 0.542 0.004
+ 2.000 2.000 2.042 2.140 0.964 0.004 0.002
+ 2.000 2.000 2.000 1.663 0.761 0.005 0.000
+ 2.000 2.000 2.042 2.140 0.964 0.004 0.002
+ 2.000 2.001 2.127 2.123 0.000 0.002 0.004
+mkrho: echo density (plane-wave part only)
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4139E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1669E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4139E-02  at reduced coord.    0.0000    0.3333    0.0000
+      Minimum=    1.1669E-05  at reduced coord.    0.5000    0.5000    0.6600
+   Integrated=    9.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=           0
+ ETOT  5  -6.2559012570316    -1.703E-06 6.587E-07 1.137E-02 1.282E-05 3.935E-04
+ scprqt: <Vxc>= -2.3492275E-01 hartree
+
+ At SCF step    5, forces are converged : 
+  for the second time, max diff in force=  1.282E-05 < toldff=  5.000E-05
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.55692141E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.55692141E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.24996918E-08  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tbase4_6o_DS2_TIM3_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+ Write iteration in HIST netCDF file
+
+---OUTPUT-----------------------------------------------------------------------
+
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00 -2.29600900104871E-08 -2.01338248292986E-01
+  0.00000000000000E+00  3.75279544592018E+00  3.75279545000000E+00
+  0.00000000000000E+00 -2.29600900104871E-08  7.70692914829297E+00
+ Reduced coordinates (xred)
+  3.05906494457180E-09 -3.05906494457180E-09 -8.94170097000561E-03
+ -4.99999999456429E-01  4.99999999456429E-01  1.66666666666667E-01
+  3.05906494457180E-09 -3.05906494457180E-09  3.42275034303338E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 3.93520E-04 1.85507E-04 (free atoms)
+ -8.61646471409404E-27  1.46303337487867E-10 -3.93520302650688E-04
+  1.72329294281881E-26 -2.92606674975735E-10 -0.00000000000000E+00
+ -8.61646471409404E-27  1.46303337487867E-10  3.93520302650688E-04
+ Reduced forces (fred)
+  5.49046499244283E-10 -5.49046499244283E-10  8.86080720762075E-03
+ -1.09809299848857E-09  1.09809299848857E-09 -0.00000000000000E+00
+  5.49046499244283E-10 -5.49046499244283E-10 -8.86080720762075E-03
+ Total energy (etotal) [Ha]= -6.25590125703163E+00
+
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-1.04962E-03
+           Relative     =-1.67794E-04
+
+ At Broyd/MD step   3, gradients are converged : 
+  max grad (force/stress) = 3.9352E-04 < tolmxf= 5.0000E-04 ha/bohr (free atoms)
+
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+ Mean square residual over all n,k,spin=   12.707E-09; max=  65.868E-08
+  -0.1250  0.0000  0.0000    1  6.58676E-07 kpt; spin; max resid(k); each band:
+  2.06E-10 6.88E-10 4.52E-09 4.32E-09 7.43E-09 2.40E-09 6.59E-07
+  -0.3750  0.0000  0.0000    1  6.32475E-10 kpt; spin; max resid(k); each band:
+  1.30E-10 5.05E-10 1.26E-10 2.30E-10 8.01E-11 6.32E-10 2.51E-10
+  -0.2500  0.1250  0.0000    1  7.36403E-09 kpt; spin; max resid(k); each band:
+  1.96E-10 5.19E-10 4.10E-09 5.90E-10 1.40E-10 1.54E-11 7.36E-09
+   0.5000  0.1250  0.0000    1  6.00416E-10 kpt; spin; max resid(k); each band:
+  1.18E-10 1.38E-10 5.20E-10 8.26E-12 1.56E-10 1.62E-10 6.00E-10
+  -0.3750  0.2500  0.0000    1  5.91619E-10 kpt; spin; max resid(k); each band:
+  1.29E-10 4.82E-10 7.20E-12 1.92E-10 6.29E-11 5.92E-10 2.25E-10
+   0.2500  0.1250  0.0000    1  7.36404E-09 kpt; spin; max resid(k); each band:
+  1.96E-10 5.19E-10 4.10E-09 5.90E-10 1.40E-10 1.54E-11 7.36E-09
+   0.3750  0.2500  0.0000    1  5.91619E-10 kpt; spin; max resid(k); each band:
+  1.29E-10 4.82E-10 7.20E-12 1.92E-10 6.29E-11 5.92E-10 2.26E-10
+   0.5000  0.3750  0.0000    1  1.89646E-10 kpt; spin; max resid(k); each band:
+  1.15E-10 7.68E-12 1.25E-11 8.66E-12 5.23E-11 9.70E-11 1.90E-10
+
+ outwf: write wavefunction to file tbase4_6o_DS2_WFK, with iomode -1
+ outwf with iomode: -1, cpu_time:     0.00[s], walltime:     0.00 [s]
+ prteigrs : about to open file tbase4_6o_DS2_EIG
+ Fermi (or HOMO) energy (hartree) =   0.06441   Average Vxc (hartree)=  -0.23492
+ Eigenvalues (hartree) for nkpt=   8  k points:
+ kpt#   1, nband=  7, wtk=  0.12500, kpt= -0.1250  0.0000  0.0000 (reduced coord)
+  -0.30296   -0.22339   -0.10595    0.00503    0.13628    0.18448    0.25457
+      occupation numbers for kpt#   1
+   2.00000    2.00000    2.00000    2.11647    0.00525    0.00015    0.00000
+ kpt#   2, nband=  7, wtk=  0.12500, kpt= -0.3750  0.0000  0.0000 (reduced coord)
+  -0.21814   -0.13948   -0.05248   -0.02315    0.02351    0.08616    0.13916
+      occupation numbers for kpt#   2
+   2.00000    2.00000    2.00079    2.01960    2.11560    0.16541    0.00508
+ kpt#   3, nband=  7, wtk=  0.12500, kpt= -0.2500  0.1250  0.0000 (reduced coord)
+  -0.26036   -0.18125   -0.06422    0.04484    0.06633    0.14238    0.17720
+      occupation numbers for kpt#   3
+   2.00000    2.00000    2.00015    1.66315    0.76103    0.00470    0.00034
+ kpt#   4, nband=  7, wtk=  0.12500, kpt=  0.5000  0.1250  0.0000 (reduced coord)
+  -0.13682   -0.13249   -0.05895   -0.05509    0.04637    0.07203    0.14884
+      occupation numbers for kpt#   4
+   2.00000    2.00000    2.00033    2.00056    1.60705    0.54188    0.00361
+ kpt#   5, nband=  7, wtk=  0.12500, kpt= -0.3750  0.2500  0.0000 (reduced coord)
+  -0.17627   -0.09807   -0.01376    0.01760    0.06156    0.12522    0.15737
+      occupation numbers for kpt#   5
+   2.00000    2.00000    2.04162    2.14020    0.96371    0.00360    0.00213
+ kpt#   6, nband=  7, wtk=  0.12500, kpt=  0.2500  0.1250  0.0000 (reduced coord)
+  -0.26036   -0.18125   -0.06422    0.04484    0.06633    0.14238    0.17720
+      occupation numbers for kpt#   6
+   2.00000    2.00000    2.00015    1.66315    0.76103    0.00470    0.00034
+ kpt#   7, nband=  7, wtk=  0.12500, kpt=  0.3750  0.2500  0.0000 (reduced coord)
+  -0.17627   -0.09807   -0.01376    0.01760    0.06156    0.12522    0.15737
+      occupation numbers for kpt#   7
+   2.00000    2.00000    2.04162    2.14020    0.96371    0.00360    0.00213
+ kpt#   8, nband=  7, wtk=  0.12500, kpt=  0.5000  0.3750  0.0000 (reduced coord)
+  -0.05622   -0.05223    0.02173    0.02238    0.11282    0.12192    0.12596
+      occupation numbers for kpt#   8
+   2.00048    2.00081    2.12652    2.12289    0.00003    0.00241    0.00383
+ Total charge density [el/Bohr^3]
+      Maximum=    3.4139E-02  at reduced coord.    0.0000    0.3333    0.0000
+ Next maximum=    3.4139E-02  at reduced coord.    0.6667    0.0000    0.0000
+      Minimum=    1.1669E-05  at reduced coord.    0.5000    0.5000    0.6600
+ Next minimum=    1.2079E-05  at reduced coord.    0.5000    0.4167    0.6600
+   Integrated=    9.0000E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.55692141E-04  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)=  1.55692141E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.24996918E-08  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -3.0532E+00 GPa]
+- sigma(1 1)=  4.58062015E+00  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)=  4.58062016E+00  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -1.54459400E-03  sigma(2 1)=  0.00000000E+00
+
+== END DATASET(S) ==============================================================
+================================================================================
+  
+ -outvars: echo values of variables after computation  --------
+ 
+ These variables are accessible in NetCDF format (tbase4_6o_OUT.nc)
+
+            acell      7.5055909000E+00  7.5055909000E+00  7.5055909000E+00 Bohr
+              amu      2.69815390E+01
+             ecut      6.00000000E+00 Hartree
+           etotal1    -6.2546971881E+00
+           etotal2    -6.2559012570E+00
+            fcart1    -0.0000000000E+00 -2.8653103435E-10 -2.7204111012E-04
+                      -0.0000000000E+00  5.7306206869E-10 -0.0000000000E+00
+                      -0.0000000000E+00 -2.8653103435E-10  2.7204111012E-04
+            fcart2    -8.6164647141E-27  1.4630333749E-10 -3.9352030265E-04
+                       1.7232929428E-26 -2.9260667498E-10 -0.0000000000E+00
+                      -8.6164647141E-27  1.4630333749E-10  3.9352030265E-04
+-          fftalg         312
+           ionmov           2
+           jdtset        1    2
+              kpt     -1.25000000E-01  0.00000000E+00  0.00000000E+00
+                      -3.75000000E-01  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  1.25000000E-01  0.00000000E+00
+                       5.00000000E-01  1.25000000E-01  0.00000000E+00
+                      -3.75000000E-01  2.50000000E-01  0.00000000E+00
+                       2.50000000E-01  1.25000000E-01  0.00000000E+00
+                       3.75000000E-01  2.50000000E-01  0.00000000E+00
+                       5.00000000E-01  3.75000000E-01  0.00000000E+00
+         kptrlatt        4    4    0     -4    4    0      0    0    1
+          kptrlen      3.00223636E+01
+P           mkmem           8
+            natom           3
+            nband           7
+           ndtset           2
+            ngfft1         12      12      45
+            ngfft2         12      12      50
+             nkpt           8
+            nstep          10
+             nsym           4
+            ntime          10
+           ntypat           1
+              occ1     2.000000  2.000000  2.000000  2.133556  0.003050  0.000198
+                       0.000000
+                       2.000000  2.000000  2.000561  2.017335  2.122393  0.099822
+                       0.005164
+                       2.000000  2.000000  2.000126  1.485361  0.870709  0.004856
+                       0.001144
+                       2.000000  2.000000  2.000295  2.000463  1.670792  0.560393
+                       0.002917
+                       2.000000  2.000000  2.034403  2.141607  1.012346  0.004690
+                       0.002557
+                       2.000000  2.000000  2.000126  1.485361  0.870709  0.004856
+                       0.001144
+                       2.000000  2.000000  2.034403  2.141607  1.012346  0.004690
+                       0.002557
+                       2.000331  2.000591  2.130772  2.130062  0.000817  0.001538
+                       0.003354
+              occ2     2.000000  2.000000  2.000000  2.116466  0.005250  0.000145
+                       0.000000
+                       2.000000  2.000000  2.000786  2.019604  2.115604  0.165413
+                       0.005081
+                       2.000000  2.000000  2.000154  1.663147  0.761031  0.004700
+                       0.000341
+                       2.000000  2.000000  2.000328  2.000557  1.607049  0.541878
+                       0.003607
+                       2.000000  2.000000  2.041618  2.140202  0.963707  0.003599
+                       0.002127
+                       2.000000  2.000000  2.000154  1.663147  0.761031  0.004700
+                       0.000341
+                       2.000000  2.000000  2.041618  2.140202  0.963707  0.003599
+                       0.002127
+                       2.000478  2.000812  2.126522  2.122894  0.000031  0.002411
+                       0.003831
+           occopt           4
+        optforces           1
+            rprim1     5.0000000000E-01 -5.0000000000E-01  0.0000000000E+00
+                       5.0000000000E-01  5.0000000000E-01  0.0000000000E+00
+                       0.0000000000E+00  0.0000000000E+00  2.5000000000E+00
+            rprim2     5.0000000000E-01 -5.0000000000E-01  0.0000000000E+00
+                       5.0000000000E-01  5.0000000000E-01  0.0000000000E+00
+                       0.0000000000E+00  0.0000000000E+00  3.0000000000E+00
+           shiftk      5.00000000E-01  5.00000000E-01  0.00000000E+00
+          spgroup          38
+           strten1     1.7030383982E-04  1.7030384004E-04 -3.7023153186E-06
+                       0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+           strten2     1.5569214054E-04  1.5569214088E-04 -5.2499691755E-08
+                       0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+           symrel      1  0  0   0  1  0   0  0  1       1  0  0   0  1  0   0  0 -1
+                       0 -1  0  -1  0  0   0  0 -1       0 -1  0  -1  0  0   0  0  1
+            tnons1     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.4000000
+                       0.0000000  0.0000000  0.4000000     0.0000000  0.0000000  0.0000000
+            tnons2     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.3333333
+                       0.0000000  0.0000000  0.3333333     0.0000000  0.0000000  0.0000000
+           toldff      5.00000000E-05
+           tolmxf      5.00000000E-04
+           tsmear      4.00000000E-02 Hartree
+            typat      1  1  1
+              wtk        0.12500    0.12500    0.12500    0.12500    0.12500    0.12500
+                         0.12500    0.12500
+           xangst1     0.0000000000E+00 -2.8653532900E-09 -8.7210437727E-02
+                       0.0000000000E+00  1.9858937999E+00  1.9858938206E+00
+                       0.0000000000E+00 -2.8653532900E-09  4.0589980790E+00
+           xangst2     0.0000000000E+00 -1.2149956341E-08 -1.0654361221E-01
+                       0.0000000000E+00  1.9858938185E+00  1.9858938206E+00
+                       0.0000000000E+00 -1.2149956341E-08  4.0783312535E+00
+            xcart1     0.0000000000E+00 -5.4147329921E-09 -1.6480384323E-01
+                       0.0000000000E+00  3.7527954108E+00  3.7527954500E+00
+                       0.0000000000E+00 -5.4147329921E-09  7.6703947432E+00
+            xcart2     0.0000000000E+00 -2.2960090010E-08 -2.0133824829E-01
+                       0.0000000000E+00  3.7527954459E+00  3.7527954500E+00
+                       0.0000000000E+00 -2.2960090010E-08  7.7069291483E+00
+             xred1     7.2142660907E-10 -7.2142660907E-10 -8.7829909959E-03
+                      -4.9999999478E-01  4.9999999478E-01  2.0000000000E-01
+                       7.2142660907E-10 -7.2142660907E-10  4.0878299100E-01
+             xred2     3.0590649446E-09 -3.0590649446E-09 -8.9417009700E-03
+                      -4.9999999946E-01  4.9999999946E-01  1.6666666667E-01
+                       3.0590649446E-09 -3.0590649446E-09  3.4227503430E-01
+            znucl       13.00000
+
+================================================================================
+  
+
+================================================================================
+
+ Suggested references for the acknowledgment of ABINIT usage.
+
+ The users of ABINIT have little formal obligations with respect to the ABINIT group
+ (those specified in the GNU General Public License, http://www.gnu.org/copyleft/gpl.txt).
+ However, it is common practice in the scientific literature,
+ to acknowledge the efforts of people that have made the research possible.
+ In this spirit, please find below suggested citations of work written by ABINIT developers,
+ corresponding to implementations inside of ABINIT that you have used in the present run.
+ Note also that it will be of great value to readers of publications presenting these results,
+ to read papers enabling them to understand the theoretical formalism and details
+ of the ABINIT implementation.
+ For information on why they are suggested, see also https://docs.abinit.org/theory/acknowledgments.
+-
+- [1] Recent developments in the ABINIT software package.
+- Computer Phys. Comm. 205, 106 (2016).
+- X.Gonze, F.Jollet, F.Abreu Araujo, D.Adams, B.Amadon, T.Applencourt,
+- C.Audouze, J.-M.Beuken, J.Bieder, A.Bokhanchuk, E.Bousquet, F.Bruneval
+- D.Caliste, M.Cote, F.Dahm, F.Da Pieve, M.Delaveau, M.Di Gennaro,
+- B.Dorado, C.Espejo, G.Geneste, L.Genovese, A.Gerossier, M.Giantomassi,
+- Y.Gillet, D.R.Hamann, L.He, G.Jomard, J.Laflamme Janssen, S.Le Roux,
+- A.Levitt, A.Lherbier, F.Liu, I.Lukacevic, A.Martin, C.Martins,
+- M.J.T.Oliveira, S.Ponce, Y.Pouillon, T.Rangel, G.-M.Rignanese,
+- A.H.Romero, B.Rousseau, O.Rubel, A.A.Shukri, M.Stankovski, M.Torrent,
+- M.J.Van Setten, B.Van Troeye, M.J.Verstraete, D.Waroquier, J.Wiktor,
+- B.Xu, A.Zhou, J.W.Zwanziger.
+- Comment : the fourth generic paper describing the ABINIT project.
+- Note that a version of this paper, that is not formatted for Computer Phys. Comm. 
+- is available at https://www.abinit.org/about/ABINIT16.pdf .
+- The licence allows the authors to put it on the Web.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2016
+-
+- [2] Ab initio pseudopotentials for electronic structure calculations of poly-atomic systems, 
+- using density-functional theory.
+- M. Fuchs, M. Scheffler, Comput. Phys. Commun. 119, 67 (1999).
+- Comment : Some pseudopotential generated using the FHI code were used.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#fuchs1999
+-
+- [3] ABINIT : First-principles approach of materials and nanosystem properties.
+- Computer Phys. Comm. 180, 2582-2615 (2009).
+- X. Gonze, B. Amadon, P.-M. Anglade, J.-M. Beuken, F. Bottin, P. Boulanger, F. Bruneval,
+- D. Caliste, R. Caracas, M. Cote, T. Deutsch, L. Genovese, Ph. Ghosez, M. Giantomassi
+- S. Goedecker, D.R. Hamann, P. Hermet, F. Jollet, G. Jomard, S. Leroux, M. Mancini, S. Mazevet,
+- M.J.T. Oliveira, G. Onida, Y. Pouillon, T. Rangel, G.-M. Rignanese, D. Sangalli, R. Shaltaf,
+- M. Torrent, M.J. Verstraete, G. Zerah, J.W. Zwanziger
+- Comment : the third generic paper describing the ABINIT project.
+- Note that a version of this paper, that is not formatted for Computer Phys. Comm. 
+- is available at https://www.abinit.org/about/ABINIT_CPC_v10.pdf .
+- The licence allows the authors to put it on the Web.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2009
+-
+- [4] A brief introduction to the ABINIT software package.
+- Z. Kristallogr. 220, 558-562 (2005).
+- X. Gonze, G.-M. Rignanese, M. Verstraete, J.-M. Beuken, Y. Pouillon, R. Caracas, F. Jollet,
+- M. Torrent, G. Zerah, M. Mikami, Ph. Ghosez, M. Veithen, J.-Y. Raty, V. Olevano, F. Bruneval,
+- L. Reining, R. Godby, G. Onida, D.R. Hamann, and D.C. Allan.
+- Comment : the second generic paper describing the ABINIT project. Note that this paper
+- should be cited especially if you are using the GW part of ABINIT, as several authors
+- of this part are not in the list of authors of the first or third paper.
+- The .pdf of the latter paper is available at https://www.abinit.org/about/zfk_0505-06_558-562.pdf.
+- Note that it should not redistributed (Copyright by Oldenburg Wissenshaftverlag,
+- the licence allows the authors to put it on the Web).
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2005
+-
+- And optionally:
+-
+- [5] First-principles computation of material properties : the ABINIT software project. 
+- X. Gonze, J.-M. Beuken, R. Caracas, F. Detraux, M. Fuchs, G.-M. Rignanese, L. Sindic,
+- M. Verstraete, G. Zerah, F. Jollet, M. Torrent, A. Roy, M. Mikami, Ph. Ghosez, J.-Y. Raty, D.C. Allan.
+- Computational Materials Science 25, 478-492 (2002). http://dx.doi.org/10.1016/S0927-0256(02)00325-7
+- Comment : the original paper describing the ABINIT project.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2002
+  Asked to delete not existent file: tbase4_6_STATUS
+ Proc.   0 individual time (sec): cpu=          7.8  wall=          7.9
+
+ Calculation completed.
+.Delivered   5 WARNINGs and   4 COMMENTs to log file.
+
+--- !FinalSummary
+program: abinit
+version: 8.10.3
+start_datetime: Thu Oct 24 15:58:16 2019
+end_datetime: Thu Oct 24 15:58:24 2019
+overall_cpu_time:           7.8
+overall_wall_time:           7.9
+exit_requested_by_user: no 
+timelimit: 0
+pseudos: 
+    Al  : 45177dc68580e70ffd690f1e65e9b174
+usepaw: 0
+mpi_procs: 1
+omp_threads: 1
+num_warnings: 5
+num_comments: 4
+...
