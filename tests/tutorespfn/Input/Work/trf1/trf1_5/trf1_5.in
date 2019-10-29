@@ -1,12 +1,54 @@
 # Crystalline AlAs : computation of the total energy
-# and forces in a distorted geometry
+#
 
-  irdwfk   1            # read the wave function from trf1_2i_WFK
+ndtset  3
 
-#Specific to ground state calculation
-  tolvrs   1.0d-12      # SCF stopping criterion based on potential, related to stresses
-                        # Is relaxed here to lower calculation time.
- 
+#Ground state calculation
+  kptopt1   1             # Automatic generation of k points, taking
+                          # into account the symmetry
+  tolvrs1   1.0d-18       # SCF stopping criterion
+
+#Response Function calculation : d/dk
+  rfelfd2   2             # Activate the calculation of the d/dk perturbation
+   rfdir2   1 0 0         # Need to consider the perturbation in the x-direction only
+                          # This is rather specific, due to the high symmetry of the AlAs crystal
+                          # In general, just use rfdir 1 1 1
+                          # In the present version of ABINIT (v4.6), symmetry cannot be used
+                          # to reduce the number of ddk perturbations
+
+    nqpt2   1
+     qpt2   0.0 0.0 0.0   # This is a calculation at the Gamma point
+
+  getwfk2   -1            # Uses as input the output wf of the previous dataset
+
+  kptopt2   2             # Automatic generation of k points,
+                          # using only the time-reversal symmetry to decrease
+                          # the size of the k point set.
+
+    iscf2  -3             # The d/dk perturbation must be treated 
+                          # in a non-self-consistent way
+  tolwfr2   1.0d-22       # Must use tolwfr for non-self-consistent calculations
+                          # Here, the value of tolwfr is very low.
+
+#Response Function calculation : electric field perturbation and phonons
+  rfphon3   1             # Activate the calculation of the atomic dispacement perturbations
+ rfatpol3   1 2           # All the atoms will be displaced
+  rfelfd3   3             # Activate the calculation of the electric field perturbation
+   rfdir3   1 1 1         # All directions are selected. However, symmetries will be used to decrease
+                          # the number of perturbations, so only the x electric field is needed
+                          # (and this explains why in the second dataset, rfdir was set to 1 0 0).
+
+    nqpt3   1
+     qpt3   0.0 0.0 0.0   # This is a calculation at the Gamma point
+
+  getwfk3   -2            # Uses as input wfs the output wfs of the dataset 1
+  getddk3   -1            # Uses as input ddk wfs the output of the dataset 2
+
+  kptopt3   2             # Automatic generation of k points,
+                          # using only the time-reversal symmetry to decrease
+                          # the size of the k point set.
+  tolvrs3   1.0d-8
+
 
 #######################################################################
 #Common input variables
@@ -30,9 +72,7 @@ natom 2                # There are two atoms
 typat 1 2              # The first is of type 1 (Al), the second is of type 2 (As).
 xred                   # This keyword indicate that the location of the atoms
                        # will follow, one triplet of number for each atom
-   0.002  0.0  0.0     # Triplet giving the REDUCED coordinate of atom 1.
-                       # Remark the perturbation along the first cell vector.
-                       # This is a parallel perturbation between Al ans As.
+   0.0  0.0  0.0       # Triplet giving the REDUCED coordinate of atom 1.
    0.25 0.25 0.25      # Triplet giving the REDUCED coordinate of atom 2.
 
 #Gives the number of band, explicitely (do not take the default)
