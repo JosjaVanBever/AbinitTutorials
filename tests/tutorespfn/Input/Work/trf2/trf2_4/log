@@ -1,0 +1,159 @@
+--------------------------------------------------------------------------
+[[13999,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: abipy
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+
+.Version 8.10.3 of ANADDB 
+.(MPI version, prepared for a x86_64_linux_gnu5.4 computer) 
+
+.Copyright (C) 1998-2018 ABINIT group . 
+ ANADDB comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Wed 30 Oct 2019.
+- ( at 17h23 )
+  
+  Give name for formatted input file: 
+-   trf2_4.in
+  Give name for formatted output file: 
+-   trf2_4.out
+  Give name for input derivative database: 
+-   trf2_3.ddb.out
+  Give name for output molecular dynamics: 
+-   trf2_4_band2eps
+  Give name for input elphon matrix elements (GKK file): 
+-   trf2_dummy1
+  Give root name for elphon output files: 
+-   trf2_dummy2
+  Give name for file containing ddk filenames for elphon/transport: 
+-   trf2_dummy3
+ Opening DDB file: trf2_3.ddb.out
+  inprep8 : nband(1)=           4
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+-instrng: 37 lines of input have been read from file trf2_4.in
+
+
+================================================================================
+
+ -outvars_anaddb: echo values of input variables ----------------------
+
+ Flags :
+     ifcflag         1
+ Miscellaneous information :
+         asr         1
+      chneut         1
+ Interatomic Force Constants Inputs :
+      dipdip         1
+      ifcana         1
+      ifcout        20
+      natifc         1
+       atifc         1
+ Description of grid 1 :
+        brav         2
+       ngqpt         4         4         4
+      nqshft         1
+      q1shft
+                     0.00000000E+00  0.00000000E+00  0.00000000E+00
+
+================================================================================
+
+ read the DDB information and perform some checks
+
+ Opening DDB file: trf2_3.ddb.out
+  inprep8 : nband(1)=           4
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+ Opening DDB file: trf2_3.ddb.out
+  inprep8 : nband(1)=           4
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+ About to open file trf2_3.ddb.out
+ Unit cell volume ucvol=  2.9859750E+02 bohr^3
+ Angles (23,13,12)=  6.00000000E+01  6.00000000E+01  6.00000000E+01 degrees
+
+
+ rdddb9: read 8 blocks from the input DDB
+ Now the whole DDB is in central memory
+
+================================================================================
+
+ Dielectric Tensor and Effective Charges 
+
+
+ anaddb : Zero the imaginary part of the Dynamical Matrix at Gamma,
+   and impose the ASR on the effective charges 
+
+ Now, the imaginary part of the dynamical matrix is zeroed
+ Dielectric Tensor     9.760605E+00    3.588353E-15    3.588353E-15    3.588353E-15    9.760605E+00    3.588353E-15    3.588353E-15    3.588353E-15    9.760605E+00
+ Effectives Charges
+ atom    1    2.115793E+00    0.000000E+00    0.000000E+00    0.000000E+00    2.115793E+00    0.000000E+00    1.202023E-19    1.202023E-19    2.115793E+00
+ atom    2   -2.115793E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.115793E+00    0.000000E+00   -1.202023E-19   -1.202023E-19   -2.115793E+00
+
+================================================================================
+
+ Calculation of the interatomic forces 
+
+-begin at tcpu      0.016  and twall      0.122 sec
+ Will extract the dipole-dipole part for every wavevector
+ Canonical Atomic Coordinates
+ atom    1    0.00000000E+00    0.00000000E+00    0.00000000E+00
+ atom    2    2.50000000E-01    2.50000000E-01    2.50000000E-01
+
+ The interatomic forces have been obtained
+ ifc_init: cpu:   0.77, wall:   0.78
+ ==== Info on the ifc% object ====
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  0.0000000  0.5000000  0.5000000  G(1)= -1.0000000  1.0000000  1.0000000
+ R(2)=  0.5000000  0.0000000  0.5000000  G(2)=  1.0000000 -1.0000000  1.0000000
+ R(3)=  0.5000000  0.5000000  0.0000000  G(3)=  1.0000000  1.0000000 -1.0000000
+ acell: [   1.0610E+01,   1.0610E+01,   1.0610E+01]
+ Acoustic Sum Rule option (asr): 1
+ Option for the sampling of the BZ (brav): 2
+ Symmetrization flag (symdynmat): 1
+ Dipole-dipole interaction flag (dipdip): 1
+ Dielectric tensor: [      9.76,      0.00,      0.00,      0.00,      9.76,      0.00,      0.00,      0.00,      9.76]
+ Effective charges:
+[      2.12,      0.00,      0.00,      0.00,      2.12,      0.00,      0.00,      0.00,      2.12]
+[     -2.12,      0.00,     -0.00,      0.00,     -2.12,     -0.00,      0.00,      0.00,     -2.12]
+ Mass of the atoms (atomic mass unit): [   2.6982E+01,   7.4922E+01]
+ Number of real-space points for IFC(R): 63
+
+ Q-mesh:
+ ngqpt: [4,4,4] , nqshft: 1
+[ 0.0000E+00,  0.0000E+00,  0.0000E+00]
+ ifc_write: analysis of interatomic force constants 
+ generic atom number   1
+ with cartesian coordinates  0.00000000E+00  0.00000000E+00  0.00000000E+00
+          16
+ Proc.   0 individual time (sec): cpu=          0.8  wall=          0.9
+
+================================================================================
+
++Total cpu time      0.784  and wall time      0.902 sec
+
+ anaddb : the run completed succesfully.
+--- !FinalSummary
+program: anaddb
+version: 8.10.3
+start_datetime: Wed Oct 30 17:23:02 2019
+end_datetime: Wed Oct 30 17:23:03 2019
+overall_cpu_time:           0.8
+overall_wall_time:           0.9
+mpi_procs: 1
+omp_threads: 1
+...
