@@ -1,0 +1,836 @@
+--------------------------------------------------------------------------
+[[434,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: abipy
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+
+.Version 8.10.3 of ANADDB 
+.(MPI version, prepared for a x86_64_linux_gnu5.4 computer) 
+
+.Copyright (C) 1998-2018 ABINIT group . 
+ ANADDB comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Thu 31 Oct 2019.
+- ( at 14h23 )
+  
+  Give name for formatted input file: 
+-   trf2_7.in
+  Give name for formatted output file: 
+-   trf2_7.out
+  Give name for input derivative database: 
+-   trf2_3.ddb.out
+  Give name for output molecular dynamics: 
+-   trf2_dummy
+  Give name for input elphon matrix elements (GKK file): 
+-   trf2_dummy1
+  Give root name for elphon output files: 
+-   trf2_dummy2
+  Give name for file containing ddk filenames for elphon/transport: 
+-   trf2_dummy3
+ Opening DDB file: trf2_3.ddb.out
+  inprep8 : nband(1)=           4
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+-instrng: 48 lines of input have been read from file trf2_7.in
+
+
+================================================================================
+
+ -outvars_anaddb: echo values of input variables ----------------------
+
+ Flags :
+     ifcflag         1
+     thmflag         1
+ Miscellaneous information :
+         asr         1
+      chneut         1
+ Interatomic Force Constants Inputs :
+      dipdip         1
+      ifcana         0
+      ifcout         0
+ Description of grid 1 :
+        brav         2
+       ngqpt         4         4         4
+      nqshft         1
+      q1shft
+                     0.00000000E+00  0.00000000E+00  0.00000000E+00
+ Thermal information :
+       nchan      1250
+      nwchan         5
+      dostol         2.50000000E-01
+      thmtol         1.20000000E-01
+     ntemper        10
+   temperinc         2.00000000E+01
+   tempermin         2.00000000E+01
+ Description of grid 2 (Fourier interp. or BZ sampling):
+      ng2qpt        20        20        20
+      ngrids         5
+      q2shft         0.00000000E+00  0.00000000E+00  0.00000000E+00
+
+================================================================================
+
+ read the DDB information and perform some checks
+
+ Opening DDB file: trf2_3.ddb.out
+  inprep8 : nband(1)=           4
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+ Opening DDB file: trf2_3.ddb.out
+  inprep8 : nband(1)=           4
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+ About to open file trf2_3.ddb.out
+ Unit cell volume ucvol=  2.9859750E+02 bohr^3
+ Angles (23,13,12)=  6.00000000E+01  6.00000000E+01  6.00000000E+01 degrees
+
+
+ rdddb9: read 8 blocks from the input DDB
+ Now the whole DDB is in central memory
+
+================================================================================
+
+ Dielectric Tensor and Effective Charges 
+
+
+ anaddb : Zero the imaginary part of the Dynamical Matrix at Gamma,
+   and impose the ASR on the effective charges 
+
+ Now, the imaginary part of the dynamical matrix is zeroed
+ Dielectric Tensor     9.760605E+00    3.588353E-15    3.588353E-15    3.588353E-15    9.760605E+00    3.588353E-15    3.588353E-15    3.588353E-15    9.760605E+00
+ Effectives Charges
+ atom    1    2.115793E+00    0.000000E+00    0.000000E+00    0.000000E+00    2.115793E+00    0.000000E+00    1.202023E-19    1.202023E-19    2.115793E+00
+ atom    2   -2.115793E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.115793E+00    0.000000E+00   -1.202023E-19   -1.202023E-19   -2.115793E+00
+
+================================================================================
+
+ Calculation of the interatomic forces 
+
+-begin at tcpu      0.020  and twall      0.019 sec
+ Will extract the dipole-dipole part for every wavevector
+ Canonical Atomic Coordinates
+ atom    1    0.00000000E+00    0.00000000E+00    0.00000000E+00
+ atom    2    2.50000000E-01    2.50000000E-01    2.50000000E-01
+
+ The interatomic forces have been obtained
+ ifc_init: cpu:   0.73, wall:   0.74
+ ==== Info on the ifc% object ====
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  0.0000000  0.5000000  0.5000000  G(1)= -1.0000000  1.0000000  1.0000000
+ R(2)=  0.5000000  0.0000000  0.5000000  G(2)=  1.0000000 -1.0000000  1.0000000
+ R(3)=  0.5000000  0.5000000  0.0000000  G(3)=  1.0000000  1.0000000 -1.0000000
+ acell: [   1.0610E+01,   1.0610E+01,   1.0610E+01]
+ Acoustic Sum Rule option (asr): 1
+ Option for the sampling of the BZ (brav): 2
+ Symmetrization flag (symdynmat): 1
+ Dipole-dipole interaction flag (dipdip): 1
+ Dielectric tensor: [      9.76,      0.00,      0.00,      0.00,      9.76,      0.00,      0.00,      0.00,      9.76]
+ Effective charges:
+[      2.12,      0.00,      0.00,      0.00,      2.12,      0.00,      0.00,      0.00,      2.12]
+[     -2.12,      0.00,     -0.00,      0.00,     -2.12,     -0.00,      0.00,      0.00,     -2.12]
+ Mass of the atoms (atomic mass unit): [   2.6982E+01,   7.4922E+01]
+ Number of real-space points for IFC(R): 63
+
+ Q-mesh:
+ ngqpt: [4,4,4] , nqshft: 1
+[ 0.0000E+00,  0.0000E+00,  0.0000E+00]
+
+================================================================================
+
+ Calculation of phonon density of states, 
+    thermodynamical properties, 
+    and Debye-Waller factors.
+
+ symkpt : the number of k-points, thanks to the symmetries,
+ is reduced to     6 .
+ harmonic_thermo: g(w) and gij(k|w) calculated given a q sampling grid.
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  5     4     4     4     192.0   1.00000
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  4     4     4     4     192.0   1.00000
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  3     4     4     4     192.0   1.00000
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  2     4     4     4     192.0   1.00000
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  1     4     4     4     192.0   1.00000
+
+ iwchan,igqpt(i),gijsum, gij error=   5     4     4     4   0.00000   0.00000
+ harmonic_thermo : Bij changes are larger than thmtol
+
+ iwchan,igqpt(i),gijsum, gij error=   4     4     4     4   0.00000   0.00000
+ harmonic_thermo : Bij changes are larger than thmtol
+
+ iwchan,igqpt(i),gijsum, gij error=   3     4     4     4   0.00000   0.00000
+ harmonic_thermo : Bij changes are larger than thmtol
+
+ iwchan,igqpt(i),gijsum, gij error=   2     4     4     4   0.00000   0.00000
+ harmonic_thermo : Bij changes are larger than thmtol
+
+ iwchan,igqpt(i),gijsum, gij error=   1     4     4     4   0.00000   0.00000
+ harmonic_thermo : Bij changes are larger than thmtol
+ symkpt : the number of k-points, thanks to the symmetries,
+ is reduced to    19 .
+ harmonic_thermo: g(w) and gij(k|w) calculated given a q sampling grid.
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  5     8     8     8    1536.0   1.08333
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  4     8     8     8    1536.0   1.11458
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  3     8     8     8    1536.0   1.25000
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  2     8     8     8    1536.0   1.30469
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  1     8     8     8    1536.0   1.52344
+ symkpt : the number of k-points, thanks to the symmetries,
+ is reduced to    44 .
+ harmonic_thermo: g(w) and gij(k|w) calculated given a q sampling grid.
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  5    12    12    12    5184.0   0.53149
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  4    12    12    12    5184.0   0.64410
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  3    12    12    12    5184.0   0.65765
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  2    12    12    12    5184.0   0.96407
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  1    12    12    12    5184.0   1.23751
+ symkpt : the number of k-points, thanks to the symmetries,
+ is reduced to    85 .
+ harmonic_thermo: g(w) and gij(k|w) calculated given a q sampling grid.
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  5    16    16    16   12288.0   0.30389
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  4    16    16    16   12288.0   0.36423
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  3    16    16    16   12288.0   0.50506
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  2    16    16    16   12288.0   0.64020
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  1    16    16    16   12288.0   0.93494
+ symkpt : the number of k-points, thanks to the symmetries,
+ is reduced to   146 .
+ harmonic_thermo: g(w) and gij(k|w) calculated given a q sampling grid.
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  5    20    20    20   24000.0   0.22654
+ DOS  with channel width=    5 newly converged
+       1        3.0      0.00013
+       2        0.0      0.00000
+       3        0.0      0.00000
+       4       12.0      0.00050
+       5       12.0      0.00050
+       6       28.0      0.00117
+       7        6.0      0.00025
+       8       36.0      0.00150
+       9       84.0      0.00350
+      10       36.0      0.00150
+      11       88.0      0.00367
+      12      140.0      0.00583
+      13      142.0      0.00592
+      14      420.0      0.01750
+      15      420.0      0.01750
+      16      552.0      0.02300
+      17      540.0      0.02250
+      18      600.0      0.02500
+      19      912.0      0.03800
+      20      984.0      0.04100
+      21      672.0      0.02800
+      22      528.0      0.02200
+      23      620.0      0.02583
+      24      390.0      0.01625
+      25      474.0      0.01975
+      26      348.0      0.01450
+      27      390.0      0.01625
+      28       24.0      0.00100
+      29       54.0      0.00225
+      30      132.0      0.00550
+      31       72.0      0.00300
+      32      144.0      0.00600
+      33      158.0      0.00658
+      34      204.0      0.00850
+      35      144.0      0.00600
+      36      336.0      0.01400
+      37      546.0      0.02275
+      38      990.0      0.04125
+      39      398.0      0.01658
+      40      276.0      0.01150
+      41       85.0      0.00354
+      42        0.0      0.00000
+      43        0.0      0.00000
+      44        0.0      0.00000
+      45        0.0      0.00000
+      46        0.0      0.00000
+      47        0.0      0.00000
+      48        0.0      0.00000
+      49        0.0      0.00000
+      50        0.0      0.00000
+      51        0.0      0.00000
+      52        0.0      0.00000
+      53        0.0      0.00000
+      54        0.0      0.00000
+      55        0.0      0.00000
+      56        0.0      0.00000
+      57        0.0      0.00000
+      58        0.0      0.00000
+      59        0.0      0.00000
+      60        0.0      0.00000
+      61        0.0      0.00000
+      62        0.0      0.00000
+      63     1242.0      0.05175
+      64     1962.0      0.08175
+      65     1476.0      0.06150
+      66     1272.0      0.05300
+      67     1660.0      0.06917
+      68      964.0      0.04017
+      69      775.0      0.03229
+      70      744.0      0.03100
+      71      480.0      0.02000
+      72      308.0      0.01283
+      73      444.0      0.01850
+      74      236.0      0.00983
+      75      288.0      0.01200
+      76      149.0      0.00621
+      77        0.0      0.00000
+      78        0.0      0.00000
+      79        0.0      0.00000
+      80        0.0      0.00000
+      81        0.0      0.00000
+      82        0.0      0.00000
+      83        0.0      0.00000
+      84        0.0      0.00000
+      85        0.0      0.00000
+      86        0.0      0.00000
+      87        0.0      0.00000
+      88        0.0      0.00000
+      89        0.0      0.00000
+      90        0.0      0.00000
+      91        0.0      0.00000
+      92        0.0      0.00000
+      93        0.0      0.00000
+      94        0.0      0.00000
+      95        0.0      0.00000
+      96        0.0      0.00000
+      97        0.0      0.00000
+      98        0.0      0.00000
+      99        0.0      0.00000
+     100        0.0      0.00000
+     101        0.0      0.00000
+     102        0.0      0.00000
+     103        0.0      0.00000
+     104        0.0      0.00000
+     105        0.0      0.00000
+     106        0.0      0.00000
+     107        0.0      0.00000
+     108        0.0      0.00000
+     109        0.0      0.00000
+     110        0.0      0.00000
+     111        0.0      0.00000
+     112        0.0      0.00000
+     113        0.0      0.00000
+     114        0.0      0.00000
+     115        0.0      0.00000
+     116        0.0      0.00000
+     117        0.0      0.00000
+     118        0.0      0.00000
+     119        0.0      0.00000
+     120        0.0      0.00000
+     121        0.0      0.00000
+     122        0.0      0.00000
+     123        0.0      0.00000
+     124        0.0      0.00000
+     125        0.0      0.00000
+     126        0.0      0.00000
+     127        0.0      0.00000
+     128        0.0      0.00000
+     129        0.0      0.00000
+     130        0.0      0.00000
+     131        0.0      0.00000
+     132        0.0      0.00000
+     133        0.0      0.00000
+     134        0.0      0.00000
+     135        0.0      0.00000
+     136        0.0      0.00000
+     137        0.0      0.00000
+     138        0.0      0.00000
+     139        0.0      0.00000
+     140        0.0      0.00000
+     141        0.0      0.00000
+     142        0.0      0.00000
+     143        0.0      0.00000
+     144        0.0      0.00000
+     145        0.0      0.00000
+     146        0.0      0.00000
+     147        0.0      0.00000
+     148        0.0      0.00000
+     149        0.0      0.00000
+     150        0.0      0.00000
+     151        0.0      0.00000
+     152        0.0      0.00000
+     153        0.0      0.00000
+     154        0.0      0.00000
+     155        0.0      0.00000
+     156        0.0      0.00000
+     157        0.0      0.00000
+     158        0.0      0.00000
+     159        0.0      0.00000
+     160        0.0      0.00000
+     161        0.0      0.00000
+     162        0.0      0.00000
+     163        0.0      0.00000
+     164        0.0      0.00000
+     165        0.0      0.00000
+     166        0.0      0.00000
+     167        0.0      0.00000
+     168        0.0      0.00000
+     169        0.0      0.00000
+     170        0.0      0.00000
+     171        0.0      0.00000
+     172        0.0      0.00000
+     173        0.0      0.00000
+     174        0.0      0.00000
+     175        0.0      0.00000
+     176        0.0      0.00000
+     177        0.0      0.00000
+     178        0.0      0.00000
+     179        0.0      0.00000
+     180        0.0      0.00000
+     181        0.0      0.00000
+     182        0.0      0.00000
+     183        0.0      0.00000
+     184        0.0      0.00000
+     185        0.0      0.00000
+     186        0.0      0.00000
+     187        0.0      0.00000
+     188        0.0      0.00000
+     189        0.0      0.00000
+     190        0.0      0.00000
+     191        0.0      0.00000
+     192        0.0      0.00000
+     193        0.0      0.00000
+     194        0.0      0.00000
+     195        0.0      0.00000
+     196        0.0      0.00000
+     197        0.0      0.00000
+     198        0.0      0.00000
+     199        0.0      0.00000
+     200        0.0      0.00000
+     201        0.0      0.00000
+     202        0.0      0.00000
+     203        0.0      0.00000
+     204        0.0      0.00000
+     205        0.0      0.00000
+     206        0.0      0.00000
+     207        0.0      0.00000
+     208        0.0      0.00000
+     209        0.0      0.00000
+     210        0.0      0.00000
+     211        0.0      0.00000
+     212        0.0      0.00000
+     213        0.0      0.00000
+     214        0.0      0.00000
+     215        0.0      0.00000
+     216        0.0      0.00000
+     217        0.0      0.00000
+     218        0.0      0.00000
+     219        0.0      0.00000
+     220        0.0      0.00000
+     221        0.0      0.00000
+     222        0.0      0.00000
+     223        0.0      0.00000
+     224        0.0      0.00000
+     225        0.0      0.00000
+     226        0.0      0.00000
+     227        0.0      0.00000
+     228        0.0      0.00000
+     229        0.0      0.00000
+     230        0.0      0.00000
+     231        0.0      0.00000
+     232        0.0      0.00000
+     233        0.0      0.00000
+     234        0.0      0.00000
+     235        0.0      0.00000
+     236        0.0      0.00000
+     237        0.0      0.00000
+     238        0.0      0.00000
+     239        0.0      0.00000
+     240        0.0      0.00000
+     241        0.0      0.00000
+     242        0.0      0.00000
+     243        0.0      0.00000
+     244        0.0      0.00000
+     245        0.0      0.00000
+     246        0.0      0.00000
+     247        0.0      0.00000
+     248        0.0      0.00000
+     249        0.0      0.00000
+     250        0.0      0.00000
+   with maximal error =    0.22654
+ harmonic_thermo : check if the thermodynamic functions
+    change within tolerance.
+ harmonic_thermo : free energy relative changes     3.0884E+02
+        are larger than thmtol     1.2000E-01
+ harmonic_thermo : energy relative changes     3.0915E+02
+        are larger than thmtol     1.2000E-01
+
+harmonic_thermo: iwchan,igqpt(:),norm,error=  4    20    20    20   24000.0   0.23193
+ DOS  with channel width=    4 newly converged
+       1        3.0      0.00013
+       2        0.0      0.00000
+       3        0.0      0.00000
+       4        0.0      0.00000
+       5       12.0      0.00050
+       6       12.0      0.00050
+       7        0.0      0.00000
+       8       34.0      0.00142
+       9        0.0      0.00000
+      10       36.0      0.00150
+      11       60.0      0.00250
+      12       60.0      0.00250
+      13        0.0      0.00000
+      14      100.0      0.00417
+      15      128.0      0.00533
+      16      126.0      0.00525
+      17       88.0      0.00367
+      18      468.0      0.01950
+      19      348.0      0.01450
+      20      504.0      0.02100
+      21      372.0      0.01550
+      22      504.0      0.02100
+      23      594.0      0.02475
+      24      906.0      0.03775
+      25      660.0      0.02750
+      26      552.0      0.02300
+      27      576.0      0.02400
+      28      228.0      0.00950
+      29      560.0      0.02333
+      30      294.0      0.01225
+      31      378.0      0.01575
+      32      252.0      0.01050
+      33      462.0      0.01925
+      34      120.0      0.00500
+      35       24.0      0.00100
+      36       30.0      0.00125
+      37      144.0      0.00600
+      38       60.0      0.00250
+      39       24.0      0.00100
+      40      144.0      0.00600
+      41      110.0      0.00458
+      42      120.0      0.00500
+      43      180.0      0.00750
+      44      120.0      0.00500
+      45      312.0      0.01300
+      46      450.0      0.01875
+      47      774.0      0.03225
+      48      512.0      0.02133
+      49      318.0      0.01325
+      50      156.0      0.00650
+      51       82.0      0.00342
+      52        3.0      0.00013
+      53        0.0      0.00000
+      54        0.0      0.00000
+      55        0.0      0.00000
+      56        0.0      0.00000
+      57        0.0      0.00000
+      58        0.0      0.00000
+      59        0.0      0.00000
+      60        0.0      0.00000
+      61        0.0      0.00000
+      62        0.0      0.00000
+      63        0.0      0.00000
+      64        0.0      0.00000
+      65        0.0      0.00000
+      66        0.0      0.00000
+      67        0.0      0.00000
+      68        0.0      0.00000
+      69        0.0      0.00000
+      70        0.0      0.00000
+      71        0.0      0.00000
+      72        0.0      0.00000
+      73        0.0      0.00000
+      74        0.0      0.00000
+      75        0.0      0.00000
+      76        0.0      0.00000
+      77        0.0      0.00000
+      78        0.0      0.00000
+      79     1806.0      0.07525
+      80     1398.0      0.05825
+      81      942.0      0.03925
+      82     1062.0      0.04425
+      83     1500.0      0.06250
+      84     1144.0      0.04767
+      85      724.0      0.03017
+      86      628.0      0.02617
+      87      579.0      0.02413
+      88      528.0      0.02200
+      89      408.0      0.01700
+      90      164.0      0.00683
+      91      324.0      0.01350
+      92      272.0      0.01133
+      93      144.0      0.00600
+      94      287.0      0.01196
+      95       90.0      0.00375
+      96        0.0      0.00000
+      97        0.0      0.00000
+      98        0.0      0.00000
+      99        0.0      0.00000
+     100        0.0      0.00000
+     101        0.0      0.00000
+     102        0.0      0.00000
+     103        0.0      0.00000
+     104        0.0      0.00000
+     105        0.0      0.00000
+     106        0.0      0.00000
+     107        0.0      0.00000
+     108        0.0      0.00000
+     109        0.0      0.00000
+     110        0.0      0.00000
+     111        0.0      0.00000
+     112        0.0      0.00000
+     113        0.0      0.00000
+     114        0.0      0.00000
+     115        0.0      0.00000
+     116        0.0      0.00000
+     117        0.0      0.00000
+     118        0.0      0.00000
+     119        0.0      0.00000
+     120        0.0      0.00000
+     121        0.0      0.00000
+     122        0.0      0.00000
+     123        0.0      0.00000
+     124        0.0      0.00000
+     125        0.0      0.00000
+     126        0.0      0.00000
+     127        0.0      0.00000
+     128        0.0      0.00000
+     129        0.0      0.00000
+     130        0.0      0.00000
+     131        0.0      0.00000
+     132        0.0      0.00000
+     133        0.0      0.00000
+     134        0.0      0.00000
+     135        0.0      0.00000
+     136        0.0      0.00000
+     137        0.0      0.00000
+     138        0.0      0.00000
+     139        0.0      0.00000
+     140        0.0      0.00000
+     141        0.0      0.00000
+     142        0.0      0.00000
+     143        0.0      0.00000
+     144        0.0      0.00000
+     145        0.0      0.00000
+     146        0.0      0.00000
+     147        0.0      0.00000
+     148        0.0      0.00000
+     149        0.0      0.00000
+     150        0.0      0.00000
+     151        0.0      0.00000
+     152        0.0      0.00000
+     153        0.0      0.00000
+     154        0.0      0.00000
+     155        0.0      0.00000
+     156        0.0      0.00000
+     157        0.0      0.00000
+     158        0.0      0.00000
+     159        0.0      0.00000
+     160        0.0      0.00000
+     161        0.0      0.00000
+     162        0.0      0.00000
+     163        0.0      0.00000
+     164        0.0      0.00000
+     165        0.0      0.00000
+     166        0.0      0.00000
+     167        0.0      0.00000
+     168        0.0      0.00000
+     169        0.0      0.00000
+     170        0.0      0.00000
+     171        0.0      0.00000
+     172        0.0      0.00000
+     173        0.0      0.00000
+     174        0.0      0.00000
+     175        0.0      0.00000
+     176        0.0      0.00000
+     177        0.0      0.00000
+     178        0.0      0.00000
+     179        0.0      0.00000
+     180        0.0      0.00000
+     181        0.0      0.00000
+     182        0.0      0.00000
+     183        0.0      0.00000
+     184        0.0      0.00000
+     185        0.0      0.00000
+     186        0.0      0.00000
+     187        0.0      0.00000
+     188        0.0      0.00000
+     189        0.0      0.00000
+     190        0.0      0.00000
+     191        0.0      0.00000
+     192        0.0      0.00000
+     193        0.0      0.00000
+     194        0.0      0.00000
+     195        0.0      0.00000
+     196        0.0      0.00000
+     197        0.0      0.00000
+     198        0.0      0.00000
+     199        0.0      0.00000
+     200        0.0      0.00000
+     201        0.0      0.00000
+     202        0.0      0.00000
+     203        0.0      0.00000
+     204        0.0      0.00000
+     205        0.0      0.00000
+     206        0.0      0.00000
+     207        0.0      0.00000
+     208        0.0      0.00000
+     209        0.0      0.00000
+     210        0.0      0.00000
+     211        0.0      0.00000
+     212        0.0      0.00000
+     213        0.0      0.00000
+     214        0.0      0.00000
+     215        0.0      0.00000
+     216        0.0      0.00000
+     217        0.0      0.00000
+     218        0.0      0.00000
+     219        0.0      0.00000
+     220        0.0      0.00000
+     221        0.0      0.00000
+     222        0.0      0.00000
+     223        0.0      0.00000
+     224        0.0      0.00000
+     225        0.0      0.00000
+     226        0.0      0.00000
+     227        0.0      0.00000
+     228        0.0      0.00000
+     229        0.0      0.00000
+     230        0.0      0.00000
+     231        0.0      0.00000
+     232        0.0      0.00000
+     233        0.0      0.00000
+     234        0.0      0.00000
+     235        0.0      0.00000
+     236        0.0      0.00000
+     237        0.0      0.00000
+     238        0.0      0.00000
+     239        0.0      0.00000
+     240        0.0      0.00000
+     241        0.0      0.00000
+     242        0.0      0.00000
+     243        0.0      0.00000
+     244        0.0      0.00000
+     245        0.0      0.00000
+     246        0.0      0.00000
+     247        0.0      0.00000
+     248        0.0      0.00000
+     249        0.0      0.00000
+     250        0.0      0.00000
+     251        0.0      0.00000
+     252        0.0      0.00000
+     253        0.0      0.00000
+     254        0.0      0.00000
+     255        0.0      0.00000
+     256        0.0      0.00000
+     257        0.0      0.00000
+     258        0.0      0.00000
+     259        0.0      0.00000
+     260        0.0      0.00000
+     261        0.0      0.00000
+     262        0.0      0.00000
+     263        0.0      0.00000
+     264        0.0      0.00000
+     265        0.0      0.00000
+     266        0.0      0.00000
+     267        0.0      0.00000
+     268        0.0      0.00000
+     269        0.0      0.00000
+     270        0.0      0.00000
+     271        0.0      0.00000
+     272        0.0      0.00000
+     273        0.0      0.00000
+     274        0.0      0.00000
+     275        0.0      0.00000
+     276        0.0      0.00000
+     277        0.0      0.00000
+     278        0.0      0.00000
+     279        0.0      0.00000
+     280        0.0      0.00000
+     281        0.0      0.00000
+     282        0.0      0.00000
+     283        0.0      0.00000
+     284        0.0      0.00000
+     285        0.0      0.00000
+     286        0.0      0.00000
+     287        0.0      0.00000
+     288        0.0      0.00000
+     289        0.0      0.00000
+     290        0.0      0.00000
+     291        0.0      0.00000
+     292        0.0      0.00000
+     293        0.0      0.00000
+     294        0.0      0.00000
+     295        0.0      0.00000
+     296        0.0      0.00000
+     297        0.0      0.00000
+     298        0.0      0.00000
+     299        0.0      0.00000
+     300        0.0      0.00000
+     301        0.0      0.00000
+     302        0.0      0.00000
+     303        0.0      0.00000
+     304        0.0      0.00000
+     305        0.0      0.00000
+     306        0.0      0.00000
+     307        0.0      0.00000
+     308        0.0      0.00000
+     309        0.0      0.00000
+     310        0.0      0.00000
+     311        0.0      0.00000
+     312        0.0      0.00000
+     313        0.0      0.00000
+   with maximal error =    0.23193
+ harmonic_thermo : check if the thermodynamic functions
+    change within tolerance.
+ harmonic_thermo : thermodynamic functions have converged
+     see main output file ...
+
+--- !WARNING
+src_file: m_harmonic_thermo.F90
+src_line: 999
+message: |
+    No atomic factor tensor is printed out :
+    the tolerance level that was asked 
+    has not been match with the grids specified.
+    Action: in the input file, increase the resolution
+    of grids ng2qpt, or decrease the accuracy requirement thmtol.
+...
+
+ Proc.   0 individual time (sec): cpu=          5.0  wall=          5.0
+
+================================================================================
+
++Total cpu time      5.004  and wall time      5.023 sec
+
+ anaddb : the run completed succesfully.
+--- !FinalSummary
+program: anaddb
+version: 8.10.3
+start_datetime: Thu Oct 31 14:23:00 2019
+end_datetime: Thu Oct 31 14:23:05 2019
+overall_cpu_time:           5.0
+overall_wall_time:           5.0
+mpi_procs: 1
+omp_threads: 1
+...
