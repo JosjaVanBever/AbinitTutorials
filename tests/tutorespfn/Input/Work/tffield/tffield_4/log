@@ -1,0 +1,3963 @@
+--------------------------------------------------------------------------
+[[1575,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: abipy
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+  ABINIT 8.10.3
+  
+  Give name for formatted input file: 
+tffield_4.in
+  Give name for formatted output file:
+tffield_4.out
+  Give root name for generic input files:
+tffield_4i
+  Give root name for generic output files:
+tffield_4o
+  Give root name for generic temporary files:
+tffield_4
+
+.Version 8.10.3 of ABINIT 
+.(MPI version, prepared for a x86_64_linux_gnu5.4 computer) 
+
+.Copyright (C) 1998-2018 ABINIT group . 
+ ABINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Fri  8 Nov 2019.
+- ( at 13h57 )
+  
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ === Build Information === 
+  Version       : 8.10.3
+  Build target  : x86_64_linux_gnu5.4
+  Build date    : 20191016
+
+ === Compiler Suite === 
+  C compiler       : gnu5.4
+  C++ compiler     : gnu5.4
+  Fortran compiler : gnu5.4
+  CFLAGS           :  -g -O2 -mtune=native -march=native
+  CXXFLAGS         :  -g -O2 -mtune=native -march=native
+  FCFLAGS          :  -g -ffree-line-length-none  -fopenmp
+  FC_LDFLAGS       : 
+
+ === Optimizations === 
+  Debug level        : basic
+  Optimization level : standard
+  Architecture       : unknown_unknown
+
+ === Multicore === 
+  Parallel build : yes
+  Parallel I/O   : yes
+  openMP support : yes
+  GPU support    : no
+
+ === Connectors / Fallbacks === 
+  Connectors on : yes
+  Fallbacks on  : yes
+  DFT flavor    : none
+  FFT flavor    : fftw3
+  LINALG flavor : atlas
+  MATH flavor   : none
+  TIMER flavor  : abinit
+  TRIO flavor   : netcdf
+
+ === Experimental features === 
+  Bindings            : @enable_bindings@
+  Exports             : no
+  GW double-precision : no
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Default optimizations:
+   -O2 -mtune=native -march=native
+
+
+ Optimizations for 43_ptgroups:
+   -O0
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ CPP options activated during the build:
+
+                    CC_GNU                   CXX_GNU                    FC_GNU
+ 
+ HAVE_FC_ALLOCATABLE_DT...             HAVE_FC_ASYNC         HAVE_FC_BACKTRACE
+ 
+  HAVE_FC_COMMAND_ARGUMENT      HAVE_FC_COMMAND_LINE        HAVE_FC_CONTIGUOUS
+ 
+           HAVE_FC_CPUTIME              HAVE_FC_EXIT             HAVE_FC_FLUSH
+ 
+             HAVE_FC_GAMMA            HAVE_FC_GETENV   HAVE_FC_IEEE_EXCEPTIONS
+ 
+          HAVE_FC_INT_QUAD             HAVE_FC_IOMSG     HAVE_FC_ISO_C_BINDING
+ 
+  HAVE_FC_ISO_FORTRAN_2008        HAVE_FC_LONG_LINES        HAVE_FC_MOVE_ALLOC
+ 
+           HAVE_FC_PRIVATE         HAVE_FC_PROTECTED         HAVE_FC_STREAM_IO
+ 
+            HAVE_FC_SYSTEM                  HAVE_FFT            HAVE_FFT_FFTW3
+ 
+              HAVE_FFT_MPI           HAVE_FFT_SERIAL          HAVE_FORTRAN2003
+ 
+        HAVE_LIBPAW_ABINIT      HAVE_LIBTETRA_ABINIT               HAVE_LINALG
+ 
+        HAVE_LINALG_SERIAL                  HAVE_MPI                 HAVE_MPI2
+ 
+       HAVE_MPI_IALLREDUCE        HAVE_MPI_IALLTOALL       HAVE_MPI_IALLTOALLV
+ 
+        HAVE_MPI_INTEGER16               HAVE_MPI_IO HAVE_MPI_TYPE_CREATE_S...
+ 
+               HAVE_NETCDF           HAVE_NETCDF_MPI         HAVE_OMP_COLLAPSE
+ 
+               HAVE_OPENMP             HAVE_OS_LINUX         HAVE_TIMER_ABINIT
+ 
+              USE_MACROAVE                                                      
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- input  file    -> tffield_4.in
+- output file    -> tffield_4.out
+- root for input  files -> tffield_4i
+- root for output files -> tffield_4o
+
+
+--- !WARNING
+src_file: m_nctk.F90
+src_line: 572
+message: |
+    netcdf lib does not support MPI-IO and: NetCDF: Parallel operation on file opened for non-parallel access
+...
+
+  Asked to delete not existent file: __TMP_FILE__
+
+--- !WARNING
+src_file: m_nctk.F90
+src_line: 592
+message: |
+    The netcdf library does not support parallel IO, see message above
+    Abinit won't be able to produce files in parallel e.g. when paral_kgb==1 is used.
+    Action: install a netcdf4+HDF5 library with MPI-IO support.
+...
+
+-instrng: 78 lines of input have been read from file tffield_4.in
+
+
+ Please give name of formatted atomic psp file
+ iofn2 : for atom type 1, psp file is ../../../../../Psps_for_tests/13al.pspnc
+
+ Please give name of formatted atomic psp file
+ iofn2 : for atom type 2, psp file is ../../../../../Psps_for_tests/33as.pspnc
+  read the values zionpsp=  3.0 , pspcod=   1 , lmax=   2
+  read the values zionpsp=  5.0 , pspcod=   1 , lmax=   1
+
+ inpspheads: deduce mpsang = 3, n1xccc = 2501.
+ invars1 : treat image number: 1
+
+ symlatt : the Bravais lattice is cF (face-centered cubic)
+  xred   is defined in input file
+ ingeo: takes atomic coordinates from input array xred
+
+ symlatt : the Bravais lattice is cF (face-centered cubic)
+
+ symlatt : the Bravais lattice is cF (face-centered cubic)
+ symspgr : spgroup= 216  F-4 3 m   (=Td^2)
+ symspgr : optical characteristics = isotropic
+ ingeo: angdeg(1:3)=   60.00000000   60.00000000   60.00000000
+ invars1 : treat image number: 1
+
+ symlatt : the Bravais lattice is mC (one-face-centered monoclinic)
+  xred   is defined in input file
+ ingeo: takes atomic coordinates from input array xred
+
+ symlatt : the Bravais lattice is mC (one-face-centered monoclinic)
+
+ symlatt : the Bravais lattice is mC (one-face-centered monoclinic)
+ symspgr : spgroup=   8  Cm   (=Cs^3)
+ ingeo: angdeg(1:3)=   59.66906667   59.83467117   59.83467117
+ invars1 : treat image number: 1
+
+ symlatt : the Bravais lattice is mC (one-face-centered monoclinic)
+  xred   is defined in input file
+ ingeo: takes atomic coordinates from input array xred
+
+ symlatt : the Bravais lattice is mC (one-face-centered monoclinic)
+
+ symlatt : the Bravais lattice is mC (one-face-centered monoclinic)
+ symspgr : spgroup=   8  Cm   (=Cs^3)
+ ingeo: angdeg(1:3)=   60.33065767   60.16546667   60.16546667
+ invars2: take the default value of fband=  1.25000000E-01
+ chkneu : initialized the occupation numbers for occopt=    1, spin-unpolarized or antiferromagnetic case :
+  2.00  2.00  2.00  2.00  0.00
+ invars2: take the default value of fband=  1.25000000E-01
+ chkneu : initialized the occupation numbers for occopt=    1, spin-unpolarized or antiferromagnetic case :
+  2.00  2.00  2.00  2.00  0.00
+ invars2: take the default value of fband=  1.25000000E-01
+ chkneu : initialized the occupation numbers for occopt=    1, spin-unpolarized or antiferromagnetic case :
+  2.00  2.00  2.00  2.00  0.00
+npfft, npband, npspinor and npkpt:     1    1    1    4
+mpi_setup: mkmem  undefined in the input file.Use default mkmem  = nkpt
+ mpi_setup: With nkpt_me=7 and mkmem  = 28, ground state wf handled in core.
+ Resetting mkmem  to nkpt_me to save memory space.
+mpi_setup: mkqmem undefined in the input file.Use default mkqmem = nkpt
+ mpi_setup: With nkpt_me=7 and mkqmem = 28, ground state wf handled in core.
+ Resetting mkqmem to nkpt_me to save memory space.
+mpi_setup: mk1mem undefined in the input file.Use default mk1mem = nkpt
+ mpi_setup: With nkpt_me=7 and mk1mem = 28, ground state wf handled in core.
+ Resetting mk1mem to nkpt_me to save memory space.
+ For input ecut=  3.087000E+00 best grid ngfft=      12      12      12
+       max ecut=  3.202046E+00
+
+ ==== FFT mesh ====
+  FFT mesh divisions ........................    12   12   12
+  Augmented FFT divisions ...................    13   13   12
+  FFT algorithm .............................   312
+  FFT cache size ............................    16
+ getmpw: optimal value of mpw= 80
+npfft, npband, npspinor and npkpt:     1    1    1    4
+
+--- !WARNING
+src_file: m_mpinfo.F90
+src_line: 2531
+message: |
+    nkpt*nsppol (234) is not a multiple of nproc_kpt (4)
+    The k-point parallelisation is not efficient.
+...
+
+mpi_setup: mkmem  undefined in the input file.Use default mkmem  = nkpt
+ mpi_setup: With nkpt_me=59 and mkmem  = 234, ground state wf handled in core.
+ Resetting mkmem  to nkpt_me to save memory space.
+mpi_setup: mkqmem undefined in the input file.Use default mkqmem = nkpt
+ mpi_setup: With nkpt_me=59 and mkqmem = 234, ground state wf handled in core.
+ Resetting mkqmem to nkpt_me to save memory space.
+mpi_setup: mk1mem undefined in the input file.Use default mk1mem = nkpt
+ mpi_setup: With nkpt_me=59 and mk1mem = 234, ground state wf handled in core.
+ Resetting mk1mem to nkpt_me to save memory space.
+ For input ecut=  3.087000E+00 best grid ngfft=      12      12      12
+       max ecut=  3.170264E+00
+
+ ==== FFT mesh ====
+  FFT mesh divisions ........................    12   12   12
+  Augmented FFT divisions ...................    13   13   12
+  FFT algorithm .............................   312
+  FFT cache size ............................    16
+ getmpw: optimal value of mpw= 80
+npfft, npband, npspinor and npkpt:     1    1    1    4
+
+--- !WARNING
+src_file: m_mpinfo.F90
+src_line: 2531
+message: |
+    nkpt*nsppol (234) is not a multiple of nproc_kpt (4)
+    The k-point parallelisation is not efficient.
+...
+
+mpi_setup: mkmem  undefined in the input file.Use default mkmem  = nkpt
+ mpi_setup: With nkpt_me=59 and mkmem  = 234, ground state wf handled in core.
+ Resetting mkmem  to nkpt_me to save memory space.
+mpi_setup: mkqmem undefined in the input file.Use default mkqmem = nkpt
+ mpi_setup: With nkpt_me=59 and mkqmem = 234, ground state wf handled in core.
+ Resetting mkqmem to nkpt_me to save memory space.
+mpi_setup: mk1mem undefined in the input file.Use default mk1mem = nkpt
+ mpi_setup: With nkpt_me=59 and mk1mem = 234, ground state wf handled in core.
+ Resetting mk1mem to nkpt_me to save memory space.
+ For input ecut=  3.087000E+00 best grid ngfft=      12      12      12
+       max ecut=  3.202206E+00
+
+ ==== FFT mesh ====
+  FFT mesh divisions ........................    12   12   12
+  Augmented FFT divisions ...................    13   13   12
+  FFT algorithm .............................   312
+  FFT cache size ............................    16
+ getmpw: optimal value of mpw= 80
+
+ DATASET    1 : space group F-4 3 m (#216); Bravais cF (face-center cubic)
+
+ getdim_nloc : deduce lmnmax  =   4, lnmax  =   2,
+                      lmnmaxso=   4, lnmaxso=   2.
+memory : analysis of memory needs
+================================================================================
+ Values of the parameters that define the memory need for DATASET  1.
+     intxc =       0    ionmov =       0      iscf =       7    lmnmax =       2
+     lnmax =       2     mgfft =      12  mpssoang =       3    mqgrid =    3001
+     natom =       2  nloc_mem =       1    nspden =       1   nspinor =       1
+    nsppol =       1      nsym =      24    n1xccc =    2501    ntypat =       2
+    occopt =       1   xclevel =       1
+-    mband =           5        mffmem =           1         mkmem =           7
+       mpw =          80          nfft =        1728          nkpt =          28
+================================================================================
+P This job should need less than                       1.366 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+_ WF disk file :      0.173 Mbytes ; DEN or POT disk file :      0.015 Mbytes.
+================================================================================
+
+ Biggest array : f_fftgr(disk), with      0.2129 MBytes.
+ memana : allocated an array of      0.213 Mbytes, for testing purposes.
+ memana: allocated       1.366Mbytes, for testing purposes. 
+ The job will continue.
+
+ DATASET    2 : space group Cm (#  8); Bravais mC (1-face-center monocl.)
+
+ getdim_nloc : deduce lmnmax  =   4, lnmax  =   2,
+                      lmnmaxso=   4, lnmaxso=   2.
+memory : analysis of memory needs
+================================================================================
+ Values of the parameters that define the memory need for DATASET  2.
+     intxc =       0    ionmov =       0      iscf =       7    lmnmax =       2
+     lnmax =       2     mgfft =      12  mpssoang =       3    mqgrid =    3001
+     natom =       2  nloc_mem =       1    nspden =       1   nspinor =       1
+    nsppol =       1      nsym =       2    n1xccc =    2501    ntypat =       2
+    occopt =       1   xclevel =       1
+-    mband =           5        mffmem =           1         mkmem =          59
+       mpw =          80          nfft =        1728          nkpt =         234
+================================================================================
+P This job should need less than                       1.887 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+_ WF disk file :      1.430 Mbytes ; DEN or POT disk file :      0.015 Mbytes.
+================================================================================
+
+ Biggest array : cg(disk), with      0.3621 MBytes.
+ memana : allocated an array of      0.362 Mbytes, for testing purposes.
+ memana: allocated       1.887Mbytes, for testing purposes. 
+ The job will continue.
+
+ DATASET    3 : space group Cm (#  8); Bravais mC (1-face-center monocl.)
+
+ getdim_nloc : deduce lmnmax  =   4, lnmax  =   2,
+                      lmnmaxso=   4, lnmaxso=   2.
+memory : analysis of memory needs
+================================================================================
+ Values of the parameters that define the memory need for DATASET  3.
+     intxc =       0    ionmov =       0      iscf =       7    lmnmax =       2
+     lnmax =       2     mgfft =      12  mpssoang =       3    mqgrid =    3001
+     natom =       2  nloc_mem =       1    nspden =       1   nspinor =       1
+    nsppol =       1      nsym =       2    n1xccc =    2501    ntypat =       2
+    occopt =       1   xclevel =       1
+-    mband =           5        mffmem =           1         mkmem =          59
+       mpw =          80          nfft =        1728          nkpt =         234
+================================================================================
+P This job should need less than                       1.887 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+_ WF disk file :      1.430 Mbytes ; DEN or POT disk file :      0.015 Mbytes.
+================================================================================
+
+ Biggest array : cg(disk), with      0.3621 MBytes.
+ memana : allocated an array of      0.362 Mbytes, for testing purposes.
+ memana: allocated       1.887Mbytes, for testing purposes. 
+ The job will continue.
+--------------------------------------------------------------------------------
+------------- Echo of variables that govern the present computation ------------
+--------------------------------------------------------------------------------
+-
+- outvars: echo of selected default values                                      
+-   iomode0 =  0 , fftalg0 =312 , wfoptalg0 =  0
+-
+- outvars: echo of global parameters not present in the input file              
+-  max_nthreads =    1
+-
+ -outvars: echo values of preprocessed input variables --------
+ 
+ These variables are accessible in NetCDF format (tffield_4o_OUT.nc)
+
+            acell1     7.4485600000E+00  7.4485600000E+00  7.4485600000E+00 Bohr
+            acell2     7.4858028000E+00  7.4485600000E+00  7.4485600000E+00 Bohr
+            acell3     7.4113172000E+00  7.4485600000E+00  7.4485600000E+00 Bohr
+              amu      2.69815390E+01  7.49215900E+01
+         berryopt          -1
+          dilatmx      1.05000000E+00
+             ecut      2.80000000E+00 Hartree
+           ecutsm      5.00000000E-01 Hartree
+-          fftalg         312
+              ixc           3
+           jdtset        1    2    3
+              kpt1    -8.33333333E-02 -1.66666667E-01  0.00000000E+00
+                      -8.33333333E-02 -3.33333333E-01  0.00000000E+00
+                      -1.66666667E-01 -2.50000000E-01  0.00000000E+00
+                      -8.33333333E-02 -2.50000000E-01  8.33333333E-02
+                      -8.33333333E-02  5.00000000E-01  0.00000000E+00
+                      -1.66666667E-01 -4.16666667E-01  0.00000000E+00
+                      -8.33333333E-02 -4.16666667E-01  8.33333333E-02
+                      -2.50000000E-01 -3.33333333E-01  0.00000000E+00
+                      -1.66666667E-01 -3.33333333E-01  8.33333333E-02
+                      -8.33333333E-02 -3.33333333E-01  1.66666667E-01
+                      -8.33333333E-02  3.33333333E-01  0.00000000E+00
+                      -1.66666667E-01  4.16666667E-01  0.00000000E+00
+                      -2.50000000E-01  5.00000000E-01  0.00000000E+00
+                      -1.66666667E-01  5.00000000E-01  8.33333333E-02
+                      -3.33333333E-01 -4.16666667E-01  0.00000000E+00
+                      -2.50000000E-01 -4.16666667E-01  8.33333333E-02
+                      -1.66666667E-01 -4.16666667E-01  1.66666667E-01
+                      -8.33333333E-02 -4.16666667E-01  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  0.00000000E+00
+                      -1.66666667E-01  2.50000000E-01  0.00000000E+00
+                      -2.50000000E-01  3.33333333E-01  0.00000000E+00
+                      -3.33333333E-01  4.16666667E-01  0.00000000E+00
+                      -4.16666667E-01  5.00000000E-01  0.00000000E+00
+                      -3.33333333E-01  5.00000000E-01  8.33333333E-02
+                      -2.50000000E-01  5.00000000E-01  1.66666667E-01
+                      -8.33333333E-02  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  0.00000000E+00
+                      -4.16666667E-01  0.00000000E+00  0.00000000E+00
+              kpt2    -8.33333333E-02  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  0.00000000E+00
+                      -1.66666667E-01  0.00000000E+00  8.33333333E-02
+                      -8.33333333E-02  0.00000000E+00  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  0.00000000E+00
+                      -3.33333333E-01  0.00000000E+00  8.33333333E-02
+                      -2.50000000E-01  0.00000000E+00  1.66666667E-01
+                      -1.66666667E-01  0.00000000E+00  2.50000000E-01
+                      -8.33333333E-02  0.00000000E+00  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  8.33333333E-02
+                      -1.66666667E-01  8.33333333E-02  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  1.66666667E-01
+                      -3.33333333E-01  0.00000000E+00  2.50000000E-01
+                      -2.50000000E-01  0.00000000E+00  3.33333333E-01
+                      -1.66666667E-01  0.00000000E+00  4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00  5.00000000E-01
+                      -4.16666667E-01  8.33333333E-02  8.33333333E-02
+                      -3.33333333E-01  8.33333333E-02  1.66666667E-01
+                      -2.50000000E-01  8.33333333E-02  2.50000000E-01
+                      -1.66666667E-01  8.33333333E-02  3.33333333E-01
+                      -8.33333333E-02  8.33333333E-02  4.16666667E-01
+                      -2.50000000E-01  1.66666667E-01  1.66666667E-01
+                      -1.66666667E-01  1.66666667E-01  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  3.33333333E-01
+                      -8.33333333E-02  2.50000000E-01  2.50000000E-01
+                       3.33333333E-01  0.00000000E+00  8.33333333E-02
+                       4.16666667E-01  0.00000000E+00  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  2.50000000E-01
+                      -4.16666667E-01  0.00000000E+00  3.33333333E-01
+                      -3.33333333E-01  0.00000000E+00  4.16666667E-01
+                      -2.50000000E-01  0.00000000E+00  5.00000000E-01
+                      -1.66666667E-01  0.00000000E+00 -4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00 -3.33333333E-01
+                       4.16666667E-01  8.33333333E-02  8.33333333E-02
+                       5.00000000E-01  8.33333333E-02  1.66666667E-01
+                      -4.16666667E-01  8.33333333E-02  2.50000000E-01
+                      -3.33333333E-01  8.33333333E-02  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  4.16666667E-01
+                      -1.66666667E-01  8.33333333E-02  5.00000000E-01
+                      -8.33333333E-02  8.33333333E-02 -4.16666667E-01
+                      -4.16666667E-01  1.66666667E-01  1.66666667E-01
+                      -3.33333333E-01  1.66666667E-01  2.50000000E-01
+                      -2.50000000E-01  1.66666667E-01  3.33333333E-01
+                      -1.66666667E-01  1.66666667E-01  4.16666667E-01
+                      -8.33333333E-02  1.66666667E-01  5.00000000E-01
+                      -2.50000000E-01  2.50000000E-01  2.50000000E-01
+              kpt3    -8.33333333E-02  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  0.00000000E+00
+                      -1.66666667E-01  0.00000000E+00  8.33333333E-02
+                      -8.33333333E-02  0.00000000E+00  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  0.00000000E+00
+                      -3.33333333E-01  0.00000000E+00  8.33333333E-02
+                      -2.50000000E-01  0.00000000E+00  1.66666667E-01
+                      -1.66666667E-01  0.00000000E+00  2.50000000E-01
+                      -8.33333333E-02  0.00000000E+00  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  8.33333333E-02
+                      -1.66666667E-01  8.33333333E-02  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  1.66666667E-01
+                      -3.33333333E-01  0.00000000E+00  2.50000000E-01
+                      -2.50000000E-01  0.00000000E+00  3.33333333E-01
+                      -1.66666667E-01  0.00000000E+00  4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00  5.00000000E-01
+                      -4.16666667E-01  8.33333333E-02  8.33333333E-02
+                      -3.33333333E-01  8.33333333E-02  1.66666667E-01
+                      -2.50000000E-01  8.33333333E-02  2.50000000E-01
+                      -1.66666667E-01  8.33333333E-02  3.33333333E-01
+                      -8.33333333E-02  8.33333333E-02  4.16666667E-01
+                      -2.50000000E-01  1.66666667E-01  1.66666667E-01
+                      -1.66666667E-01  1.66666667E-01  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  3.33333333E-01
+                      -8.33333333E-02  2.50000000E-01  2.50000000E-01
+                       3.33333333E-01  0.00000000E+00  8.33333333E-02
+                       4.16666667E-01  0.00000000E+00  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  2.50000000E-01
+                      -4.16666667E-01  0.00000000E+00  3.33333333E-01
+                      -3.33333333E-01  0.00000000E+00  4.16666667E-01
+                      -2.50000000E-01  0.00000000E+00  5.00000000E-01
+                      -1.66666667E-01  0.00000000E+00 -4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00 -3.33333333E-01
+                       4.16666667E-01  8.33333333E-02  8.33333333E-02
+                       5.00000000E-01  8.33333333E-02  1.66666667E-01
+                      -4.16666667E-01  8.33333333E-02  2.50000000E-01
+                      -3.33333333E-01  8.33333333E-02  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  4.16666667E-01
+                      -1.66666667E-01  8.33333333E-02  5.00000000E-01
+                      -8.33333333E-02  8.33333333E-02 -4.16666667E-01
+                      -4.16666667E-01  1.66666667E-01  1.66666667E-01
+                      -3.33333333E-01  1.66666667E-01  2.50000000E-01
+                      -2.50000000E-01  1.66666667E-01  3.33333333E-01
+                      -1.66666667E-01  1.66666667E-01  4.16666667E-01
+                      -8.33333333E-02  1.66666667E-01  5.00000000E-01
+                      -2.50000000E-01  2.50000000E-01  2.50000000E-01
+                       outvar_i_n : Printing only first  50 k-points.
+         kptrlatt1       6   -6    6     -6    6    6     -6   -6    6
+         kptrlatt2       6   -6    6      6    6   -6     -6    6    6
+         kptrlatt3       6   -6    6      6    6   -6     -6    6    6
+          kptrlen1     6.32031274E+01
+          kptrlen2     6.32027324E+01
+          kptrlen3     6.32027324E+01
+P           mkmem1          7
+P           mkmem2         59
+P           mkmem3         59
+            natom           2
+            nband1          5
+            nband2          5
+            nband3          5
+           ndtset           3
+            ngfft          12      12      12
+             nkpt1         28
+             nkpt2        234
+             nkpt3        234
+            nstep         100
+             nsym1         24
+             nsym2          2
+             nsym3          2
+           ntypat           2
+              occ1     2.000000  2.000000  2.000000  2.000000  0.000000
+              occ2     2.000000  2.000000  2.000000  2.000000  0.000000
+              occ3     2.000000  2.000000  2.000000  2.000000  0.000000
+            rfdir           1       1       1
+            rprim1     0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710678119E-01  0.0000000000E+00  7.0710678119E-01
+                       7.0710678119E-01  7.0710678119E-01  0.0000000000E+00
+            rprim2     0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710236181E-01  3.5355118091E-03  7.0710236181E-01
+                       7.0710236181E-01  7.0710236181E-01  3.5355118091E-03
+            rprim3     0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710236181E-01 -3.5355118091E-03  7.0710236181E-01
+                       7.0710236181E-01  7.0710236181E-01 -3.5355118091E-03
+           shiftk1     5.00000000E-01  5.00000000E-01  5.00000000E-01
+           shiftk2     5.00000000E-01 -5.00000000E-01  5.00000000E-01
+           shiftk3     5.00000000E-01 -5.00000000E-01  5.00000000E-01
+          spgroup1        216
+          spgroup2          8
+          spgroup3          8
+           symafm1       1    1    1    1    1    1    1    1    1    1
+                         1    1    1    1    1    1    1    1    1    1
+                         1    1    1    1
+           symafm2       1    1
+           symafm3       1    1
+           symrel1     1  0  0   0  1  0   0  0  1       0 -1  1   0 -1  0   1 -1  0
+                      -1  0  0  -1  0  1  -1  1  0       0  1 -1   1  0 -1   0  0 -1
+                      -1  0  0  -1  1  0  -1  0  1       0 -1  1   1 -1  0   0 -1  0
+                       1  0  0   0  0  1   0  1  0       0  1 -1   0  0 -1   1  0 -1
+                      -1  0  1  -1  1  0  -1  0  0       0 -1  0   1 -1  0   0 -1  1
+                       1  0 -1   0  0 -1   0  1 -1       0  1  0   0  0  1   1  0  0
+                       1  0 -1   0  1 -1   0  0 -1       0 -1  0   0 -1  1   1 -1  0
+                      -1  0  1  -1  0  0  -1  1  0       0  1  0   1  0  0   0  0  1
+                       0  0 -1   0  1 -1   1  0 -1       1 -1  0   0 -1  1   0 -1  0
+                       0  0  1   1  0  0   0  1  0      -1  1  0  -1  0  0  -1  0  1
+                       0  0  1   0  1  0   1  0  0       1 -1  0   0 -1  0   0 -1  1
+                       0  0 -1   1  0 -1   0  1 -1      -1  1  0  -1  0  1  -1  0  0
+           symrel2     1  0  0   0  1  0   0  0  1       1  0  0   0  0  1   0  1  0
+           symrel3     1  0  0   0  1  0   0  0  1       1  0  0   0  0  1   0  1  0
+            tnons1     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+            tnons2     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+            tnons3     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+           toldfe      1.00000000E-12 Hartree
+            typat      1  2
+              wtk1       0.02778    0.02778    0.02778    0.05556    0.02778    0.02778
+                         0.05556    0.02778    0.05556    0.05556    0.02778    0.02778
+                         0.02778    0.05556    0.02778    0.05556    0.05556    0.05556
+                         0.02778    0.02778    0.02778    0.02778    0.02778    0.05556
+                         0.05556    0.00926    0.00926    0.00926
+              wtk2       0.00231    0.00231    0.00463    0.00463    0.00231    0.00231
+                         0.00463    0.00463    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00463    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231
+              wtk3       0.00231    0.00231    0.00463    0.00463    0.00231    0.00231
+                         0.00463    0.00463    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00463    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231
+                       outvars : Printing only first  50 k-points.
+           xangst1     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.3935689396E+00  1.3935689396E+00  1.3935689396E+00
+           xangst2     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.3935602298E+00  1.4005324076E+00  1.4005324076E+00
+           xangst3     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.3935602298E+00  1.3865967618E+00  1.3865967618E+00
+            xcart1     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.6334636431E+00  2.6334636431E+00  2.6334636431E+00
+            xcart2     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.6334471840E+00  2.6466226906E+00  2.6466226906E+00
+            xcart3     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.6334471840E+00  2.6202881365E+00  2.6202881365E+00
+             xred      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.5000000000E-01  2.5000000000E-01  2.5000000000E-01
+            znucl       13.00000   33.00000
+
+================================================================================
+
+ chkinp: Checking input parameters for consistency, jdtset=   1.
+
+ chkinp: Checking input parameters for consistency, jdtset=   2.
+
+ chkinp: Checking input parameters for consistency, jdtset=   3.
+ DATA TYPE INFORMATION: 
+ REAL:      Data type name: REAL(DP) 
+            Kind value:      8
+            Precision:      15
+            Smallest nonnegligible quantity relative to 1:  0.22204460E-15
+            Smallest positive number:                       0.22250739-307
+            Largest representable number:                   0.17976931+309
+ INTEGER:   Data type name: INTEGER(default) 
+            Kind value: 4
+            Bit size:   32
+            Largest representable number: 2147483647
+ LOGICAL:   Data type name: LOGICAL 
+            Kind value: 4
+ CHARACTER: Data type name: CHARACTER             Kind value: 1
+
+  ==== OpenMP parallelism is ON ====
+- Max_threads:       1
+- Num_threads:       1
+- Num_procs:         8
+- Dynamic:           F
+- Nested:            F
+ 
+  ==== Using MPI-2 specifications ==== 
+  MPI-IO support is ON
+  xmpi_tag_ub ................   2147483647
+  xmpi_bsize_ch ..............            1
+  xmpi_bsize_int .............            4
+  xmpi_bsize_sp ..............            4
+  xmpi_bsize_dp ..............            8
+  xmpi_bsize_spc .............            8
+  xmpi_bsize_dpc .............           16
+  xmpio_bsize_frm ............            4
+  xmpi_address_kind ..........            8
+  xmpi_offset_kind ...........            8
+  MPI_WTICK ..................    9.9999999999999995E-007
+
+================================================================================
+== DATASET  1 ==================================================================
+-   nproc =    4
+
+
+--- !COMMENT
+src_file: m_xgScalapack.F90
+src_line: 251
+message: |
+    xgScalapack in auto mode
+...
+
+
+ getdim_nloc : deduce lmnmax  =   4, lnmax  =   2,
+                      lmnmaxso=   4, lnmaxso=   2.
+ Exchange-correlation functional for the present dataset will be:
+  LDA: old Teter (4/91) fit to Ceperley-Alder data - ixc=3
+
+ Unit cell volume ucvol=  2.9221464E+02 bohr^3
+ Angles (23,13,12)=  6.00000000E+01  6.00000000E+01  6.00000000E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  12
+         ecut(hartree)=      3.087   => boxcut(ratio)=   2.03693
+ kpgio: loop on k-points done in parallel
+- pspini: atom type   1  psp file is ../../../../../Psps_for_tests/13al.pspnc
+- pspatm: opening atomic psp file    ../../../../../Psps_for_tests/13al.pspnc
+-  Troullier-Martins psp for element  Al        Thu Oct 27 17:31:05 EDT 1994
+- 13.00000   3.00000    940714                znucl, zion, pspdat
+    1    1    2    2      2001   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+
+--- !WARNING
+src_file: m_pspini.F90
+src_line: 1088
+message: |
+    Pseudopotential file pspxc= 1,
+    not equal to input ixc= 3.
+    These parameters must agree to get the same xc 
+    in ABINIT code as in psp construction.
+    Action: check psp design or input file.
+    Assume experienced user. Execution will continue.
+...
+
+    0   4.657  11.889    1   2.2761078        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1   1.829   2.761    1   2.2761078        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    2   0.000   0.000    0   2.2761078        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    2.09673076353074    0.12648111154518    1.01742091001718   rchrg,fchrg,qchrg
+  pspatm : epsatm=    0.22155260
+         --- l  ekb(1:nproj) -->
+             0    2.540658
+             1    1.353815
+ pspatm: atomic psp has been read  and splines computed
+
+- pspini: atom type   2  psp file is ../../../../../Psps_for_tests/33as.pspnc
+- pspatm: opening atomic psp file    ../../../../../Psps_for_tests/33as.pspnc
+-  Troullier-Martins psp for element  As        Thu Oct 27 17:37:14 EDT 1994
+- 33.00000   5.00000    940714                znucl, zion, pspdat
+    1    1    1    1      2001   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+
+--- !WARNING
+src_file: m_pspini.F90
+src_line: 1088
+message: |
+    Pseudopotential file pspxc= 1,
+    not equal to input ixc= 3.
+    These parameters must agree to get the same xc 
+    in ABINIT code as in psp construction.
+    Action: check psp design or input file.
+    Assume experienced user. Execution will continue.
+...
+
+    0   4.772  10.829    1   2.5306160        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    1   2.745   5.580    0   2.5306160        l,e99.0,e99.9,nproj,rcpsp
+   0.00000000   0.00000000   0.00000000   0.00000000     rms, ekb1, ekb2, epsatm
+    2.05731715564010    0.36322996461007    2.76014815959125   rchrg,fchrg,qchrg
+  pspatm : epsatm=   27.20579911
+         --- l  ekb(1:nproj) -->
+             0    0.838751
+ pspatm: atomic psp has been read  and splines computed
+
+   2.19418814E+02                                ecore*ucvol(ha*bohr**3)
+ ==== Info on pseudopotentials ====
+  Norm-conserving pseudopotentials
+  Number of pseudopotentials ..    2
+  Number of types of atoms   ..    2
+  Scalar calculation (no spin-orbit term)
+  Nonlocal part applied using Legendre polynomials
+  Max number of non-local projectors over l and type   1
+  Highest angular momentum +1 .......   3
+  Max number of (l,n)   components ..   2
+  Max number of (l,m,n) components ..   2
+
+ Pseudo-Core Charge Info: 
+   Number of radial points for pseudo-core charge .. 2501
+   XC core-correction treatment (optnlxccc) ........    1
+   Radius for pseudo-core charge for each type ..... 
+
+  - Atom type    1 has pseudo-core radius ..  6.2902
+  - Atom type    2 has pseudo-core radius ..  6.1720
+
+ Info on the Q-grid used for form factors in spline form: 
+   Number of q-points for radial functions ffspl ..   3001
+   Number of q-points for vlspl ...................   3001
+   vloc is computed in Reciprocal Space
+   model core charge treated in real-space
+
+  XC functional for type 1 is 1
+  Pseudo valence available: no
+  XC functional for type 2 is 1
+  Pseudo valence available: no
+
+ wfconv:     5 bands initialized randomly with npw=    68, for ikpt=     1
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     2
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     3
+ wfconv:     5 bands initialized randomly with npw=    73, for ikpt=     4
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     5
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=     6
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=     7
+_setup2: Arith. and geom. avg. npw (full set) are      75.602      75.552
+ initro: for itypat=  1, take decay length=      1.2500,
+ initro: indeed, coreel=     10.0000, nval=  3 and densty=  0.0000E+00.
+ initro: for itypat=  2, take decay length=      1.0000,
+ initro: indeed, coreel=     28.0000, nval=  5 and densty=  0.0000E+00.
+  initberry: for direction 1, nkstr =   6, nstr =    144
+  initberry: for direction 2, nkstr =   6, nstr =    144
+  initberry: for direction 3, nkstr =   6, nstr =    144
+
+================================================================================
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  12
+         ecut(hartree)=      2.800   => boxcut(ratio)=   2.13877
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ Total charge density [el/Bohr^3]
+      Maximum=    9.5867E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    2.6890E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  1  -10.081665077715    -1.008E+01 8.646E-03 9.285E-01
+ scprqt: <Vxc>= -3.4634835E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :  0.39530527648982566
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1269E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.0646E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  2  -10.085672415162    -4.007E-03 2.792E-05 2.460E-02
+ scprqt: <Vxc>= -3.4841992E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.00     -0.429E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1523E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1115E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  3  -10.085763857941    -9.144E-05 7.885E-06 1.974E-03
+ scprqt: <Vxc>= -3.4837394E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.03      0.607E-02 -0.318E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1395E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1397E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  4  -10.085769632409    -5.774E-06 4.183E-07 7.244E-05
+ scprqt: <Vxc>= -3.4845401E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.33     -0.317     -0.169E-01  0.800E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1389E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1476E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  5  -10.085769743548    -1.111E-07 9.517E-08 8.982E-07
+ scprqt: <Vxc>= -3.4846685E-01 hartree
+
+ Pulay update with  4 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.26     -0.330      0.656E-01  0.339E-02 -0.164E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     6
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 6
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1387E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1484E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  6  -10.085769745260    -1.712E-09 9.330E-09 1.359E-08
+ scprqt: <Vxc>= -3.4846827E-01 hartree
+
+ Pulay update with  5 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.36     -0.452      0.112     -0.222E-01 -0.111E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     7
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 7
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1388E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1485E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  7  -10.085769745279    -1.933E-11 1.825E-09 3.590E-10
+ scprqt: <Vxc>= -3.4846823E-01 hartree
+
+ Pulay update with  6 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.31     -0.390      0.949E-01 -0.240E-01  0.461E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     8
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 8
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1388E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1485E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  8  -10.085769745279    -5.755E-13 2.096E-10 1.681E-12
+ scprqt: <Vxc>= -3.4846823E-01 hartree
+
+ Pulay update with  7 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.15     -0.187      0.447E-01 -0.104E-01  0.274E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     9
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 9
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1388E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1485E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  9  -10.085769745279     1.421E-14 3.978E-11 1.153E-14
+ scprqt: <Vxc>= -3.4846822E-01 hartree
+
+ At SCF step    9, etot is converged : 
+  for the second time, diff in etot=  1.421E-14 < toldfe=  1.000E-12
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.16667  0.00000  0.00000 (in reduced coordinates)
+ -0.01582  0.01582  0.01582 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.103630179E-01
+               2       -0.228196846E-01
+               3       -0.121822700E-01
+               4        0.453040593E-03
+               5       -0.242128145E-02
+               6        0.431867726E-02
+               7       -0.926266502E-03
+               8        0.732406538E-02
+               9       -0.926266502E-03
+              10        0.431867726E-02
+              11       -0.243010082E-03
+              12        0.145903781E-03
+              13        0.343770018E-02
+              14        0.460263679E-02
+              15        0.794761414E-02
+              16        0.905007187E-02
+              17        0.925925102E-02
+              18        0.905007187E-02
+              19        0.794761414E-02
+              20        0.460263679E-02
+              21        0.343770018E-02
+              22        0.453040593E-03
+              23        0.145903781E-03
+              24        0.460263679E-02
+              25        0.343770018E-02
+              26        0.794761414E-02
+              27        0.715892466E-02
+              28        0.873252340E-02
+              29        0.873252340E-02
+              30        0.902499540E-02
+              31        0.873252340E-02
+              32        0.873252340E-02
+              33        0.715892466E-02
+              34        0.794761414E-02
+              35        0.343770018E-02
+              36        0.460263679E-02
+              37       -0.103630179E-01
+              38       -0.242128145E-02
+              39       -0.926266502E-03
+              40        0.431867726E-02
+              41        0.732406538E-02
+              42        0.905007187E-02
+              43        0.905007187E-02
+              44        0.925925102E-02
+              45        0.794761414E-02
+              46        0.873252340E-02
+              47        0.715892466E-02
+              48        0.873252340E-02
+              49        0.794761414E-02
+              50        0.925925102E-02
+              51        0.905007187E-02
+              52        0.905007187E-02
+              53        0.732406538E-02
+              54        0.431867726E-02
+              55       -0.926266502E-03
+              56       -0.299967732E-01
+              57       -0.228196846E-01
+              58       -0.228196846E-01
+              59       -0.121822700E-01
+              60       -0.103630179E-01
+              61       -0.926266502E-03
+              62       -0.242128145E-02
+              63        0.431867726E-02
+              64        0.453040593E-03
+              65        0.460263679E-02
+              66        0.145903781E-03
+              67        0.343770018E-02
+              68       -0.243010082E-03
+              69        0.343770018E-02
+              70        0.145903781E-03
+              71        0.460263679E-02
+              72        0.453040593E-03
+              73        0.431867726E-02
+              74       -0.242128145E-02
+              75       -0.926266501E-03
+              76       -0.103630179E-01
+              77       -0.121822700E-01
+              78       -0.228196846E-01
+              79       -0.228196846E-01
+              80       -0.103630179E-01
+              81       -0.121822700E-01
+              82       -0.926266502E-03
+              83       -0.926266501E-03
+              84        0.732406538E-02
+              85        0.431867726E-02
+              86        0.905007187E-02
+              87        0.460263679E-02
+              88        0.794761414E-02
+              89        0.343770018E-02
+              90        0.715892466E-02
+              91        0.343770018E-02
+              92        0.794761414E-02
+              93        0.460263679E-02
+              94        0.905007187E-02
+              95        0.431867726E-02
+              96        0.732406538E-02
+              97       -0.926266502E-03
+              98       -0.926266502E-03
+              99       -0.121822700E-01
+             100       -0.242128145E-02
+             101        0.453040593E-03
+             102        0.431867726E-02
+             103        0.460263679E-02
+             104        0.905007187E-02
+             105        0.794761414E-02
+             106        0.925925102E-02
+             107        0.873252340E-02
+             108        0.873252340E-02
+             109        0.902499540E-02
+             110        0.873252340E-02
+             111        0.873252340E-02
+             112        0.925925102E-02
+             113        0.794761414E-02
+             114        0.905007187E-02
+             115        0.460263679E-02
+             116        0.431867726E-02
+             117        0.145903781E-03
+             118       -0.243010082E-03
+             119        0.343770018E-02
+             120        0.343770018E-02
+             121        0.715892466E-02
+             122        0.794761414E-02
+             123        0.873252340E-02
+             124        0.925925102E-02
+             125        0.873252340E-02
+             126        0.794761414E-02
+             127        0.715892466E-02
+             128        0.343770018E-02
+             129        0.343770018E-02
+             130        0.145903781E-03
+             131        0.453040593E-03
+             132        0.460263679E-02
+             133        0.431867726E-02
+             134        0.905007187E-02
+             135        0.732406538E-02
+             136        0.905007187E-02
+             137        0.431867726E-02
+             138        0.460263679E-02
+             139       -0.242128145E-02
+             140       -0.103630179E-01
+             141       -0.926266502E-03
+             142       -0.121822700E-01
+             143       -0.926266502E-03
+             144       -0.228196846E-01
+         total        0.203200876E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase     2.032008765E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.479679912E-01
+    Remapping in [-1,1]    -7.479679912E-01
+
+           Polarization    -1.556710090E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.906679648E-01 C/m^2
+
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.00000  0.16667  0.00000 (in reduced coordinates)
+  0.01582 -0.01582  0.01582 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.228196846E-01
+               2       -0.103630179E-01
+               3       -0.121822700E-01
+               4       -0.242128145E-02
+               5       -0.926266502E-03
+               6       -0.926266502E-03
+               7        0.453040593E-03
+               8        0.431867726E-02
+               9        0.732406538E-02
+              10        0.431867726E-02
+              11        0.145903781E-03
+              12        0.460263679E-02
+              13        0.905007187E-02
+              14        0.905007187E-02
+              15        0.460263679E-02
+              16       -0.243010082E-03
+              17        0.343770018E-02
+              18        0.794761414E-02
+              19        0.925925102E-02
+              20        0.794761414E-02
+              21        0.343770018E-02
+              22        0.145903781E-03
+              23        0.343770018E-02
+              24        0.715892466E-02
+              25        0.873252340E-02
+              26        0.873252340E-02
+              27        0.715892466E-02
+              28        0.343770018E-02
+              29        0.453040593E-03
+              30        0.460263679E-02
+              31        0.794761414E-02
+              32        0.873252340E-02
+              33        0.902499540E-02
+              34        0.873252340E-02
+              35        0.794761414E-02
+              36        0.460263679E-02
+              37       -0.242128145E-02
+              38        0.431867726E-02
+              39        0.905007187E-02
+              40        0.925925102E-02
+              41        0.873252340E-02
+              42        0.873252340E-02
+              43        0.925925102E-02
+              44        0.905007187E-02
+              45        0.431867726E-02
+              46       -0.103630179E-01
+              47       -0.926266502E-03
+              48        0.732406538E-02
+              49        0.905007187E-02
+              50        0.794761414E-02
+              51        0.715892466E-02
+              52        0.794761414E-02
+              53        0.905007187E-02
+              54        0.732406538E-02
+              55       -0.926266501E-03
+              56       -0.228196846E-01
+              57       -0.121822700E-01
+              58       -0.926266502E-03
+              59        0.431867726E-02
+              60        0.460263679E-02
+              61        0.343770018E-02
+              62        0.343770018E-02
+              63        0.460263679E-02
+              64        0.431867726E-02
+              65       -0.926266502E-03
+              66       -0.121822700E-01
+              67       -0.299967732E-01
+              68       -0.228196846E-01
+              69       -0.103630179E-01
+              70       -0.242128145E-02
+              71        0.453040593E-03
+              72        0.145903781E-03
+              73       -0.243010082E-03
+              74        0.145903781E-03
+              75        0.453040593E-03
+              76       -0.242128145E-02
+              77       -0.103630179E-01
+              78       -0.228196846E-01
+              79       -0.228196846E-01
+              80       -0.121822700E-01
+              81       -0.926266502E-03
+              82        0.431867726E-02
+              83        0.460263679E-02
+              84        0.343770018E-02
+              85        0.343770018E-02
+              86        0.460263679E-02
+              87        0.431867726E-02
+              88       -0.926266502E-03
+              89       -0.121822700E-01
+              90       -0.103630179E-01
+              91       -0.926266501E-03
+              92        0.732406538E-02
+              93        0.905007187E-02
+              94        0.794761414E-02
+              95        0.715892466E-02
+              96        0.794761414E-02
+              97        0.905007187E-02
+              98        0.732406538E-02
+              99       -0.926266502E-03
+             100       -0.242128145E-02
+             101        0.431867726E-02
+             102        0.905007187E-02
+             103        0.925925102E-02
+             104        0.873252340E-02
+             105        0.873252340E-02
+             106        0.925925102E-02
+             107        0.905007187E-02
+             108        0.431867726E-02
+             109        0.453040593E-03
+             110        0.460263679E-02
+             111        0.794761414E-02
+             112        0.873252340E-02
+             113        0.902499540E-02
+             114        0.873252340E-02
+             115        0.794761414E-02
+             116        0.460263679E-02
+             117        0.145903781E-03
+             118        0.343770018E-02
+             119        0.715892466E-02
+             120        0.873252340E-02
+             121        0.873252340E-02
+             122        0.715892466E-02
+             123        0.343770018E-02
+             124       -0.243010082E-03
+             125        0.343770018E-02
+             126        0.794761414E-02
+             127        0.925925102E-02
+             128        0.794761414E-02
+             129        0.343770018E-02
+             130        0.145903781E-03
+             131        0.460263679E-02
+             132        0.905007187E-02
+             133        0.905007187E-02
+             134        0.460263679E-02
+             135        0.453040593E-03
+             136        0.431867726E-02
+             137        0.732406538E-02
+             138        0.431867726E-02
+             139       -0.242128145E-02
+             140       -0.926266502E-03
+             141       -0.926266502E-03
+             142       -0.103630179E-01
+             143       -0.121822700E-01
+             144       -0.228196846E-01
+         total        0.203200876E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase     2.032008765E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.479679912E-01
+    Remapping in [-1,1]    -7.479679912E-01
+
+           Polarization    -1.556710090E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.906679648E-01 C/m^2
+
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.00000  0.00000  0.16667 (in reduced coordinates)
+  0.01582  0.01582 -0.01582 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.121822700E-01
+               2       -0.121822700E-01
+               3       -0.228196846E-01
+               4        0.431867726E-02
+               5       -0.926266502E-03
+               6       -0.926266502E-03
+               7       -0.926266502E-03
+               8       -0.103630179E-01
+               9        0.431867726E-02
+              10       -0.926266502E-03
+              11        0.343770018E-02
+              12        0.905007187E-02
+              13        0.460263679E-02
+              14        0.431867726E-02
+              15        0.732406538E-02
+              16        0.431867726E-02
+              17       -0.242128145E-02
+              18        0.905007187E-02
+              19        0.732406538E-02
+              20        0.343770018E-02
+              21        0.460263679E-02
+              22        0.460263679E-02
+              23        0.715892466E-02
+              24        0.343770018E-02
+              25        0.925925102E-02
+              26        0.794761414E-02
+              27        0.460263679E-02
+              28        0.905007187E-02
+              29        0.460263679E-02
+              30        0.453040593E-03
+              31        0.925925102E-02
+              32        0.905007187E-02
+              33        0.715892466E-02
+              34        0.794761414E-02
+              35        0.460263679E-02
+              36        0.343770018E-02
+              37       -0.926266501E-03
+              38        0.905007187E-02
+              39        0.431867726E-02
+              40        0.873252340E-02
+              41        0.794761414E-02
+              42        0.873252340E-02
+              43        0.873252340E-02
+              44        0.343770018E-02
+              45        0.794761414E-02
+              46        0.343770018E-02
+              47        0.145903781E-03
+              48        0.873252340E-02
+              49        0.794761414E-02
+              50        0.873252340E-02
+              51        0.873252340E-02
+              52        0.905007187E-02
+              53        0.794761414E-02
+              54       -0.926266502E-03
+              55        0.431867726E-02
+              56       -0.228196846E-01
+              57       -0.926266502E-03
+              58       -0.121822700E-01
+              59        0.905007187E-02
+              60        0.732406538E-02
+              61        0.873252340E-02
+              62        0.925925102E-02
+              63        0.873252340E-02
+              64        0.902499540E-02
+              65        0.343770018E-02
+              66        0.715892466E-02
+              67        0.343770018E-02
+              68       -0.243010082E-03
+              69        0.873252340E-02
+              70        0.715892466E-02
+              71        0.873252340E-02
+              72        0.902499540E-02
+              73        0.905007187E-02
+              74        0.925925102E-02
+              75       -0.926266501E-03
+              76        0.732406538E-02
+              77       -0.228196846E-01
+              78       -0.121822700E-01
+              79       -0.242128145E-02
+              80       -0.103630179E-01
+              81        0.460263679E-02
+              82        0.431867726E-02
+              83        0.715892466E-02
+              84        0.794761414E-02
+              85        0.925925102E-02
+              86        0.873252340E-02
+              87        0.460263679E-02
+              88        0.794761414E-02
+              89        0.460263679E-02
+              90        0.145903781E-03
+              91        0.925925102E-02
+              92        0.794761414E-02
+              93        0.715892466E-02
+              94        0.873252340E-02
+              95        0.460263679E-02
+              96        0.794761414E-02
+              97       -0.242128145E-02
+              98        0.431867726E-02
+              99       -0.103630179E-01
+             100        0.145903781E-03
+             101        0.453040593E-03
+             102        0.343770018E-02
+             103        0.343770018E-02
+             104        0.905007187E-02
+             105        0.794761414E-02
+             106        0.431867726E-02
+             107        0.905007187E-02
+             108        0.431867726E-02
+             109        0.453040593E-03
+             110        0.905007187E-02
+             111        0.905007187E-02
+             112        0.343770018E-02
+             113        0.794761414E-02
+             114        0.145903781E-03
+             115        0.343770018E-02
+             116        0.453040593E-03
+             117        0.145903781E-03
+             118       -0.243010082E-03
+             119        0.431867726E-02
+             120        0.460263679E-02
+             121       -0.926266502E-03
+             122        0.732406538E-02
+             123       -0.926266502E-03
+             124       -0.242128145E-02
+             125        0.431867726E-02
+             126        0.732406538E-02
+             127        0.145903781E-03
+             128        0.460263679E-02
+             129       -0.243010082E-03
+             130       -0.242128145E-02
+             131        0.453040593E-03
+             132       -0.121822700E-01
+             133       -0.926266502E-03
+             134       -0.121822700E-01
+             135       -0.103630179E-01
+             136       -0.242128145E-02
+             137       -0.926266502E-03
+             138        0.453040593E-03
+             139       -0.228196846E-01
+             140       -0.103630179E-01
+             141       -0.228196846E-01
+             142       -0.228196846E-01
+             143       -0.103630179E-01
+             144       -0.299967732E-01
+         total        0.203200876E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase     2.032008765E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.479679912E-01
+    Remapping in [-1,1]    -7.479679912E-01
+
+           Polarization    -1.556710090E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.906679648E-01 C/m^2
+
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.38821517E-09  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.38821517E-09  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -1.38821517E-09  sigma(2 1)=  0.00000000E+00
+
+ fftdatar_write: About to write data to: tffield_4o_DS1_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+
+ === Gap info ===
+  >>>> For spin  1
+   Minimum optical gap =   2.9963 [eV], located at k-point      :  -0.0833  0.0000  0.0000
+   Fundamental gap     =   1.5661 [eV], Top of valence bands at :  -0.0833  0.0000  0.0000
+                                        Bottom of conduction at :  -0.4167  0.5000  0.0000
+ Mean square residual over all n,k,spin=   28.610E-14; max=  39.775E-12
+  -0.0833 -0.1667  0.0000    1  3.97755E-11 kpt; spin; max resid(k); each band:
+  1.28E-16 4.20E-17 2.44E-19 1.30E-17 3.98E-11
+  -0.0833 -0.3333  0.0000    1  1.34293E-16 kpt; spin; max resid(k); each band:
+  1.11E-16 5.21E-17 1.34E-19 2.61E-17 1.34E-16
+  -0.1667 -0.2500  0.0000    1  1.10921E-16 kpt; spin; max resid(k); each band:
+  8.84E-17 5.38E-17 1.37E-17 1.16E-19 1.11E-16
+  -0.0833 -0.2500  0.0833    1  8.15925E-15 kpt; spin; max resid(k); each band:
+  9.48E-17 5.03E-17 2.62E-17 4.83E-18 8.16E-15
+  -0.0833  0.5000  0.0000    1  1.22283E-16 kpt; spin; max resid(k); each band:
+  8.53E-17 3.52E-17 2.47E-17 1.02E-18 1.22E-16
+  -0.1667 -0.4167  0.0000    1  7.51706E-17 kpt; spin; max resid(k); each band:
+  7.52E-17 4.04E-17 2.58E-17 1.38E-18 6.69E-17
+  -0.0833 -0.4167  0.0833    1  1.26842E-15 kpt; spin; max resid(k); each band:
+  7.81E-17 3.90E-17 3.45E-17 1.69E-18 1.27E-15
+  -0.2500 -0.3333  0.0000    1  8.86117E-17 kpt; spin; max resid(k); each band:
+  8.86E-17 4.98E-17 1.00E-17 1.29E-18 6.13E-17
+  -0.1667 -0.3333  0.0833    1  8.27495E-17 kpt; spin; max resid(k); each band:
+  7.90E-17 4.57E-17 2.63E-17 7.23E-18 8.27E-17
+  -0.0833 -0.3333  0.1667    1  2.60737E-13 kpt; spin; max resid(k); each band:
+  5.08E-17 4.28E-17 1.63E-17 1.77E-17 2.61E-13
+  -0.0833  0.3333  0.0000    1  1.23023E-16 kpt; spin; max resid(k); each band:
+  1.04E-16 4.96E-17 2.07E-17 8.27E-19 1.23E-16
+  -0.1667  0.4167  0.0000    1  7.16807E-17 kpt; spin; max resid(k); each band:
+  5.46E-17 2.80E-17 2.34E-17 1.19E-18 7.17E-17
+  -0.2500  0.5000  0.0000    1  5.15130E-17 kpt; spin; max resid(k); each band:
+  5.15E-17 2.79E-17 1.60E-17 1.12E-18 4.84E-17
+  -0.1667  0.5000  0.0833    1  7.43297E-17 kpt; spin; max resid(k); each band:
+  4.18E-17 2.34E-17 2.35E-17 1.59E-17 7.43E-17
+  -0.3333 -0.4167  0.0000    1  7.35306E-17 kpt; spin; max resid(k); each band:
+  7.35E-17 3.10E-17 7.93E-18 9.12E-19 6.30E-17
+  -0.2500 -0.4167  0.0833    1  6.80504E-17 kpt; spin; max resid(k); each band:
+  6.11E-17 3.01E-17 1.63E-17 1.62E-17 6.81E-17
+  -0.1667 -0.4167  0.1667    1  2.29930E-15 kpt; spin; max resid(k); each band:
+  2.84E-17 2.53E-17 2.56E-17 4.06E-17 2.30E-15
+  -0.0833 -0.4167  0.2500    1  6.98132E-17 kpt; spin; max resid(k); each band:
+  3.07E-17 1.87E-17 9.78E-18 2.38E-17 6.98E-17
+  -0.0833  0.1667  0.0000    1  1.44649E-16 kpt; spin; max resid(k); each band:
+  1.29E-16 4.65E-17 1.10E-17 2.25E-19 1.45E-16
+  -0.1667  0.2500  0.0000    1  9.18581E-17 kpt; spin; max resid(k); each band:
+  8.58E-17 4.90E-17 1.65E-17 1.01E-19 9.19E-17
+  -0.2500  0.3333  0.0000    1  4.40571E-17 kpt; spin; max resid(k); each band:
+  4.41E-17 3.09E-17 1.40E-17 1.19E-18 4.32E-17
+  -0.3333  0.4167  0.0000    1  4.50574E-17 kpt; spin; max resid(k); each band:
+  3.35E-17 1.55E-17 5.81E-18 9.73E-19 4.51E-17
+  -0.4167  0.5000  0.0000    1  6.07278E-17 kpt; spin; max resid(k); each band:
+  5.12E-17 8.47E-18 8.38E-18 7.10E-19 6.07E-17
+  -0.3333  0.5000  0.0833    1  7.42726E-17 kpt; spin; max resid(k); each band:
+  3.91E-17 1.11E-17 1.00E-17 2.39E-17 7.43E-17
+  -0.2500  0.5000  0.1667    1  1.03816E-16 kpt; spin; max resid(k); each band:
+  2.09E-17 8.34E-18 1.03E-17 5.66E-17 1.04E-16
+  -0.0833  0.0000  0.0000    1  1.81461E-16 kpt; spin; max resid(k); each band:
+  1.80E-16 2.62E-17 4.10E-19 4.10E-19 1.81E-16
+  -0.2500  0.0000  0.0000    1  1.24091E-16 kpt; spin; max resid(k); each band:
+  1.24E-16 5.21E-17 2.16E-19 2.16E-19 1.09E-16
+  -0.4167  0.0000  0.0000    1  1.23407E-16 kpt; spin; max resid(k); each band:
+  9.97E-17 4.33E-17 8.19E-19 8.19E-19 1.23E-16
+
+ outwf: write wavefunction to file tffield_4o_DS1_WFK, with iomode -1
+ outwf with iomode: -1, cpu_time:     0.00[s], walltime:     0.00 [s]
+ prteigrs : about to open file tffield_4o_DS1_EIG
+ Fermi (or HOMO) energy (hartree) =   0.09055   Average Vxc (hartree)=  -0.34847
+ Eigenvalues (hartree) for nkpt=  28  k points:
+ kpt#   1, nband=  5, wtk=  0.02778, kpt= -0.0833 -0.1667  0.0000 (reduced coord)
+  -0.34045    0.02813    0.07395    0.07828    0.22106
+ kpt#   2, nband=  5, wtk=  0.02778, kpt= -0.0833 -0.3333  0.0000 (reduced coord)
+  -0.31627   -0.06164    0.05874    0.05993    0.20434
+ kpt#   3, nband=  5, wtk=  0.02778, kpt= -0.1667 -0.2500  0.0000 (reduced coord)
+  -0.32707   -0.01117    0.05196    0.05242    0.20295
+ kpt#   4, nband=  5, wtk=  0.05556, kpt= -0.0833 -0.2500  0.0833 (reduced coord)
+  -0.32137   -0.03551    0.03392    0.06843    0.22599
+ kpt#   5, nband=  5, wtk=  0.02778, kpt= -0.0833  0.5000  0.0000 (reduced coord)
+  -0.29352   -0.11372    0.04513    0.05727    0.19454
+ kpt#   6, nband=  5, wtk=  0.02778, kpt= -0.1667 -0.4167  0.0000 (reduced coord)
+  -0.30065   -0.08223    0.02462    0.04308    0.20234
+ kpt#   7, nband=  5, wtk=  0.05556, kpt= -0.0833 -0.4167  0.0833 (reduced coord)
+  -0.29479   -0.10011    0.02001    0.05191    0.21628
+ kpt#   8, nband=  5, wtk=  0.02778, kpt= -0.2500 -0.3333  0.0000 (reduced coord)
+  -0.30841   -0.04767    0.02721    0.03330    0.17929
+ kpt#   9, nband=  5, wtk=  0.05556, kpt= -0.1667 -0.3333  0.0833 (reduced coord)
+  -0.30407   -0.06283    0.01120    0.04082    0.20716
+ kpt#  10, nband=  5, wtk=  0.05556, kpt= -0.0833 -0.3333  0.1667 (reduced coord)
+  -0.29601   -0.08032   -0.01071    0.04905    0.23412
+ kpt#  11, nband=  5, wtk=  0.02778, kpt= -0.0833  0.3333  0.0000 (reduced coord)
+  -0.30673   -0.08559    0.04275    0.06828    0.20055
+ kpt#  12, nband=  5, wtk=  0.02778, kpt= -0.1667  0.4167  0.0000 (reduced coord)
+  -0.28850   -0.10766    0.00578    0.05036    0.20624
+ kpt#  13, nband=  5, wtk=  0.02778, kpt= -0.2500  0.5000  0.0000 (reduced coord)
+  -0.28482   -0.09393   -0.01202    0.03086    0.18353
+ kpt#  14, nband=  5, wtk=  0.05556, kpt= -0.1667  0.5000  0.0833 (reduced coord)
+  -0.28385   -0.10246   -0.01036    0.03345    0.21218
+ kpt#  15, nband=  5, wtk=  0.02778, kpt= -0.3333 -0.4167  0.0000 (reduced coord)
+  -0.28847   -0.08099    0.00881    0.01915    0.15967
+ kpt#  16, nband=  5, wtk=  0.05556, kpt= -0.2500 -0.4167  0.0833 (reduced coord)
+  -0.28590   -0.08498   -0.00820    0.01784    0.18769
+ kpt#  17, nband=  5, wtk=  0.05556, kpt= -0.1667 -0.4167  0.1667 (reduced coord)
+  -0.28176   -0.09102   -0.02577    0.01816    0.23611
+ kpt#  18, nband=  5, wtk=  0.05556, kpt= -0.0833 -0.4167  0.2500 (reduced coord)
+  -0.27749   -0.09520   -0.03787    0.02437    0.20336
+ kpt#  19, nband=  5, wtk=  0.02778, kpt= -0.0833  0.1667  0.0000 (reduced coord)
+  -0.33404   -0.00371    0.05766    0.08548    0.21760
+ kpt#  20, nband=  5, wtk=  0.02778, kpt= -0.1667  0.2500  0.0000 (reduced coord)
+  -0.31040   -0.06091    0.01028    0.07038    0.22852
+ kpt#  21, nband=  5, wtk=  0.02778, kpt= -0.2500  0.3333  0.0000 (reduced coord)
+  -0.28621   -0.09193   -0.02895    0.04630    0.20249
+ kpt#  22, nband=  5, wtk=  0.02778, kpt= -0.3333  0.4167  0.0000 (reduced coord)
+  -0.27437   -0.09717   -0.03677    0.02437    0.17210
+ kpt#  23, nband=  5, wtk=  0.02778, kpt= -0.4167  0.5000  0.0000 (reduced coord)
+  -0.27410   -0.10320   -0.00107    0.01142    0.14810
+ kpt#  24, nband=  5, wtk=  0.05556, kpt= -0.3333  0.5000  0.0833 (reduced coord)
+  -0.27321   -0.09885   -0.02044    0.00611    0.17658
+ kpt#  25, nband=  5, wtk=  0.05556, kpt= -0.2500  0.5000  0.1667 (reduced coord)
+  -0.27269   -0.09411   -0.03345   -0.00423    0.22818
+ kpt#  26, nband=  5, wtk=  0.00926, kpt= -0.0833  0.0000  0.0000 (reduced coord)
+  -0.34717    0.06505    0.09055    0.09055    0.20066
+ kpt#  27, nband=  5, wtk=  0.00926, kpt= -0.2500  0.0000  0.0000 (reduced coord)
+  -0.32800   -0.03344    0.07464    0.07464    0.19452
+ kpt#  28, nband=  5, wtk=  0.00926, kpt= -0.4167  0.0000  0.0000 (reduced coord)
+  -0.30036   -0.10572    0.06395    0.06395    0.17951
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1388E-02  at reduced coord.    0.1667    0.1667    0.5000
+ Next maximum=    9.1388E-02  at reduced coord.    0.1667    0.5000    0.1667
+      Minimum=    3.1485E-03  at reduced coord.    0.7500    0.7500    0.7500
+ Next minimum=    3.4934E-03  at reduced coord.    0.5000    0.5000    0.5000
+   Integrated=    8.0000E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.38821517E-09  sigma(3 2)=  0.00000000E+00
+  sigma(2 2)= -1.38821517E-09  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -1.38821517E-09  sigma(2 1)=  0.00000000E+00
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.0843E-05 GPa]
+- sigma(1 1)= -4.08426935E-05  sigma(3 2)=  0.00000000E+00
+- sigma(2 2)= -4.08426934E-05  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -4.08426935E-05  sigma(2 1)=  0.00000000E+00
+
+================================================================================
+== DATASET  2 ==================================================================
+-   nproc =    4
+
+
+--- !COMMENT
+src_file: m_xgScalapack.F90
+src_line: 251
+message: |
+    xgScalapack in auto mode
+...
+
+
+ getdim_nloc : deduce lmnmax  =   4, lnmax  =   2,
+                      lmnmaxso=   4, lnmaxso=   2.
+ Exchange-correlation functional for the present dataset will be:
+  LDA: old Teter (4/91) fit to Ceperley-Alder data - ixc=3
+
+ Unit cell volume ucvol=  2.9220368E+02 bohr^3
+ Angles (23,13,12)=  5.96690667E+01  5.98346712E+01  5.98346712E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  12
+         ecut(hartree)=      3.087   => boxcut(ratio)=   2.02679
+ kpgio: loop on k-points done in parallel
+ wfconv:     5 bands initialized randomly with npw=    65, for ikpt=     1
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     2
+ wfconv:     5 bands initialized randomly with npw=    69, for ikpt=     3
+ wfconv:     5 bands initialized randomly with npw=    69, for ikpt=     4
+ wfconv:     5 bands initialized randomly with npw=    68, for ikpt=     5
+ wfconv:     5 bands initialized randomly with npw=    73, for ikpt=     6
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     7
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=     8
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=     9
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    10
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    11
+ wfconv:     5 bands initialized randomly with npw=    73, for ikpt=    12
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    13
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    14
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    15
+ wfconv:     5 bands initialized randomly with npw=    79, for ikpt=    16
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    17
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    18
+ wfconv:     5 bands initialized randomly with npw=    79, for ikpt=    19
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    20
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    21
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    22
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    23
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    24
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    25
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    26
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    27
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    28
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    29
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    30
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    31
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    32
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    33
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    34
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    35
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    36
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    37
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    38
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    39
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    40
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    41
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    42
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    43
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    44
+ wfconv:     5 bands initialized randomly with npw=    79, for ikpt=    45
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    46
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    47
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    48
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    49
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    50
+_setup2: Arith. and geom. avg. npw (full set) are      75.810      75.758
+ initro: for itypat=  1, take decay length=      1.2500,
+ initro: indeed, coreel=     10.0000, nval=  3 and densty=  0.0000E+00.
+ initro: for itypat=  2, take decay length=      1.0000,
+ initro: indeed, coreel=     28.0000, nval=  5 and densty=  0.0000E+00.
+  initberry: for direction 1, nkstr =   6, nstr =    144
+  initberry: for direction 2, nkstr =   6, nstr =    144
+  initberry: for direction 3, nkstr =   6, nstr =    144
+
+================================================================================
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  12
+         ecut(hartree)=      2.800   => boxcut(ratio)=   2.12813
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ Total charge density [el/Bohr^3]
+      Maximum=    9.6389E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    2.6816E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  1  -10.081563200487    -1.008E+01 1.834E-02 9.316E-01
+ scprqt: <Vxc>= -3.4634068E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :  0.39626120591212660
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1683E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.0654E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  2  -10.085628410986    -4.065E-03 4.346E-03 2.472E-02
+ scprqt: <Vxc>= -3.4842593E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.00     -0.369E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1951E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1121E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  3  -10.085720403852    -9.199E-05 8.418E-04 1.983E-03
+ scprqt: <Vxc>= -3.4837826E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.03      0.593E-02 -0.318E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1825E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1404E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  4  -10.085726222058    -5.818E-06 8.205E-06 7.283E-05
+ scprqt: <Vxc>= -3.4845834E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.33     -0.317     -0.167E-01  0.794E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1818E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1483E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  5  -10.085726334089    -1.120E-07 1.863E-06 9.117E-07
+ scprqt: <Vxc>= -3.4847123E-01 hartree
+
+ Pulay update with  4 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.26     -0.324      0.640E-01  0.323E-02 -0.159E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     6
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 6
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1491E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  6  -10.085726335832    -1.743E-09 5.931E-08 1.397E-08
+ scprqt: <Vxc>= -3.4847265E-01 hartree
+
+ Pulay update with  5 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.28     -0.348      0.826E-01 -0.161E-01 -0.772E-03
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     7
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 7
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  7  -10.085726335852    -1.952E-11 1.283E-08 6.003E-10
+ scprqt: <Vxc>= -3.4847262E-01 hartree
+
+ Pulay update with  6 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.22     -0.224      0.885E-02 -0.143E-02  0.131E-03
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     8
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 8
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  8  -10.085726335853    -1.082E-12 1.685E-09 5.424E-12
+ scprqt: <Vxc>= -3.4847261E-01 hartree
+
+ Pulay update with  7 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.13     -0.132     -0.522E-02  0.671E-02 -0.170E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     9
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 9
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  9  -10.085726335853    -1.954E-14 7.037E-10 2.528E-14
+ scprqt: <Vxc>= -3.4847261E-01 hartree
+
+ Pulay update with  7 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.08     -0.850E-01  0.520E-02  0.548E-04 -0.317E-04
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER    10
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 10
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.5000
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT 10  -10.085726335853     1.066E-14 9.780E-11 4.268E-16
+ scprqt: <Vxc>= -3.4847261E-01 hartree
+
+ At SCF step   10, etot is converged : 
+  for the second time, diff in etot=  1.066E-14 < toldfe=  1.000E-12
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.16667  0.00000  0.00000 (in reduced coordinates)
+ -0.01582  0.01574  0.01574 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.255910768E-01
+               2       -0.187117943E-01
+               3       -0.669124295E-02
+               4       -0.187117943E-01
+               5       -0.180824916E-01
+               6       -0.669124295E-02
+               7        0.796611360E-03
+               8        0.333483311E-02
+               9       -0.764619136E-02
+              10        0.298865891E-02
+              11       -0.764619136E-02
+              12       -0.582816055E-02
+              13        0.796611360E-03
+              14        0.298865891E-02
+              15        0.333483311E-02
+              16        0.284363832E-02
+              17        0.236769330E-02
+              18        0.757574545E-02
+              19        0.750253067E-02
+              20        0.326373984E-02
+              21        0.108979640E-01
+              22        0.326373984E-02
+              23        0.160984839E-02
+              24        0.757574545E-02
+              25        0.108979640E-01
+              26        0.284363832E-02
+              27        0.750253067E-02
+              28        0.236769330E-02
+              29        0.284363832E-02
+              30        0.333483311E-02
+              31        0.613508865E-02
+              32        0.603558232E-02
+              33        0.120556171E-01
+              34        0.106814943E-01
+              35        0.800106430E-02
+              36        0.122311439E-01
+              37        0.800106430E-02
+              38        0.401358412E-02
+              39        0.120556171E-01
+              40        0.122311439E-01
+              41        0.613508865E-02
+              42        0.106814943E-01
+              43        0.284363832E-02
+              44        0.603558232E-02
+              45        0.333483311E-02
+              46        0.796611360E-03
+              47       -0.669124295E-02
+              48        0.725720366E-02
+              49        0.704996274E-02
+              50        0.978816319E-02
+              51        0.105194635E-01
+              52        0.120612957E-01
+              53        0.113517971E-01
+              54        0.793865908E-02
+              55        0.109102920E-01
+              56        0.793865908E-02
+              57        0.344480505E-02
+              58        0.120612957E-01
+              59        0.109102920E-01
+              60        0.978816319E-02
+              61        0.113517971E-01
+              62        0.725720366E-02
+              63        0.105194635E-01
+              64        0.796611360E-03
+              65        0.704996274E-02
+              66       -0.669124295E-02
+              67       -0.187117943E-01
+              68        0.202796973E-02
+              69       -0.888169113E-02
+              70        0.116786130E-01
+              71        0.100522085E-01
+              72        0.112925389E-01
+              73        0.118318449E-01
+              74        0.114102233E-01
+              75        0.116108658E-01
+              76        0.660476595E-02
+              77        0.100699283E-01
+              78        0.660476595E-02
+              79        0.301378660E-02
+              80        0.114102233E-01
+              81        0.100699283E-01
+              82        0.112925389E-01
+              83        0.116108658E-01
+              84        0.116786130E-01
+              85        0.118318449E-01
+              86        0.202796973E-02
+              87        0.100522085E-01
+              88       -0.187117943E-01
+              89       -0.888169113E-02
+              90        0.202796973E-02
+              91        0.116786130E-01
+              92        0.704996274E-02
+              93        0.112925389E-01
+              94        0.105194635E-01
+              95        0.114102233E-01
+              96        0.113517971E-01
+              97        0.660476595E-02
+              98        0.109102920E-01
+              99        0.660476595E-02
+             100        0.344480505E-02
+             101        0.114102233E-01
+             102        0.109102920E-01
+             103        0.112925389E-01
+             104        0.113517971E-01
+             105        0.116786130E-01
+             106        0.105194635E-01
+             107        0.202796973E-02
+             108        0.704996274E-02
+             109        0.725720366E-02
+             110        0.978816319E-02
+             111        0.603558232E-02
+             112        0.120612957E-01
+             113        0.106814943E-01
+             114        0.793865908E-02
+             115        0.122311439E-01
+             116        0.793865908E-02
+             117        0.401358412E-02
+             118        0.120612957E-01
+             119        0.122311439E-01
+             120        0.978816319E-02
+             121        0.106814943E-01
+             122        0.725720366E-02
+             123        0.603558232E-02
+             124        0.613508865E-02
+             125        0.120556171E-01
+             126        0.750253067E-02
+             127        0.800106430E-02
+             128        0.108979640E-01
+             129        0.800106430E-02
+             130        0.160984839E-02
+             131        0.120556171E-01
+             132        0.108979640E-01
+             133        0.613508865E-02
+             134        0.750253067E-02
+             135        0.757574545E-02
+             136        0.326373984E-02
+             137        0.298865891E-02
+             138        0.326373984E-02
+             139       -0.582816055E-02
+             140        0.757574545E-02
+             141        0.298865891E-02
+             142       -0.764619136E-02
+             143       -0.764619136E-02
+             144       -0.180824916E-01
+         total        0.518459240E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase     5.184592398E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.448154076E-01
+    Remapping in [-1,1]    -7.448154076E-01
+
+           Polarization    -1.555361352E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.898962879E-01 C/m^2
+
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.00000  0.16667  0.00000 (in reduced coordinates)
+  0.01582 -0.01590  0.01590 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.269477212E-01
+               2       -0.563512045E-02
+               3       -0.482447433E-02
+               4       -0.508384179E-02
+               5       -0.140330300E-01
+               6       -0.166952896E-01
+               7       -0.255642434E-02
+               8        0.169476125E-02
+               9        0.605136868E-02
+              10        0.589045116E-02
+              11        0.128941263E-02
+              12       -0.244023557E-02
+              13        0.106805775E-02
+              14        0.377155848E-02
+              15        0.663446190E-03
+              16       -0.255642434E-02
+              17        0.835291503E-03
+              18        0.453453625E-02
+              19        0.610584535E-02
+              20        0.606109201E-02
+              21        0.426368107E-02
+              22        0.295196552E-03
+              23       -0.285799888E-02
+              24        0.742812681E-03
+              25        0.520508208E-02
+              26        0.646341359E-02
+              27        0.500337677E-02
+              28        0.295257747E-03
+              29       -0.563512045E-02
+              30        0.156711049E-02
+              31        0.640565513E-02
+              32        0.669066934E-02
+              33        0.618015320E-02
+              34        0.610576937E-02
+              35        0.646326589E-02
+              36        0.589021340E-02
+              37        0.663111523E-03
+              38       -0.244023557E-02
+              39        0.193302311E-02
+              40        0.537637511E-02
+              41        0.618018692E-02
+              42        0.643509451E-02
+              43        0.606104967E-02
+              44        0.500326694E-02
+              45        0.128925638E-02
+              46       -0.269477212E-01
+              47       -0.154994260E-01
+              48       -0.389146018E-02
+              49        0.156684294E-02
+              50        0.193274943E-02
+              51        0.834992432E-03
+              52        0.742451699E-03
+              53        0.169433132E-02
+              54        0.106745617E-02
+              55       -0.482526982E-02
+              56       -0.166960903E-01
+              57       -0.140330300E-01
+              58       -0.389128443E-02
+              59        0.457312470E-02
+              60        0.640554697E-02
+              61        0.537623963E-02
+              62        0.453435746E-02
+              63        0.520483687E-02
+              64        0.605102290E-02
+              65        0.377102325E-02
+              66       -0.508446114E-02
+              67       -0.275560397E-01
+              68       -0.166960903E-01
+              69       -0.482526982E-02
+              70        0.106745617E-02
+              71        0.169433132E-02
+              72        0.742451699E-03
+              73        0.834992432E-03
+              74        0.193274943E-02
+              75        0.156684294E-02
+              76       -0.389146018E-02
+              77       -0.154994260E-01
+              78       -0.344582475E-01
+              79       -0.269481358E-01
+              80       -0.140335890E-01
+              81       -0.563563857E-02
+              82       -0.244066031E-02
+              83       -0.255681213E-02
+              84       -0.285841976E-02
+              85       -0.255681213E-02
+              86       -0.244066031E-02
+              87       -0.563563857E-02
+              88       -0.140335890E-01
+              89       -0.269481358E-01
+              90       -0.641014036E-02
+              91        0.663111523E-03
+              92        0.589021340E-02
+              93        0.646326589E-02
+              94        0.610576937E-02
+              95        0.618015320E-02
+              96        0.669066934E-02
+              97        0.640565513E-02
+              98        0.156711049E-02
+              99       -0.148609067E-01
+             100       -0.508446114E-02
+             101        0.377102325E-02
+             102        0.605102290E-02
+             103        0.520483687E-02
+             104        0.453435746E-02
+             105        0.537623963E-02
+             106        0.640554697E-02
+             107        0.457312470E-02
+             108       -0.389128443E-02
+             109       -0.313857119E-02
+             110        0.295196552E-03
+             111        0.426368107E-02
+             112        0.606109201E-02
+             113        0.610584535E-02
+             114        0.453453625E-02
+             115        0.835291503E-03
+             116       -0.307711690E-02
+             117        0.128925638E-02
+             118        0.500326694E-02
+             119        0.606104967E-02
+             120        0.643509451E-02
+             121        0.618018692E-02
+             122        0.537637511E-02
+             123        0.193302311E-02
+             124       -0.313857119E-02
+             125        0.128941263E-02
+             126        0.589045116E-02
+             127        0.605136868E-02
+             128        0.169476125E-02
+             129       -0.349377964E-02
+             130        0.295257747E-03
+             131        0.500337677E-02
+             132        0.646341359E-02
+             133        0.520508208E-02
+             134        0.742812681E-03
+             135       -0.641014036E-02
+             136       -0.508384179E-02
+             137       -0.482447433E-02
+             138       -0.307711690E-02
+             139        0.663446190E-03
+             140        0.377155848E-02
+             141        0.106805775E-02
+             142       -0.275560397E-01
+             143       -0.148609067E-01
+             144       -0.166952896E-01
+         total       -0.111614089E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase    -1.116140895E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.511161409E-01
+    Remapping in [-1,1]    -7.511161409E-01
+
+           Polarization    -1.558086958E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.914557365E-01 C/m^2
+
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.00000  0.00000  0.16667 (in reduced coordinates)
+  0.01582  0.01590 -0.01590 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.269477212E-01
+               2       -0.563512045E-02
+               3       -0.140330300E-01
+               4       -0.482447433E-02
+               5       -0.166952896E-01
+               6       -0.508384179E-02
+               7       -0.255642434E-02
+               8       -0.244023557E-02
+               9        0.169476125E-02
+              10        0.106805775E-02
+              11        0.605136868E-02
+              12        0.377155848E-02
+              13        0.589045116E-02
+              14        0.663446191E-03
+              15        0.128941263E-02
+              16       -0.255642434E-02
+              17       -0.285799888E-02
+              18        0.835291503E-03
+              19        0.742812681E-03
+              20        0.453453625E-02
+              21        0.520508208E-02
+              22        0.610584535E-02
+              23        0.646341359E-02
+              24        0.606109201E-02
+              25        0.500337677E-02
+              26        0.426368107E-02
+              27        0.295257747E-03
+              28        0.295196552E-03
+              29       -0.563512045E-02
+              30       -0.244023557E-02
+              31        0.156711049E-02
+              32        0.193302311E-02
+              33        0.640565513E-02
+              34        0.537637511E-02
+              35        0.669066934E-02
+              36        0.618018692E-02
+              37        0.618015320E-02
+              38        0.643509451E-02
+              39        0.610576937E-02
+              40        0.606104967E-02
+              41        0.646326589E-02
+              42        0.500326694E-02
+              43        0.589021340E-02
+              44        0.128925638E-02
+              45        0.663111524E-03
+              46       -0.269477212E-01
+              47       -0.140330300E-01
+              48       -0.154994260E-01
+              49       -0.389128443E-02
+              50       -0.389146018E-02
+              51        0.457312470E-02
+              52        0.156684294E-02
+              53        0.640554697E-02
+              54        0.193274943E-02
+              55        0.537623963E-02
+              56        0.834992432E-03
+              57        0.453435746E-02
+              58        0.742451699E-03
+              59        0.520483687E-02
+              60        0.169433132E-02
+              61        0.605102290E-02
+              62        0.106745617E-02
+              63        0.377102325E-02
+              64       -0.482526982E-02
+              65       -0.508446114E-02
+              66       -0.166960903E-01
+              67       -0.344582475E-01
+              68       -0.275560397E-01
+              69       -0.269481358E-01
+              70       -0.166960903E-01
+              71       -0.140335890E-01
+              72       -0.482526982E-02
+              73       -0.563563857E-02
+              74        0.106745617E-02
+              75       -0.244066031E-02
+              76        0.169433132E-02
+              77       -0.255681213E-02
+              78        0.742451699E-03
+              79       -0.285841976E-02
+              80        0.834992432E-03
+              81       -0.255681213E-02
+              82        0.193274943E-02
+              83       -0.244066031E-02
+              84        0.156684294E-02
+              85       -0.563563857E-02
+              86       -0.389146018E-02
+              87       -0.140335890E-01
+              88       -0.154994260E-01
+              89       -0.269481358E-01
+              90       -0.148609067E-01
+              91       -0.641014036E-02
+              92       -0.508446114E-02
+              93        0.663111524E-03
+              94        0.377102325E-02
+              95        0.589021340E-02
+              96        0.605102290E-02
+              97        0.646326589E-02
+              98        0.520483687E-02
+              99        0.610576937E-02
+             100        0.453435746E-02
+             101        0.618015320E-02
+             102        0.537623963E-02
+             103        0.669066934E-02
+             104        0.640554697E-02
+             105        0.640565513E-02
+             106        0.457312470E-02
+             107        0.156711049E-02
+             108       -0.389128443E-02
+             109       -0.307711690E-02
+             110       -0.313857119E-02
+             111        0.128925638E-02
+             112        0.295196552E-03
+             113        0.500326694E-02
+             114        0.426368107E-02
+             115        0.606104967E-02
+             116        0.606109201E-02
+             117        0.643509451E-02
+             118        0.610584535E-02
+             119        0.618018692E-02
+             120        0.453453625E-02
+             121        0.537637511E-02
+             122        0.835291503E-03
+             123        0.193302311E-02
+             124       -0.349377964E-02
+             125       -0.313857119E-02
+             126        0.295257747E-03
+             127        0.128941263E-02
+             128        0.500337677E-02
+             129        0.589045116E-02
+             130        0.646341359E-02
+             131        0.605136868E-02
+             132        0.520508208E-02
+             133        0.169476125E-02
+             134        0.742812681E-03
+             135       -0.307711690E-02
+             136       -0.641014036E-02
+             137        0.663446191E-03
+             138       -0.508384179E-02
+             139        0.377155848E-02
+             140       -0.482447433E-02
+             141        0.106805775E-02
+             142       -0.148609067E-01
+             143       -0.275560397E-01
+             144       -0.166952896E-01
+         total       -0.111614089E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase    -1.116140894E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.511161409E-01
+    Remapping in [-1,1]    -7.511161409E-01
+
+           Polarization    -1.558086958E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.914557365E-01 C/m^2
+
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.81147718E-07  sigma(3 2)=  2.97306527E-05
+  sigma(2 2)= -5.19352145E-07  sigma(3 1)= -9.05970427E-09
+  sigma(3 3)= -5.19352145E-07  sigma(2 1)= -9.05970427E-09
+
+ fftdatar_write: About to write data to: tffield_4o_DS2_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+
+ === Gap info ===
+  >>>> For spin  1
+   Minimum optical gap =   2.9664 [eV], located at k-point      :   0.0000  0.0000  0.0833
+   Fundamental gap     =   1.5231 [eV], Top of valence bands at :  -0.0833  0.0000  0.0000
+                                        Bottom of conduction at :   0.0000  0.4167  0.5000
+ Mean square residual over all n,k,spin=   15.784E-14; max=  97.805E-12
+  -0.0833  0.0000  0.0000    1  1.19282E-18 kpt; spin; max resid(k); each band:
+  8.69E-19 1.58E-19 3.25E-20 3.02E-21 1.19E-18
+  -0.2500  0.0000  0.0000    1  6.67063E-19 kpt; spin; max resid(k); each band:
+  6.20E-19 3.73E-19 1.56E-20 1.47E-21 6.67E-19
+  -0.1667  0.0000  0.0833    1  3.52890E-18 kpt; spin; max resid(k); each band:
+  6.46E-19 3.04E-19 8.01E-20 1.80E-20 3.53E-18
+  -0.0833  0.0000  0.1667    1  1.97260E-18 kpt; spin; max resid(k); each band:
+  6.58E-19 1.99E-19 5.67E-20 1.93E-20 1.97E-18
+  -0.0833  0.0833  0.0833    1  9.78046E-11 kpt; spin; max resid(k); each band:
+  6.18E-19 2.31E-19 1.57E-21 6.49E-20 9.78E-11
+  -0.4167  0.0000  0.0000    1  1.15601E-18 kpt; spin; max resid(k); each band:
+  5.02E-19 3.44E-19 1.36E-20 3.22E-21 1.16E-18
+  -0.3333  0.0000  0.0833    1  8.24248E-19 kpt; spin; max resid(k); each band:
+  5.43E-19 3.76E-19 1.49E-19 2.22E-20 8.24E-19
+  -0.2500  0.0000  0.1667    1  2.24341E-18 kpt; spin; max resid(k); each band:
+  4.91E-19 3.32E-19 1.44E-19 2.21E-20 2.24E-18
+  -0.1667  0.0000  0.2500    1  1.91449E-18 kpt; spin; max resid(k); each band:
+  4.58E-19 1.99E-19 1.11E-19 2.44E-20 1.91E-18
+  -0.0833  0.0000  0.3333    1  6.82282E-19 kpt; spin; max resid(k); each band:
+  5.68E-19 1.71E-19 1.08E-19 2.07E-20 6.82E-19
+  -0.2500  0.0833  0.0833    1  6.66141E-19 kpt; spin; max resid(k); each band:
+  5.31E-19 3.19E-19 8.93E-22 1.54E-19 6.66E-19
+  -0.1667  0.0833  0.1667    1  3.79405E-14 kpt; spin; max resid(k); each band:
+  4.34E-19 2.57E-19 1.75E-19 5.61E-20 3.79E-14
+  -0.0833  0.0833  0.2500    1  1.88694E-16 kpt; spin; max resid(k); each band:
+  5.19E-19 2.41E-19 1.28E-19 3.20E-20 1.89E-16
+  -0.0833  0.1667  0.1667    1  3.57198E-18 kpt; spin; max resid(k); each band:
+  4.20E-19 2.63E-19 9.16E-20 6.20E-22 3.57E-18
+   0.5000  0.0000  0.0833    1  8.24366E-19 kpt; spin; max resid(k); each band:
+  4.29E-19 3.23E-19 1.77E-19 2.95E-20 8.24E-19
+  -0.4167  0.0000  0.1667    1  5.32767E-19 kpt; spin; max resid(k); each band:
+  2.91E-19 2.82E-19 1.80E-19 3.59E-20 5.33E-19
+  -0.3333  0.0000  0.2500    1  3.22397E-19 kpt; spin; max resid(k); each band:
+  2.59E-19 2.34E-19 1.39E-19 4.03E-20 3.22E-19
+  -0.2500  0.0000  0.3333    1  2.78696E-19 kpt; spin; max resid(k); each band:
+  2.74E-19 1.16E-19 1.40E-19 4.16E-20 2.79E-19
+  -0.1667  0.0000  0.4167    1  4.41033E-19 kpt; spin; max resid(k); each band:
+  3.33E-19 7.62E-20 1.48E-19 3.89E-20 4.41E-19
+  -0.0833  0.0000  0.5000    1  9.16417E-19 kpt; spin; max resid(k); each band:
+  5.01E-19 9.37E-20 1.23E-19 3.12E-20 9.16E-19
+  -0.4167  0.0833  0.0833    1  8.32514E-19 kpt; spin; max resid(k); each band:
+  4.01E-19 2.53E-19 1.91E-19 7.90E-21 8.33E-19
+  -0.3333  0.0833  0.1667    1  3.54589E-16 kpt; spin; max resid(k); each band:
+  3.76E-19 2.40E-19 2.43E-19 4.68E-20 3.55E-16
+  -0.2500  0.0833  0.2500    1  5.50247E-17 kpt; spin; max resid(k); each band:
+  3.12E-19 2.79E-19 1.38E-19 1.29E-19 5.50E-17
+  -0.1667  0.0833  0.3333    1  6.86093E-15 kpt; spin; max resid(k); each band:
+  2.78E-19 1.92E-19 1.17E-19 9.14E-20 6.86E-15
+  -0.0833  0.0833  0.4167    1  2.16840E-17 kpt; spin; max resid(k); each band:
+  4.64E-19 1.76E-19 1.63E-19 2.97E-20 2.17E-17
+  -0.2500  0.1667  0.1667    1  3.18483E-19 kpt; spin; max resid(k); each band:
+  3.18E-19 2.05E-19 2.07E-19 9.90E-21 2.65E-19
+  -0.1667  0.1667  0.2500    1  2.19000E-18 kpt; spin; max resid(k); each band:
+  3.37E-19 2.22E-19 1.84E-19 5.04E-20 2.19E-18
+  -0.0833  0.1667  0.3333    1  1.07331E-17 kpt; spin; max resid(k); each band:
+  4.70E-19 2.77E-19 1.39E-19 6.17E-20 1.07E-17
+  -0.0833  0.2500  0.2500    1  4.11177E-19 kpt; spin; max resid(k); each band:
+  4.11E-19 2.56E-19 8.22E-20 9.49E-21 3.93E-19
+   0.3333  0.0000  0.0833    1  8.11830E-19 kpt; spin; max resid(k); each band:
+  5.66E-19 4.04E-19 4.23E-20 1.72E-19 8.12E-19
+   0.4167  0.0000  0.1667    1  4.75415E-19 kpt; spin; max resid(k); each band:
+  3.91E-19 3.44E-19 2.28E-19 4.54E-20 4.75E-19
+   0.5000  0.0000  0.2500    1  4.60035E-19 kpt; spin; max resid(k); each band:
+  2.59E-19 2.51E-19 1.76E-19 5.42E-20 4.60E-19
+  -0.4167  0.0000  0.3333    1  3.12586E-19 kpt; spin; max resid(k); each band:
+  1.75E-19 1.41E-19 1.33E-19 5.83E-20 3.13E-19
+  -0.3333  0.0000  0.4167    1  3.32231E-19 kpt; spin; max resid(k); each band:
+  2.00E-19 6.82E-20 1.13E-19 5.84E-20 3.32E-19
+  -0.2500  0.0000  0.5000    1  2.98180E-19 kpt; spin; max resid(k); each band:
+  2.98E-19 1.00E-19 1.25E-19 5.41E-20 2.79E-19
+  -0.1667  0.0000 -0.4167    1  3.99584E-19 kpt; spin; max resid(k); each band:
+  4.00E-19 1.41E-19 1.26E-19 4.59E-20 3.00E-19
+  -0.0833  0.0000 -0.3333    1  6.53497E-19 kpt; spin; max resid(k); each band:
+  5.76E-19 1.83E-19 3.09E-20 9.29E-20 6.53E-19
+   0.4167  0.0833  0.0833    1  7.30241E-19 kpt; spin; max resid(k); each band:
+  5.14E-19 3.57E-19 1.93E-19 2.45E-21 7.30E-19
+   0.5000  0.0833  0.1667    1  7.17402E-17 kpt; spin; max resid(k); each band:
+  3.79E-19 3.04E-19 2.95E-19 1.02E-20 7.17E-17
+  -0.4167  0.0833  0.2500    1  4.72703E-19 kpt; spin; max resid(k); each band:
+  2.15E-19 2.38E-19 2.16E-19 1.06E-19 4.73E-19
+  -0.3333  0.0833  0.3333    1  4.58852E-19 kpt; spin; max resid(k); each band:
+  1.71E-19 1.62E-19 1.32E-19 1.60E-19 4.59E-19
+  -0.2500  0.0833  0.4167    1  3.27938E-19 kpt; spin; max resid(k); each band:
+  1.96E-19 7.63E-20 1.29E-19 1.68E-19 3.28E-19
+  -0.1667  0.0833  0.5000    1  5.44520E-19 kpt; spin; max resid(k); each band:
+  2.61E-19 7.77E-20 1.39E-19 1.05E-19 5.45E-19
+  -0.0833  0.0833 -0.4167    1  7.29902E-17 kpt; spin; max resid(k); each band:
+  4.60E-19 1.39E-19 1.12E-19 2.79E-20 7.30E-17
+  -0.4167  0.1667  0.1667    1  2.32102E-19 kpt; spin; max resid(k); each band:
+  2.11E-19 1.53E-19 2.32E-19 7.35E-21 2.07E-19
+  -0.3333  0.1667  0.2500    1  4.59989E-19 kpt; spin; max resid(k); each band:
+  1.58E-19 1.29E-19 2.14E-19 5.54E-20 4.60E-19
+  -0.2500  0.1667  0.3333    1  3.29533E-16 kpt; spin; max resid(k); each band:
+  1.30E-19 1.49E-19 1.73E-19 1.79E-19 3.30E-16
+  -0.1667  0.1667  0.4167    1  1.26972E-16 kpt; spin; max resid(k); each band:
+  2.03E-19 1.99E-19 1.60E-19 2.81E-19 1.27E-16
+  -0.0833  0.1667  0.5000    1  7.27721E-19 kpt; spin; max resid(k); each band:
+  3.27E-19 1.92E-19 1.17E-19 1.35E-19 7.28E-19
+  -0.2500  0.2500  0.2500    1  1.98731E-19 kpt; spin; max resid(k); each band:
+  1.99E-19 1.39E-19 1.55E-19 7.47E-21 1.25E-19
+ outwf : prtvol=0 or 1, do not print more k-points.
+
+
+ outwf: write wavefunction to file tffield_4o_DS2_WFK, with iomode -1
+ outwf with iomode: -1, cpu_time:     0.00[s], walltime:     0.00 [s]
+ prteigrs : about to open file tffield_4o_DS2_EIG
+ Fermi (or HOMO) energy (hartree) =   0.09125   Average Vxc (hartree)=  -0.34847
+ Eigenvalues (hartree) for nkpt= 234  k points:
+ kpt#   1, nband=  5, wtk=  0.00231, kpt= -0.0833  0.0000  0.0000 (reduced coord)
+  -0.34720    0.06444    0.09044    0.09125    0.20133
+ kpt#   2, nband=  5, wtk=  0.00231, kpt= -0.2500  0.0000  0.0000 (reduced coord)
+  -0.32824   -0.03403    0.07502    0.07545    0.19572
+ kpt#   3, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000  0.0833 (reduced coord)
+  -0.33412   -0.00429    0.05839    0.08570    0.21823
+ kpt#   4, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000  0.1667 (reduced coord)
+  -0.33396   -0.00312    0.05699    0.08527    0.21675
+ kpt#   5, nband=  5, wtk=  0.00231, kpt= -0.0833  0.0833  0.0833 (reduced coord)
+  -0.34049    0.02750    0.07500    0.07813    0.22267
+ kpt#   6, nband=  5, wtk=  0.00231, kpt= -0.4167  0.0000  0.0000 (reduced coord)
+  -0.30100   -0.10584    0.06463    0.06481    0.18088
+ kpt#   7, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0000  0.0833 (reduced coord)
+  -0.30716   -0.08594    0.04368    0.06887    0.20171
+ kpt#   8, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0000  0.1667 (reduced coord)
+  -0.31055   -0.06124    0.01084    0.07060    0.22905
+ kpt#   9, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000  0.2500 (reduced coord)
+  -0.31026   -0.06056    0.00974    0.07016    0.22786
+ kpt#  10, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000  0.3333 (reduced coord)
+  -0.30631   -0.08524    0.04184    0.06772    0.19936
+ kpt#  11, nband=  5, wtk=  0.00231, kpt= -0.2500  0.0833  0.0833 (reduced coord)
+  -0.31655   -0.06228    0.05987    0.06076    0.20570
+ kpt#  12, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0833  0.1667 (reduced coord)
+  -0.32146   -0.03607    0.03469    0.06883    0.22769
+ kpt#  13, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0833  0.2500 (reduced coord)
+  -0.32128   -0.03496    0.03319    0.06803    0.22432
+ kpt#  14, nband=  5, wtk=  0.00231, kpt= -0.0833  0.1667  0.1667 (reduced coord)
+  -0.32711   -0.01160    0.05140    0.05382    0.20317
+ kpt#  15, nband=  5, wtk=  0.00463, kpt=  0.5000  0.0000  0.0833 (reduced coord)
+  -0.29422   -0.11368    0.04575    0.05792    0.19586
+ kpt#  16, nband=  5, wtk=  0.00463, kpt= -0.4167  0.0000  0.1667 (reduced coord)
+  -0.28904   -0.10762    0.00627    0.05079    0.20696
+ kpt#  17, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0000  0.2500 (reduced coord)
+  -0.28642   -0.09198   -0.02872    0.04647    0.20267
+ kpt#  18, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0000  0.3333 (reduced coord)
+  -0.28599   -0.09186   -0.02916    0.04617    0.20231
+ kpt#  19, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000  0.4167 (reduced coord)
+  -0.28796   -0.10768    0.00533    0.04995    0.20552
+ kpt#  20, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000  0.5000 (reduced coord)
+  -0.29281   -0.11375    0.04454    0.05662    0.19322
+ kpt#  21, nband=  5, wtk=  0.00231, kpt= -0.4167  0.0833  0.0833 (reduced coord)
+  -0.29418   -0.11376    0.04586    0.05828    0.19616
+ kpt#  22, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0833  0.1667 (reduced coord)
+  -0.29526   -0.10039    0.02096    0.05256    0.21819
+ kpt#  23, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0833  0.2500 (reduced coord)
+  -0.29619   -0.08064   -0.01013    0.04925    0.23468
+ kpt#  24, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0833  0.3333 (reduced coord)
+  -0.29584   -0.07999   -0.01126    0.04885    0.23351
+ kpt#  25, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0833  0.4167 (reduced coord)
+  -0.29432   -0.09982    0.01907    0.05128    0.21443
+ kpt#  26, nband=  5, wtk=  0.00231, kpt= -0.2500  0.1667  0.1667 (reduced coord)
+  -0.30096   -0.08280    0.02520    0.04447    0.20384
+ kpt#  27, nband=  5, wtk=  0.00463, kpt= -0.1667  0.1667  0.2500 (reduced coord)
+  -0.30419   -0.06327    0.01165    0.04141    0.20830
+ kpt#  28, nband=  5, wtk=  0.00463, kpt= -0.0833  0.1667  0.3333 (reduced coord)
+  -0.30397   -0.06239    0.01077    0.04026    0.20595
+ kpt#  29, nband=  5, wtk=  0.00231, kpt= -0.0833  0.2500  0.2500 (reduced coord)
+  -0.30846   -0.04790    0.02620    0.03490    0.17958
+ kpt#  30, nband=  5, wtk=  0.00463, kpt=  0.3333  0.0000  0.0833 (reduced coord)
+  -0.31668   -0.06192    0.05920    0.06021    0.20559
+ kpt#  31, nband=  5, wtk=  0.00463, kpt=  0.4167  0.0000  0.1667 (reduced coord)
+  -0.30113   -0.08212    0.02457    0.04346    0.20294
+ kpt#  32, nband=  5, wtk=  0.00463, kpt=  0.5000  0.0000  0.2500 (reduced coord)
+  -0.28525   -0.09353   -0.01222    0.03109    0.18389
+ kpt#  33, nband=  5, wtk=  0.00463, kpt= -0.4167  0.0000  0.3333 (reduced coord)
+  -0.27454   -0.09687   -0.03691    0.02445    0.17225
+ kpt#  34, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0000  0.4167 (reduced coord)
+  -0.27419   -0.09744   -0.03662    0.02432    0.17197
+ kpt#  35, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0000  0.5000 (reduced coord)
+  -0.28439   -0.09432   -0.01180    0.03065    0.18320
+ kpt#  36, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000 -0.4167 (reduced coord)
+  -0.30016   -0.08233    0.02471    0.04269    0.20176
+ kpt#  37, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000 -0.3333 (reduced coord)
+  -0.31586   -0.06135    0.05820    0.05979    0.20308
+ kpt#  38, nband=  5, wtk=  0.00231, kpt=  0.4167  0.0833  0.0833 (reduced coord)
+  -0.30737   -0.08570    0.04282    0.06899    0.20235
+ kpt#  39, nband=  5, wtk=  0.00463, kpt=  0.5000  0.0833  0.1667 (reduced coord)
+  -0.29550   -0.09996    0.02029    0.05243    0.21802
+ kpt#  40, nband=  5, wtk=  0.00463, kpt= -0.4167  0.0833  0.2500 (reduced coord)
+  -0.28443   -0.10224   -0.00992    0.03358    0.21306
+ kpt#  41, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0833  0.3333 (reduced coord)
+  -0.27773   -0.09511   -0.03766    0.02440    0.20365
+ kpt#  42, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0833  0.4167 (reduced coord)
+  -0.27726   -0.09527   -0.03807    0.02437    0.20311
+ kpt#  43, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0833  0.5000 (reduced coord)
+  -0.28327   -0.10268   -0.01077    0.03333    0.21133
+ kpt#  44, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0833 -0.4167 (reduced coord)
+  -0.29408   -0.10026    0.01973    0.05143    0.21457
+ kpt#  45, nband=  5, wtk=  0.00231, kpt= -0.4167  0.1667  0.1667 (reduced coord)
+  -0.28923   -0.10756    0.00613    0.05144    0.20790
+ kpt#  46, nband=  5, wtk=  0.00463, kpt= -0.3333  0.1667  0.2500 (reduced coord)
+  -0.28439   -0.10257   -0.00986    0.03431    0.21413
+ kpt#  47, nband=  5, wtk=  0.00463, kpt= -0.2500  0.1667  0.3333 (reduced coord)
+  -0.28198   -0.09120   -0.02536    0.01838    0.23774
+ kpt#  48, nband=  5, wtk=  0.00463, kpt= -0.1667  0.1667  0.4167 (reduced coord)
+  -0.28156   -0.09082   -0.02614    0.01795    0.23438
+ kpt#  49, nband=  5, wtk=  0.00463, kpt= -0.0833  0.1667  0.5000 (reduced coord)
+  -0.28331   -0.10234   -0.01085    0.03263    0.21028
+ kpt#  50, nband=  5, wtk=  0.00231, kpt= -0.2500  0.2500  0.2500 (reduced coord)
+  -0.28520   -0.09431   -0.01187    0.03240    0.18517
+ prteigrs : prtvol=0 or 1, do not print more k-points.
+
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.5000
+ Next maximum=    9.1817E-02  at reduced coord.    0.1667    0.5000    0.1667
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+ Next minimum=    3.4939E-03  at reduced coord.    0.5000    0.5000    0.5000
+   Integrated=    8.0000E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.81147718E-07  sigma(3 2)=  2.97306527E-05
+  sigma(2 2)= -5.19352145E-07  sigma(3 1)= -9.05970427E-09
+  sigma(3 3)= -5.19352145E-07  sigma(2 1)= -9.05970427E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3924E-02 GPa]
+- sigma(1 1)= -1.12137511E-02  sigma(3 2)=  8.74705856E-01
+- sigma(2 2)= -1.52798651E-02  sigma(3 1)= -2.66545657E-04
+- sigma(3 3)= -1.52798651E-02  sigma(2 1)= -2.66545657E-04
+
+================================================================================
+== DATASET  3 ==================================================================
+-   nproc =    4
+
+
+--- !COMMENT
+src_file: m_xgScalapack.F90
+src_line: 251
+message: |
+    xgScalapack in auto mode
+...
+
+
+ getdim_nloc : deduce lmnmax  =   4, lnmax  =   2,
+                      lmnmaxso=   4, lnmaxso=   2.
+ Exchange-correlation functional for the present dataset will be:
+  LDA: old Teter (4/91) fit to Ceperley-Alder data - ixc=3
+
+ Unit cell volume ucvol=  2.9220368E+02 bohr^3
+ Angles (23,13,12)=  6.03306577E+01  6.01654667E+01  6.01654667E+01 degrees
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  12
+         ecut(hartree)=      3.087   => boxcut(ratio)=   2.03698
+ kpgio: loop on k-points done in parallel
+ wfconv:     5 bands initialized randomly with npw=    65, for ikpt=     1
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     2
+ wfconv:     5 bands initialized randomly with npw=    69, for ikpt=     3
+ wfconv:     5 bands initialized randomly with npw=    69, for ikpt=     4
+ wfconv:     5 bands initialized randomly with npw=    68, for ikpt=     5
+ wfconv:     5 bands initialized randomly with npw=    73, for ikpt=     6
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=     7
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=     8
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=     9
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    10
+ wfconv:     5 bands initialized randomly with npw=    72, for ikpt=    11
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    12
+ wfconv:     5 bands initialized randomly with npw=    73, for ikpt=    13
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    14
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    15
+ wfconv:     5 bands initialized randomly with npw=    79, for ikpt=    16
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    17
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    18
+ wfconv:     5 bands initialized randomly with npw=    79, for ikpt=    19
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    20
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    21
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    22
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    23
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    24
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    25
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    26
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    27
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    28
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    29
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    30
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    31
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    32
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    33
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    34
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    35
+ wfconv:     5 bands initialized randomly with npw=    75, for ikpt=    36
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    37
+ wfconv:     5 bands initialized randomly with npw=    74, for ikpt=    38
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    39
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    40
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    41
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    42
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    43
+ wfconv:     5 bands initialized randomly with npw=    76, for ikpt=    44
+ wfconv:     5 bands initialized randomly with npw=    79, for ikpt=    45
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    46
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    47
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    48
+ wfconv:     5 bands initialized randomly with npw=    78, for ikpt=    49
+ wfconv:     5 bands initialized randomly with npw=    77, for ikpt=    50
+_setup2: Arith. and geom. avg. npw (full set) are      75.810      75.758
+ initro: for itypat=  1, take decay length=      1.2500,
+ initro: indeed, coreel=     10.0000, nval=  3 and densty=  0.0000E+00.
+ initro: for itypat=  2, take decay length=      1.0000,
+ initro: indeed, coreel=     28.0000, nval=  5 and densty=  0.0000E+00.
+  initberry: for direction 1, nkstr =   6, nstr =    144
+  initberry: for direction 2, nkstr =   6, nstr =    144
+  initberry: for direction 3, nkstr =   6, nstr =    144
+
+================================================================================
+
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  12  12  12
+         ecut(hartree)=      2.800   => boxcut(ratio)=   2.13883
+
+ ITER STEP NUMBER     1
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 1
+ Total charge density [el/Bohr^3]
+      Maximum=    9.6400E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    2.6827E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  1  -10.081579796358    -1.008E+01 6.759E-03 9.315E-01
+ scprqt: <Vxc>= -3.4633423E-01 hartree
+
+Simple mixing update:
+  residual square of the potential :  0.39616472797372781
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     2
+ vtorho : nnsclo_now=2, note that nnsclo,dbl_nnsclo,istep=0 0 2
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1683E-02  at reduced coord.    0.5000    0.1667    0.1667
+      Minimum=    3.0656E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  2  -10.085628906884    -4.049E-03 2.474E-04 2.464E-02
+ scprqt: <Vxc>= -3.4842717E-01 hartree
+
+ Pulay update with  1 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.00     -0.390E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     3
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 3
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1950E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1122E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  3  -10.085720543738    -9.164E-05 1.792E-05 1.977E-03
+ scprqt: <Vxc>= -3.4837859E-01 hartree
+
+ Pulay update with  2 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.03      0.616E-02 -0.318E-01
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     4
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 4
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1824E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1404E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  4  -10.085726331172    -5.787E-06 4.445E-07 7.255E-05
+ scprqt: <Vxc>= -3.4845840E-01 hartree
+
+ Pulay update with  3 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.32     -0.315     -0.167E-01  0.792E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     5
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 5
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1818E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1483E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  5  -10.085726442591    -1.114E-07 1.436E-07 9.254E-07
+ scprqt: <Vxc>= -3.4847120E-01 hartree
+
+ Pulay update with  4 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.26     -0.322      0.631E-01  0.328E-02 -0.158E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     6
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 6
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1491E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  6  -10.085726444356    -1.765E-09 2.385E-08 1.397E-08
+ scprqt: <Vxc>= -3.4847265E-01 hartree
+
+ Pulay update with  5 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.31     -0.381      0.906E-01 -0.175E-01 -0.879E-03
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     7
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 7
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  7  -10.085726444376    -1.941E-11 6.101E-09 5.192E-10
+ scprqt: <Vxc>= -3.4847262E-01 hartree
+
+ Pulay update with  6 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.23     -0.255      0.277E-01 -0.593E-02  0.990E-03
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     8
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 8
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  8  -10.085726444376    -9.344E-13 1.673E-09 4.035E-12
+ scprqt: <Vxc>= -3.4847261E-01 hartree
+
+ Pulay update with  7 previous iterations:
+ mixing of old trial potential : alpha(m:m-4)=   1.11     -0.109     -0.615E-02  0.569E-02 -0.143E-02
+ scfcv_core: previous iteration took 00 [s]
+
+ ITER STEP NUMBER     9
+ vtorho : nnsclo_now=1, note that nnsclo,dbl_nnsclo,istep=0 0 9
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.1667
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+   Integrated=    8.0000E+00
+  rhotov : is_hybrid_ncpp= F
+  rhotov : n3xccc=        1728
+ ETOT  9  -10.085726444376    -5.329E-15 4.087E-10 2.238E-14
+ scprqt: <Vxc>= -3.4847261E-01 hartree
+
+ At SCF step    9, etot is converged : 
+  for the second time, diff in etot=  5.329E-15 < toldfe=  1.000E-12
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.16667  0.00000  0.00000 (in reduced coordinates)
+ -0.01582  0.01590  0.01590 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.344499463E-01
+               2       -0.269400589E-01
+               3       -0.140262180E-01
+               4       -0.269400589E-01
+               5       -0.275476029E-01
+               6       -0.140262180E-01
+               7       -0.562914643E-02
+               8       -0.243484131E-02
+               9       -0.166876637E-01
+              10       -0.481781781E-02
+              11       -0.166876637E-01
+              12       -0.148530516E-01
+              13       -0.562914643E-02
+              14       -0.481781781E-02
+              15       -0.243484131E-02
+              16       -0.255138654E-02
+              17       -0.285312748E-02
+              18        0.107379343E-02
+              19        0.170003324E-02
+              20       -0.507686216E-02
+              21        0.377765996E-02
+              22       -0.507686216E-02
+              23       -0.640319934E-02
+              24        0.107379343E-02
+              25        0.377765996E-02
+              26       -0.255138654E-02
+              27        0.170003324E-02
+              28       -0.285312748E-02
+              29       -0.255138654E-02
+              30       -0.243484131E-02
+              31        0.747777103E-03
+              32        0.840206189E-03
+              33        0.605673241E-02
+              34        0.521010107E-02
+              35        0.669680034E-03
+              36        0.589600956E-02
+              37        0.669680034E-03
+              38       -0.307093893E-02
+              39        0.605673241E-02
+              40        0.589600956E-02
+              41        0.747777103E-03
+              42        0.521010107E-02
+              43       -0.255138654E-02
+              44        0.840206189E-03
+              45       -0.243484131E-02
+              46       -0.562914643E-02
+              47       -0.140262180E-01
+              48        0.193815269E-02
+              49        0.157255770E-02
+              50        0.453943222E-02
+              51        0.538127810E-02
+              52        0.646848988E-02
+              53        0.611071200E-02
+              54        0.129518260E-02
+              55        0.500863174E-02
+              56        0.129518260E-02
+              57       -0.313280039E-02
+              58        0.646848988E-02
+              59        0.500863174E-02
+              60        0.453943222E-02
+              61        0.611071200E-02
+              62        0.193815269E-02
+              63        0.538127810E-02
+              64       -0.562914643E-02
+              65        0.157255770E-02
+              66       -0.140262180E-01
+              67       -0.269400589E-01
+              68       -0.388518523E-02
+              69       -0.154925098E-01
+              70        0.641081706E-02
+              71        0.457876620E-02
+              72        0.618499255E-02
+              73        0.669560453E-02
+              74        0.606601002E-02
+              75        0.643993438E-02
+              76        0.300780907E-03
+              77        0.426891496E-02
+              78        0.300780907E-03
+              79       -0.348809938E-02
+              80        0.606601002E-02
+              81        0.426891496E-02
+              82        0.618499255E-02
+              83        0.643993438E-02
+              84        0.641081706E-02
+              85        0.669560453E-02
+              86       -0.388518523E-02
+              87        0.457876620E-02
+              88       -0.269400589E-01
+              89       -0.154925098E-01
+              90       -0.388518523E-02
+              91        0.641081706E-02
+              92        0.157255770E-02
+              93        0.618499255E-02
+              94        0.538127810E-02
+              95        0.606601002E-02
+              96        0.611071200E-02
+              97        0.300780907E-03
+              98        0.500863174E-02
+              99        0.300780907E-03
+             100       -0.313280039E-02
+             101        0.606601002E-02
+             102        0.500863174E-02
+             103        0.618499255E-02
+             104        0.611071200E-02
+             105        0.641081706E-02
+             106        0.538127810E-02
+             107       -0.388518523E-02
+             108        0.157255770E-02
+             109        0.193815269E-02
+             110        0.453943222E-02
+             111        0.840206189E-03
+             112        0.646848988E-02
+             113        0.521010107E-02
+             114        0.129518260E-02
+             115        0.589600956E-02
+             116        0.129518260E-02
+             117       -0.307093893E-02
+             118        0.646848988E-02
+             119        0.589600956E-02
+             120        0.453943222E-02
+             121        0.521010107E-02
+             122        0.193815269E-02
+             123        0.840206189E-03
+             124        0.747777103E-03
+             125        0.605673241E-02
+             126        0.170003324E-02
+             127        0.669680034E-03
+             128        0.377765996E-02
+             129        0.669680034E-03
+             130       -0.640319934E-02
+             131        0.605673241E-02
+             132        0.377765996E-02
+             133        0.747777103E-03
+             134        0.170003324E-02
+             135        0.107379343E-02
+             136       -0.507686216E-02
+             137       -0.481781781E-02
+             138       -0.507686216E-02
+             139       -0.148530516E-01
+             140        0.107379343E-02
+             141       -0.481781781E-02
+             142       -0.166876637E-01
+             143       -0.166876637E-01
+             144       -0.275476029E-01
+         total       -0.111026851E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase    -1.110268507E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.511102685E-01
+    Remapping in [-1,1]    -7.511102685E-01
+
+           Polarization    -1.558084514E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.914543385E-01 C/m^2
+
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.00000  0.16667  0.00000 (in reduced coordinates)
+  0.01582 -0.01574  0.01574 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.187195681E-01
+               2        0.790530937E-03
+               3        0.298185706E-02
+               4        0.325659407E-02
+               5       -0.669818992E-02
+               6       -0.765400309E-02
+               7        0.283855903E-02
+               8        0.749722401E-02
+               9        0.120501851E-01
+              10        0.122254867E-01
+              11        0.793279790E-02
+              12        0.332940568E-02
+              13        0.756992287E-02
+              14        0.108917397E-01
+              15        0.799470705E-02
+              16        0.283855903E-02
+              17        0.603063212E-02
+              18        0.978321738E-02
+              19        0.113469187E-01
+              20        0.114052635E-01
+              21        0.100646285E-01
+              22        0.659910070E-02
+              23        0.236277211E-02
+              24        0.613007217E-02
+              25        0.106764604E-01
+              26        0.120561660E-01
+              27        0.109049555E-01
+              28        0.659916007E-02
+              29        0.790530937E-03
+              30        0.704449517E-02
+              31        0.116734399E-01
+              32        0.118268642E-01
+              33        0.112876543E-01
+              34        0.113468473E-01
+              35        0.120560289E-01
+              36        0.122252678E-01
+              37        0.799440135E-02
+              38        0.332940568E-02
+              39        0.725205684E-02
+              40        0.105145225E-01
+              41        0.112876843E-01
+              42        0.116060102E-01
+              43        0.114052223E-01
+              44        0.109048569E-01
+              45        0.793265185E-02
+              46       -0.187195681E-01
+              47       -0.888869702E-02
+              48        0.202163469E-02
+              49        0.704424329E-02
+              50        0.725180421E-02
+              51        0.603035919E-02
+              52        0.612973876E-02
+              53        0.749682533E-02
+              54        0.756936588E-02
+              55        0.298113344E-02
+              56       -0.765472397E-02
+              57       -0.669818992E-02
+              58        0.202179261E-02
+              59        0.100465541E-01
+              60        0.116733375E-01
+              61        0.105143890E-01
+              62        0.978305095E-02
+              63        0.106762285E-01
+              64        0.120498640E-01
+              65        0.108912448E-01
+              66        0.325602865E-02
+              67       -0.180910369E-01
+              68       -0.765472397E-02
+              69        0.298113344E-02
+              70        0.756936588E-02
+              71        0.749682533E-02
+              72        0.612973876E-02
+              73        0.603035919E-02
+              74        0.725180421E-02
+              75        0.704424329E-02
+              76        0.202163469E-02
+              77       -0.888869702E-02
+              78       -0.255993936E-01
+              79       -0.187199277E-01
+              80       -0.669868863E-02
+              81        0.790057573E-03
+              82        0.332900885E-02
+              83        0.283820643E-02
+              84        0.236239172E-02
+              85        0.283820643E-02
+              86        0.332900885E-02
+              87        0.790057573E-03
+              88       -0.669868863E-02
+              89       -0.187199277E-01
+              90        0.160275226E-02
+              91        0.799440135E-02
+              92        0.122252678E-01
+              93        0.120560289E-01
+              94        0.113468473E-01
+              95        0.112876543E-01
+              96        0.118268642E-01
+              97        0.116734399E-01
+              98        0.704449517E-02
+              99       -0.583617710E-02
+             100        0.325602865E-02
+             101        0.108912448E-01
+             102        0.120498640E-01
+             103        0.106762285E-01
+             104        0.978305095E-02
+             105        0.105143890E-01
+             106        0.116733375E-01
+             107        0.100465541E-01
+             108        0.202179261E-02
+             109        0.343897859E-02
+             110        0.659910070E-02
+             111        0.100646285E-01
+             112        0.114052635E-01
+             113        0.113469187E-01
+             114        0.978321738E-02
+             115        0.603063212E-02
+             116        0.400729637E-02
+             117        0.793265185E-02
+             118        0.109048569E-01
+             119        0.114052223E-01
+             120        0.116060102E-01
+             121        0.112876843E-01
+             122        0.105145225E-01
+             123        0.725205684E-02
+             124        0.343897859E-02
+             125        0.793279790E-02
+             126        0.122254867E-01
+             127        0.120501851E-01
+             128        0.749722401E-02
+             129        0.300807308E-02
+             130        0.659916007E-02
+             131        0.109049555E-01
+             132        0.120561660E-01
+             133        0.106764604E-01
+             134        0.613007217E-02
+             135        0.160275226E-02
+             136        0.325659407E-02
+             137        0.298185706E-02
+             138        0.400729637E-02
+             139        0.799470705E-02
+             140        0.108917397E-01
+             141        0.756992287E-02
+             142       -0.180910369E-01
+             143       -0.583617710E-02
+             144       -0.765400309E-02
+         total        0.517865824E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase     5.178658236E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.448213418E-01
+    Remapping in [-1,1]    -7.448213418E-01
+
+           Polarization    -1.555364023E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.898978161E-01 C/m^2
+
+
+ Computing the polarization (Berry phase) for reciprocal vector:
+  0.00000  0.00000  0.16667 (in reduced coordinates)
+  0.01582  0.01574 -0.01574 (in cartesian coordinates - atomic units)
+ Number of strings:   144
+ Number of k points in string:    6
+
+ Compute the electronic contribution to polarization
+
+          istr          polberry(istr)
+               1       -0.187195681E-01
+               2        0.790530938E-03
+               3       -0.669818992E-02
+               4        0.298185706E-02
+               5       -0.765400309E-02
+               6        0.325659407E-02
+               7        0.283855903E-02
+               8        0.332940568E-02
+               9        0.749722401E-02
+              10        0.756992287E-02
+              11        0.120501851E-01
+              12        0.108917397E-01
+              13        0.122254867E-01
+              14        0.799470705E-02
+              15        0.793279790E-02
+              16        0.283855903E-02
+              17        0.236277211E-02
+              18        0.603063212E-02
+              19        0.613007217E-02
+              20        0.978321738E-02
+              21        0.106764604E-01
+              22        0.113469187E-01
+              23        0.120561660E-01
+              24        0.114052635E-01
+              25        0.109049555E-01
+              26        0.100646285E-01
+              27        0.659916007E-02
+              28        0.659910070E-02
+              29        0.790530938E-03
+              30        0.332940568E-02
+              31        0.704449517E-02
+              32        0.725205684E-02
+              33        0.116734399E-01
+              34        0.105145225E-01
+              35        0.118268642E-01
+              36        0.112876843E-01
+              37        0.112876543E-01
+              38        0.116060102E-01
+              39        0.113468473E-01
+              40        0.114052223E-01
+              41        0.120560289E-01
+              42        0.109048569E-01
+              43        0.122252678E-01
+              44        0.793265185E-02
+              45        0.799440135E-02
+              46       -0.187195681E-01
+              47       -0.669818992E-02
+              48       -0.888869702E-02
+              49        0.202179261E-02
+              50        0.202163469E-02
+              51        0.100465541E-01
+              52        0.704424329E-02
+              53        0.116733375E-01
+              54        0.725180421E-02
+              55        0.105143890E-01
+              56        0.603035919E-02
+              57        0.978305095E-02
+              58        0.612973876E-02
+              59        0.106762285E-01
+              60        0.749682533E-02
+              61        0.120498640E-01
+              62        0.756936588E-02
+              63        0.108912448E-01
+              64        0.298113344E-02
+              65        0.325602865E-02
+              66       -0.765472397E-02
+              67       -0.255993936E-01
+              68       -0.180910369E-01
+              69       -0.187199277E-01
+              70       -0.765472397E-02
+              71       -0.669868863E-02
+              72        0.298113344E-02
+              73        0.790057573E-03
+              74        0.756936588E-02
+              75        0.332900885E-02
+              76        0.749682533E-02
+              77        0.283820643E-02
+              78        0.612973876E-02
+              79        0.236239172E-02
+              80        0.603035919E-02
+              81        0.283820643E-02
+              82        0.725180421E-02
+              83        0.332900885E-02
+              84        0.704424329E-02
+              85        0.790057573E-03
+              86        0.202163469E-02
+              87       -0.669868863E-02
+              88       -0.888869702E-02
+              89       -0.187199277E-01
+              90       -0.583617710E-02
+              91        0.160275226E-02
+              92        0.325602865E-02
+              93        0.799440135E-02
+              94        0.108912448E-01
+              95        0.122252678E-01
+              96        0.120498640E-01
+              97        0.120560289E-01
+              98        0.106762285E-01
+              99        0.113468473E-01
+             100        0.978305095E-02
+             101        0.112876543E-01
+             102        0.105143890E-01
+             103        0.118268642E-01
+             104        0.116733375E-01
+             105        0.116734399E-01
+             106        0.100465541E-01
+             107        0.704449517E-02
+             108        0.202179261E-02
+             109        0.400729637E-02
+             110        0.343897859E-02
+             111        0.793265185E-02
+             112        0.659910070E-02
+             113        0.109048569E-01
+             114        0.100646285E-01
+             115        0.114052223E-01
+             116        0.114052635E-01
+             117        0.116060102E-01
+             118        0.113469187E-01
+             119        0.112876843E-01
+             120        0.978321738E-02
+             121        0.105145225E-01
+             122        0.603063212E-02
+             123        0.725205684E-02
+             124        0.300807308E-02
+             125        0.343897859E-02
+             126        0.659916007E-02
+             127        0.793279790E-02
+             128        0.109049555E-01
+             129        0.122254867E-01
+             130        0.120561660E-01
+             131        0.120501851E-01
+             132        0.106764604E-01
+             133        0.749722401E-02
+             134        0.613007217E-02
+             135        0.400729637E-02
+             136        0.160275226E-02
+             137        0.799470705E-02
+             138        0.325659407E-02
+             139        0.108917397E-01
+             140        0.298185706E-02
+             141        0.756992287E-02
+             142       -0.583617710E-02
+             143       -0.180910369E-01
+             144       -0.765400309E-02
+         total        0.517865824E-02 (isppol=   1)
+ Compute the ionic contributions
+
+  itom  itypat               polion
+   1      1           0.000000000E+00
+   2      2          -0.750000000E+00
+         total          -7.500000000E-01
+
+ Summary of the results
+ Electronic Berry phase     5.178658237E-03
+            Ionic phase    -7.500000000E-01
+            Total phase    -7.448213418E-01
+    Remapping in [-1,1]    -7.448213418E-01
+
+           Polarization    -1.555364023E-02 (a.u. of charge)/bohr^2
+           Polarization    -8.898978161E-01 C/m^2
+
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.80413440E-07  sigma(3 2)= -2.96934384E-05
+  sigma(2 2)= -5.18470457E-07  sigma(3 1)= -9.47327092E-09
+  sigma(3 3)= -5.18470457E-07  sigma(2 1)= -9.47327092E-09
+
+ fftdatar_write: About to write data to: tffield_4o_DS3_DEN with iomode IO_MODE_FORTRAN
+ IO operation completed. cpu_time:       0.0 [s], walltime:       0.0 [s]
+================================================================================
+
+ ----iterations are completed or convergence reached----
+
+
+ === Gap info ===
+  >>>> For spin  1
+   Minimum optical gap =   2.9664 [eV], located at k-point      :   0.0833  0.0833  0.0833
+   Fundamental gap     =   1.5231 [eV], Top of valence bands at :   0.0000  0.0000  0.0833
+                                        Bottom of conduction at :  -0.0833  0.5000  0.5000
+ Mean square residual over all n,k,spin=   38.575E-14; max=  40.874E-11
+  -0.0833  0.0000  0.0000    1  8.96767E-17 kpt; spin; max resid(k); each band:
+  8.97E-17 2.25E-17 4.02E-19 6.37E-17 7.80E-17
+  -0.2500  0.0000  0.0000    1  1.06698E-16 kpt; spin; max resid(k); each band:
+  1.07E-16 5.33E-17 2.28E-19 5.82E-17 9.24E-17
+  -0.1667  0.0000  0.0833    1  1.36916E-16 kpt; spin; max resid(k); each band:
+  9.45E-17 4.33E-17 1.41E-17 4.51E-17 1.37E-16
+  -0.0833  0.0000  0.1667    1  1.59362E-16 kpt; spin; max resid(k); each band:
+  7.56E-17 6.73E-17 1.21E-17 4.51E-17 1.59E-16
+  -0.0833  0.0833  0.0833    1  2.89377E-12 kpt; spin; max resid(k); each band:
+  1.08E-16 3.76E-17 2.27E-19 3.48E-17 2.89E-12
+  -0.4167  0.0000  0.0000    1  1.13712E-16 kpt; spin; max resid(k); each band:
+  1.08E-16 6.65E-17 2.68E-19 5.59E-17 1.14E-16
+  -0.3333  0.0000  0.0833    1  1.39799E-16 kpt; spin; max resid(k); each band:
+  1.04E-16 6.24E-17 2.83E-17 4.43E-17 1.40E-16
+  -0.2500  0.0000  0.1667    1  8.73945E-17 kpt; spin; max resid(k); each band:
+  7.64E-17 4.21E-17 4.67E-17 4.46E-17 8.74E-17
+  -0.1667  0.0000  0.2500    1  1.21842E-16 kpt; spin; max resid(k); each band:
+  7.27E-17 5.89E-17 4.59E-17 4.53E-17 1.22E-16
+  -0.0833  0.0000  0.3333    1  1.82493E-16 kpt; spin; max resid(k); each band:
+  8.11E-17 1.07E-16 2.70E-17 4.33E-17 1.82E-16
+  -0.2500  0.0833  0.0833    1  1.95465E-16 kpt; spin; max resid(k); each band:
+  1.18E-16 6.34E-17 1.98E-19 5.52E-17 1.95E-16
+  -0.1667  0.0833  0.1667    1  3.26611E-15 kpt; spin; max resid(k); each band:
+  1.10E-16 4.82E-17 2.55E-17 3.36E-17 3.27E-15
+  -0.0833  0.0833  0.2500    1  4.02775E-14 kpt; spin; max resid(k); each band:
+  7.43E-17 6.29E-17 2.98E-17 4.09E-17 4.03E-14
+  -0.0833  0.1667  0.1667    1  2.07939E-16 kpt; spin; max resid(k); each band:
+  9.92E-17 4.72E-17 2.69E-18 2.82E-17 2.08E-16
+   0.5000  0.0000  0.0833    1  1.41188E-16 kpt; spin; max resid(k); each band:
+  9.50E-17 6.12E-17 3.74E-17 4.25E-17 1.41E-16
+  -0.4167  0.0000  0.1667    1  1.04382E-16 kpt; spin; max resid(k); each band:
+  7.16E-17 4.70E-17 7.38E-17 4.12E-17 1.04E-16
+  -0.3333  0.0000  0.2500    1  1.01266E-16 kpt; spin; max resid(k); each band:
+  6.69E-17 2.94E-17 9.87E-17 4.14E-17 1.01E-16
+  -0.2500  0.0000  0.3333    1  1.08470E-16 kpt; spin; max resid(k); each band:
+  6.32E-17 4.09E-17 8.54E-17 4.18E-17 1.08E-16
+  -0.1667  0.0000  0.4167    1  1.37135E-16 kpt; spin; max resid(k); each band:
+  6.08E-17 8.15E-17 6.05E-17 4.24E-17 1.37E-16
+  -0.0833  0.0000  0.5000    1  1.91604E-16 kpt; spin; max resid(k); each band:
+  6.81E-17 1.18E-16 2.77E-17 4.40E-17 1.92E-16
+  -0.4167  0.0833  0.0833    1  1.69563E-16 kpt; spin; max resid(k); each band:
+  1.08E-16 6.40E-17 6.46E-17 2.50E-19 1.70E-16
+  -0.3333  0.0833  0.1667    1  3.81403E-16 kpt; spin; max resid(k); each band:
+  1.01E-16 5.85E-17 4.60E-17 2.99E-17 3.81E-16
+  -0.2500  0.0833  0.2500    1  2.10576E-15 kpt; spin; max resid(k); each band:
+  6.73E-17 3.80E-17 5.54E-17 4.40E-17 2.11E-15
+  -0.1667  0.0833  0.3333    1  6.07788E-15 kpt; spin; max resid(k); each band:
+  5.99E-17 4.42E-17 5.94E-17 4.09E-17 6.08E-15
+  -0.0833  0.0833  0.4167    1  1.98633E-15 kpt; spin; max resid(k); each band:
+  5.60E-17 9.16E-17 5.01E-17 3.52E-17 1.99E-15
+  -0.2500  0.1667  0.1667    1  1.35222E-16 kpt; spin; max resid(k); each band:
+  9.70E-17 6.25E-17 6.06E-17 2.82E-18 1.35E-16
+  -0.1667  0.1667  0.2500    1  1.41756E-16 kpt; spin; max resid(k); each band:
+  8.38E-17 4.86E-17 3.36E-17 2.78E-17 1.42E-16
+  -0.0833  0.1667  0.3333    1  2.07067E-16 kpt; spin; max resid(k); each band:
+  7.04E-17 5.37E-17 4.10E-17 3.50E-17 2.07E-16
+  -0.0833  0.2500  0.2500    1  1.50076E-16 kpt; spin; max resid(k); each band:
+  8.25E-17 5.48E-17 2.50E-17 1.69E-18 1.50E-16
+   0.3333  0.0000  0.0833    1  1.73546E-16 kpt; spin; max resid(k); each band:
+  1.00E-16 5.40E-17 3.33E-17 4.73E-17 1.74E-16
+   0.4167  0.0000  0.1667    1  1.14017E-16 kpt; spin; max resid(k); each band:
+  8.69E-17 4.01E-17 7.67E-17 4.02E-17 1.14E-16
+   0.5000  0.0000  0.2500    1  1.01447E-16 kpt; spin; max resid(k); each band:
+  7.51E-17 3.61E-17 9.16E-17 3.89E-17 1.01E-16
+  -0.4167  0.0000  0.3333    1  1.09716E-16 kpt; spin; max resid(k); each band:
+  6.14E-17 3.68E-17 8.81E-17 3.83E-17 1.10E-16
+  -0.3333  0.0000  0.4167    1  1.12550E-16 kpt; spin; max resid(k); each band:
+  5.39E-17 5.22E-17 7.11E-17 3.85E-17 1.13E-16
+  -0.2500  0.0000  0.5000    1  1.09658E-16 kpt; spin; max resid(k); each band:
+  5.67E-17 7.08E-17 6.29E-17 3.95E-17 1.10E-16
+  -0.1667  0.0000 -0.4167    1  1.33664E-16 kpt; spin; max resid(k); each band:
+  6.97E-17 7.95E-17 5.00E-17 4.09E-17 1.34E-16
+  -0.0833  0.0000 -0.3333    1  2.14229E-16 kpt; spin; max resid(k); each band:
+  8.21E-17 9.73E-17 4.14E-17 2.33E-17 2.14E-16
+   0.4167  0.0833  0.0833    1  1.48040E-16 kpt; spin; max resid(k); each band:
+  1.11E-16 5.69E-17 7.16E-17 2.45E-19 1.48E-16
+   0.5000  0.0833  0.1667    1  7.65335E-16 kpt; spin; max resid(k); each band:
+  9.47E-17 4.76E-17 7.14E-17 1.61E-17 7.65E-16
+  -0.4167  0.0833  0.2500    1  1.48200E-16 kpt; spin; max resid(k); each band:
+  6.76E-17 3.66E-17 8.92E-17 4.29E-17 1.48E-16
+  -0.3333  0.0833  0.3333    1  1.05914E-16 kpt; spin; max resid(k); each band:
+  5.98E-17 2.44E-17 9.71E-17 4.91E-17 1.06E-16
+  -0.2500  0.0833  0.4167    1  1.11086E-16 kpt; spin; max resid(k); each band:
+  5.50E-17 3.58E-17 8.57E-17 4.64E-17 1.11E-16
+  -0.1667  0.0833  0.5000    1  1.52215E-16 kpt; spin; max resid(k); each band:
+  5.43E-17 6.70E-17 7.90E-17 3.64E-17 1.52E-16
+  -0.0833  0.0833 -0.4167    1  9.29839E-16 kpt; spin; max resid(k); each band:
+  5.74E-17 9.54E-17 5.94E-17 2.19E-17 9.30E-16
+  -0.4167  0.1667  0.1667    1  1.35074E-16 kpt; spin; max resid(k); each band:
+  1.07E-16 4.46E-17 7.71E-17 2.79E-18 1.35E-16
+  -0.3333  0.1667  0.2500    1  1.42799E-16 kpt; spin; max resid(k); each band:
+  8.66E-17 4.53E-17 7.26E-17 1.87E-17 1.43E-16
+  -0.2500  0.1667  0.3333    1  8.04368E-16 kpt; spin; max resid(k); each band:
+  6.05E-17 3.19E-17 4.29E-17 3.70E-17 8.04E-16
+  -0.1667  0.1667  0.4167    1  5.00856E-15 kpt; spin; max resid(k); each band:
+  4.98E-17 3.37E-17 5.00E-17 4.30E-17 5.01E-15
+  -0.0833  0.1667  0.5000    1  1.62087E-16 kpt; spin; max resid(k); each band:
+  4.16E-17 6.30E-17 1.02E-16 2.52E-17 1.62E-16
+  -0.2500  0.2500  0.2500    1  9.48437E-17 kpt; spin; max resid(k); each band:
+  7.73E-17 5.60E-17 6.88E-17 1.82E-18 9.48E-17
+ outwf : prtvol=0 or 1, do not print more k-points.
+
+
+ outwf: write wavefunction to file tffield_4o_DS3_WFK, with iomode -1
+ outwf with iomode: -1, cpu_time:     0.00[s], walltime:     0.00 [s]
+ prteigrs : about to open file tffield_4o_DS3_EIG
+ Fermi (or HOMO) energy (hartree) =   0.09124   Average Vxc (hartree)=  -0.34847
+ Eigenvalues (hartree) for nkpt= 234  k points:
+ kpt#   1, nband=  5, wtk=  0.00231, kpt= -0.0833  0.0000  0.0000 (reduced coord)
+  -0.34715    0.06567    0.08989    0.09065    0.19966
+ kpt#   2, nband=  5, wtk=  0.00231, kpt= -0.2500  0.0000  0.0000 (reduced coord)
+  -0.32776   -0.03283    0.07389    0.07425    0.19330
+ kpt#   3, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000  0.0833 (reduced coord)
+  -0.33396   -0.00313    0.05699    0.08527    0.21675
+ kpt#   4, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000  0.1667 (reduced coord)
+  -0.33412   -0.00429    0.05838    0.08570    0.21823
+ kpt#   5, nband=  5, wtk=  0.00231, kpt= -0.0833  0.0833  0.0833 (reduced coord)
+  -0.34043    0.02875    0.07294    0.07845    0.21940
+ kpt#   6, nband=  5, wtk=  0.00231, kpt= -0.4167  0.0000  0.0000 (reduced coord)
+  -0.29972   -0.10560    0.06314    0.06325    0.17816
+ kpt#   7, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0000  0.0833 (reduced coord)
+  -0.30631   -0.08524    0.04185    0.06772    0.19937
+ kpt#   8, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0000  0.1667 (reduced coord)
+  -0.31026   -0.06057    0.00974    0.07016    0.22786
+ kpt#   9, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000  0.2500 (reduced coord)
+  -0.31055   -0.06124    0.01084    0.07060    0.22904
+ kpt#  10, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000  0.3333 (reduced coord)
+  -0.30716   -0.08594    0.04368    0.06887    0.20171
+ kpt#  11, nband=  5, wtk=  0.00231, kpt= -0.2500  0.0833  0.0833 (reduced coord)
+  -0.31600   -0.06098    0.05766    0.05908    0.20303
+ kpt#  12, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0833  0.1667 (reduced coord)
+  -0.32128   -0.03496    0.03319    0.06803    0.22433
+ kpt#  13, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0833  0.2500 (reduced coord)
+  -0.32146   -0.03607    0.03469    0.06883    0.22769
+ kpt#  14, nband=  5, wtk=  0.00231, kpt= -0.0833  0.1667  0.1667 (reduced coord)
+  -0.32705   -0.01077    0.05106    0.05256    0.20269
+ kpt#  15, nband=  5, wtk=  0.00463, kpt=  0.5000  0.0000  0.0833 (reduced coord)
+  -0.29281   -0.11375    0.04454    0.05663    0.19322
+ kpt#  16, nband=  5, wtk=  0.00463, kpt= -0.4167  0.0000  0.1667 (reduced coord)
+  -0.28796   -0.10768    0.00534    0.04995    0.20552
+ kpt#  17, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0000  0.2500 (reduced coord)
+  -0.28599   -0.09186   -0.02916    0.04617    0.20231
+ kpt#  18, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0000  0.3333 (reduced coord)
+  -0.28642   -0.09198   -0.02872    0.04647    0.20267
+ kpt#  19, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000  0.4167 (reduced coord)
+  -0.28904   -0.10762    0.00627    0.05079    0.20696
+ kpt#  20, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000  0.5000 (reduced coord)
+  -0.29422   -0.11368    0.04575    0.05792    0.19585
+ kpt#  21, nband=  5, wtk=  0.00231, kpt= -0.4167  0.0833  0.0833 (reduced coord)
+  -0.29285   -0.11367    0.04439    0.05633    0.19299
+ kpt#  22, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0833  0.1667 (reduced coord)
+  -0.29432   -0.09982    0.01907    0.05128    0.21443
+ kpt#  23, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0833  0.2500 (reduced coord)
+  -0.29584   -0.07999   -0.01126    0.04885    0.23351
+ kpt#  24, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0833  0.3333 (reduced coord)
+  -0.29619   -0.08064   -0.01013    0.04925    0.23468
+ kpt#  25, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0833  0.4167 (reduced coord)
+  -0.29526   -0.10039    0.02096    0.05256    0.21818
+ kpt#  26, nband=  5, wtk=  0.00231, kpt= -0.2500  0.1667  0.1667 (reduced coord)
+  -0.30035   -0.08165    0.02404    0.04173    0.20090
+ kpt#  27, nband=  5, wtk=  0.00463, kpt= -0.1667  0.1667  0.2500 (reduced coord)
+  -0.30397   -0.06239    0.01077    0.04026    0.20595
+ kpt#  28, nband=  5, wtk=  0.00463, kpt= -0.0833  0.1667  0.3333 (reduced coord)
+  -0.30419   -0.06327    0.01165    0.04141    0.20830
+ kpt#  29, nband=  5, wtk=  0.00231, kpt= -0.0833  0.2500  0.2500 (reduced coord)
+  -0.30838   -0.04746    0.02825    0.03173    0.17894
+ kpt#  30, nband=  5, wtk=  0.00463, kpt=  0.3333  0.0000  0.0833 (reduced coord)
+  -0.31587   -0.06135    0.05820    0.05979    0.20308
+ kpt#  31, nband=  5, wtk=  0.00463, kpt=  0.4167  0.0000  0.1667 (reduced coord)
+  -0.30016   -0.08233    0.02471    0.04269    0.20176
+ kpt#  32, nband=  5, wtk=  0.00463, kpt=  0.5000  0.0000  0.2500 (reduced coord)
+  -0.28439   -0.09432   -0.01180    0.03065    0.18320
+ kpt#  33, nband=  5, wtk=  0.00463, kpt= -0.4167  0.0000  0.3333 (reduced coord)
+  -0.27419   -0.09744   -0.03662    0.02432    0.17197
+ kpt#  34, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0000  0.4167 (reduced coord)
+  -0.27454   -0.09687   -0.03691    0.02445    0.17225
+ kpt#  35, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0000  0.5000 (reduced coord)
+  -0.28525   -0.09353   -0.01222    0.03109    0.18389
+ kpt#  36, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0000 -0.4167 (reduced coord)
+  -0.30113   -0.08212    0.02458    0.04346    0.20294
+ kpt#  37, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0000 -0.3333 (reduced coord)
+  -0.31668   -0.06192    0.05920    0.06021    0.20559
+ kpt#  38, nband=  5, wtk=  0.00231, kpt=  0.4167  0.0833  0.0833 (reduced coord)
+  -0.30609   -0.08549    0.04267    0.06763    0.19877
+ kpt#  39, nband=  5, wtk=  0.00463, kpt=  0.5000  0.0833  0.1667 (reduced coord)
+  -0.29408   -0.10026    0.01973    0.05143    0.21457
+ kpt#  40, nband=  5, wtk=  0.00463, kpt= -0.4167  0.0833  0.2500 (reduced coord)
+  -0.28327   -0.10268   -0.01077    0.03333    0.21133
+ kpt#  41, nband=  5, wtk=  0.00463, kpt= -0.3333  0.0833  0.3333 (reduced coord)
+  -0.27726   -0.09527   -0.03807    0.02437    0.20311
+ kpt#  42, nband=  5, wtk=  0.00463, kpt= -0.2500  0.0833  0.4167 (reduced coord)
+  -0.27773   -0.09511   -0.03766    0.02440    0.20365
+ kpt#  43, nband=  5, wtk=  0.00463, kpt= -0.1667  0.0833  0.5000 (reduced coord)
+  -0.28442   -0.10224   -0.00992    0.03358    0.21306
+ kpt#  44, nband=  5, wtk=  0.00463, kpt= -0.0833  0.0833 -0.4167 (reduced coord)
+  -0.29549   -0.09996    0.02029    0.05243    0.21802
+ kpt#  45, nband=  5, wtk=  0.00231, kpt= -0.4167  0.1667  0.1667 (reduced coord)
+  -0.28777   -0.10774    0.00545    0.04935    0.20465
+ kpt#  46, nband=  5, wtk=  0.00463, kpt= -0.3333  0.1667  0.2500 (reduced coord)
+  -0.28331   -0.10234   -0.01085    0.03263    0.21028
+ kpt#  47, nband=  5, wtk=  0.00463, kpt= -0.2500  0.1667  0.3333 (reduced coord)
+  -0.28156   -0.09082   -0.02614    0.01795    0.23438
+ kpt#  48, nband=  5, wtk=  0.00463, kpt= -0.1667  0.1667  0.4167 (reduced coord)
+  -0.28198   -0.09120   -0.02536    0.01838    0.23773
+ kpt#  49, nband=  5, wtk=  0.00463, kpt= -0.0833  0.1667  0.5000 (reduced coord)
+  -0.28439   -0.10257   -0.00986    0.03431    0.21413
+ kpt#  50, nband=  5, wtk=  0.00231, kpt= -0.2500  0.2500  0.2500 (reduced coord)
+  -0.28446   -0.09353   -0.01218    0.02938    0.18194
+ prteigrs : prtvol=0 or 1, do not print more k-points.
+
+ Total charge density [el/Bohr^3]
+      Maximum=    9.1817E-02  at reduced coord.    0.1667    0.1667    0.1667
+ Next maximum=    9.1816E-02  at reduced coord.    0.5000    0.1667    0.1667
+      Minimum=    3.1492E-03  at reduced coord.    0.7500    0.7500    0.7500
+ Next minimum=    3.4939E-03  at reduced coord.    0.5000    0.5000    0.5000
+   Integrated=    8.0000E+00
+
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.80413440E-07  sigma(3 2)= -2.96934384E-05
+  sigma(2 2)= -5.18470457E-07  sigma(3 1)= -9.47327092E-09
+  sigma(3 3)= -5.18470457E-07  sigma(2 1)= -9.47327092E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3900E-02 GPa]
+- sigma(1 1)= -1.11921479E-02  sigma(3 2)= -8.73610973E-01
+- sigma(2 2)= -1.52539249E-02  sigma(3 1)= -2.78713206E-04
+- sigma(3 3)= -1.52539249E-02  sigma(2 1)= -2.78713206E-04
+
+== END DATASET(S) ==============================================================
+================================================================================
+  
+ -outvars: echo values of variables after computation  --------
+ 
+ These variables are accessible in NetCDF format (tffield_4o_OUT.nc)
+
+            acell1     7.4485600000E+00  7.4485600000E+00  7.4485600000E+00 Bohr
+            acell2     7.4858028000E+00  7.4485600000E+00  7.4485600000E+00 Bohr
+            acell3     7.4113172000E+00  7.4485600000E+00  7.4485600000E+00 Bohr
+              amu      2.69815390E+01  7.49215900E+01
+         berryopt          -1
+          dilatmx      1.05000000E+00
+             ecut      2.80000000E+00 Hartree
+           ecutsm      5.00000000E-01 Hartree
+           etotal1    -1.0085769745E+01
+           etotal2    -1.0085726336E+01
+           etotal3    -1.0085726444E+01
+            fcart1    -0.0000000000E+00 -0.0000000000E+00 -0.0000000000E+00
+                      -0.0000000000E+00 -0.0000000000E+00 -0.0000000000E+00
+            fcart2     1.7509896230E-03 -5.2190422159E-07 -5.2190422159E-07
+                      -1.7509896230E-03  5.2190422159E-07  5.2190422159E-07
+            fcart3    -1.7488018802E-03 -5.7192987077E-07 -5.7192987077E-07
+                       1.7488018802E-03  5.7192987077E-07  5.7192987077E-07
+-          fftalg         312
+              ixc           3
+           jdtset        1    2    3
+              kpt1    -8.33333333E-02 -1.66666667E-01  0.00000000E+00
+                      -8.33333333E-02 -3.33333333E-01  0.00000000E+00
+                      -1.66666667E-01 -2.50000000E-01  0.00000000E+00
+                      -8.33333333E-02 -2.50000000E-01  8.33333333E-02
+                      -8.33333333E-02  5.00000000E-01  0.00000000E+00
+                      -1.66666667E-01 -4.16666667E-01  0.00000000E+00
+                      -8.33333333E-02 -4.16666667E-01  8.33333333E-02
+                      -2.50000000E-01 -3.33333333E-01  0.00000000E+00
+                      -1.66666667E-01 -3.33333333E-01  8.33333333E-02
+                      -8.33333333E-02 -3.33333333E-01  1.66666667E-01
+                      -8.33333333E-02  3.33333333E-01  0.00000000E+00
+                      -1.66666667E-01  4.16666667E-01  0.00000000E+00
+                      -2.50000000E-01  5.00000000E-01  0.00000000E+00
+                      -1.66666667E-01  5.00000000E-01  8.33333333E-02
+                      -3.33333333E-01 -4.16666667E-01  0.00000000E+00
+                      -2.50000000E-01 -4.16666667E-01  8.33333333E-02
+                      -1.66666667E-01 -4.16666667E-01  1.66666667E-01
+                      -8.33333333E-02 -4.16666667E-01  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  0.00000000E+00
+                      -1.66666667E-01  2.50000000E-01  0.00000000E+00
+                      -2.50000000E-01  3.33333333E-01  0.00000000E+00
+                      -3.33333333E-01  4.16666667E-01  0.00000000E+00
+                      -4.16666667E-01  5.00000000E-01  0.00000000E+00
+                      -3.33333333E-01  5.00000000E-01  8.33333333E-02
+                      -2.50000000E-01  5.00000000E-01  1.66666667E-01
+                      -8.33333333E-02  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  0.00000000E+00
+                      -4.16666667E-01  0.00000000E+00  0.00000000E+00
+              kpt2    -8.33333333E-02  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  0.00000000E+00
+                      -1.66666667E-01  0.00000000E+00  8.33333333E-02
+                      -8.33333333E-02  0.00000000E+00  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  0.00000000E+00
+                      -3.33333333E-01  0.00000000E+00  8.33333333E-02
+                      -2.50000000E-01  0.00000000E+00  1.66666667E-01
+                      -1.66666667E-01  0.00000000E+00  2.50000000E-01
+                      -8.33333333E-02  0.00000000E+00  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  8.33333333E-02
+                      -1.66666667E-01  8.33333333E-02  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  1.66666667E-01
+                      -3.33333333E-01  0.00000000E+00  2.50000000E-01
+                      -2.50000000E-01  0.00000000E+00  3.33333333E-01
+                      -1.66666667E-01  0.00000000E+00  4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00  5.00000000E-01
+                      -4.16666667E-01  8.33333333E-02  8.33333333E-02
+                      -3.33333333E-01  8.33333333E-02  1.66666667E-01
+                      -2.50000000E-01  8.33333333E-02  2.50000000E-01
+                      -1.66666667E-01  8.33333333E-02  3.33333333E-01
+                      -8.33333333E-02  8.33333333E-02  4.16666667E-01
+                      -2.50000000E-01  1.66666667E-01  1.66666667E-01
+                      -1.66666667E-01  1.66666667E-01  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  3.33333333E-01
+                      -8.33333333E-02  2.50000000E-01  2.50000000E-01
+                       3.33333333E-01  0.00000000E+00  8.33333333E-02
+                       4.16666667E-01  0.00000000E+00  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  2.50000000E-01
+                      -4.16666667E-01  0.00000000E+00  3.33333333E-01
+                      -3.33333333E-01  0.00000000E+00  4.16666667E-01
+                      -2.50000000E-01  0.00000000E+00  5.00000000E-01
+                      -1.66666667E-01  0.00000000E+00 -4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00 -3.33333333E-01
+                       4.16666667E-01  8.33333333E-02  8.33333333E-02
+                       5.00000000E-01  8.33333333E-02  1.66666667E-01
+                      -4.16666667E-01  8.33333333E-02  2.50000000E-01
+                      -3.33333333E-01  8.33333333E-02  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  4.16666667E-01
+                      -1.66666667E-01  8.33333333E-02  5.00000000E-01
+                      -8.33333333E-02  8.33333333E-02 -4.16666667E-01
+                      -4.16666667E-01  1.66666667E-01  1.66666667E-01
+                      -3.33333333E-01  1.66666667E-01  2.50000000E-01
+                      -2.50000000E-01  1.66666667E-01  3.33333333E-01
+                      -1.66666667E-01  1.66666667E-01  4.16666667E-01
+                      -8.33333333E-02  1.66666667E-01  5.00000000E-01
+                      -2.50000000E-01  2.50000000E-01  2.50000000E-01
+              kpt3    -8.33333333E-02  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  0.00000000E+00
+                      -1.66666667E-01  0.00000000E+00  8.33333333E-02
+                      -8.33333333E-02  0.00000000E+00  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  0.00000000E+00
+                      -3.33333333E-01  0.00000000E+00  8.33333333E-02
+                      -2.50000000E-01  0.00000000E+00  1.66666667E-01
+                      -1.66666667E-01  0.00000000E+00  2.50000000E-01
+                      -8.33333333E-02  0.00000000E+00  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  8.33333333E-02
+                      -1.66666667E-01  8.33333333E-02  1.66666667E-01
+                      -8.33333333E-02  8.33333333E-02  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  8.33333333E-02
+                      -4.16666667E-01  0.00000000E+00  1.66666667E-01
+                      -3.33333333E-01  0.00000000E+00  2.50000000E-01
+                      -2.50000000E-01  0.00000000E+00  3.33333333E-01
+                      -1.66666667E-01  0.00000000E+00  4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00  5.00000000E-01
+                      -4.16666667E-01  8.33333333E-02  8.33333333E-02
+                      -3.33333333E-01  8.33333333E-02  1.66666667E-01
+                      -2.50000000E-01  8.33333333E-02  2.50000000E-01
+                      -1.66666667E-01  8.33333333E-02  3.33333333E-01
+                      -8.33333333E-02  8.33333333E-02  4.16666667E-01
+                      -2.50000000E-01  1.66666667E-01  1.66666667E-01
+                      -1.66666667E-01  1.66666667E-01  2.50000000E-01
+                      -8.33333333E-02  1.66666667E-01  3.33333333E-01
+                      -8.33333333E-02  2.50000000E-01  2.50000000E-01
+                       3.33333333E-01  0.00000000E+00  8.33333333E-02
+                       4.16666667E-01  0.00000000E+00  1.66666667E-01
+                       5.00000000E-01  0.00000000E+00  2.50000000E-01
+                      -4.16666667E-01  0.00000000E+00  3.33333333E-01
+                      -3.33333333E-01  0.00000000E+00  4.16666667E-01
+                      -2.50000000E-01  0.00000000E+00  5.00000000E-01
+                      -1.66666667E-01  0.00000000E+00 -4.16666667E-01
+                      -8.33333333E-02  0.00000000E+00 -3.33333333E-01
+                       4.16666667E-01  8.33333333E-02  8.33333333E-02
+                       5.00000000E-01  8.33333333E-02  1.66666667E-01
+                      -4.16666667E-01  8.33333333E-02  2.50000000E-01
+                      -3.33333333E-01  8.33333333E-02  3.33333333E-01
+                      -2.50000000E-01  8.33333333E-02  4.16666667E-01
+                      -1.66666667E-01  8.33333333E-02  5.00000000E-01
+                      -8.33333333E-02  8.33333333E-02 -4.16666667E-01
+                      -4.16666667E-01  1.66666667E-01  1.66666667E-01
+                      -3.33333333E-01  1.66666667E-01  2.50000000E-01
+                      -2.50000000E-01  1.66666667E-01  3.33333333E-01
+                      -1.66666667E-01  1.66666667E-01  4.16666667E-01
+                      -8.33333333E-02  1.66666667E-01  5.00000000E-01
+                      -2.50000000E-01  2.50000000E-01  2.50000000E-01
+                       outvar_i_n : Printing only first  50 k-points.
+         kptrlatt1       6   -6    6     -6    6    6     -6   -6    6
+         kptrlatt2       6   -6    6      6    6   -6     -6    6    6
+         kptrlatt3       6   -6    6      6    6   -6     -6    6    6
+          kptrlen1     6.32031274E+01
+          kptrlen2     6.32027324E+01
+          kptrlen3     6.32027324E+01
+P           mkmem1          7
+P           mkmem2         59
+P           mkmem3         59
+            natom           2
+            nband1          5
+            nband2          5
+            nband3          5
+           ndtset           3
+            ngfft          12      12      12
+             nkpt1         28
+             nkpt2        234
+             nkpt3        234
+            nstep         100
+             nsym1         24
+             nsym2          2
+             nsym3          2
+           ntypat           2
+              occ1     2.000000  2.000000  2.000000  2.000000  0.000000
+              occ2     2.000000  2.000000  2.000000  2.000000  0.000000
+              occ3     2.000000  2.000000  2.000000  2.000000  0.000000
+            rfdir           1       1       1
+            rprim1     0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710678119E-01  0.0000000000E+00  7.0710678119E-01
+                       7.0710678119E-01  7.0710678119E-01  0.0000000000E+00
+            rprim2     0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710236181E-01  3.5355118091E-03  7.0710236181E-01
+                       7.0710236181E-01  7.0710236181E-01  3.5355118091E-03
+            rprim3     0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710236181E-01 -3.5355118091E-03  7.0710236181E-01
+                       7.0710236181E-01  7.0710236181E-01 -3.5355118091E-03
+           shiftk1     5.00000000E-01  5.00000000E-01  5.00000000E-01
+           shiftk2     5.00000000E-01 -5.00000000E-01  5.00000000E-01
+           shiftk3     5.00000000E-01 -5.00000000E-01  5.00000000E-01
+          spgroup1        216
+          spgroup2          8
+          spgroup3          8
+           strten1    -1.3882151683E-09 -1.3882151674E-09 -1.3882151683E-09
+                       0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+           strten2    -3.8114771840E-07 -5.1935214520E-07 -5.1935214520E-07
+                       2.9730652746E-05 -9.0597042680E-09 -9.0597042680E-09
+           strten3    -3.8041344036E-07 -5.1847045673E-07 -5.1847045673E-07
+                      -2.9693438420E-05 -9.4732709179E-09 -9.4732709179E-09
+           symafm1       1    1    1    1    1    1    1    1    1    1
+                         1    1    1    1    1    1    1    1    1    1
+                         1    1    1    1
+           symafm2       1    1
+           symafm3       1    1
+           symrel1     1  0  0   0  1  0   0  0  1       0 -1  1   0 -1  0   1 -1  0
+                      -1  0  0  -1  0  1  -1  1  0       0  1 -1   1  0 -1   0  0 -1
+                      -1  0  0  -1  1  0  -1  0  1       0 -1  1   1 -1  0   0 -1  0
+                       1  0  0   0  0  1   0  1  0       0  1 -1   0  0 -1   1  0 -1
+                      -1  0  1  -1  1  0  -1  0  0       0 -1  0   1 -1  0   0 -1  1
+                       1  0 -1   0  0 -1   0  1 -1       0  1  0   0  0  1   1  0  0
+                       1  0 -1   0  1 -1   0  0 -1       0 -1  0   0 -1  1   1 -1  0
+                      -1  0  1  -1  0  0  -1  1  0       0  1  0   1  0  0   0  0  1
+                       0  0 -1   0  1 -1   1  0 -1       1 -1  0   0 -1  1   0 -1  0
+                       0  0  1   1  0  0   0  1  0      -1  1  0  -1  0  0  -1  0  1
+                       0  0  1   0  1  0   1  0  0       1 -1  0   0 -1  0   0 -1  1
+                       0  0 -1   1  0 -1   0  1 -1      -1  1  0  -1  0  1  -1  0  0
+           symrel2     1  0  0   0  1  0   0  0  1       1  0  0   0  0  1   0  1  0
+           symrel3     1  0  0   0  1  0   0  0  1       1  0  0   0  0  1   0  1  0
+            tnons1     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+                       0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+            tnons2     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+            tnons3     0.0000000  0.0000000  0.0000000     0.0000000  0.0000000  0.0000000
+           toldfe      1.00000000E-12 Hartree
+            typat      1  2
+              wtk1       0.02778    0.02778    0.02778    0.05556    0.02778    0.02778
+                         0.05556    0.02778    0.05556    0.05556    0.02778    0.02778
+                         0.02778    0.05556    0.02778    0.05556    0.05556    0.05556
+                         0.02778    0.02778    0.02778    0.02778    0.02778    0.05556
+                         0.05556    0.00926    0.00926    0.00926
+              wtk2       0.00231    0.00231    0.00463    0.00463    0.00231    0.00231
+                         0.00463    0.00463    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00463    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231
+              wtk3       0.00231    0.00231    0.00463    0.00463    0.00231    0.00231
+                         0.00463    0.00463    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00231    0.00463
+                         0.00463    0.00463    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00231    0.00463    0.00463    0.00463    0.00463
+                         0.00463    0.00463    0.00231    0.00463    0.00463    0.00463
+                         0.00463    0.00231
+                       outvars : Printing only first  50 k-points.
+           xangst1     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.3935689396E+00  1.3935689396E+00  1.3935689396E+00
+           xangst2     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.3935602298E+00  1.4005324076E+00  1.4005324076E+00
+           xangst3     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.3935602298E+00  1.3865967618E+00  1.3865967618E+00
+            xcart1     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.6334636431E+00  2.6334636431E+00  2.6334636431E+00
+            xcart2     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.6334471840E+00  2.6466226906E+00  2.6466226906E+00
+            xcart3     0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.6334471840E+00  2.6202881365E+00  2.6202881365E+00
+             xred      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.5000000000E-01  2.5000000000E-01  2.5000000000E-01
+            znucl       13.00000   33.00000
+
+================================================================================
+  
+
+================================================================================
+
+ Suggested references for the acknowledgment of ABINIT usage.
+
+ The users of ABINIT have little formal obligations with respect to the ABINIT group
+ (those specified in the GNU General Public License, http://www.gnu.org/copyleft/gpl.txt).
+ However, it is common practice in the scientific literature,
+ to acknowledge the efforts of people that have made the research possible.
+ In this spirit, please find below suggested citations of work written by ABINIT developers,
+ corresponding to implementations inside of ABINIT that you have used in the present run.
+ Note also that it will be of great value to readers of publications presenting these results,
+ to read papers enabling them to understand the theoretical formalism and details
+ of the ABINIT implementation.
+ For information on why they are suggested, see also https://docs.abinit.org/theory/acknowledgments.
+-
+- [1] Recent developments in the ABINIT software package.
+- Computer Phys. Comm. 205, 106 (2016).
+- X.Gonze, F.Jollet, F.Abreu Araujo, D.Adams, B.Amadon, T.Applencourt,
+- C.Audouze, J.-M.Beuken, J.Bieder, A.Bokhanchuk, E.Bousquet, F.Bruneval
+- D.Caliste, M.Cote, F.Dahm, F.Da Pieve, M.Delaveau, M.Di Gennaro,
+- B.Dorado, C.Espejo, G.Geneste, L.Genovese, A.Gerossier, M.Giantomassi,
+- Y.Gillet, D.R.Hamann, L.He, G.Jomard, J.Laflamme Janssen, S.Le Roux,
+- A.Levitt, A.Lherbier, F.Liu, I.Lukacevic, A.Martin, C.Martins,
+- M.J.T.Oliveira, S.Ponce, Y.Pouillon, T.Rangel, G.-M.Rignanese,
+- A.H.Romero, B.Rousseau, O.Rubel, A.A.Shukri, M.Stankovski, M.Torrent,
+- M.J.Van Setten, B.Van Troeye, M.J.Verstraete, D.Waroquier, J.Wiktor,
+- B.Xu, A.Zhou, J.W.Zwanziger.
+- Comment : the fourth generic paper describing the ABINIT project.
+- Note that a version of this paper, that is not formatted for Computer Phys. Comm. 
+- is available at https://www.abinit.org/about/ABINIT16.pdf .
+- The licence allows the authors to put it on the Web.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2016
+-
+- [2] ABINIT : First-principles approach of materials and nanosystem properties.
+- Computer Phys. Comm. 180, 2582-2615 (2009).
+- X. Gonze, B. Amadon, P.-M. Anglade, J.-M. Beuken, F. Bottin, P. Boulanger, F. Bruneval,
+- D. Caliste, R. Caracas, M. Cote, T. Deutsch, L. Genovese, Ph. Ghosez, M. Giantomassi
+- S. Goedecker, D.R. Hamann, P. Hermet, F. Jollet, G. Jomard, S. Leroux, M. Mancini, S. Mazevet,
+- M.J.T. Oliveira, G. Onida, Y. Pouillon, T. Rangel, G.-M. Rignanese, D. Sangalli, R. Shaltaf,
+- M. Torrent, M.J. Verstraete, G. Zerah, J.W. Zwanziger
+- Comment : the third generic paper describing the ABINIT project.
+- Note that a version of this paper, that is not formatted for Computer Phys. Comm. 
+- is available at https://www.abinit.org/about/ABINIT_CPC_v10.pdf .
+- The licence allows the authors to put it on the Web.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2009
+-
+- [3] A brief introduction to the ABINIT software package.
+- Z. Kristallogr. 220, 558-562 (2005).
+- X. Gonze, G.-M. Rignanese, M. Verstraete, J.-M. Beuken, Y. Pouillon, R. Caracas, F. Jollet,
+- M. Torrent, G. Zerah, M. Mikami, Ph. Ghosez, M. Veithen, J.-Y. Raty, V. Olevano, F. Bruneval,
+- L. Reining, R. Godby, G. Onida, D.R. Hamann, and D.C. Allan.
+- Comment : the second generic paper describing the ABINIT project. Note that this paper
+- should be cited especially if you are using the GW part of ABINIT, as several authors
+- of this part are not in the list of authors of the first or third paper.
+- The .pdf of the latter paper is available at https://www.abinit.org/about/zfk_0505-06_558-562.pdf.
+- Note that it should not redistributed (Copyright by Oldenburg Wissenshaftverlag,
+- the licence allows the authors to put it on the Web).
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2005
+-
+- And optionally:
+-
+- [4] First-principles computation of material properties : the ABINIT software project. 
+- X. Gonze, J.-M. Beuken, R. Caracas, F. Detraux, M. Fuchs, G.-M. Rignanese, L. Sindic,
+- M. Verstraete, G. Zerah, F. Jollet, M. Torrent, A. Roy, M. Mikami, Ph. Ghosez, J.-Y. Raty, D.C. Allan.
+- Computational Materials Science 25, 478-492 (2002). http://dx.doi.org/10.1016/S0927-0256(02)00325-7
+- Comment : the original paper describing the ABINIT project.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2002
+  Asked to delete not existent file: tffield_4_STATUS
+ Proc.   0 individual time (sec): cpu=          4.1  wall=          4.2
+
+ Calculation completed.
+.Delivered   0 WARNINGs and   0 COMMENTs to log file.
+
+--- !FinalSummary
+program: abinit
+version: 8.10.3
+start_datetime: Fri Nov 08 13:57:00 2019
+end_datetime: Fri Nov 08 13:57:05 2019
+overall_cpu_time:          16.7
+overall_wall_time:          16.8
+exit_requested_by_user: no 
+timelimit: 0
+pseudos: 
+    Al  : a932766b26e386f2164c640715a809d6
+    As  : 56f075499613b4e8e69cc77bd15edc6d
+usepaw: 0
+mpi_procs: 4
+omp_threads: 1
+num_warnings: 0
+num_comments: 0
+...
