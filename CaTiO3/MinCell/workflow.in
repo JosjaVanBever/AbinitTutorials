@@ -1,0 +1,95 @@
+## CaTiO3 or perovskite
+
+# general remarks:
+#  - geometry < https://materialsproject.org/materials/mp-4019/#
+#  - pseudopotentials < https://www.abinit.org/psp-tables
+
+# Ground state relaxation
+
+# algorithm
+optcell  2     # positions + volume
+ionmov   2     # BFGS algorithm
+dilatmx  1.05  # memory expansion
+ecutsm   0.5   # avoid abrupt cut-off changes
+
+# cell
+acell    5.404 5.513 7.697
+
+# atom types
+ntypat   3
+znucl    20 22 8
+
+# atoms
+natom    20
+typat    1 2 3
+xred
+  # Ca
+  0.0085   0.9552   0.75
+  0.4915   0.4552   0.75
+  0.5085   0.5448   0.25
+  0.9915   0.0448   0.25
+  # Ti
+  0        0.5      0
+  0        0.5      0.5
+  0.5      0        0
+  0.5      0        0.5
+  # O
+  0.0781   0.4794   0.25
+  0.2075   0.2081   0.5407
+  0.2075   0.2081   0.9593
+  0.2925   0.7081   0.9593
+  0.2925   0.7081   0.5407
+  0.4219   0.9794   0.25
+  0.5781   0.0206   0.75
+  0.7075   0.2919   0.4593
+  0.7075   0.2919   0.0407
+  0.7925   0.7919   0.0407
+  0.7925   0.7919   0.4593
+  0.9219   0.5206   0.75
+
+# valence bands
+# given by (sum_atoms zion) / 2
+nband    80
+
+# parameters that needs to be converged
+ecut     40 80 120 160 200
+ngkpt    *2
+         *4
+         *6
+         *8
+         *10
+ixc      1 11  # LDA / GGA
+
+# Ground state calculation
+
+kptopt1  1              # full symmetry
+
+# Response Function: d/dk
+
+rfelfd2  2              # d/dk
+rfdir2   1 0 1          # orthoromic: y~x 
+kptopt2  2              # only t-reversal
+iscf2    -3             # for ddk, see doc
+
+nqpt2    1
+qpt2     0.0 0.0 0.0    # Gamma point
+
+getwfk2  -1             # get wfk
+
+# Response Function: electric field, phonons
+
+rfphon3                 # phonons
+rfatpol  1 20           # all atoms
+rfelfd3  3              # electric field
+rfdir3   1 1 1          # all directions
+
+nqpt3    1
+qpt3     0.0 0.0 0.0    # Gamma point
+
+getwfk3  -2             # get wfk
+getddk3  -1             # get ddk
+
+#############################################
+# common input
+
+

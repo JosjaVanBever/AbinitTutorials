@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# $1 Input file to start from.
+#    Values will be overwritten if necessary.
+# $2 File with parameters to scan
+#    Format: ecut 40 80 120\n  ngkpt *2 *4 *8\n
+
+# name of shell script
+ME=$(basename "$0")
+
+# prints for error messages
+SYNTAX="Syntaxis: ${ME} BASE SCAN"
+UNREAD="${ME}: COULD NOT OPEN"
+
+# Transform long options to short ones
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--help" | "-help")   set -- "$@" "-h" ;;
+    *)                    set -- "$@" "$arg"
+  esac
+done
+
+# try to handle the options
+while getopts ":h" opt; do
+  case "${opt}" in
+    h ) echo "${SYNTAX}"
+        exit 0
+        ;;
+    \?) echo "${SYNTAX}" 1>&2
+        exit 1
+  esac
+done
+shift "$((OPTIND - 1))"
+
+# check parameters
+if [ "${#}" -ne 2 ]
+then
+  echo "${SYNTAX}" 1>&2
+  exit 1
+else
+  # set the variables
+  BASE="${1}"
+  SCAN="${2}"
+  for VAR in "${BASE}" "${SCAN}"
+  do
+    if [ ! -r "${VAR}" ]
+    then
+      echo "${UNREAD} ${VAR}" 1>&2
+      exit 2
+    fi
+  done
+fi
+
+# destination of the scan results
+DEST="./results${$}"
+
+# open scan
+exec 3< "${SCAN}"
+
+# prepare destiny
+mkdir "${DEST}"
+cp "${BASE}" "${DEST}"
+# go to destiny
+cd "${DEST}"
+TEMP=${BASE##*/}
+echo -e "\n# SCANNING:" >> "${TEMP}"
+
+# set first
+FIRST='true'
+
+# for all lines in scan
+while read LINE 0<&3
+do
+  # parse line
+  KEY="${LINE%% *}"
+  ARGS=$(sed "s/\*/\\\*/g" <<< "${LINE#* }")
+
+  # remove key from template
+  sed -i "/${KEY}/d" "${TEMP}"
+  
+  # provide directories for the args
+  if [ ${FIRST} = 'true' ]
+   then
+    # initialize
+    for OPT in ${ARGS}
+    do
+      mkdir "${OPT}"
+      cp "${TEMP}" "${OPT}"
+      echo "${KEY} ${OPT}" >> "${OPT}"/"${TEMP}"
+    done
+    FIRST='false'
+  else
+    # multiply the existing directories
+    RANGE="$(find . -type d | grep -v '^.$' | xargs echo)"
+    for DIR in ${RANGE} 
+    do
+      for OPT in ${ARGS}
+      do
+        NEW="${DIR}_${OPT}"
+        cp -r ${DIR} "${NEW}"
+        cp "${DIR}"/"${TEMP}" "${NEW}"/"${TEMP}"
+        echo "${KEY} ${OPT}" >> "${NEW}/${TEMP}"
+      done
+      rm -r "${DIR}"
+    done
+  fi
+done
+
+exit 0
+
+
+
