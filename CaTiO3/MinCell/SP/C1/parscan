@@ -9,7 +9,7 @@
 ME=$(basename "$0")
 
 # prints for error messages
-SYNTAX="Syntaxis: ${ME} BASE SCAN"
+SYNTAX="Syntaxis: ${ME} BASE SCAN [FILE]"
 UNREAD="${ME}: COULD NOT OPEN"
 
 # Transform long options to short ones
@@ -34,7 +34,7 @@ done
 shift "$((OPTIND - 1))"
 
 # check parameters
-if [ "${#}" -ne 2 ]
+if [ "${#}" -ne 3 -a "${#}" -ne 2 ]
 then
   echo "${SYNTAX}" 1>&2
   exit 1
@@ -42,7 +42,8 @@ else
   # set the variables
   BASE="${1}"
   SCAN="${2}"
-  for VAR in "${BASE}" "${SCAN}"
+  FILE="${3}"
+  for VAR in "${BASE}" "${SCAN}" "${FILE}"
   do
     if [ ! -r "${VAR}" ]
     then
@@ -63,6 +64,7 @@ mkdir "${DEST}"
 cp "${BASE}" "${DEST}"
 # go to destiny
 cd "${DEST}"
+# create template
 TEMP=${BASE##*/}
 echo -e "\n# SCANNING:" >> "${TEMP}"
 
@@ -74,7 +76,8 @@ while read LINE 0<&3
 do
   # parse line
   KEY="${LINE%% *}"
-  ARGS=$(sed "s/\*/\\\*/g" <<< "${LINE#* }")
+  ARGS=(${LINE#* })
+  #ARGS=$(sed "s/\*/\\\*/g" <<< "${LINE#* }")
 
   # remove key from template
   sed -i "/${KEY}/d" "${TEMP}"
@@ -83,10 +86,16 @@ do
   if [ ${FIRST} = 'true' ]
    then
     # initialize
-    for OPT in ${ARGS}
+    for OPT in "${ARGS[@]}"
     do
       mkdir "${OPT}"
+      # copy the file if there is one
+      if [ ! -z "${FILE}" ]
+      then
+        cp ../"${FILE}" "${OPT}"
+      fi
       cp "${TEMP}" "${OPT}"
+      # add the relevant variable
       echo "${KEY} ${OPT}" >> "${OPT}"/"${TEMP}"
     done
     FIRST='false'
@@ -95,19 +104,30 @@ do
     RANGE="$(find . -type d | grep -v '^.$' | xargs echo)"
     for DIR in ${RANGE} 
     do
-      for OPT in ${ARGS}
+      for OPT in "${ARGS[@]}"
       do
         NEW="${DIR}_${OPT}"
         cp -r ${DIR} "${NEW}"
         cp "${DIR}"/"${TEMP}" "${NEW}"/"${TEMP}"
-        echo "${KEY} ${OPT}" >> "${NEW}/${TEMP}"
+        # add the relevant variable
+        echo "${KEY} ${OPT}" >> "${NEW}"/"${TEMP}"
       done
       rm -r "${DIR}"
     done
   fi
 done
 
+# remove template
+rm "${TEMP}"
+
 exit 0
 
+
+    # echo ${#ARGS[@]}
+ 
+    # for i in $(seq 0 ${#ARGS[@]})
+    # do
+    #   echo ${ARGS[$i]}
+    # done
 
 

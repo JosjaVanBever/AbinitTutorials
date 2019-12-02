@@ -1,0 +1,107 @@
+#!/bin/bash
+
+# name of shell script
+ME=$(basename "$0")
+
+# prints for error messages and help
+SYNTAX="SYNTAXIS: ${ME} [-f FILTER1 -f FILTER2 ..] [-i INFILE] [-t] COMMAND"
+
+# display info for --help = -h flag
+display_help() { echo "
+USAGE:
+${SYNTAX}
+
+OPTIONS:
+  -h, --help              Display help.
+  ---------------------------------------------------------------------------------
+  -f, --filter=LIST       A parameter to scan, given a list of options.
+                          Each parameter must label a subdirectory in which the
+                          specified input files can be found.
+  -i, --infile=FILE       Name of the input files that have to be submitted.
+                          Parameter expansion is allowed using e.g. '*.files'.
+  -t, --test              Do not submit the jobs but print out the qsub commands.
+
+COMMAND
+  'INFILE' will be replaced by the name of the found input file
+
+FILTER EXPANSION:
+  Every extended regex is allowed to specify a filter!
+
+EXAMPLE:
+  ${ME} -f '40_*' -f 'results' -l walltime=00:30:00,nodes=1:ppn=3
+"
+exit 0
+}
+
+
+# Transform long options to short ones
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--help" | "-help")     set -- "$@" "-h" ;;
+    "--filter")             set -- "$@" "-f" ;;
+    "--infile")             set -- "$@" "-i" ;;
+    "--test")               set -- "$@" "-t" ;;
+    *)                      set -- "$@" "$arg"
+  esac
+done
+
+
+# variables to remember the chosen options
+filters=''         # default == no filters
+infile="$*.files"  # default name of the input file
+command=''         # should always manually be set
+test='false'       # default == do the job
+
+
+# try to handle the options
+while getopts ":f:i:th" opt; do
+  if [[ "${OPTARG}" =~ ^-{1,2}.* ]]
+  then
+    echo "${SYNTAX}" 1>&2
+    exit 1
+  fi
+  case "${opt}" in
+    h ) display_help
+        exit 0 ;;
+    t ) test='true' ;;
+    f ) filters+="$(sed '
+          s/ /|/g; s/^/(/; s/$/)/
+          ' <<< ${OPTARG}) " ;;
+    i ) infile="${OPTARG}" ;;
+    \?) echo "${SYNTAX}" 1>&2
+        exit 1 ;;
+  esac
+done
+shift "$((OPTIND - 1))"
+
+
+# try to assign the arguments
+if [ $# -ne '1' ]
+then
+  echo "${SYNTAX}" 1>&2
+  exit 1
+else
+  command="${1}"
+fi
+
+# collect all corresponding input files
+results=$(find . -type f -name "${infile}")
+for filter in ${filters}; do
+  results=$(grep -E "/${filter}/" <<< "${results}")
+done
+
+# execute the command for each input file
+for file in $results; do
+    exec=$(sed "s/INFILE/${file##*/}/g" <<< ${command})
+    echo "${file}"
+    cd ${file%/*}
+    if [ "${test}" = 'true' ]; then
+      echo "${exec}"
+    else
+      eval "${exec}"
+    fi
+    cd - > /dev/null
+done
+
+exit 0
