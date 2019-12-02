@@ -1,0 +1,5 @@
+./genscan sp.in converge sp.files
+./calscan -t -i sp.files 'abinit < INFILE > log'
+./calscan -f '[0-9]*_\*[0-9]*' -t -i sp.files 'abinit < INFILE > log'
+./calscan -f 'results[0-9]*' -t -i sp.files 'abinit < INFILE > log'
+./calscan -f 'results[0-9]*' -i sp.files 'mpirun -n 4 abinit < INFILE &> log'
