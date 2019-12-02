@@ -57,7 +57,8 @@ fi
 DEST="./results${$}"
 
 # open scan
-exec 3< "${SCAN}"
+exec 3< "${SCAN}"  # for keys filtering
+exec 4< "${SCAN}"  # for directory generation
 
 # prepare destiny
 mkdir "${DEST}"
@@ -76,11 +77,16 @@ while read LINE 0<&3
 do
   # parse line
   KEY="${LINE%% *}"
-  ARGS=(${LINE#* })
-  #ARGS=$(sed "s/\*/\\\*/g" <<< "${LINE#* }")
-
   # remove key from template
   sed -i "/${KEY}/d" "${TEMP}"
+done
+
+# for all lines in scan
+while read LINE 0<&4
+do
+  # parse line
+  KEY="${LINE%% *}"
+  ARGS=(${LINE#* })
   
   # provide directories for the args
   if [ ${FIRST} = 'true' ]
@@ -120,14 +126,9 @@ done
 # remove template
 rm "${TEMP}"
 
+# close file descriptors
+exec 3<&-
+exec 4<&-
+
 exit 0
-
-
-    # echo ${#ARGS[@]}
- 
-    # for i in $(seq 0 ${#ARGS[@]})
-    # do
-    #   echo ${ARGS[$i]}
-    # done
-
 
