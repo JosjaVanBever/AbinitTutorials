@@ -1,0 +1,4236 @@
+--------------------------------------------------------------------------
+[[561,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: abipy
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+
+.Version 8.11.13 of MULTIBINIT 
+.(MPI version, prepared for a x86_64_linux_gnu5.4 computer) 
+
+.Copyright (C) 1998-2019 ABINIT group . 
+ MULTIBINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Wed  4 Dec 2019.
+- ( at 14h38 )
+  
+-  nproc =    1
+
+  Give name for      formatted input file : 
+-   tmulti1_3.in
+  Give name for     formatted output file : 
+-   tmulti1_3.out
+  Give name for input derivative database of reference structure (DDB or XML file): 
+-   tmulti1_1_model.xml
+  Give name for input coefficients from fitted polynomial (XML file or enter no): 
+-   
+  Give name for molecular dynamics (netcdf file or enter no): 
+-   
+  Give name for input derivative database (DDB or XML file): 
+-   
+-begin at tcpu      0.004  and twall      0.000 sec
+
+--- !COMMENT
+src_file: m_dtfil.F90
+src_line: 1450
+message: |
+    Output file: tmulti1_3.out already exists.
+...
+
+
+--- !COMMENT
+src_file: m_dtfil.F90
+src_line: 1474
+message: |
+    Renaming old tmulti1_3.out to tmulti1_3.out0002
+...
+
+
+================================================================================
+
+ Read the information in the reference structure in 
+-tmulti1_1_model.xml
+ to initialize the multibinit input
+
+ The file tmulti1_1_model.xml is XML file (extraction of all informations)
+ system_getDimFromXML :-Opening the file tmulti1_1_model.xml to read dimensions (before initialisation)
+-instrng: 28 lines of input have been read from file tmulti1_3.in
+
+
+ --- !WARNING
+     The range of dipdip_range (  0  0  0)
+     But the range of the cell for the simulation is  4  4  4)
+     dipdip_range is set to ncell.
+ ---
+
+
+================================================================================
+
+ -outvars_multibinit: echo values of input variables ----------------------
+
+ Flags : 
+     ifcflag         1
+     strcpli        -1
+ Molecular Dynamics :
+    dynamics        13
+        temp       1.0
+       ntime      1000
+       ncell         4         4         4
+       dtion       100
+     optcell         2
+       bmass         0.0
+        nnos         0
+        qmass  
+ Miscellaneous information :
+         asr         2
+ Interatomic Force Constants Inputs :
+      dipdip         1
+dipdip_range         4         4         4
+      ifcana         0
+      ifcout   2000000
+      natifc        20
+       atifc         1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+     16  17  18  19  20
+ Description of grid 1 :
+        brav         1
+       ngqpt         1         1         1
+      nqshft         1
+      q1shft
+                     0.00000000E+00  0.00000000E+00  0.00000000E+00
+ First list of wavevector (reduced coord.) :
+       nph1l         1
+       qph1l
+                     0.00000000E+00  0.00000000E+00  0.00000000E+00    0.000E+00
+
+================================================================================
+
+-Opening the file tmulti1_1_model.xml
+
+ The file tmulti1_1_model.xml is XML file (extraction of all informations)
+ system_getDimFromXML :-Opening the file tmulti1_1_model.xml to read dimensions (before initialisation)
+-Reading the file tmulti1_1_model.xml with LibXML library
+
+ symlatt: the Bravais lattice is oP (primitive orthorhombic)
+
+ Bound for ifc SR:
+
+ x=[ -1  1], y=[ -1  1] and z=[ -1  1]
+
+================================================================================
+ Generation of new ifc
+
+ dipdip is set to one, the dipole-dipole interation is recompute.
+
+ Bound for ifc (LR):
+
+ x=[ -1  2], y=[ -1  2] and z=[ -1  2]
+
+ Computation of new dipole-dipole interaction.
+
+ Impose acoustic sum rule on total ifc
+
+================================================================================
+
+================================================================================
+
+ There is no file for the coefficients from polynomial fitting
+
+================================================================================
+
+ WARNING: nnos is set to zero in the input
+          value by default for qmass:                3050.8538476937
+
+ WARNING: bmass is set to zero in the input
+          value by default for bmass:            30508538.4769374505
+
+--------------------------------------------------------------------------------
+-Monte Carlo / Molecular Dynamics 
+
+
+=== [ionmov=13] Isothermal/isenthalpic ensemble molecular dynamics with effective potential
+================================================================================
+
+--- Iteration: (   1/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+
+ no strain found: This structure is equivalent to the reference structure
+
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    :  4.3579852347405011E-28 Hartree
+
+ --- !WARNING!
+        The harmonic part is negative, the simulation will diverge
+        if the anharmonic part is not used
+ ---
+
+    >>>>>>>>> Etotal= -3.70268130405619E+04
+
+ Unit cell volume ucvol=  9.2406536E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  9.24737195E-20  sigma(3 2)=  1.44565209E-20
+  sigma(2 2)= -6.22201908E-20  sigma(3 1)=  3.22027272E-28
+  sigma(3 3)= -8.47750494E-21  sigma(2 1)=  1.40948285E-20
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -2.1356E-16 GPa]
+- sigma(1 1)=  2.72067030E-15  sigma(3 2)=  4.25325458E-16
+- sigma(2 2)= -1.83058091E-15  sigma(3 1)=  9.47436785E-24
+- sigma(3 3)= -2.49416764E-16  sigma(2 1)=  4.14684101E-16
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.05 [s]
+
+--- Iteration: (   2/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   6.46567015E-07  -1.23010503E-08   8.84200263E-09
+  -1.23010503E-08   6.82153370E-07   9.55240001E-09
+   8.84200268E-09   9.55240004E-09   6.65850229E-07
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    :  9.0641854289621982E-05 Hartree
+ Energy of the elastic part                :  2.2054965968869401E-09 Hartree
+
+    >>>>>>>>> Etotal= -3.70268129499179E+04
+
+ Unit cell volume ucvol=  9.2406721E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.40117064E-08  sigma(3 2)= -1.50234854E-08
+  sigma(2 2)=  4.68728785E-09  sigma(3 1)= -1.01139456E-09
+  sigma(3 3)=  3.14542549E-08  sigma(2 1)= -5.04307319E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -5.8992E-04 GPa]
+- sigma(1 1)=  7.06448675E-04  sigma(3 2)= -4.42006127E-04
+- sigma(2 2)=  1.37904746E-04  sigma(3 1)= -2.97562504E-05
+- sigma(3 3)=  9.25415974E-04  sigma(2 1)= -1.48372311E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000002E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.04 [s]
+
+--- Iteration: (   3/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.84134284E-06   1.03458539E-07   6.77299479E-08
+   1.03458530E-07   2.57084981E-06   4.94092872E-07
+   6.77299383E-08   4.94092870E-07   1.69217713E-06
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    :  2.3454020143891526E-04 Hartree
+ Energy of the elastic part                :  1.3113000639979527E-08 Hartree
+
+    >>>>>>>>> Etotal= -3.70268128060086E+04
+
+ Unit cell volume ucvol=  9.2407100E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  6.37242864E-08  sigma(3 2)= -2.59331592E-08
+  sigma(2 2)=  2.86786855E-08  sigma(3 1)= -1.48581600E-09
+  sigma(3 3)=  7.47630271E-08  sigma(2 1)= -8.96781841E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -1.6394E-03 GPa]
+- sigma(1 1)=  1.87483292E-03  sigma(3 2)= -7.62979757E-04
+- sigma(2 2)=  8.43755916E-04  sigma(3 1)= -4.37142085E-05
+- sigma(3 3)=  2.19960383E-03  sigma(2 1)= -2.63842282E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000003E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.03 [s]
+
+--- Iteration: (   4/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   2.35669819E-06   4.65677531E-07   1.95883695E-07
+   4.65677472E-07   4.92401232E-06   1.78733647E-06
+   1.95883628E-07   1.78733646E-06   1.73928707E-06
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    :  2.1840765693701522E-05 Hartree
+ Energy of the elastic part                :  1.5360132918551174E-08 Hartree
+
+    >>>>>>>>> Etotal= -3.70268130187058E+04
+
+ Unit cell volume ucvol=  9.2407370E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  9.23004259E-08  sigma(3 2)= -2.99396258E-08
+  sigma(2 2)=  4.79922588E-08  sigma(3 1)= -1.02194879E-09
+  sigma(3 3)=  1.00535522E-07  sigma(2 1)= -1.06894777E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -2.3618E-03 GPa]
+- sigma(1 1)=  2.71557183E-03  sigma(3 2)= -8.80854054E-04
+- sigma(2 2)=  1.41198076E-03  sigma(3 1)= -3.00667665E-05
+- sigma(3 3)=  2.95785669E-03  sigma(2 1)= -3.14495240E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000003E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.03 [s]
+
+--- Iteration: (   5/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.38164214E-06   1.12397748E-06   3.86015297E-07
+   1.12397736E-06   7.23628087E-06   4.01577734E-06
+   3.86015073E-07   4.01577727E-06   7.51191986E-08
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.3516464046370276E-03 Hartree
+ Energy of the elastic part                : -2.2576494276843823E-08 Hartree
+
+    >>>>>>>>> Etotal= -3.70268143922309E+04
+
+ Unit cell volume ucvol=  9.2407340E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  8.94855275E-08  sigma(3 2)= -2.63176076E-08
+  sigma(2 2)=  4.27186494E-08  sigma(3 1)=  5.70275601E-10
+  sigma(3 3)=  8.75630045E-08  sigma(2 1)= -9.66924716E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -2.1553E-03 GPa]
+- sigma(1 1)=  2.63275467E-03  sigma(3 2)= -7.74290617E-04
+- sigma(2 2)=  1.25682585E-03  sigma(3 1)=  1.67780846E-05
+- sigma(3 3)=  2.57619210E-03  sigma(2 1)= -2.84479025E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000004E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.03 [s]
+
+--- Iteration: (   6/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+  -6.87760678E-07   2.03485815E-06   5.95853756E-07
+   2.03485847E-06   1.00120560E-05   7.06129103E-06
+   5.95853337E-07   7.06129075E-06  -2.60366868E-06
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.3780930373469281E-03 Hartree
+ Energy of the elastic part                : -9.2672745548296378E-08 Hartree
+
+    >>>>>>>>> Etotal= -3.70268184187476E+04
+
+ Unit cell volume ucvol=  9.2407157E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  5.69683225E-08  sigma(3 2)= -1.68121076E-08
+  sigma(2 2)=  1.14574981E-08  sigma(3 1)=  3.17932906E-09
+  sigma(3 3)=  3.81437073E-08  sigma(2 1)= -6.03900885E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure= -1.0451E-03 GPa]
+- sigma(1 1)=  1.67606563E-03  sigma(3 2)= -4.94629200E-04
+- sigma(2 2)=  3.37091176E-04  sigma(3 1)=  9.35390747E-05
+- sigma(3 3)=  1.12222642E-03  sigma(2 1)= -1.77673745E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000007E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (   7/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+  -2.00496430E-06   3.04453141E-06   7.48622312E-07
+   3.04453484E-06   1.50335525E-05   1.05635750E-05
+   7.48622162E-07   1.05635736E-05  -3.95375611E-06
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.4777880139795588E-02 Hartree
+ Energy of the elastic part                : -1.4939202617733805E-07 Hartree
+
+    >>>>>>>>> Etotal= -3.70268278185915E+04
+
+ Unit cell volume ucvol=  9.2407375E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.96920358E-08  sigma(3 2)= -5.58683388E-09
+  sigma(2 2)= -2.73013019E-08  sigma(3 1)=  6.30167575E-09
+  sigma(3 3)= -2.07361549E-08  sigma(2 1)= -5.68012226E-10
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.7798E-04 GPa]
+- sigma(1 1)=  5.79359597E-04  sigma(3 2)= -1.64370300E-04
+- sigma(2 2)= -8.03231898E-04  sigma(3 1)=  1.85401670E-04
+- sigma(3 3)= -6.10078638E-04  sigma(2 1)= -1.67114938E-05
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000011E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (   8/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.12456032E-07   3.88893458E-06   7.55281575E-07
+   3.88894920E-06   2.47374695E-05   1.39701073E-05
+   7.55283711E-07   1.39701014E-05  -7.38812966E-07
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.3909741000813585E-02 Hartree
+ Energy of the elastic part                : -3.4289718561348217E-08 Hartree
+
+    >>>>>>>>> Etotal= -3.70268469503372E+04
+
+ Unit cell volume ucvol=  9.2408764E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  7.88089581E-09  sigma(3 2)=  1.56451652E-09
+  sigma(2 2)= -5.14843922E-08  sigma(3 1)=  8.99883574E-09
+  sigma(3 3)= -5.54695894E-08  sigma(2 1)=  5.54127951E-09
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  9.7161E-04 GPa]
+- sigma(1 1)=  2.31863921E-04  sigma(3 2)=  4.60296575E-05
+- sigma(2 2)= -1.51472286E-03  sigma(3 1)=  2.64754844E-04
+- sigma(3 3)= -1.63197139E-03  sigma(2 1)=  1.63030044E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000017E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (   9/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   7.33483591E-06   4.27316170E-06   5.76292282E-07
+   4.27320372E-06   4.02619509E-05   1.67146395E-05
+   5.76301456E-07   1.67146215E-05   8.97947076E-06
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.7471664686803476E-02 Hartree
+ Energy of the elastic part                :  8.3211836976088501E-07 Hartree
+
+    >>>>>>>>> Etotal= -3.70268805113945E+04
+
+ Unit cell volume ucvol=  9.2411764E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  2.18663531E-08  sigma(3 2)= -3.41379220E-10
+  sigma(2 2)= -6.63419274E-08  sigma(3 1)=  1.01670238E-08
+  sigma(3 3)= -6.15746710E-08  sigma(2 1)=  1.11494531E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.0400E-03 GPa]
+- sigma(1 1)=  6.43330209E-04  sigma(3 2)= -1.00437217E-05
+- sigma(2 2)= -1.95184656E-03  sigma(3 1)=  2.99124116E-04
+- sigma(3 3)= -1.81158906E-03  sigma(2 1)=  3.28028181E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000020E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  10/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.81791207E-05   4.08077142E-06   2.84218117E-07
+   4.08086084E-06   5.93254832E-05   1.85741717E-05
+   2.84240961E-07   1.85741322E-05   2.33427719E-05
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.1660178454671070E-01 Hartree
+ Energy of the elastic part                :  3.1926673395159614E-06 Hartree
+
+    >>>>>>>>> Etotal= -3.70269296391538E+04
+
+ Unit cell volume ucvol=  9.2415856E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.07155356E-08  sigma(3 2)= -1.17324472E-08
+  sigma(2 2)= -1.20864481E-07  sigma(3 1)=  9.31069290E-09
+  sigma(3 3)= -8.71028985E-08  sigma(2 1)=  1.59612175E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.9344E-03 GPa]
+- sigma(1 1)=  3.15261888E-04  sigma(3 2)= -3.45180457E-04
+- sigma(2 2)= -3.55595520E-03  sigma(3 1)=  2.73929997E-04
+- sigma(3 3)= -2.56265532E-03  sigma(2 1)=  4.69595152E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000019E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  11/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   2.94446005E-05   3.48091887E-06   1.33537703E-08
+   3.48106923E-06   7.81558098E-05   1.98363611E-05
+   1.33953728E-08   1.98362954E-05   3.83687556E-05
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.7783569829240181E-01 Hartree
+ Energy of the elastic part                :  6.9582802766344319E-06 Hartree
+
+    >>>>>>>>> Etotal= -3.70269908693019E+04
+
+ Unit cell volume ucvol=  9.2420025E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.19570658E-08  sigma(3 2)= -2.82713039E-08
+  sigma(2 2)= -2.64124928E-07  sigma(3 1)=  6.89704179E-09
+  sigma(3 3)= -1.89074986E-07  sigma(2 1)=  2.07563171E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.2483E-03 GPa]
+- sigma(1 1)= -2.41125972E-03  sigma(3 2)= -8.31770337E-04
+- sigma(2 2)= -7.77082237E-03  sigma(3 1)=  2.02917941E-04
+- sigma(3 3)= -5.56277721E-03  sigma(2 1)=  6.10671831E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000018E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  12/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   4.01915774E-05   2.71590777E-06  -1.54442951E-07
+   2.71612292E-06   9.58495697E-05   2.09481480E-05
+  -1.54380761E-07   2.09480569E-05   5.25791474E-05
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.4805044716670679E-01 Hartree
+ Energy of the elastic part                :  1.1773214845918590E-05 Hartree
+
+    >>>>>>>>> Etotal= -3.70270610792359E+04
+
+ Unit cell volume ucvol=  9.2423967E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.57814495E-07  sigma(3 2)= -4.56221005E-08
+  sigma(2 2)= -4.93092508E-07  sigma(3 1)=  3.57650392E-09
+  sigma(3 3)= -3.72299858E-07  sigma(2 1)=  2.65187516E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1015E-02 GPa]
+- sigma(1 1)= -7.58516304E-03  sigma(3 2)= -1.34224831E-03
+- sigma(2 2)= -1.45072800E-02  sigma(3 1)=  1.05224360E-04
+- sigma(3 3)= -1.09534381E-02  sigma(2 1)=  7.80208478E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000019E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  13/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   5.18131160E-05   1.90635599E-06  -2.07308785E-07
+   1.90663526E-06   1.14154221E-04   2.21649319E-05
+  -2.07226149E-07   2.21648171E-05   6.72528758E-05
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.2726224314821178E-01 Hartree
+ Energy of the elastic part                :  1.8126195484882495E-05 Hartree
+
+    >>>>>>>>> Etotal= -3.70271402846789E+04
+
+ Unit cell volume ucvol=  9.2428089E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.83876672E-07  sigma(3 2)= -6.22429569E-08
+  sigma(2 2)= -7.74790851E-07  sigma(3 1)= -4.27226802E-10
+  sigma(3 3)= -6.06520137E-07  sigma(2 1)=  3.37303613E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.8292E-02 GPa]
+- sigma(1 1)= -1.42361408E-02  sigma(3 2)= -1.83125071E-03
+- sigma(2 2)= -2.27951300E-02  sigma(3 1)= -1.25694443E-05
+- sigma(3 3)= -1.78444355E-02  sigma(2 1)=  9.92381324E-04
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000021E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  14/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   6.56793165E-05   1.06830199E-06  -1.59416733E-07
+   1.06864498E-06   1.34740004E-04   2.35434447E-05
+  -1.59314202E-07   2.35433061E-05   8.38541219E-05
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.1720440184847440E-01 Hartree
+ Energy of the elastic part                :  2.7059863018159865E-05 Hartree
+
+    >>>>>>>>> Etotal= -3.70272302179039E+04
+
+ Unit cell volume ucvol=  9.2432807E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.39010112E-07  sigma(3 2)= -7.84644983E-08
+  sigma(2 2)= -1.08982485E-06  sigma(3 1)= -5.20510261E-09
+  sigma(3 3)= -8.71739193E-07  sigma(2 1)=  4.24802130E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.6485E-02 GPa]
+- sigma(1 1)= -2.17424245E-02  sigma(3 2)= -2.30850485E-03
+- sigma(2 2)= -3.20637487E-02  sigma(3 1)= -1.53139380E-04
+- sigma(3 3)= -2.56474482E-02  sigma(2 1)=  1.24981081E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000024E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  15/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   8.22565864E-05   1.85662193E-07  -2.40235244E-08
+   1.86070081E-07   1.58225771E-04   2.50591276E-05
+  -2.39014591E-08   2.50589631E-05   1.02967488E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.1983097050853455E-01 Hartree
+ Energy of the elastic part                :  3.9625057637534957E-05 Hartree
+
+    >>>>>>>>> Etotal= -3.70273328319074E+04
+
+ Unit cell volume ucvol=  9.2438277E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.02459247E-06  sigma(3 2)= -9.50898398E-08
+  sigma(2 2)= -1.44115783E-06  sigma(3 1)= -1.09343306E-08
+  sigma(3 3)= -1.16946879E-06  sigma(2 1)=  5.27831835E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.5651E-02 GPa]
+- sigma(1 1)= -3.01445462E-02  sigma(3 2)= -2.79763920E-03
+- sigma(2 2)= -4.24003201E-02  sigma(3 1)= -3.21699060E-04
+- sigma(3 3)= -3.44069539E-02  sigma(2 1)=  1.55293461E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000027E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  16/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.01512233E-04  -7.55306890E-07   1.91472441E-07
+  -7.54831629E-07   1.84631931E-04   2.66785224E-05
+   1.91613865E-07   2.66783289E-05   1.24641539E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.3698050436869402E-01 Hartree
+ Energy of the elastic part                :  5.6796148829242458E-05 Hartree
+
+    >>>>>>>>> Etotal= -3.70274499642701E+04
+
+ Unit cell volume ucvol=  9.2444501E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.35315955E-06  sigma(3 2)= -1.12818994E-07
+  sigma(2 2)= -1.84262047E-06  sigma(3 1)= -1.77968748E-08
+  sigma(3 3)= -1.51216093E-06  sigma(2 1)=  6.47300201E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.6171E-02 GPa]
+- sigma(1 1)= -3.98113219E-02  sigma(3 2)= -3.31924885E-03
+- sigma(2 2)= -5.42117566E-02  sigma(3 1)= -5.23602047E-04
+- sigma(3 3)= -4.44893030E-02  sigma(2 1)=  1.90442262E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000030E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  17/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.23359350E-04  -1.76105889E-06   4.83457935E-07
+  -1.76051308E-06   2.13880745E-04   2.83790843E-05
+   4.83618603E-07   2.83788579E-05   1.48835179E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -7.7055039561592742E-01 Hartree
+ Energy of the elastic part                :  7.9607107936982620E-05 Hartree
+
+    >>>>>>>>> Etotal= -3.70275835113504E+04
+
+ Unit cell volume ucvol=  9.2451460E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.73938440E-06  sigma(3 2)= -1.32198899E-07
+  sigma(2 2)= -2.31018644E-06  sigma(3 1)= -2.59836626E-08
+  sigma(3 3)= -1.91453816E-06  sigma(2 1)=  7.85043112E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.8490E-02 GPa]
+- sigma(1 1)= -5.11744472E-02  sigma(3 2)= -3.88942522E-03
+- sigma(2 2)= -6.79680203E-02  sigma(3 1)= -7.64465617E-04
+- sigma(3 3)= -5.63276479E-02  sigma(2 1)=  2.30967619E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000033E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  18/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.47792964E-04  -2.83372618E-06   8.50026224E-07
+  -2.83310629E-06   2.45961650E-04   3.01478602E-05
+   8.50205991E-07   3.01475969E-05   1.75568511E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -9.2270730178695337E-01 Hartree
+ Energy of the elastic part                :  1.0926014921127670E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70277356386036E+04
+
+ Unit cell volume ucvol=  9.2459155E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.19824912E-06  sigma(3 2)= -1.53709644E-07
+  sigma(2 2)= -2.86031673E-06  sigma(3 1)= -3.57153248E-08
+  sigma(3 3)= -2.39180563E-06  sigma(2 1)=  9.43672803E-08
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  7.3066E-02 GPa]
+- sigma(1 1)= -6.46747110E-02  sigma(3 2)= -4.52229311E-03
+- sigma(2 2)= -8.41534094E-02  sigma(3 1)= -1.05078096E-03
+- sigma(3 3)= -7.03693394E-02  sigma(2 1)=  2.77638077E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000036E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  19/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   1.74871503E-04  -3.97345774E-06   1.28992321E-06
+  -3.97276000E-06   2.80922755E-04   3.19770330E-05
+   1.29012186E-06   3.19767290E-05   2.04914732E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.0960369544663284E+00 Hartree
+ Energy of the elastic part                :  1.4716309901153548E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70279089303533E+04
+
+ Unit cell volume ucvol=  9.2467603E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.74636161E-06  sigma(3 2)= -1.77838711E-07
+  sigma(2 2)= -3.51134520E-06  sigma(3 1)= -4.72592569E-08
+  sigma(3 3)= -2.96092732E-06  sigma(2 1)=  1.12651569E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  9.0407E-02 GPa]
+- sigma(1 1)= -8.08007346E-02  sigma(3 2)= -5.23219463E-03
+- sigma(2 2)= -1.03307325E-01  sigma(3 1)= -1.39041511E-03
+- sigma(3 3)= -8.71134747E-02  sigma(2 1)=  3.31432303E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000039E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  20/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   2.04679790E-04  -5.17929665E-06   1.80205902E-06
+  -5.17851718E-06   3.18835538E-04   3.38609669E-05
+   1.80227626E-06   3.38606183E-05   2.36968066E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.2936640499445078E+00 Hartree
+ Energy of the elastic part                :  1.9493425861793090E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70281065096776E+04
+
+ Unit cell volume ucvol=  9.2476827E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.40355805E-06  sigma(3 2)= -2.05126599E-07
+  sigma(2 2)= -4.28513228E-06  sigma(3 1)= -6.09437545E-08
+  sigma(3 3)= -3.64220499E-06  sigma(2 1)=  1.33766440E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1112E-01 GPa]
+- sigma(1 1)= -1.00136118E-01  sigma(3 2)= -6.03503190E-03
+- sigma(2 2)= -1.26072923E-01  sigma(3 1)= -1.79302686E-03
+- sigma(3 3)= -1.07157352E-01  sigma(2 1)=  3.93554389E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000042E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  21/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   2.37306111E-04  -6.44933726E-06   2.38521375E-06
+  -6.44847210E-06   3.59771115E-04   3.57946254E-05
+   2.38544917E-06   3.57942284E-05   2.71822811E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.5193722624158634E+00 Hartree
+ Energy of the elastic part                :  2.5439827660265129E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70283321584261E+04
+
+ Unit cell volume ucvol=  9.2486851E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.19423024E-06  sigma(3 2)= -2.36196885E-07
+  sigma(2 2)= -5.20845080E-06  sigma(3 1)= -7.71722557E-08
+  sigma(3 3)= -4.46060794E-06  sigma(2 1)=  1.58208992E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3596E-01 GPa]
+- sigma(1 1)= -1.23398493E-01  sigma(3 2)= -6.94915112E-03
+- sigma(2 2)= -1.53237887E-01  sigma(3 1)= -2.27048577E-03
+- sigma(3 3)= -1.31235594E-01  sigma(2 1)=  4.65466845E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000045E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  22/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   2.72827509E-04  -7.78061614E-06   3.03778566E-06
+  -7.77966135E-06   4.03784226E-04   3.77726659E-05
+   3.03803874E-06   3.77722172E-05   3.09559403E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.7777350062872315E+00 Hartree
+ Energy of the elastic part                :  3.2757199766979419E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70285904479962E+04
+
+ Unit cell volume ucvol=  9.2497694E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.14855767E-06  sigma(3 2)= -2.71780150E-07
+  sigma(2 2)= -6.31428096E-06  sigma(3 1)= -9.64389669E-08
+  sigma(3 3)= -5.44702264E-06  sigma(2 1)=  1.86577832E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.6584E-01 GPa]
+- sigma(1 1)= -1.51475771E-01  sigma(3 2)= -7.99604672E-03
+- sigma(2 2)= -1.85772528E-01  sigma(3 1)= -2.83733189E-03
+- sigma(3 3)= -1.60256912E-01  sigma(2 1)=  5.48930841E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000048E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  23/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   3.11296045E-04  -9.16889016E-06   3.75752934E-06
+  -9.16784188E-06   4.50898126E-04   3.97888140E-05
+   3.75779943E-06   3.97883105E-05   3.50230986E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.0742566045658783E+00 Hartree
+ Energy of the elastic part                :  4.1663023179847828E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70288868805363E+04
+
+ Unit cell volume ucvol=  9.2509369E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.30379364E-06  sigma(3 2)= -3.12735410E-07
+  sigma(2 2)= -7.64315797E-06  sigma(3 1)= -1.19345901E-07
+  sigma(3 3)= -6.63956522E-06  sigma(2 1)=  2.19587344E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.0189E-01 GPa]
+- sigma(1 1)= -1.85463981E-01  sigma(3 2)= -9.20099186E-03
+- sigma(2 2)= -2.24869433E-01  sigma(3 1)= -3.51127704E-03
+- sigma(3 3)= -1.95342720E-01  sigma(2 1)=  6.46048162E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000051E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  24/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   3.52722647E-04  -1.06083438E-05   4.54126235E-06
+  -1.06071984E-05   5.01087021E-04   4.18353466E-05
+   4.54154866E-06   4.18347859E-05   3.93847348E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.4155188352947534E+00 Hartree
+ Energy of the elastic part                :  5.2383894364303990E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70292280355583E+04
+
+ Unit cell volume ucvol=  9.2521875E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.70564263E-06  sigma(3 2)= -3.60069773E-07
+  sigma(2 2)= -9.24460468E-06  sigma(3 1)= -1.46620775E-07
+  sigma(3 3)= -8.08499186E-06  sigma(2 1)=  2.58081101E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.4552E-01 GPa]
+- sigma(1 1)= -2.26707795E-01  sigma(3 2)= -1.05936167E-02
+- sigma(2 2)= -2.71985614E-01  sigma(3 1)= -4.31373141E-03
+- sigma(3 3)= -2.37868633E-01  sigma(2 1)=  7.59300685E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000054E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  25/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   3.97057084E-04  -1.20912411E-05   5.38452970E-06
+  -1.20899953E-05   5.54254628E-04   4.39026143E-05
+   5.38483131E-06   4.39019944E-05   4.40354858E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.8093268692581916E+00 Hartree
+ Energy of the elastic part                :  6.5144133812556769E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70296217159898E+04
+
+ Unit cell volume ucvol=  9.2535194E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.40971783E-06  sigma(3 2)= -4.14956178E-07
+  sigma(2 2)= -1.11786344E-05  sigma(3 1)= -1.79135047E-07
+  sigma(3 3)= -9.84019537E-06  sigma(2 1)=  3.03043251E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.9841E-01 GPa]
+- sigma(1 1)= -2.76843410E-01  sigma(3 2)= -1.22084302E-02
+- sigma(2 2)= -3.28886724E-01  sigma(3 1)= -5.27033414E-03
+- sigma(3 3)= -2.89508494E-01  sigma(2 1)=  8.91583875E-03
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000057E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  26/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   4.44163448E-04  -1.36075356E-05   6.28122205E-06
+  -1.36061866E-05   6.10208200E-04   4.59785722E-05
+   6.28153790E-06   4.59778921E-05   4.89611808E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.2648521269810957E+00 Hartree
+ Energy of the elastic part                :  8.0148046773834125E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70300770912084E+04
+
+ Unit cell volume ucvol=  9.2549283E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.14830745E-05  sigma(3 2)= -4.78749522E-07
+  sigma(2 2)= -1.35173193E-05  sigma(3 1)= -2.17921661E-07
+  sigma(3 3)= -1.19737845E-05  sigma(2 1)=  3.55607382E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.6261E-01 GPa]
+- sigma(1 1)= -3.37843659E-01  sigma(3 2)= -1.40852949E-02
+- sigma(2 2)= -3.97693197E-01  sigma(3 1)= -6.41147555E-03
+- sigma(3 3)= -3.52280843E-01  sigma(2 1)=  1.04623286E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000059E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  27/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   4.93791174E-04  -1.51444569E-05   7.22315226E-06
+  -1.51430026E-05   6.68628144E-04   4.80483162E-05
+   7.22348112E-06   4.80475757E-05   5.41359185E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.7927786062359430E+00 Hartree
+ Energy of the elastic part                :  9.7554205749019927E-04 Hartree
+
+    >>>>>>>>> Etotal= -3.70306048436261E+04
+
+ Unit cell volume ucvol=  9.2564065E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.40058633E-05  sigma(3 2)= -5.53002818E-07
+  sigma(2 2)= -1.63464740E-05  sigma(3 1)= -2.64193022E-07
+  sigma(3 3)= -1.45677918E-05  sigma(2 1)=  4.17063681E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.4053E-01 GPa]
+- sigma(1 1)= -4.12066657E-01  sigma(3 2)= -1.62699019E-02
+- sigma(2 2)= -4.80929788E-01  sigma(3 1)= -7.77282574E-03
+- sigma(3 3)= -4.28599161E-01  sigma(2 1)=  1.22704351E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000061E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  28/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   5.45542632E-04  -1.66861120E-05   8.19961048E-06
+  -1.66845513E-05   7.29034364E-04   5.00936422E-05
+   8.19995100E-06   5.00928424E-05   5.95187914E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.4054716076437490E+00 Hartree
+ Energy of the elastic part                :  1.1744059968588157E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70312173377636E+04
+
+ Unit cell volume ucvol=  9.2579421E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.70732131E-05  sigma(3 2)= -6.39486544E-07
+  sigma(2 2)= -1.97675764E-05  sigma(3 1)= -3.19360922E-07
+  sigma(3 3)= -1.77196227E-05  sigma(2 1)=  4.88866660E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.3507E-01 GPa]
+- sigma(1 1)= -5.02311186E-01  sigma(3 2)= -1.88143405E-02
+- sigma(2 2)= -5.81582080E-01  sigma(3 1)= -9.39592115E-03
+- sigma(3 3)= -5.21329212E-01  sigma(2 1)=  1.43829513E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000062E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  29/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   5.98839954E-04  -1.82131719E-05   9.19694575E-06
+  -1.82115051E-05   7.90752281E-04   5.20926971E-05
+   9.19729647E-06   5.20918401E-05   6.50505259E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.1171966658057464E+00 Hartree
+ Energy of the elastic part                :  1.3976083642172612E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70319288396194E+04
+
+ Unit cell volume ucvol=  9.2595182E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.07974778E-05  sigma(3 2)= -7.40214782E-07
+  sigma(2 2)= -2.39000757E-05  sigma(3 1)= -3.85061040E-07
+  sigma(3 3)= -2.15443870E-05  sigma(2 1)=  5.72646235E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  6.4963E-01 GPa]
+- sigma(1 1)= -6.11882820E-01  sigma(3 2)= -2.17778671E-02
+- sigma(2 2)= -7.03164385E-01  sigma(3 1)= -1.13288850E-02
+- sigma(3 3)= -6.33857644E-01  sigma(2 1)=  1.68478311E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000063E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  30/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   6.52896199E-04  -1.97027647E-05   1.01982646E-05
+  -1.97009936E-05   8.52884192E-04   5.40198474E-05
+   1.01986240E-05   5.40189366E-05   7.06505594E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.9444141022805086E+00 Hartree
+ Energy of the elastic part                :  1.6429427791296767E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70327558117214E+04
+
+ Unit cell volume ucvol=  9.2611115E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.53109155E-05  sigma(3 2)= -8.57480071E-07
+  sigma(2 2)= -2.88841624E-05  sigma(3 1)= -4.63184051E-07
+  sigma(3 3)= -2.61776845E-05  sigma(2 1)=  6.70223428E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  7.8822E-01 GPa]
+- sigma(1 1)= -7.44672718E-01  sigma(3 2)= -2.52279304E-02
+- sigma(2 2)= -8.49801255E-01  sigma(3 1)= -1.36273430E-02
+- sigma(3 3)= -7.70173940E-01  sigma(2 1)=  1.97186507E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000062E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  31/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   7.06699338E-04  -2.11287596E-05   1.11833934E-05
+  -2.11268878E-05   9.14295283E-04   5.58459807E-05
+   1.11837599E-05   5.58450211E-05   7.62154231E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.9061605086560958E+00 Hartree
+ Energy of the elastic part                :  1.9059744342219682E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70337172950961E+04
+
+ Unit cell volume ucvol=  9.2626928E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.07686886E-05  sigma(3 2)= -9.93895483E-07
+  sigma(2 2)= -3.48838932E-05  sigma(3 1)= -5.55913469E-07
+  sigma(3 3)= -3.17787439E-05  sigma(2 1)=  7.83628899E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  9.5551E-01 GPa]
+- sigma(1 1)= -9.05245920E-01  sigma(3 2)= -2.92414097E-02
+- sigma(2 2)= -1.02631940E+00  sigma(3 1)= -1.63555362E-02
+- sigma(3 3)= -9.34962769E-01  sigma(2 1)=  2.30551543E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000060E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  32/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   7.59021548E-04  -2.24626815E-05   1.21293101E-05
+  -2.24607147E-05   9.73627934E-04   5.75395260E-05
+   1.21296821E-05   5.75385235E-05   8.16197128E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -8.0245131256709534E+00 Hartree
+ Energy of the elastic part                :  2.1797017662825557E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70348353739858E+04
+
+ Unit cell volume ucvol=  9.2642265E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.73518851E-05  sigma(3 2)= -1.15243949E-06
+  sigma(2 2)= -4.20903534E-05  sigma(3 1)= -6.65768076E-07
+  sigma(3 3)= -3.85336167E-05  sigma(2 1)=  9.15119653E-07
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1570E+00 GPa]
+- sigma(1 1)= -1.09893022E+00  sigma(3 2)= -3.39059348E-02
+- sigma(2 2)= -1.23834074E+00  sigma(3 1)= -1.95875697E-02
+- sigma(3 3)= -1.13369795E+00  sigma(2 1)=  2.69237452E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000056E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  33/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   8.08469663E-04  -2.36755081E-05   1.30112845E-05
+  -2.36734543E-05   1.02936123E-03   5.90684926E-05
+   1.30116605E-05   5.90674543E-05   8.67212682E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -9.3251290862674345E+00 Hartree
+ Energy of the elastic part                :  2.4545656005020480E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70361357150826E+04
+
+ Unit cell volume ucvol=  9.2656724E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.52701502E-05  sigma(3 2)= -1.33649888E-06
+  sigma(2 2)= -5.07244429E-05  sigma(3 1)= -7.95645936E-07
+  sigma(3 3)= -4.66580248E-05  sigma(2 1)=  1.06718873E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3990E+00 GPa]
+- sigma(1 1)= -1.33189358E+00  sigma(3 2)= -3.93211479E-02
+- sigma(2 2)= -1.49236438E+00  sigma(3 1)= -2.34087077E-02
+- sigma(3 3)= -1.37272625E+00  sigma(2 1)=  3.13977713E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000051E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  34/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   8.53591940E-04  -2.47404915E-05   1.38049189E-05
+  -2.47383610E-05   1.07993134E-03   6.04037068E-05
+   1.38052976E-05   6.04026401E-05   9.13721113E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.0837860679673428E+01 Hartree
+ Energy of the elastic part                :  2.7190344176765799E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70376481822072E+04
+
+ Unit cell volume ucvol=  9.2669888E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.47635989E-05  sigma(3 2)= -1.54990766E-06
+  sigma(2 2)= -6.10389548E-05  sigma(3 1)= -9.48868220E-07
+  sigma(3 3)= -5.63995396E-05  sigma(2 1)=  1.24256505E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.6888E+00 GPa]
+- sigma(1 1)= -1.61120043E+00  sigma(3 2)= -4.55998501E-02
+- sigma(2 2)= -1.79582775E+00  sigma(3 1)= -2.79166621E-02
+- sigma(3 3)= -1.65933146E+00  sigma(2 1)=  3.65575197E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000044E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  35/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   8.93046448E-04  -2.56368542E-05   1.44890763E-05
+  -2.56346587E-05   1.12391704E-03   6.15230726E-05
+   1.44894567E-05   6.15219850E-05   9.54356746E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.2597460857775866E+01 Hartree
+ Energy of the elastic part                :  2.9609202934083724E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70394075404994E+04
+
+ Unit cell volume ucvol=  9.2681376E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.61039858E-05  sigma(3 2)= -1.79698509E-06
+  sigma(2 2)= -7.33199404E-05  sigma(3 1)= -1.12922398E-06
+  sigma(3 3)= -6.80390768E-05  sigma(2 1)=  1.44420476E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.0346E+00 GPa]
+- sigma(1 1)= -1.94484608E+00  sigma(3 2)= -5.28691179E-02
+- sigma(2 2)= -2.15714676E+00  sigma(3 1)= -3.32229108E-02
+- sigma(3 3)= -2.00177841E+00  sigma(2 1)=  4.24899639E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000037E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  36/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.25813577E-04  -2.63537152E-05   1.50492954E-05
+  -2.63514677E-05   1.16026954E-03   6.24161152E-05
+   1.50496766E-05   6.24150136E-05   9.88085200E-04
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.4644401305390639E+01 Hartree
+ Energy of the elastic part                :  3.1693445520675481E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70414542725228E+04
+
+ Unit cell volume ucvol=  9.2690899E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.95956665E-05  sigma(3 2)= -2.08258136E-06
+  sigma(2 2)= -8.78879186E-05  sigma(3 1)= -1.34102099E-06
+  sigma(3 3)= -8.18922489E-05  sigma(2 1)=  1.67528101E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.4456E+00 GPa]
+- sigma(1 1)= -2.34178496E+00  sigma(3 2)= -6.12716486E-02
+- sigma(2 2)= -2.58575140E+00  sigma(3 1)= -3.94541930E-02
+- sigma(3 3)= -2.40935274E+00  sigma(2 1)=  4.92884607E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000028E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  37/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.51403712E-04  -2.68931008E-05   1.54808190E-05
+  -2.68908141E-05   1.18853234E-03   6.30874731E-05
+   1.54812004E-05   6.30863632E-05   1.01441537E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.7025827593674808E+01 Hartree
+ Energy of the elastic part                :  3.3369069439356611E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70438355312487E+04
+
+ Unit cell volume ucvol=  9.2698324E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.55775988E-05  sigma(3 2)= -2.41214499E-06
+  sigma(2 2)= -1.05100202E-04  sigma(3 1)= -1.58915192E-06
+  sigma(3 3)= -9.83118264E-05  sigma(2 1)=  1.93918318E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.9322E+00 GPa]
+- sigma(1 1)= -2.81198957E+00  sigma(3 2)= -7.09677437E-02
+- sigma(2 2)= -3.09215416E+00  sigma(3 1)= -4.67544557E-02
+- sigma(3 3)= -2.89243331E+00  sigma(2 1)=  5.70527293E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000021E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  38/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.69987140E-04  -2.72707144E-05   1.57900881E-05
+  -2.72684002E-05   1.20897216E-03   6.35577895E-05
+   1.57904694E-05   6.35566755E-05   1.03353164E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.9796675802347412E+01 Hartree
+ Energy of the elastic part                :  3.4613043297897633E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70466062550599E+04
+
+ Unit cell volume ucvol=  9.2703708E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.14428165E-04  sigma(3 2)= -2.79182759E-06
+  sigma(2 2)= -1.25356132E-04  sigma(3 1)= -1.87918724E-06
+  sigma(3 3)= -1.17693091E-04  sigma(2 1)=  2.23953813E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.5058E+00 GPa]
+- sigma(1 1)= -3.36659228E+00  sigma(3 2)= -8.21383898E-02
+- sigma(2 2)= -3.68810411E+00  sigma(3 1)= -5.52875882E-02
+- sigma(3 3)= -3.46264970E+00  sigma(2 1)=  6.58894755E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000014E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  39/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.82379196E-04  -2.75136303E-05   1.59937897E-05
+  -2.75112986E-05   1.22255093E-03   6.38610111E-05
+   1.59941709E-05   6.38598956E-05   1.04627810E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.3020975324498615E+01 Hartree
+ Energy of the elastic part                :  3.5456670939288974E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70498304702193E+04
+
+ Unit cell volume ucvol=  9.2707293E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.36574484E-04  sigma(3 2)= -3.22863684E-06
+  sigma(2 2)= -1.49106890E-04  sigma(3 1)= -2.21750487E-06
+  sigma(3 3)= -1.40483752E-04  sigma(2 1)=  2.58026067E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.1794E+00 GPa]
+- sigma(1 1)= -4.01815937E+00  sigma(3 2)= -9.49897594E-02
+- sigma(2 2)= -4.38687543E+00  sigma(3 1)= -6.52412348E-02
+- sigma(3 3)= -4.13317397E+00  sigma(2 1)=  7.59138771E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000008E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  40/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.89860646E-04  -2.76552074E-05   1.61153816E-05
+  -2.76528655E-05   1.23072086E-03   6.40384041E-05
+   1.61157626E-05   6.40372886E-05   1.05397420E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.6773364724803262E+01 Hartree
+ Energy of the elastic part                :  3.5973588902636572E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70535828079278E+04
+
+ Unit cell volume ucvol=  9.2709455E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.62506860E-04  sigma(3 2)= -3.73063774E-06
+  sigma(2 2)= -1.76870503E-04  sigma(3 1)= -2.61145971E-06
+  sigma(3 3)= -1.67199097E-04  sigma(2 1)=  2.96562937E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.9680E+00 GPa]
+- sigma(1 1)= -4.78111608E+00  sigma(3 2)= -1.09759133E-01
+- sigma(2 2)= -5.20370898E+00  sigma(3 1)= -7.68317844E-02
+- sigma(3 3)= -4.91916644E+00  sigma(2 1)=  8.72518139E-02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000004E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  41/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.93884787E-04  -2.77287698E-05   1.61801132E-05
+  -2.77264227E-05   1.23510175E-03   6.41310706E-05
+   1.61804941E-05   6.41299555E-05   1.05811480E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.1140852619837570E+01 Hartree
+ Energy of the elastic part                :  3.6256995635680724E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70579502674822E+04
+
+ Unit cell volume ucvol=  9.2710617E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.92797482E-04  sigma(3 2)= -4.30718999E-06
+  sigma(2 2)= -2.09251134E-04  sigma(3 1)= -3.06958808E-06
+  sigma(3 3)= -1.98441520E-04  sigma(2 1)=  3.40037170E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.8890E+00 GPa]
+- sigma(1 1)= -5.67229679E+00  sigma(3 2)= -1.26721883E-01
+- sigma(2 2)= -6.15637986E+00  sigma(3 1)= -9.03103841E-02
+- sigma(3 3)= -5.83835012E+00  sigma(2 1)=  1.00042372E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+
+--- !WARNING
+src_file: m_geometry.F90
+src_line: 1455
+message: |
+    The new primitive vectors rprimd (an evolving quantity)
+    are too large, given the initial rprimd and the accompanying dilatmx:     1.000000E+00
+    An adequate value would have been dilatmx_new=     1.000002E+00
+    As chkdilatmx=0, assume experienced user. Execution will continue.
+...
+
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  42/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.95777957E-04  -2.77622182E-05   1.62102854E-05
+  -2.77598688E-05   1.23715698E-03   6.41734988E-05
+   1.62106662E-05   6.41723840E-05   1.06006352E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.6224864115033860E+01 Hartree
+ Energy of the elastic part                :  3.6395658715368631E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70630342651111E+04
+
+ Unit cell volume ucvol=  9.2711163E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.28121287E-04  sigma(3 2)= -4.96920311E-06
+  sigma(2 2)= -2.46960569E-04  sigma(3 1)= -3.60183629E-06
+  sigma(3 3)= -2.34922397E-04  sigma(2 1)=  3.88973620E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  6.9630E+00 GPa]
+- sigma(1 1)= -6.71155886E+00  sigma(3 2)= -1.46198978E-01
+- sigma(2 2)= -7.26582957E+00  sigma(3 1)= -1.05969664E-01
+- sigma(3 3)= -6.91165437E+00  sigma(2 1)=  1.14439971E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  43/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96540481E-04  -2.77752436E-05   1.62223373E-05
+  -2.77728934E-05   1.23798268E-03   6.41901628E-05
+   1.62227180E-05   6.41890482E-05   1.06084883E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.2143624261856864E+01 Hartree
+ Energy of the elastic part                :  3.6457721424597582E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70689530190516E+04
+
+ Unit cell volume ucvol=  9.2711383E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.69276964E-04  sigma(3 2)= -5.72939593E-06
+  sigma(2 2)= -2.90839875E-04  sigma(3 1)= -4.21980446E-06
+  sigma(3 3)= -2.77484316E-04  sigma(2 1)=  4.43953406E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  8.2144E+00 GPa]
+- sigma(1 1)= -7.92240046E+00  sigma(3 2)= -1.68564619E-01
+- sigma(2 2)= -8.55680309E+00  sigma(3 1)= -1.24150913E-01
+- sigma(3 3)= -8.16386907E+00  sigma(2 1)=  1.30615580E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  44/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96796968E-04  -2.77794802E-05   1.62263608E-05
+  -2.77771297E-05   1.23825977E-03   6.41956381E-05
+   1.62267415E-05   6.41945236E-05   1.06111315E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.9034940797949638E+01 Hartree
+ Energy of the elastic part                :  3.6486036854591433E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70758443327562E+04
+
+ Unit cell volume ucvol=  9.2711457E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.17207374E-04  sigma(3 2)= -6.60256107E-06
+  sigma(2 2)= -3.41880551E-04  sigma(3 1)= -4.93700533E-06
+  sigma(3 3)= -3.27123030E-04  sigma(2 1)=  5.05614453E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  9.6718E+00 GPa]
+- sigma(1 1)= -9.33256157E+00  sigma(3 2)= -1.94254021E-01
+- sigma(2 2)= -1.00584714E+01  sigma(3 1)= -1.45251687E-01
+- sigma(3 3)= -9.62429019E+00  sigma(2 1)=  1.48756883E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  45/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96866955E-04  -2.77805979E-05   1.62274512E-05
+  -2.77782473E-05   1.23833522E-03   6.41970997E-05
+   1.62278319E-05   6.41959853E-05   1.06118533E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.7059457261117075E+01 Hartree
+ Energy of the elastic part                :  3.6502598772990419E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70838688475632E+04
+
+ Unit cell volume ucvol=  9.2711477E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.73020515E-04  sigma(3 2)= -7.60584966E-06
+  sigma(2 2)= -4.01246326E-04  sigma(3 1)= -5.76914841E-06
+  sigma(3 3)= -3.85010236E-04  sigma(2 1)=  5.74649065E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1369E+01 GPa]
+- sigma(1 1)= -1.09746406E+01  sigma(3 2)= -2.23771785E-01
+- sigma(2 2)= -1.18050725E+01  sigma(3 1)= -1.69734178E-01
+- sigma(3 3)= -1.13273903E+01  sigma(2 1)=  1.69067563E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  46/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96881931E-04  -2.77808290E-05   1.62276830E-05
+  -2.77784784E-05   1.23835133E-03   6.41974061E-05
+   1.62280638E-05   6.41962918E-05   1.06120079E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.6404455352621653E+01 Hartree
+ Energy of the elastic part                :  3.6516490564140300E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.70932138442655E+04
+
+ Unit cell volume ucvol=  9.2711481E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.38013190E-04  sigma(3 2)= -8.75909784E-06
+  sigma(2 2)= -4.70297795E-04  sigma(3 1)= -6.73446573E-06
+  sigma(3 3)= -4.52519447E-04  sigma(2 1)=  6.51799598E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3346E+01 GPa]
+- sigma(1 1)= -1.28867908E+01  sigma(3 2)= -2.57701512E-01
+- sigma(2 2)= -1.38366365E+01  sigma(3 1)= -1.98134789E-01
+- sigma(3 3)= -1.33135795E+01  sigma(2 1)=  1.91766030E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  47/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884346E-04  -2.77808651E-05   1.62277202E-05
+  -2.77785144E-05   1.23835393E-03   6.41974546E-05
+   1.62281010E-05   6.41963402E-05   1.06120328E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -7.7288295434882770E+01 Hartree
+ Energy of the elastic part                :  3.6530678979216449E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.71040976829289E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.13699448E-04  sigma(3 2)= -1.00852139E-05
+  sigma(2 2)= -5.50621990E-04  sigma(3 1)= -7.85409487E-06
+  sigma(3 3)= -5.31257042E-04  sigma(2 1)=  7.37852723E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.5648E+01 GPa]
+- sigma(1 1)= -1.51135570E+01  sigma(3 2)= -2.96717188E-01
+- sigma(2 2)= -1.61998555E+01  sigma(3 1)= -2.31075410E-01
+- sigma(3 3)= -1.56301192E+01  sigma(2 1)=  2.17083729E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  48/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884626E-04  -2.77808691E-05   1.62277245E-05
+  -2.77785185E-05   1.23835423E-03   6.41974601E-05
+   1.62281053E-05   6.41963458E-05   1.06120357E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -8.9965598849415002E+01 Hartree
+ Energy of the elastic part                :  3.6545932322158397E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.71167749848181E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.01845076E-04  sigma(3 2)= -1.16106376E-05
+  sigma(2 2)= -6.44068170E-04  sigma(3 1)= -9.15253071E-06
+  sigma(3 3)= -6.23099884E-04  sigma(2 1)=  8.33631886E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.8329E+01 GPa]
+- sigma(1 1)= -1.77068905E+01  sigma(3 2)= -3.41596693E-01
+- sigma(2 2)= -1.89491366E+01  sigma(3 1)= -2.69276705E-01
+- sigma(3 3)= -1.83322284E+01  sigma(2 1)=  2.45262927E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  49/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884648E-04  -2.77808694E-05   1.62277248E-05
+  -2.77785188E-05   1.23835425E-03   6.41974605E-05
+   1.62281056E-05   6.41963462E-05   1.06120359E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.0473329511763606E+02 Hartree
+ Energy of the elastic part                :  3.6562434202699876E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.71315426794361E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.04508810E-04  sigma(3 2)= -1.33658777E-05
+  sigma(2 2)= -7.52790515E-04  sigma(3 1)= -1.06581546E-05
+  sigma(3 3)= -7.30240245E-04  sigma(2 1)=  9.39986941E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.1453E+01 GPa]
+- sigma(1 1)= -2.07273613E+01  sigma(3 2)= -3.93237631E-01
+- sigma(2 2)= -2.21478579E+01  sigma(3 1)= -3.13573682E-01
+- sigma(3 3)= -2.14844061E+01  sigma(2 1)=  2.76553659E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  50/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.2193767943016127E+02 Hartree
+ Energy of the elastic part                :  3.6580258553101383E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.71487470619662E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.24090869E-04  sigma(3 2)= -1.53861369E-05
+  sigma(2 2)= -8.79298358E-04  sigma(3 1)= -1.24038504E-05
+  sigma(3 3)= -8.55238799E-04  sigma(2 1)=  1.05777965E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.5092E+01 GPa]
+- sigma(1 1)= -2.42455864E+01  sigma(3 2)= -4.52675701E-01
+- sigma(2 2)= -2.58698465E+01  sigma(3 1)= -3.64933816E-01
+- sigma(3 3)= -2.51619899E+01  sigma(2 1)=  3.11209466E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  51/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.4198265066800641E+02 Hartree
+ Energy of the elastic part                :  3.6599467576610900E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.71687920312832E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.63389750E-04  sigma(3 2)= -1.77120333E-05
+  sigma(2 2)= -1.02651490E-03  sigma(3 1)= -1.44277189E-05
+  sigma(3 3)= -1.00108672E-03  sigma(2 1)=  1.18786369E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.9333E+01 GPa]
+- sigma(1 1)= -2.83439002E+01  sigma(3 2)= -5.21105924E-01
+- sigma(2 2)= -3.02011061E+01  sigma(3 1)= -4.24478075E-01
+- sigma(3 3)= -2.94529831E+01  sigma(2 1)=  3.49481505E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  52/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.6533932854122079E+02 Hartree
+ Energy of the elastic part                :  3.6620125539541422E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.71921487070906E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.12566853E-03  sigma(3 2)= -2.03904323E-05
+  sigma(2 2)= -1.19784573E-03  sigma(3 1)= -1.67739069E-05
+  sigma(3 3)= -1.17127833E-03  sigma(2 1)=  1.33105758E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.4273E+01 GPa]
+- sigma(1 1)= -3.31183060E+01  sigma(3 2)= -5.99907129E-01
+- sigma(2 2)= -3.52418322E+01  sigma(3 1)= -4.93505296E-01
+- sigma(3 3)= -3.44601923E+01  sigma(2 1)=  3.91610595E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  53/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.9255728157739975E+02 Hartree
+ Energy of the elastic part                :  3.6642300175050895E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.72193666579093E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.31473224E-03  sigma(3 2)= -2.34754068E-05
+  sigma(2 2)= -1.39725867E-03  sigma(3 1)= -1.94935668E-05
+  sigma(3 3)= -1.36989606E-03  sigma(2 1)=  1.48810876E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.0031E+01 GPa]
+- sigma(1 1)= -3.86807514E+01  sigma(3 2)= -6.90670197E-01
+- sigma(2 2)= -4.11087625E+01  sigma(3 1)= -5.73520440E-01
+- sigma(3 3)= -4.03037266E+01  sigma(2 1)=  4.37816639E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  54/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.2427763660125879E+02 Hartree
+ Energy of the elastic part                :  3.6666062933096090E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.72510870105569E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.53501818E-03  sigma(3 2)= -2.70293441E-05
+  sigma(2 2)= -1.62937695E-03  sigma(3 1)= -2.26459704E-05
+  sigma(3 3)= -1.60170978E-03  sigma(2 1)=  1.65964653E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.6741E+01 GPa]
+- sigma(1 1)= -4.51617866E+01  sigma(3 2)= -7.95230626E-01
+- sigma(2 2)= -4.79379167E+01  sigma(3 1)= -6.66267340E-01
+- sigma(3 3)= -4.71239208E+01  sigma(2 1)=  4.88284784E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  55/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.6124838591067135E+02 Hartree
+ Energy of the elastic part                :  3.6691489174257999E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.72880577573237E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.79170133E-03  sigma(3 2)= -3.11242222E-05
+  sigma(2 2)= -1.89958781E-03  sigma(3 1)= -2.62997985E-05
+  sigma(3 3)= -1.87229302E-03  sigma(2 1)=  1.84612115E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.4562E+01 GPa]
+- sigma(1 1)= -5.27136641E+01  sigma(3 2)= -9.15706077E-01
+- sigma(2 2)= -5.58877934E+01  sigma(3 1)= -7.73766657E-01
+- sigma(3 3)= -5.50847531E+01  sigma(2 1)=  5.43147504E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  56/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.0434226163666949E+02 Hartree
+ Energy of the elastic part                :  3.6718658371572583E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.73311516303328E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.09081733E-03  sigma(3 2)= -3.58430809E-05
+  sigma(2 2)= -2.21416921E-03  sigma(3 1)= -3.05346366E-05
+  sigma(3 3)= -2.18815880E-03  sigma(2 1)=  2.04772580E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  6.3678E+01 GPa]
+- sigma(1 1)= -6.15139591E+01  sigma(3 2)= -1.05453967E+00
+- sigma(2 2)= -6.51430962E+01  sigma(3 1)= -8.98359873E-01
+- sigma(3 3)= -6.43778437E+01  sigma(2 1)=  6.02461628E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  57/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.5457760905073030E+02 Hartree
+ Energy of the elastic part                :  3.6747654322955114E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.73813869748472E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.43940611E-03  sigma(3 2)= -4.12817188E-05
+  sigma(2 2)= -2.58043757E-03  sigma(3 1)= -3.54427080E-05
+  sigma(3 3)= -2.55691862E-03  sigma(2 1)=  2.26429720E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  7.4305E+01 GPa]
+- sigma(1 1)= -7.17697935E+01  sigma(3 2)= -1.21454990E+00
+- sigma(2 2)= -7.59190818E+01  sigma(3 1)= -1.04276030E+00
+- sigma(3 3)= -7.52271303E+01  sigma(2 1)=  6.66179125E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  58/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.1314276339091720E+02 Hartree
+ Energy of the elastic part                :  3.6778565374527531E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.74399521260963E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.84567952E-03  sigma(3 2)= -4.75506480E-05
+  sigma(2 2)= -3.00692013E-03  sigma(3 1)= -4.11308833E-05
+  sigma(3 3)= -2.98746832E-03  sigma(2 1)=  2.49519018E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  8.6695E+01 GPa]
+- sigma(1 1)= -8.37227680E+01  sigma(3 2)= -1.39898813E+00
+- sigma(2 2)= -8.84666296E+01  sigma(3 1)= -1.21011216E+00
+- sigma(3 3)= -8.78943376E+01  sigma(2 1)=  7.34110173E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  59/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.8142451988438461E+02 Hartree
+ Energy of the elastic part                :  3.6811484655898206E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.75082338792978E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.31921698E-03  sigma(3 2)= -5.47773483E-05
+  sigma(2 2)= -3.50355592E-03  sigma(3 1)= -4.77230091E-05
+  sigma(3 3)= -3.49020556E-03  sigma(2 1)=  2.73911988E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.0114E+02 GPa]
+- sigma(1 1)= -9.76547186E+01  sigma(3 2)= -1.61160496E+00
+- sigma(2 2)= -1.03078157E+02  sigma(3 1)= -1.40405917E+00
+- sigma(3 3)= -1.02685376E+02  sigma(2 1)=  8.05876757E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  60/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.6104138614184785E+02 Hartree
+ Energy of the elastic part                :  3.6846510327954440E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.75878507420527E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.87119391E-03  sigma(3 2)= -6.31088644E-05
+  sigma(2 2)= -4.08193033E-03  sigma(3 1)= -5.53626082E-05
+  sigma(3 3)= -4.07728424E-03  sigma(2 1)=  2.99396455E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1798E+02 GPa]
+- sigma(1 1)= -1.13894438E+02  sigma(3 2)= -1.85672658E+00
+- sigma(2 2)= -1.20094516E+02  sigma(3 1)= -1.62882389E+00
+- sigma(3 3)= -1.19957824E+02  sigma(2 1)=  8.80854635E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  61/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.5388242242547847E+02 Hartree
+ Energy of the elastic part                :  3.6883745843516252E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.76806917746128E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.51464847E-03  sigma(3 2)= -7.27147989E-05
+  sigma(2 2)= -4.75554859E-03  sigma(3 1)= -6.42160089E-05
+  sigma(3 3)= -4.76291209E-03  sigma(2 1)=  3.25651993E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3762E+02 GPa]
+- sigma(1 1)= -1.32825521E+02  sigma(3 2)= -2.13934288E+00
+- sigma(2 2)= -1.39913047E+02  sigma(3 1)= -1.88929989E+00
+- sigma(3 3)= -1.40129688E+02  sigma(2 1)=  9.58101081E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  62/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -7.6215261129330975E+02 Hartree
+ Energy of the elastic part                :  3.6923300221458123E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.77889619595252E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.26479290E-03  sigma(3 2)= -8.37907612E-05
+  sigma(2 2)= -5.54015497E-03  sigma(3 1)= -7.44759733E-05
+  sigma(3 3)= -5.56369887E-03  sigma(2 1)=  3.52219451E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.6053E+02 GPa]
+- sigma(1 1)= -1.54895529E+02  sigma(3 2)= -2.46520889E+00
+- sigma(2 2)= -1.62996959E+02  sigma(3 1)= -2.19115841E+00
+- sigma(3 3)= -1.63689644E+02  sigma(2 1)=  1.03626523E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  63/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -8.8842585714023448E+02 Hartree
+ Energy of the elastic part                :  3.6965288335608004E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.79152352011733E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.13937713E-03  sigma(3 2)= -9.65623402E-05
+  sigma(2 2)= -6.45410509E-03  sigma(3 1)= -8.63659031E-05
+  sigma(3 3)= -6.49906380E-03  sigma(2 1)=  3.78463280E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.8724E+02 GPa]
+- sigma(1 1)= -1.80626681E+02  sigma(3 2)= -2.84096165E+00
+- sigma(2 2)= -1.89886295E+02  sigma(3 1)= -2.54097217E+00
+- sigma(3 3)= -1.91209026E+02  sigma(2 1)=  1.11347723E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  64/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.0357069020906690E+03 Hartree
+ Energy of the elastic part                :  3.7009831218686577E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.80625162416695E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.15911328E-03  sigma(3 2)= -1.11289681E-04
+  sigma(2 2)= -7.51880031E-03  sigma(3 1)= -1.00144715E-04
+  sigma(3 3)= -7.59171228E-03  sigma(2 1)=  4.03525080E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.1840E+02 GPa]
+- sigma(1 1)= -2.10628349E+02  sigma(3 2)= -3.27425492E+00
+- sigma(2 2)= -2.21210705E+02  sigma(3 1)= -2.94635875E+00
+- sigma(3 3)= -2.23355849E+02  sigma(2 1)=  1.18721157E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  65/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.2075036621115617E+03 Hartree
+ Energy of the elastic part                :  3.7057056382000463E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.82343129969678E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.34817144E-03  sigma(3 2)= -1.28272758E-04
+  sigma(2 2)= -8.75919471E-03  sigma(3 1)= -1.16112495E-04
+  sigma(3 3)= -8.86819368E-03  sigma(2 1)=  4.26266486E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.5474E+02 GPa]
+- sigma(1 1)= -2.45611642E+02  sigma(3 2)= -3.77391421E+00
+- sigma(2 2)= -2.57704362E+02  sigma(3 1)= -3.41614698E+00
+- sigma(3 3)= -2.60911222E+02  sigma(2 1)=  1.25411909E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  66/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.4079117414625425E+03 Hartree
+ Energy of the elastic part                :  3.7107098152251443E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.84347210713146E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.73475852E-03  sigma(3 2)= -1.47857443E-04
+  sigma(2 2)= -1.02043865E-02  sigma(3 1)= -1.34617050E-04
+  sigma(3 3)= -1.03595542E-02  sigma(2 1)=  4.45199119E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.9714E+02 GPa]
+- sigma(1 1)= -2.86406435E+02  sigma(3 2)= -4.35011543E+00
+- sigma(2 2)= -3.00223365E+02  sigma(3 1)= -3.96056967E+00
+- sigma(3 3)= -3.04788555E+02  sigma(2 1)=  1.30982081E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  67/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.6417131808950105E+03 Hartree
+ Energy of the elastic part                :  3.7160098025607723E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.86685225054471E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.13517944E-02  sigma(3 2)= -1.70442496E-04
+  sigma(2 2)= -1.18883082E-02  sigma(3 1)= -1.56061503E-04
+  sigma(3 3)= -1.21021006E-02  sigma(2 1)=  4.58398837E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.4660E+02 GPa]
+- sigma(1 1)= -3.33981265E+02  sigma(3 2)= -5.01459052E+00
+- sigma(2 2)= -3.49766044E+02  sigma(3 1)= -4.59148715E+00
+- sigma(3 3)= -3.56056031E+02  sigma(2 1)=  1.34865571E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  68/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.9144918427322395E+03 Hartree
+ Energy of the elastic part                :  3.7216205040717272E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.89413011616737E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.32377014E-02  sigma(3 2)= -1.96487616E-04
+  sigma(2 2)= -1.38505322E-02  sigma(3 1)= -1.80913106E-04
+  sigma(3 3)= -1.41382945E-02  sigma(2 1)=  4.63401009E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.0431E+02 GPa]
+- sigma(1 1)= -3.89466555E+02  sigma(3 2)= -5.78086428E+00
+- sigma(2 2)= -4.07496659E+02  sigma(3 1)= -5.32264646E+00
+- sigma(3 3)= -4.15962916E+02  sigma(2 1)=  1.36337261E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  69/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.2327682425689550E+03 Hartree
+ Energy of the elastic part                :  3.7275576170914177E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.92595775555733E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.54373265E-02  sigma(3 2)= -2.26522703E-04
+  sigma(2 2)= -1.61372109E-02  sigma(3 1)= -2.09713451E-04
+  sigma(3 3)= -1.65177989E-02  sigma(2 1)=  4.57072809E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.7164E+02 GPa]
+- sigma(1 1)= -4.54181750E+02  sigma(3 2)= -6.66452688E+00
+- sigma(2 2)= -4.74773057E+02  sigma(3 1)= -6.16998172E+00
+- sigma(3 3)= -4.85970339E+02  sigma(2 1)=  1.34475440E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  70/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.6041571129371559E+03 Hartree
+ Energy of the elastic part                :  3.7338376737416933E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.96309664196614E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.80030186E-02  sigma(3 2)= -2.61158519E-04
+  sigma(2 2)= -1.88021735E-02  sigma(3 1)= -2.43090306E-04
+  sigma(3 3)= -1.92987025E-02  sigma(2 1)=  4.35457783E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.5021E+02 GPa]
+- sigma(1 1)= -5.29667005E+02  sigma(3 2)= -7.68354762E+00
+- sigma(2 2)= -5.53178948E+02  sigma(3 1)= -7.15196253E+00
+- sigma(3 3)= -5.67787334E+02  sigma(2 1)=  1.28116081E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  71/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.0375515405225096E+03 Hartree
+ Energy of the elastic part                :  3.7404780843602763E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.00643608406064E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.09958863E-02  sigma(3 2)= -3.01098966E-04
+  sigma(2 2)= -2.19082066E-02  sigma(3 1)= -2.81771346E-04
+  sigma(3 3)= -2.25489539E-02  sigma(2 1)=  3.93586931E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  6.4190E+02 GPa]
+- sigma(1 1)= -6.17720199E+02  sigma(3 2)= -8.85863594E+00
+- sigma(2 2)= -6.44561583E+02  sigma(3 1)= -8.28999783E+00
+- sigma(3 3)= -6.63413015E+02  sigma(2 1)=  1.15797253E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  72/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.5433381691116679E+03 Hartree
+ Energy of the elastic part                :  3.7474971832460713E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.05701474621764E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.44872678E-02  sigma(3 2)= -3.47155197E-04
+  sigma(2 2)= -2.55285492E-02  sigma(3 1)= -3.26600068E-04
+  sigma(3 3)= -2.63480394E-02  sigma(2 1)=  3.25249434E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  7.4890E+02 GPa]
+- sigma(1 1)= -7.20440171E+02  sigma(3 2)= -1.02136568E+01
+- sigma(2 2)= -7.51075722E+02  sigma(3 1)= -9.60890412E+00
+- sigma(3 3)= -7.75185951E+02  sigma(2 1)=  9.56916710E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  73/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.1336487215063935E+03 Hartree
+ Energy of the elastic part                :  3.7549142767953720E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.11604580071540E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.85604473E-02  sigma(3 2)= -4.00261863E-04
+  sigma(2 2)= -2.97486368E-02  sigma(3 1)= -3.78554242E-04
+  sigma(3 3)= -3.07889478E-02  sigma(2 1)=  2.22714769E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  8.7378E+02 GPa]
+- sigma(1 1)= -8.40277228E+02  sigma(3 2)= -1.17761086E+01
+- sigma(2 2)= -8.75234966E+02  sigma(3 1)= -1.11374485E+01
+- sigma(3 3)= -9.05841967E+02  sigma(2 1)=  6.55249363E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  74/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.8226539838096251E+03 Hartree
+ Energy of the elastic part                :  3.7627496941248441E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.18494632616219E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.33126607E-02  sigma(3 2)= -4.61495793E-04
+  sigma(2 2)= -3.46681384E-02  sigma(3 1)= -4.38767313E-04
+  sigma(3 3)= -3.59804705E-02  sigma(2 1)=  7.63963218E-06
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.0195E+03 GPa]
+- sigma(1 1)= -9.80092150E+02  sigma(3 2)= -1.35776727E+01
+- sigma(2 2)= -1.01997167E+03  sigma(3 1)= -1.29089778E+01
+- sigma(3 3)= -1.05858181E+03  sigma(2 1)=  2.24765701E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  75/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.6269074368384336E+03 Hartree
+ Energy of the elastic part                :  3.7710248403817685E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.26537167063755E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.88574384E-02  sigma(3 2)= -5.32097476E-04
+  sigma(2 2)= -4.04033335E-02  sigma(3 1)= -5.08553202E-04
+  sigma(3 3)= -4.20498935E-02  sigma(2 1)= -1.25555364E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.1897E+03 GPa]
+- sigma(1 1)= -1.14322511E+03  sigma(3 2)= -1.56548456E+01
+- sigma(2 2)= -1.18870691E+03  sigma(3 1)= -1.49621493E+01
+- sigma(3 3)= -1.23715037E+03  sigma(2 1)= -3.69396573E-01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  76/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.5657469376489162E+03 Hartree
+ Energy of the elastic part                :  3.7797622528233242E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.35925561984486E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.53273423E-02  sigma(3 2)= -6.13495767E-04
+  sigma(2 2)= -4.70898879E-02  sigma(3 1)= -5.89435078E-04
+  sigma(3 3)= -4.91461505E-02  sigma(2 1)= -3.97743877E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.3883E+03 GPa]
+- sigma(1 1)= -1.33357623E+03  sigma(3 2)= -1.80496656E+01
+- sigma(2 2)= -1.38543210E+03  sigma(3 1)= -1.73417758E+01
+- sigma(3 3)= -1.44592942E+03  sigma(2 1)= -1.17020269E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  77/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -7.6617642792094930E+03 Hartree
+ Energy of the elastic part                :  3.7889856598335098E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.46885735307858E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.28771642E-02  sigma(3 2)= -7.07336277E-04
+  sigma(2 2)= -5.48860940E-02  sigma(3 1)= -6.83178707E-04
+  sigma(3 3)= -5.74435139E-02  sigma(2 1)= -7.58119755E-05
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.6202E+03 GPa]
+- sigma(1 1)= -1.55569962E+03  sigma(3 2)= -2.08105483E+01
+- sigma(2 2)= -1.61480436E+03  sigma(3 1)= -2.00998081E+01
+- sigma(3 3)= -1.69004624E+03  sigma(2 1)= -2.23046495E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  78/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -8.9413541237083555E+03 Hartree
+ Energy of the elastic part                :  3.7987200430260547E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.59681633655502E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.16876619E-02  sigma(3 2)= -8.15514008E-04
+  sigma(2 2)= -6.39766539E-02  sigma(3 1)= -7.91831126E-04
+  sigma(3 3)= -6.71459167E-02  sigma(2 1)= -1.22869514E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.8909E+03 GPa]
+- sigma(1 1)= -1.81491337E+03  sigma(3 2)= -2.39932464E+01
+- sigma(2 2)= -1.88225782E+03  sigma(3 1)= -2.32964721E+01
+- sigma(3 3)= -1.97550074E+03  sigma(2 1)= -3.61494529E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  79/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.0435355755470559E+04 Hartree
+ Energy of the elastic part                :  3.8089917025948251E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.74621649870408E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.19699253E-02  sigma(3 2)= -9.40210851E-04
+  sigma(2 2)= -7.45770967E-02  sigma(3 1)= -9.17765488E-04
+  sigma(3 3)= -7.84920136E-02  sigma(2 1)= -1.83640452E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.2070E+03 GPa]
+- sigma(1 1)= -2.11742795E+03  sigma(3 2)= -2.76619536E+01
+- sigma(2 2)= -2.19413357E+03  sigma(3 1)= -2.70015883E+01
+- sigma(3 3)= -2.30931438E+03  sigma(2 1)= -5.40288772E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  80/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.2179803381924596E+04 Hartree
+ Energy of the elastic part                :  3.8198283260800366E-03 Hartree
+
+    >>>>>>>>> Etotal= -4.92066126026582E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.39704779E-02  sigma(3 2)= -1.08393866E-03
+  sigma(2 2)= -8.69389364E-02  sigma(3 1)= -1.06373306E-03
+  sigma(3 3)= -9.17611071E-02  sigma(2 1)= -2.61414064E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.5760E+03 GPa]
+- sigma(1 1)= -2.47049634E+03  sigma(3 2)= -3.18905711E+01
+- sigma(2 2)= -2.55783139E+03  sigma(3 1)= -3.12961018E+01
+- sigma(3 3)= -2.69970452E+03  sigma(2 1)= -7.69106601E+00
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  81/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.4216803381346357E+04 Hartree
+ Energy of the elastic part                :  3.8312590607291501E-03 Hartree
+
+    >>>>>>>>> Etotal= -5.12436125906492E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.79772386E-02  sigma(3 2)= -1.24958874E-03
+  sigma(2 2)= -1.01355694E-01  sigma(3 1)= -1.23292351E-03
+  sigma(3 3)= -1.07280088E-01  sigma(2 1)= -3.60200013E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.0070E+03 GPa]
+- sigma(1 1)= -2.88258939E+03  sigma(3 2)= -3.67641639E+01
+- sigma(2 2)= -2.98198698E+03  sigma(3 1)= -3.62738560E+01
+- sigma(3 3)= -3.15628863E+03  sigma(2 1)= -1.05974485E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  82/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.6595560020770441E+04 Hartree
+ Energy of the elastic part                :  3.8433145896390308E-03 Hartree
+
+    >>>>>>>>> Etotal= -5.36223692180178E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.14326487E-01  sigma(3 2)= -1.44048864E-03
+  sigma(2 2)= -1.18169932E-01  sigma(3 1)= -1.42903484E-03
+  sigma(3 3)= -1.25431563E-01  sigma(2 1)= -4.84878029E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.5102E+03 GPa]
+- sigma(1 1)= -3.36360082E+03  sigma(3 2)= -4.23806318E+01
+- sigma(2 2)= -3.47667884E+03  sigma(3 1)= -4.20436493E+01
+- sigma(3 3)= -3.69032337E+03  sigma(2 1)= -1.42656017E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  83/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.9373574823613366E+04 Hartree
+ Energy of the elastic part                :  3.8560272118764523E-03 Hartree
+
+    >>>>>>>>> Etotal= -5.64003840081481E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.33411007E-01  sigma(3 2)= -1.66046737E-03
+  sigma(2 2)= -1.37781464E-01  sigma(3 1)= -1.65635441E-03
+  sigma(3 3)= -1.46663374E-01  sigma(2 1)= -6.41377640E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.0979E+03 GPa]
+- sigma(1 1)= -3.92508669E+03  sigma(3 2)= -4.88526284E+01
+- sigma(2 2)= -4.05366994E+03  sigma(3 1)= -4.87316211E+01
+- sigma(3 3)= -4.31498470E+03  sigma(2 1)= -1.88699785E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  84/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.2618049044934189E+04 Hartree
+ Energy of the elastic part                :  3.8694309267843429E-03 Hartree
+
+    >>>>>>>>> Etotal= -5.96448582160652E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.55689598E-01  sigma(3 2)= -1.91393025E-03
+  sigma(2 2)= -1.60656950E-01  sigma(3 1)= -1.91985303E-03
+  sigma(3 3)= -1.71499745E-01  sigma(2 1)= -8.36893839E-04
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.7843E+03 GPa]
+- sigma(1 1)= -4.58054535E+03  sigma(3 2)= -5.63097627E+01
+- sigma(2 2)= -4.72668987E+03  sigma(3 1)= -5.64840167E+01
+- sigma(3 3)= -5.04569586E+03  sigma(2 1)= -2.46222627E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  85/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.6407523718856144E+04 Hartree
+ Energy of the elastic part                :  3.8835615226913258E-03 Hartree
+
+    >>>>>>>>> Etotal= -6.34343328758565E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.81698197E-01  sigma(3 2)= -2.20594481E-03
+  sigma(2 2)= -1.87341096E-01  sigma(3 1)= -2.22529386E-03
+  sigma(3 3)= -2.00554345E-01  sigma(2 1)= -1.08014572E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.5860E+03 GPa]
+- sigma(1 1)= -5.34574463E+03  sigma(3 2)= -6.49011261E+01
+- sigma(2 2)= -5.51176442E+03  sigma(3 1)= -6.54703947E+01
+- sigma(3 3)= -5.90051155E+03  sigma(2 1)= -3.17789790E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  86/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.0833797601621573E+04 Hartree
+ Energy of the elastic part                :  3.8984566702544919E-03 Hartree
+
+    >>>>>>>>> Etotal= -6.78606067437268E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.12062875E-01  sigma(3 2)= -2.54233923E-03
+  sigma(2 2)= -2.18469737E-01  sigma(3 1)= -2.57935892E-03
+  sigma(3 3)= -2.34545577E-01  sigma(2 1)= -1.38168647E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  6.5224E+03 GPa]
+- sigma(1 1)= -6.23910415E+03  sigma(3 2)= -7.47981901E+01
+- sigma(2 2)= -6.42760050E+03  sigma(3 1)= -7.58873465E+01
+- sigma(3 3)= -6.90056795E+03  sigma(2 1)= -4.06506125E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  87/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -3.6004170190525736E+04 Hartree
+ Energy of the elastic part                :  3.9141560206759022E-03 Hartree
+
+    >>>>>>>>> Etotal= -7.30309793169316E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.47515026E-01  sigma(3 2)= -2.92981535E-03
+  sigma(2 2)= -2.54785118E-01  sigma(3 1)= -2.98979559E-03
+  sigma(3 3)= -2.74314498E-01  sigma(2 1)= -1.75427461E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  7.6163E+03 GPa]
+- sigma(1 1)= -7.28214226E+03  sigma(3 2)= -8.61981290E+01
+- sigma(2 2)= -7.49603570E+03  sigma(3 1)= -8.79628083E+01
+- sigma(3 3)= -8.07060981E+03  sigma(2 1)= -5.16125321E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  88/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.2044065023406562E+04 Hartree
+ Energy of the elastic part                :  3.9307013090468489E-03 Hartree
+
+    >>>>>>>>> Etotal= -7.90708741332672E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.88909124E-01  sigma(3 2)= -3.37607809E-03
+  sigma(2 2)= -2.97153740E-01  sigma(3 1)= -3.46558664E-03
+  sigma(3 3)= -3.20845805E-01  sigma(2 1)= -2.21331853E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  8.8941E+03 GPa]
+- sigma(1 1)= -8.49999845E+03  sigma(3 2)= -9.93276300E+01
+- sigma(2 2)= -8.74256340E+03  sigma(3 1)= -1.01961062E+02
+- sigma(3 3)= -9.43960790E+03  sigma(2 1)= -6.51180685E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  89/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -4.9100097855391607E+04 Hartree
+ Energy of the elastic part                :  3.9481364630874309E-03 Hartree
+
+    >>>>>>>>> Etotal= -8.61269069478171E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.37243476E-01  sigma(3 2)= -3.88998388E-03
+  sigma(2 2)= -3.46587213E-01  sigma(3 1)= -4.01714732E-03
+  sigma(3 3)= -3.75292421E-01  sigma(2 1)= -2.77740836E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.0387E+04 GPa]
+- sigma(1 1)= -9.92204394E+03  sigma(3 2)= -1.14447258E+02
+- sigma(2 2)= -1.01969461E+04  sigma(3 1)= -1.18188535E+02
+- sigma(3 3)= -1.10414824E+04  sigma(2 1)= -8.17141613E+01
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  90/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -5.7343665301687222E+04 Hartree
+ Energy of the elastic part                :  3.9665077175610481E-03 Hartree
+
+    >>>>>>>>> Etotal= -9.43704743757414E+04
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -3.93684484E-01  sigma(3 2)= -4.48171058E-03
+  sigma(2 2)= -4.04266604E-01  sigma(3 1)= -4.65655391E-03
+  sigma(3 3)= -4.39004293E-01  sigma(2 1)= -3.46895198E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.2131E+04 GPa]
+- sigma(1 1)= -1.15825954E+04  sigma(3 2)= -1.31856455E+02
+- sigma(2 2)= -1.18939321E+04  sigma(3 1)= -1.37000523E+02
+- sigma(3 3)= -1.29159501E+04  sigma(2 1)= -1.02060074E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  91/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -6.6975142400717348E+04 Hartree
+ Energy of the elastic part                :  3.9858637346601566E-03 Hartree
+
+    >>>>>>>>> Etotal= -1.04001951455416E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.59595005E-01  sigma(3 2)= -5.16295218E-03
+  sigma(2 2)= -4.71570887E-01  sigma(3 1)= -5.39780881E-03
+  sigma(3 3)= -5.13562141E-01  sigma(2 1)= -4.31493543E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.4168E+04 GPa]
+- sigma(1 1)= -1.35217496E+04  sigma(3 2)= -1.51899272E+02
+- sigma(2 2)= -1.38740922E+04  sigma(3 1)= -1.58808991E+02
+- sigma(3 3)= -1.51095173E+04  sigma(2 1)= -1.26949762E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  92/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -7.8228792611706012E+04 Hartree
+ Energy of the elastic part                :  4.0062557306735991E-03 Hartree
+
+    >>>>>>>>> Etotal= -1.15255601646012E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.36567504E-01  sigma(3 2)= -5.94714162E-03
+  sigma(2 2)= -5.50110179E-01  sigma(3 1)= -6.25714785E-03
+  sigma(3 3)= -6.00816983E-01  sigma(2 1)= -5.34783142E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.6549E+04 GPa]
+- sigma(1 1)= -1.57863583E+04  sigma(3 2)= -1.74970918E+02
+- sigma(2 2)= -1.61847975E+04  sigma(3 1)= -1.84091614E+02
+- sigma(3 3)= -1.76766430E+04  sigma(2 1)= -1.57338606E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  93/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -9.1378511387317514E+04 Hartree
+ Energy of the elastic part                :  4.0277376092630992E-03 Hartree
+
+    >>>>>>>>> Etotal= -1.28405320400142E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.26462816E-01  sigma(3 2)= -6.84970574E-03
+  sigma(2 2)= -6.41764564E-01  sigma(3 1)= -7.25339676E-03
+  sigma(3 3)= -7.02936455E-01  sigma(2 1)= -6.60668434E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  1.9331E+04 GPa]
+- sigma(1 1)= -1.84311693E+04  sigma(3 2)= -2.01525267E+02
+- sigma(2 2)= -1.88813622E+04  sigma(3 1)= -2.13402264E+02
+- sigma(3 3)= -2.06811010E+04  sigma(2 1)= -1.94375331E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  94/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.0674454509590780E+05 Hartree
+ Energy of the elastic part                :  4.0503661016911014E-03 Hartree
+
+    >>>>>>>>> Etotal= -1.43771354086104E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -7.31455455E-01  sigma(3 2)= -7.88835704E-03
+  sigma(2 2)= -7.48729453E-01  sigma(3 1)= -8.40838448E-03
+  sigma(3 3)= -8.22459080E-01  sigma(2 1)= -8.13840572E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.2582E+04 GPa]
+- sigma(1 1)= -2.15201589E+04  sigma(3 2)= -2.32083438E+02
+- sigma(2 2)= -2.20283773E+04  sigma(3 1)= -2.47383170E+02
+- sigma(3 3)= -2.41975775E+04  sigma(2 1)= -2.39440122E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  95/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.2470135122187140E+05 Hartree
+ Energy of the elastic part                :  4.0742009143636595E-03 Hartree
+
+    >>>>>>>>> Etotal= -1.61728160188232E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.54086600E-01  sigma(3 2)= -9.08342709E-03
+  sigma(2 2)= -8.73568582E-01  sigma(3 1)= -9.74742243E-03
+  sigma(3 3)= -9.62357853E-01  sigma(2 1)= -9.99932005E-03
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  2.6381E+04 GPa]
+- sigma(1 1)= -2.51280911E+04  sigma(3 2)= -2.67243606E+02
+- sigma(2 2)= -2.57012707E+04  sigma(3 1)= -2.86779020E+02
+- sigma(3 3)= -2.83135408E+04  sigma(2 1)= -2.94190103E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  96/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.4568679404645297E+05 Hartree
+ Energy of the elastic part                :  4.0993048840682065E-03 Hartree
+
+    >>>>>>>>> Etotal= -1.82713602987710E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.97326029E-01  sigma(3 2)= -1.04582478E-02
+  sigma(2 2)= -1.01927593E+00  sigma(3 1)= -1.12998603E-02
+  sigma(3 3)= -1.12611475E+00  sigma(2 1)= -1.22570089E-02
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.0821E+04 GPa]
+- sigma(1 1)= -2.93423399E+04  sigma(3 2)= -3.07692220E+02
+- sigma(2 2)= -2.99881282E+04  sigma(3 1)= -3.32453313E+02
+- sigma(3 3)= -3.31314342E+04  sigma(2 1)= -3.60613591E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  97/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.7021290311401882E+05 Hartree
+ Energy of the elastic part                :  4.1257441413049822E-03 Hartree
+
+    >>>>>>>>> Etotal= -2.07239712028837E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.16464455E+00  sigma(3 2)= -1.20395866E-02
+  sigma(2 2)= -1.18934809E+00  sigma(3 1)= -1.30997308E-02
+  sigma(3 3)= -1.31780804E+00  sigma(2 1)= -1.49925100E-02
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.6009E+04 GPa]
+- sigma(1 1)= -3.42650199E+04  sigma(3 2)= -3.54216808E+02
+- sigma(2 2)= -3.49918229E+04  sigma(3 1)= -3.85407322E+02
+- sigma(3 3)= -3.87712445E+04  sigma(2 1)= -4.41094798E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  98/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -1.9887846053801771E+05 Hartree
+ Energy of the elastic part                :  4.1535882821358725E-03 Hartree
+
+    >>>>>>>>> Etotal= -2.35905269424991E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.36009868E+00  sigma(3 2)= -1.38581441E-02
+  sigma(2 2)= -1.38786876E+00  sigma(3 1)= -1.51864967E-02
+  sigma(3 3)= -1.54221459E+00  sigma(2 1)= -1.83029384E-02
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.2074E+04 GPa]
+- sigma(1 1)= -4.00154781E+04  sigma(3 2)= -4.07720606E+02
+- sigma(2 2)= -4.08325017E+04  sigma(3 1)= -4.46802084E+02
+- sigma(3 3)= -4.53735120E+04  sigma(2 1)= -5.38490947E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: (  99/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.3238372856989512E+05 Hartree
+ Energy of the elastic part                :  4.1829105489913617E-03 Hartree
+
+    >>>>>>>>> Etotal= -2.69410537427547E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.58842968E+00  sigma(3 2)= -1.59491208E-02
+  sigma(2 2)= -1.61960759E+00  sigma(3 1)= -1.76059178E-02
+  sigma(3 3)= -1.80492977E+00  sigma(2 1)= -2.23046105E-02
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  4.9162E+04 GPa]
+- sigma(1 1)= -4.67332068E+04  sigma(3 2)= -4.69239254E+02
+- sigma(2 2)= -4.76504924E+04  sigma(3 1)= -5.17983899E+02
+- sigma(3 3)= -5.31028582E+04  sigma(2 1)= -6.56224187E+02
+--------------------------------------------------------------------------------
+
+ Write iteration in HIST netCDF file
+ EXIT:           1           1
+ mover: previous time step took  0.02 [s]
+
+--- Iteration: ( 100/1000) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+
+---EFFECTIVE POTENTIAL CALCULATION--------------------------------------------
+--------------------------------------------------------------------------------
+ Strain does not correspond to standard strain:
+   9.96884650E-04  -2.77808694E-05   1.62277249E-05
+  -2.77785188E-05   1.23835425E-03   6.41974606E-05
+   1.62281056E-05   6.41963462E-05   1.06120360E-03
+--------------------------------------------------------------------------------
+ Components of total energy (in Hartree) :
+
+ Energy of the reference structure         : -3.7026813040561923E+04 Hartree
+ Energy of the ifc part                    : -2.7154768196929106E+05 Hartree
+ Energy of the elastic part                :  4.2137880209022456E-03 Hartree
+
+    >>>>>>>>> Etotal= -3.08574490796065E+05
+
+ Unit cell volume ucvol=  9.2711482E+04 bohr^3
+
+--------------------------------------------------------------------------------
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.85517932E+00  sigma(3 2)= -1.83528648E-02
+  sigma(2 2)= -1.89013559E+00  sigma(3 1)= -2.04110561E-02
+  sigma(3 3)= -2.11250796E+00  sigma(2 1)= -2.71367653E-02
+
+-Cartesian components of stress tensor (GPa)         [Pressure=  5.7448E+04 GPa]
+- sigma(1 1)= -5.45812509E+04  sigma(3 2)= -5.39959834E+02
+- sigma(2 2)= -5.56096996E+04  sigma(3 1)= -6.00513903E+02
+- sigma(3 3)= -6.21521196E+04  sigma(2 1)= -7.98391064E+02
+--------------------------------------------------------------------------------
+
+
+--- !WARNING
+src_file: m_mover.F90
+src_line: 630
+message: |
+    The simulation is diverging, please check your effective potential
+...
+
+ Write iteration in HIST netCDF file
+
+================================================================================
+
+
+================================================================================
+
+ Proc.   0 individual time (sec): cpu=         10.6  wall=         10.7
+
+================================================================================
+
++Total cpu time     10.620  and wall time     10.654 sec
+
+ multibinit : the run completed succesfully.
+--- !FinalSummary
+program: multibinit
+version: 8.11.13
+start_datetime: Wed Dec 04 14:38:51 2019
+end_datetime: Wed Dec 04 14:39:01 2019
+overall_cpu_time:          10.6
+overall_wall_time:          10.7
+mpi_procs: 1
+omp_threads: 1
+...
