@@ -1,0 +1,77 @@
+## CaTiO3 or perovskite
+
+# general remarks:
+#  - geometry < https://materialsproject.org/materials/mp-4019/#
+#  - pseudopotentials < https://www.abinit.org/psp-tables
+
+# Ground state relaxation
+
+# algorithm
+optcell  2     # positions + volume
+ionmov   2     # BFGS algorithm
+dilatmx  1.05  # memory expansion
+ecutsm   0.5   # avoid abrupt cut-off changes
+
+# cell
+acell    *5.46954486
+rprim    0.5  0.5  0.0
+         0.5  0.0  0.5
+         0.0  0.5  0.5
+
+# atom types
+ntypat   1
+znucl    14
+
+# atoms
+natom    2
+typat    1
+xred
+  # Si
+  0.0000   0.0000   0.0000
+  1/4      1/4      1/4
+
+# valence bands
+# given by (sum_atoms zion) / 2
+nband    4
+
+# parameters that needs to be converged
+ecut     20 30 40 50
+ngkpt    *2
+         *4
+         *6
+         *8
+         *10
+
+# Ground state calculation
+
+kptopt1  1              # full symmetry
+
+# Response Function: d/dk
+
+rfelfd2  2              # d/dk
+rfdir2   1 0 1          # orthoromic: y~x 
+kptopt2  2              # only t-reversal
+iscf2    -3             # for ddk, see doc
+
+nqpt2    1
+qpt2     0.0 0.0 0.0    # Gamma point
+
+getwfk2  -1             # get wfk
+
+# Response Function: electric field, phonons
+
+rfphon3                 # phonons
+rfatpol  1 20           # all atoms
+rfelfd3  3              # electric field
+rfdir3   1 1 1          # all directions
+
+nqpt3    1
+qpt3     0.0 0.0 0.0    # Gamma point
+
+getwfk3  -2             # get wfk
+getddk3  -1             # get ddk
+
+#############################################
+# common input
+
+
