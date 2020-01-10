@@ -1,0 +1,1471 @@
+
+.Version 8.11.13 of ABINIT 
+.(MPI version, prepared for a x86_64_linux_intel14.0 computer) 
+
+.Copyright (C) 1998-2019 ABINIT group . 
+ ABINIT comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Fri 10 Jan 2020.
+- ( at 12h22 )
+  
+- input  file    -> opt.in
+- output file    -> opt.out
+- root for input  files -> opti
+- root for output files -> opto
+ 
+ 
+ Symmetries : space group Im m a (# 74); Bravais oI (body-center ortho.)
+================================================================================
+ Values of the parameters that define the memory need of the present run
+     intxc =       0    ionmov =       2      iscf =       7    lmnmax =       6
+     lnmax =       6     mgfft =      24  mpssoang =       3    mqgrid =    3001
+     natom =       2  nloc_mem =       1    nspden =       1   nspinor =       1
+    nsppol =       1      nsym =       8    n1xccc =    2501    ntypat =       1
+    occopt =       1   xclevel =       2
+-    mband =           6        mffmem =           1         mkmem =           7
+       mpw =         468          nfft =       13824          nkpt =          40
+================================================================================
+P This job should need less than                       5.514 Mbytes of memory.
+  Rough estimation (10% accuracy) of disk space for files :
+_ WF disk file :      1.716 Mbytes ; DEN or POT disk file :      0.107 Mbytes.
+================================================================================
+ 
+--------------------------------------------------------------------------------
+------------- Echo of variables that govern the present computation ------------
+--------------------------------------------------------------------------------
+-
+- outvars: echo of selected default values                                      
+-   iomode0 =  0 , fftalg0 =312 , wfoptalg0 =  0
+-
+- outvars: echo of global parameters not present in the input file              
+-  max_nthreads =    0
+-
+ -outvars: echo values of preprocessed input variables --------
+            acell      1.1338356797E+01  1.1338356797E+01  1.1338356797E+01 Bohr
+              amu      2.80855000E+01
+          dilatmx      1.05000000E+00
+             ecut      8.00000000E+00 Hartree
+           ecutsm      5.00000000E-01 Hartree
+-          fftalg         312
+           ionmov           2
+              ixc          11
+              kpt     -1.25000000E-01 -2.50000000E-01  0.00000000E+00
+                      -2.50000000E-01 -1.25000000E-01  0.00000000E+00
+                      -1.25000000E-01  5.00000000E-01  0.00000000E+00
+                      -2.50000000E-01 -3.75000000E-01  0.00000000E+00
+                      -1.25000000E-01 -3.75000000E-01  1.25000000E-01
+                      -3.75000000E-01 -2.50000000E-01  0.00000000E+00
+                      -1.25000000E-01 -2.50000000E-01  2.50000000E-01
+                       5.00000000E-01 -1.25000000E-01  0.00000000E+00
+                      -3.75000000E-01 -1.25000000E-01  1.25000000E-01
+                      -1.25000000E-01  2.50000000E-01  0.00000000E+00
+                      -2.50000000E-01  3.75000000E-01  0.00000000E+00
+                      -3.75000000E-01  5.00000000E-01  0.00000000E+00
+                      -2.50000000E-01  5.00000000E-01  1.25000000E-01
+                       5.00000000E-01 -3.75000000E-01  0.00000000E+00
+                      -2.50000000E-01 -3.75000000E-01  2.50000000E-01
+                       3.75000000E-01 -2.50000000E-01  0.00000000E+00
+                       5.00000000E-01 -2.50000000E-01  1.25000000E-01
+                       2.50000000E-01 -1.25000000E-01  0.00000000E+00
+                       3.75000000E-01 -1.25000000E-01  1.25000000E-01
+                       5.00000000E-01 -1.25000000E-01  2.50000000E-01
+                      -1.25000000E-01  0.00000000E+00  0.00000000E+00
+                       3.75000000E-01 -3.75000000E-01  1.25000000E-01
+                       2.50000000E-01 -2.50000000E-01  1.25000000E-01
+                       3.75000000E-01 -2.50000000E-01  2.50000000E-01
+                       0.00000000E+00 -1.25000000E-01  0.00000000E+00
+                       1.25000000E-01 -1.25000000E-01  1.25000000E-01
+                       2.50000000E-01 -1.25000000E-01  2.50000000E-01
+                       3.75000000E-01 -1.25000000E-01  3.75000000E-01
+                      -3.75000000E-01  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  1.25000000E-01
+                       2.50000000E-01  5.00000000E-01  1.25000000E-01
+                       0.00000000E+00 -3.75000000E-01  0.00000000E+00
+                       1.25000000E-01 -3.75000000E-01  1.25000000E-01
+                       2.50000000E-01 -3.75000000E-01  2.50000000E-01
+                      -2.50000000E-01 -3.75000000E-01 -2.50000000E-01
+                       5.00000000E-01  0.00000000E+00  1.25000000E-01
+                      -3.75000000E-01  0.00000000E+00  2.50000000E-01
+                       2.50000000E-01  0.00000000E+00  1.25000000E-01
+                       3.75000000E-01  0.00000000E+00  2.50000000E-01
+                       5.00000000E-01  0.00000000E+00  3.75000000E-01
+         kptrlatt        4   -4    4     -4    4    4     -4   -4    4
+          kptrlen      4.53534272E+01
+P           mkmem           7
+            natom           2
+            nband           6
+            ngfft          24      24      24
+             nkpt          40
+             nsym           8
+            ntime          15
+           ntypat           1
+              occ      2.000000  2.000000  2.000000  2.000000  0.000000  0.000000
+          optcell           2
+            rprim      5.0000000000E-01  5.0000000000E-01  0.0000000000E+00
+                       0.0000000000E+00  5.0000000000E-01  5.0000000000E-01
+                       5.0000000000E-01  0.0000000000E+00  5.0000000000E-01
+           shiftk      5.00000000E-01  5.00000000E-01  5.00000000E-01
+          spgroup          74
+           symrel      1  0  0   0  1  0   0  0  1      -1  0  0   0 -1  0   0  0 -1
+                       0 -1  1   0 -1  0   1 -1  0       0  1 -1   0  1  0  -1  1  0
+                       0  0  1   0  1  0   1  0  0       0  0 -1   0 -1  0  -1  0  0
+                       1 -1  0   0 -1  0   0 -1  1      -1  1  0   0  1  0   0  1 -1
+            tnons      0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+                       0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+                       0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+                       0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+           tolmxf      1.00000000E-08
+           tolvrs      1.00000000E-10
+            typat      1  1
+              wtk        0.03125    0.03125    0.03125    0.03125    0.03125    0.03125
+                         0.03125    0.03125    0.03125    0.03125    0.03125    0.03125
+                         0.03125    0.03125    0.03125    0.03125    0.03125    0.03125
+                         0.03125    0.03125    0.01563    0.03125    0.03125    0.03125
+                         0.01563    0.01563    0.01563    0.01563    0.01563    0.01563
+                         0.03125    0.01563    0.01563    0.01563    0.01563    0.01563
+                         0.01563    0.01563    0.01563    0.01563
+           xangst      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       1.4400000000E+00  1.5000000000E+00  1.5000000000E+00
+            xcart      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.7212056314E+00  2.8345891993E+00  2.8345891993E+00
+             xred      0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+                       2.4000000000E-01  2.6000000000E-01  2.4000000000E-01
+            znucl       14.00000
+ 
+================================================================================
+ 
+ chkinp: Checking input parameters for consistency.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    2
+   symrel is  -1  0  0  0 -1  0  0  0 -1
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    2
+   symrel is  -1  0  0  0 -1  0  0  0 -1
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    2
+   symrel is  -1  0  0  0 -1  0  0  0 -1
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    4
+   symrel is   0  1 -1  0  1  0 -1  1  0
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    4
+   symrel is   0  1 -1  0  1  0 -1  1  0
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    4
+   symrel is   0  1 -1  0  1  0 -1  1  0
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    6
+   symrel is   0  0 -1  0 -1  0 -1  0  0
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    6
+   symrel is   0  0 -1  0 -1  0 -1  0  0
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    6
+   symrel is   0  0 -1  0 -1  0 -1  0  0
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    8
+   symrel is  -1  1  0  0  1  0  0  1 -1
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    8
+   symrel is  -1  1  0  0  1  0  0  1 -1
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+ chkinp: WARNING -
+   Chksymbreak=1 . Found potentially symmetry-breaking value of tnons, 
+   which is neither a rational fraction in 1/8th nor in 1/12th :
+   for the symmetry number    8
+   symrel is  -1  1  0  0  1  0  0  1 -1
+   tnons is     2.400000E-01    2.600000E-01    2.400000E-01
+   Please, read the description of the input variable chksymbreak,
+   then, if you feel confident, you might switch it to zero, or consult with the forum.
+ 
+================================================================================
+== DATASET  1 ==================================================================
+-   nproc =    6
+ 
+ Exchange-correlation functional for the present dataset will be:
+  GGA: Perdew-Burke-Ernzerhof functional - ixc=11
+ Citation for XC functional:
+  J.P.Perdew, K.Burke, M.Ernzerhof, PRL 77, 3865 (1996)
+ 
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  5.6691784  5.6691784  0.0000000  G(1)=  0.0881962  0.0881962 -0.0881962
+ R(2)=  0.0000000  5.6691784  5.6691784  G(2)= -0.0881962  0.0881962  0.0881962
+ R(3)=  5.6691784  0.0000000  5.6691784  G(3)=  0.0881962 -0.0881962  0.0881962
+ Unit cell volume ucvol=  3.6441007E+02 bohr^3
+ Angles (23,13,12)=  6.00000000E+01  6.00000000E+01  6.00000000E+01 degrees
+ 
+ getcut: wavevector=  0.0000  0.0000  0.0000  ngfft=  24  24  24
+         ecut(hartree)=      8.820   => boxcut(ratio)=   2.23912
+ 
+ getcut : COMMENT -
+  Note that boxcut > 2.2 ; recall that boxcut=Gcut(box)/Gcut(sphere) = 2
+  is sufficient for exact treatment of convolution.
+  Such a large boxcut is a waste : you could raise ecut
+  e.g. ecut=   11.055083 Hartrees makes boxcut=2
+ 
+ 
+--- Pseudopotential description ------------------------------------------------
+- pspini: atom type   1  psp file is /CECI/home/ucl/naps/jovbever/.PsP/Si/Si.psp8
+- pspatm: opening atomic psp file    /CECI/home/ucl/naps/jovbever/.PsP/Si/Si.psp8
+- Si    ONCVPSP-3.2.3.1  r_core=   1.60303   1.72197   1.91712
+- 14.00000   4.00000    170510                znucl, zion, pspdat
+    8   11    2    4       600   0.00000      pspcod,pspxc,lmax,lloc,mmax,r2well
+    5.99000000000000    4.00000000000000    0.00000000000000   rchrg,fchrg,qchrg
+     nproj     2     2     2
+     extension_switch     1
+  pspatm : epsatm=    9.34321699
+         --- l  ekb(1:nproj) -->
+             0    5.168965    0.829883
+             1    2.571282    0.578307
+             2   -2.427311   -0.488097
+ pspatm: atomic psp has been read  and splines computed
+ 
+   1.49491472E+02                                ecore*ucvol(ha*bohr**3)
+--------------------------------------------------------------------------------
+ 
+_setup2: Arith. and geom. avg. npw (full set) are     456.469     456.442
+ 
+================================================================================
+ 
+=== [ionmov= 2] Broyden-Fletcher-Goldfard-Shanno method (forces)            
+================================================================================
+ 
+--- Iteration: ( 1/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4300079947716    -8.430E+00 9.993E-03 8.656E-01
+ ETOT  2  -8.4317428724220    -1.735E-03 6.580E-04 2.850E-02
+ ETOT  3  -8.4317539233624    -1.105E-05 1.792E-04 9.662E-04
+ ETOT  4  -8.4317540355251    -1.122E-07 1.568E-04 9.882E-05
+ ETOT  5  -8.4317540561488    -2.062E-08 5.535E-05 2.543E-06
+ ETOT  6  -8.4317540569229    -7.741E-10 7.348E-05 5.202E-08
+ ETOT  7  -8.4317540569350    -1.211E-11 1.923E-05 4.830E-10
+ ETOT  8  -8.4317540569351    -6.928E-14 2.656E-05 2.225E-12
+ 
+ At SCF step    8       vres2   =  2.22E-12 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  4.44717918E-04  sigma(3 2)= -3.61234047E-06
+  sigma(2 2)=  4.43399029E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.43399029E-04  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.56843206
+    2        2.00000          1.59804593
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.72120563135533E+00  2.83458919932846E+00  2.83458919932846E+00
+ Reduced coordinates (xred)
+  0.00000000000000E+00  0.00000000000000E+00  0.00000000000000E+00
+  2.40000000000000E-01  2.60000000000000E-01  2.40000000000000E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 8.64659E-03 4.99211E-03 (free atoms)
+ -8.64658589883606E-03  8.67361737988404E-19 -8.67361737988404E-19
+  8.64658589883606E-03 -8.67361737988404E-19  8.67361737988404E-19
+ Reduced forces (fred)
+  4.90190379998130E-02  0.00000000000000E+00  4.90190379998130E-02
+ -4.90190379998130E-02  0.00000000000000E+00 -4.90190379998130E-02
+ Scale of Primitive Cell (acell) [bohr]
+  1.13383567973139E+01  1.13383567973139E+01  1.13383567973139E+01
+ Real space primitive translations (rprimd) [bohr]
+  5.66917839865693E+00  5.66917839865693E+00  0.00000000000000E+00
+  0.00000000000000E+00  5.66917839865693E+00  5.66917839865693E+00
+  5.66917839865693E+00  0.00000000000000E+00  5.66917839865693E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  3.64410067486860E+02
+ Angles (23,13,12)= [degrees]
+  6.00000000000000E+01  6.00000000000000E+01  6.00000000000000E+01
+ Lengths [Bohr]
+  8.01742897889321E+00  8.01742897889321E+00  8.01742897889321E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+  4.44717918085960E-04  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  4.43399029057849E-04 -3.61234047284149E-06
+  0.00000000000000E+00 -3.61234047284149E-06  4.43399029057849E-04
+ Total energy (etotal) [Ha]= -8.43175405693506E+00
+ 
+--- Iteration: ( 2/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4378274227408    -8.438E+00 3.661E-03 9.641E-01
+ ETOT  2  -8.4380836093135    -2.562E-04 6.174E-06 7.392E-02
+ ETOT  3  -8.4381069571755    -2.335E-05 1.262E-06 1.026E-02
+ ETOT  4  -8.4381098080097    -2.851E-06 2.150E-06 7.589E-05
+ ETOT  5  -8.4381098171914    -9.182E-09 2.078E-07 3.247E-07
+ ETOT  6  -8.4381098172351    -4.367E-11 2.214E-07 4.911E-09
+ ETOT  7  -8.4381098172357    -6.803E-13 8.081E-08 9.185E-11
+ 
+ At SCF step    7       vres2   =  9.19E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  4.19425070E-04  sigma(3 2)= -6.92760413E-06
+  sigma(2 2)=  4.18224765E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.18224765E-04  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.59019745
+    2        2.00000          1.61330216
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -8.53122714845161E-03  3.41671915098703E-19 -1.73472347597681E-18
+  2.69343179141197E+00  2.79749794644298E+00  2.79749794644298E+00
+ Reduced coordinates (xred)
+ -7.62596031629954E-04  7.62596031629954E-04 -7.62596031629954E-04
+  2.40762596031630E-01  2.59237403968370E-01  2.40762596031630E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 7.86114E-03 4.53863E-03 (free atoms)
+ -7.86114190372100E-03  8.67361737988404E-19 -8.67361737988404E-19
+  7.86114190372100E-03 -8.67361737988404E-19  8.67361737988404E-19
+ Reduced forces (fred)
+  4.39716340272002E-02  0.00000000000000E+00  4.39716340272003E-02
+ -4.39716340272002E-02  0.00000000000000E+00 -4.39716340272003E-02
+ Scale of Primitive Cell (acell) [bohr]
+  7.91062285768197E+00  7.91251907314108E+00  7.91062285768197E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.59354284221567E+00  5.59376715273132E+00  1.22874015463355E-03
+  0.00000000000000E+00  5.59499589288596E+00  5.59499589288596E+00
+  5.59354284221567E+00  1.22874015463351E-03  5.59376715273132E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  3.50046477933421E+02
+ Angles (23,13,12)= [degrees]
+  5.99920703072350E+01  5.99867931178612E+01  5.99920703072350E+01
+ Lengths [Bohr]
+  7.91062285768197E+00  7.91251907314108E+00  7.91062285768197E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+  4.19425070113209E-04  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  4.18224765463177E-04 -6.92760412652951E-06
+  0.00000000000000E+00 -6.92760412652951E-06  4.18224765463177E-04
+ Total energy (etotal) [Ha]= -8.43810981723574E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-6.35576E-03
+           Relative     =-7.53505E-04
+ 
+--- Iteration: ( 3/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4220573288463    -8.422E+00 8.798E+02 5.115E+01
+ ETOT  2  -8.4407706769166    -1.871E-02 2.047E-01 3.388E+00
+ ETOT  3  -8.4417536930654    -9.830E-04 1.000E-03 7.839E-02
+ ETOT  4  -8.4417665935272    -1.290E-05 1.754E-04 5.186E-04
+ ETOT  5  -8.4417666659700    -7.244E-08 2.028E-04 4.156E-06
+ ETOT  6  -8.4417666664176    -4.476E-10 2.290E-04 2.237E-08
+ ETOT  7  -8.4417666664202    -2.627E-12 8.888E-05 4.933E-10
+ ETOT  8  -8.4417666664203    -1.101E-13 1.421E-04 1.525E-11
+ 
+ At SCF step    8       vres2   =  1.53E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -8.07274765E-04  sigma(3 2)=  1.53282282E-04
+  sigma(2 2)= -8.11087600E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -8.11087600E-04  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.93711140
+    2        2.00000          1.93716060
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -7.82087954304670E-02  2.81350463759988E-17  0.00000000000000E+00
+  2.41329197660740E+00  2.44617942833319E+00  2.44617942833319E+00
+ Reduced coordinates (xred)
+ -8.03830503967379E-03  8.03830503967379E-03 -8.03830503967379E-03
+  2.48038305039674E-01  2.51961694960326E-01  2.48038305039674E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 1.52848E-02 8.82467E-03 (free atoms)
+  1.52847755346763E-02  8.67361737988404E-19 -8.67361737988404E-19
+ -1.52847755346763E-02 -8.67361737988404E-19  8.67361737988404E-19
+ Reduced forces (fred)
+ -7.43567130814320E-02  0.00000000000000E+00 -7.43567130814320E-02
+  7.43567130814320E-02  0.00000000000000E+00  7.43567130814320E-02
+ Scale of Primitive Cell (acell) [bohr]
+  6.88148489688996E+00  6.91884024709373E+00  6.88148489688996E+00
+ Real space primitive translations (rprimd) [bohr]
+  4.86475662745195E+00  4.86706663662956E+00  2.52922200368245E-02
+  0.00000000000000E+00  4.89235885666638E+00  4.89235885666638E+00
+  4.86475662745195E+00  2.52922200368245E-02  4.86706663662956E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.30469771172938E+02
+ Angles (23,13,12)= [degrees]
+  5.98202674138345E+01  5.96716425183450E+01  5.98202674138345E+01
+ Lengths [Bohr]
+  6.88148489688996E+00  6.91884024709373E+00  6.88148489688996E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -8.07274765226226E-04  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00 -8.11087599960354E-04  1.53282281960940E-04
+  0.00000000000000E+00  1.53282281960940E-04 -8.11087599960355E-04
+ Total energy (etotal) [Ha]= -8.44176666642035E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-3.65685E-03
+           Relative     =-4.33279E-04
+ 
+--- Iteration: ( 4/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4478656446146    -8.448E+00 4.163E-04 2.181E+01
+ ETOT  2  -8.4559722575916    -8.107E-03 1.135E-04 1.522E+00
+ ETOT  3  -8.4564388516630    -4.666E-04 8.053E-05 1.164E-01
+ ETOT  4  -8.4564667089639    -2.786E-05 9.664E-05 7.661E-04
+ ETOT  5  -8.4564668002602    -9.130E-08 3.338E-05 3.370E-06
+ ETOT  6  -8.4564668007277    -4.675E-10 5.309E-05 3.211E-08
+ ETOT  7  -8.4564668007314    -3.661E-12 1.780E-05 7.833E-10
+ ETOT  8  -8.4564668007316    -1.954E-13 2.862E-05 3.600E-11
+ 
+ At SCF step    8       vres2   =  3.60E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  1.64474236E-04  sigma(3 2)= -1.24392179E-05
+  sigma(2 2)=  1.65068542E-04  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.65068542E-04  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.68824809
+    2        2.00000          1.70966721
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -4.04061704600785E-02  2.38270368062635E-18 -6.93889390390723E-18
+  2.57167778598725E+00  2.63677897770818E+00  2.63677897770818E+00
+ Reduced coordinates (xred)
+ -3.83107085424303E-03  3.83107085424303E-03 -3.83107085424304E-03
+  2.43831070854243E-01  2.56168929145757E-01  2.43831070854243E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 3.01290E-03 1.73950E-03 (free atoms)
+ -3.01289875852913E-03 -2.16840434497101E-19  2.16840434497101E-19
+  3.01289875852913E-03  2.16840434497101E-19 -2.16840434497101E-19
+ Reduced forces (fred)
+  1.58884689748372E-02  0.00000000000000E+00  1.58884689748372E-02
+ -1.58884689748372E-02  0.00000000000000E+00 -1.58884689748372E-02
+ Scale of Primitive Cell (acell) [bohr]
+  7.45884054169786E+00  7.45793718251034E+00  7.45884054169786E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.27348253234828E+00  5.27491065115869E+00 -1.35269574233406E-03
+  0.00000000000000E+00  5.27355795541636E+00  5.27355795541636E+00
+  5.27348253234828E+00 -1.35269574233415E-03  5.27491065115869E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.93465933675272E+02
+ Angles (23,13,12)= [degrees]
+  6.00040062899943E+01  6.00259253536061E+01  6.00040062899943E+01
+ Lengths [Bohr]
+  7.45884054169786E+00  7.45793718251034E+00  7.45884054169786E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+  1.64474235937100E-04  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  1.65068542491733E-04 -1.24392178983217E-05
+  0.00000000000000E+00 -1.24392178983217E-05  1.65068542491733E-04
+ Total energy (etotal) [Ha]= -8.45646680073157E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-1.47001E-02
+           Relative     =-1.73984E-03
+ 
+--- Iteration: ( 5/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4576414103730    -8.458E+00 1.537E+01 9.509E-01
+ ETOT  2  -8.4579596140188    -3.182E-04 9.426E-05 6.852E-02
+ ETOT  3  -8.4579802246260    -2.061E-05 9.392E-06 4.964E-03
+ ETOT  4  -8.4579813764940    -1.152E-06 5.380E-06 2.854E-05
+ ETOT  5  -8.4579813800206    -3.527E-09 1.406E-06 1.643E-07
+ ETOT  6  -8.4579813800398    -1.926E-11 3.392E-06 1.103E-09
+ ETOT  7  -8.4579813800400    -1.865E-13 1.052E-06 3.104E-11
+ 
+ At SCF step    7       vres2   =  3.10E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)=  4.14237678E-05  sigma(3 2)= -4.20934447E-06
+  sigma(2 2)=  4.25007553E-05  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.25007553E-05  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.72005539
+    2        2.00000          1.72383196
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -4.83067466704750E-02  4.79579466823544E-18 -6.93889390390723E-18
+  2.53924123156702E+00  2.59557315172638E+00  2.59557315172638E+00
+ Reduced coordinates (xred)
+ -4.65432522260637E-03  4.65432522260637E-03 -4.65432522260637E-03
+  2.44654325222606E-01  2.55345674777394E-01  2.44654325222606E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 9.41774E-04 5.43733E-04 (free atoms)
+ -9.41773891193279E-04 -5.42101086242752E-20  5.42101086242752E-20
+  9.41773891193279E-04  5.42101086242752E-20 -5.42101086242752E-20
+ Reduced forces (fred)
+  4.88728554697614E-03  0.00000000000000E+00  4.88728554697614E-03
+ -4.88728554697614E-03  0.00000000000000E+00 -4.88728554697614E-03
+ Scale of Primitive Cell (acell) [bohr]
+  7.34013770739822E+00  7.34138950660587E+00  7.34013770739822E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.18944684353448E+00  5.19107532373217E+00  7.09797205971597E-05
+  0.00000000000000E+00  5.19114630345277E+00  5.19114630345277E+00
+  5.18944684353448E+00  7.09797205971480E-05  5.19107532373217E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.79682777955120E+02
+ Angles (23,13,12)= [degrees]
+  5.99943583672065E+01  6.00094736356026E+01  5.99943583672065E+01
+ Lengths [Bohr]
+  7.34013770739822E+00  7.34138950660587E+00  7.34013770739822E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+  4.14237677943757E-05  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  4.25007552782928E-05 -4.20934446640942E-06
+  0.00000000000000E+00 -4.20934446640942E-06  4.25007552782928E-05
+ Total energy (etotal) [Ha]= -8.45798138004000E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-1.51458E-03
+           Relative     =-1.79087E-04
+ 
+--- Iteration: ( 6/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580298343542    -8.458E+00 5.573E-04 1.044E-01
+ ETOT  2  -8.4580639923428    -3.416E-05 4.798E-07 6.973E-03
+ ETOT  3  -8.4580660696717    -2.077E-06 1.342E-07 5.178E-04
+ ETOT  4  -8.4580661905814    -1.209E-07 7.189E-07 2.836E-06
+ ETOT  5  -8.4580661909315    -3.501E-10 1.682E-07 1.588E-08
+ ETOT  6  -8.4580661909334    -1.915E-12 2.686E-07 9.823E-11
+ 
+ At SCF step    6       vres2   =  9.82E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.34155330E-06  sigma(3 2)=  4.14171252E-07
+  sigma(2 2)= -5.28793972E-06  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -5.28793972E-06  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75320726
+    2        2.00000          1.75321499
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.10247086002691E-02  7.08966576851849E-18  0.00000000000000E+00
+  2.52893741075241E+00  2.58236666877707E+00  2.58236666877707E+00
+ Reduced coordinates (xred)
+ -4.94203450082346E-03  4.94203450082346E-03 -4.94203450082346E-03
+  2.44942034500823E-01  2.55057965499177E-01  2.44942034500823E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 1.01302E-04 5.84868E-05 (free atoms)
+ -1.01302191110572E-04  0.00000000000000E+00  0.00000000000000E+00
+  1.01302191110572E-04  0.00000000000000E+00  0.00000000000000E+00
+ Reduced forces (fred)
+  5.22954137726523E-04  0.00000000000000E+00  5.22954137726523E-04
+ -5.22954137726523E-04  0.00000000000000E+00 -5.22954137726523E-04
+ Scale of Primitive Cell (acell) [bohr]
+  7.30170495289022E+00  7.30403593200953E+00  7.30170495289022E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16231812948364E+00  5.16385185419308E+00  8.81483361066582E-04
+  0.00000000000000E+00  5.16473333755415E+00  5.16473333755415E+00
+  5.16231812948364E+00  8.81483361066591E-04  5.16385185419308E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75310196351318E+02
+ Angles (23,13,12)= [degrees]
+  5.99894391415984E+01  5.99985300467735E+01  5.99894391415984E+01
+ Lengths [Bohr]
+  7.30170495289022E+00  7.30403593200953E+00  7.30170495289022E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -6.34155329754188E-06  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00 -5.28793971670384E-06  4.14171252388369E-07
+  0.00000000000000E+00  4.14171252388369E-07 -5.28793971670428E-06
+ Total energy (etotal) [Ha]= -8.45806619093340E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-8.48109E-05
+           Relative     =-1.00273E-05
+ 
+--- Iteration: ( 7/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580670819161    -8.458E+00 3.108E-07 1.053E-03
+ ETOT  2  -8.4580674875375    -4.056E-07 1.572E-07 8.261E-05
+ ETOT  3  -8.4580675127749    -2.524E-08 1.363E-07 3.963E-06
+ ETOT  4  -8.4580675136010    -8.261E-10 1.157E-07 2.570E-08
+ ETOT  5  -8.4580675136038    -2.771E-12 1.046E-07 1.504E-10
+ ETOT  6  -8.4580675136038    -2.487E-14 9.769E-08 1.097E-12
+ 
+ At SCF step    6       vres2   =  1.10E-12 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -5.95559480E-07  sigma(3 2)=  1.23719410E-07
+  sigma(2 2)=  3.93845794E-07  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  3.93845794E-07  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75477845
+    2        2.00000          1.75131041
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.08889558726908E-02  4.35713748067612E-18 -1.04083408558608E-17
+  2.53030097809399E+00  2.58383440547439E+00  2.58383440547439E+00
+ Reduced coordinates (xred)
+ -4.92590553727486E-03  4.92590553727486E-03 -4.92590553727486E-03
+  2.44925905537275E-01  2.55074094462725E-01  2.44925905537275E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 1.50945E-04 8.71481E-05 (free atoms)
+ -1.50944903239282E-04  0.00000000000000E+00  0.00000000000000E+00
+  1.50944903239282E-04  0.00000000000000E+00  0.00000000000000E+00
+ Reduced forces (fred)
+  7.79697099551057E-04  0.00000000000000E+00  7.79697099551057E-04
+ -7.79697099551057E-04  0.00000000000000E+00 -7.79697099551057E-04
+ Scale of Primitive Cell (acell) [bohr]
+  7.30603355762724E+00  7.30818731829622E+00  7.30603355762724E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16544171296105E+00  5.16684987052207E+00  8.18940426711191E-04
+  0.00000000000000E+00  5.16766881094878E+00  5.16766881094878E+00
+  5.16544171296105E+00  8.18940426711306E-04  5.16684987052207E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75796744556131E+02
+ Angles (23,13,12)= [degrees]
+  5.99902478780018E+01  5.99985280170661E+01  5.99902478780018E+01
+ Lengths [Bohr]
+  7.30603355762724E+00  7.30818731829622E+00  7.30603355762724E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -5.95559480168727E-07  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  3.93845793801324E-07  1.23719410006053E-07
+  0.00000000000000E+00  1.23719410006053E-07  3.93845793800890E-07
+ Total energy (etotal) [Ha]= -8.45806751360381E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-1.32267E-06
+           Relative     =-1.56380E-07
+ 
+--- Iteration: ( 8/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580675532550    -8.458E+00 8.494E-08 4.614E-05
+ ETOT  2  -8.4580675538002    -5.452E-10 6.678E-08 1.015E-07
+ ETOT  3  -8.4580675538264    -2.622E-11 4.989E-08 1.170E-08
+ ETOT  4  -8.4580675538295    -3.149E-12 6.261E-08 2.211E-10
+ ETOT  5  -8.4580675538295    -1.421E-14 4.132E-08 1.491E-12
+ 
+ At SCF step    5       vres2   =  1.49E-12 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.77485968E-07  sigma(3 2)=  2.48362738E-07
+  sigma(2 2)=  2.23029150E-07  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  2.23029150E-07  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75474126
+    2        2.00000          1.75127019
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.10208078285412E-02  1.41149570330457E-17  3.46944695195361E-18
+  2.53043742670938E+00  2.58375908103161E+00  2.58375908103161E+00
+ Reduced coordinates (xred)
+ -4.93865927396140E-03  4.93865927396140E-03 -4.93865927396140E-03
+  2.44938659273961E-01  2.55061340726039E-01  2.44938659273961E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 1.17537E-04 6.78600E-05 (free atoms)
+ -1.17536989214861E-04  1.35525271560688E-20 -1.35525271560688E-20
+  1.17536989214861E-04 -1.35525271560688E-20  1.35525271560688E-20
+ Reduced forces (fred)
+  6.07131592484467E-04  0.00000000000000E+00  6.07131592484467E-04
+ -6.07131592484467E-04  0.00000000000000E+00 -6.07131592484467E-04
+ Scale of Primitive Cell (acell) [bohr]
+  7.30595772504959E+00  7.30797426859911E+00  7.30595772504959E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16545128933508E+00  5.16673307239232E+00  7.85089670910419E-04
+  0.00000000000000E+00  5.16751816206323E+00  5.16751816206323E+00
+  5.16545128933508E+00  7.85089670910313E-04  5.16673307239232E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75784787613071E+02
+ Angles (23,13,12)= [degrees]
+  5.99908691241588E+01  5.99981524465951E+01  5.99908691241588E+01
+ Lengths [Bohr]
+  7.30595772504959E+00  7.30797426859911E+00  7.30595772504959E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -6.77485968427101E-07  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  2.23029150450867E-07  2.48362738258703E-07
+  0.00000000000000E+00  2.48362738258703E-07  2.23029150450867E-07
+ Total energy (etotal) [Ha]= -8.45806755382953E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-4.02257E-08
+           Relative     =-4.75590E-09
+ 
+--- Iteration: ( 9/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676395694    -8.458E+00 1.600E-07 7.581E-04
+ ETOT  2  -8.4580676408021    -1.233E-09 7.435E-08 3.780E-07
+ ETOT  3  -8.4580676408723    -7.011E-11 2.044E-07 2.788E-08
+ ETOT  4  -8.4580676408809    -8.693E-12 3.904E-08 1.486E-09
+ ETOT  5  -8.4580676408815    -5.809E-13 1.529E-07 3.218E-11
+ 
+ At SCF step    5       vres2   =  3.22E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -4.24805155E-07  sigma(3 2)=  5.27921040E-07
+  sigma(2 2)=  4.30196449E-08  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.30196449E-08  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75125670
+    2        2.00000          1.75125508
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.15676037956397E-02  2.68628028892229E-17  2.08166817117217E-17
+  2.53117297871603E+00  2.58349131586662E+00  2.58349131586662E+00
+ Reduced coordinates (xred)
+ -4.99120748653438E-03  4.99120748653439E-03 -4.99120748653438E-03
+  2.44991207486534E-01  2.55008792513466E-01  2.44991207486534E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 8.20695E-06 4.73829E-06 (free atoms)
+  8.20695188326276E-06  0.00000000000000E+00  0.00000000000000E+00
+ -8.20695188326276E-06  0.00000000000000E+00  0.00000000000000E+00
+ Reduced forces (fred)
+ -4.23958375030236E-05  0.00000000000000E+00 -4.23958375030236E-05
+  4.23958375030236E-05  0.00000000000000E+00  4.23958375030236E-05
+ Scale of Primitive Cell (acell) [bohr]
+  7.30607757170215E+00  7.30721691434338E+00  7.30607757170215E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16584453108414E+00  5.16650941550130E+00  4.73216231936950E-04
+  0.00000000000000E+00  5.16698263173324E+00  5.16698263173324E+00
+  5.16584453108414E+00  4.73216231937006E-04  5.16650941550130E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75781909371028E+02
+ Angles (23,13,12)= [degrees]
+  5.99948412632504E+01  5.99981969420105E+01  5.99948412632504E+01
+ Lengths [Bohr]
+  7.30607757170215E+00  7.30721691434338E+00  7.30607757170215E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -4.24805154748166E-07  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  4.30196449136520E-08  5.27921040243155E-07
+  0.00000000000000E+00  5.27921040243155E-07  4.30196449132184E-08
+ Total energy (etotal) [Ha]= -8.45806764088153E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-8.70520E-08
+           Relative     =-1.02922E-08
+ 
+--- Iteration: (10/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676497732    -8.458E+00 1.464E-07 1.722E-05
+ ETOT  2  -8.4580676507878    -1.015E-09 1.224E-07 3.352E-08
+ ETOT  3  -8.4580676507982    -1.046E-11 3.759E-08 3.013E-09
+ ETOT  4  -8.4580676507992    -9.646E-13 1.025E-07 8.825E-11
+ 
+ At SCF step    4       vres2   =  8.82E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.70080376E-07  sigma(3 2)=  3.74422100E-07
+  sigma(2 2)=  8.52007112E-08  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  8.52007112E-08  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75127878
+    2        2.00000          1.75127666
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.16453894271561E-02  2.88484598758238E-17  2.08166817117217E-17
+  2.53132224797371E+00  2.58339303059177E+00  2.58339303059177E+00
+ Reduced coordinates (xred)
+ -4.99859222373945E-03  4.99859222373945E-03 -4.99859222373945E-03
+  2.44998592223739E-01  2.55001407776260E-01  2.44998592223739E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 1.60333E-05 9.25684E-06 (free atoms)
+  1.60333115534876E-05 -8.47032947254300E-22  8.47032947254300E-22
+ -1.60333115534876E-05  8.47032947254300E-22 -8.47032947254300E-22
+ Reduced forces (fred)
+ -8.28279825521882E-05  0.00000000000000E+00 -8.28279825521882E-05
+  8.28279825521882E-05  0.00000000000000E+00  8.28279825521882E-05
+ Scale of Primitive Cell (acell) [bohr]
+  7.30617496732484E+00  7.30693892160604E+00  7.30617496732484E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16599345530532E+00  5.16649825220843E+00  2.87808975118712E-04
+  0.00000000000000E+00  5.16678606118355E+00  5.16678606118355E+00
+  5.16599345530532E+00  2.87808975118659E-04  5.16649825220843E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75788669444794E+02
+ Angles (23,13,12)= [degrees]
+  5.99965410293687E+01  5.99995463994811E+01  5.99965410293687E+01
+ Lengths [Bohr]
+  7.30617496732484E+00  7.30693892160604E+00  7.30617496732484E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -2.70080375836760E-07  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  8.52007112374896E-08  3.74422099895218E-07
+  0.00000000000000E+00  3.74422099895218E-07  8.52007112366222E-08
+ Total energy (etotal) [Ha]= -8.45806765079921E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-9.91768E-09
+           Relative     =-1.17257E-09
+ 
+--- Iteration: (11/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676546800    -8.458E+00 1.111E-07 1.371E-05
+ ETOT  2  -8.4580676581050    -3.425E-09 9.589E-08 7.987E-08
+ ETOT  3  -8.4580676581313    -2.633E-11 6.516E-08 6.882E-09
+ ETOT  4  -8.4580676581334    -2.073E-12 8.175E-08 1.368E-10
+ ETOT  5  -8.4580676581335    -5.862E-14 5.675E-08 1.160E-12
+ 
+ At SCF step    5       vres2   =  1.16E-12 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.05379350E-07  sigma(3 2)=  3.79922993E-08
+  sigma(2 2)=  9.92258973E-08  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  9.92258973E-08  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75129606
+    2        2.00000          1.75129512
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.16974028702789E-02  2.89353138401418E-17  2.42861286636753E-17
+  2.53145925813585E+00  2.58322749895974E+00  2.58322749895974E+00
+ Reduced coordinates (xred)
+ -5.00345493359408E-03  5.00345493359408E-03 -5.00345493359408E-03
+  2.45003454933594E-01  2.54996545066406E-01  2.45003454933594E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 9.26198E-06 5.34741E-06 (free atoms)
+  9.26197955115944E-06 -1.69406589450860E-21  1.69406589450860E-21
+ -9.26197955115944E-06  1.69406589450860E-21 -1.69406589450860E-21
+ Reduced forces (fred)
+ -4.78489658233644E-05  0.00000000000000E+00 -4.78489658233644E-05
+  4.78489658233644E-05  0.00000000000000E+00  4.78489658233644E-05
+ Scale of Primitive Cell (acell) [bohr]
+  7.30627393389187E+00  7.30647072744800E+00  7.30627393389187E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16617053180328E+00  5.16646115182891E+00 -6.15390942438016E-06
+  0.00000000000000E+00  5.16645499791949E+00  5.16645499791949E+00
+  5.16617053180328E+00 -6.15390942433053E-06  5.16646115182891E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75794162629067E+02
+ Angles (23,13,12)= [degrees]
+  5.99991089975932E+01  6.00019396193303E+01  5.99991089975932E+01
+ Lengths [Bohr]
+  7.30627393389187E+00  7.30647072744800E+00  7.30627393389187E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -1.05379350281033E-07  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  9.92258972860524E-08  3.79922992642823E-08
+  0.00000000000000E+00  3.79922992642823E-08  9.92258972869198E-08
+ Total energy (etotal) [Ha]= -8.45806765813347E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-7.33426E-09
+           Relative     =-8.67132E-10
+ 
+--- Iteration: (12/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676585268    -8.458E+00 5.002E-08 4.850E-07
+ ETOT  2  -8.4580676586098    -8.295E-11 4.405E-08 2.745E-09
+ ETOT  3  -8.4580676586106    -8.082E-13 6.713E-08 2.774E-10
+ ETOT  4  -8.4580676586107    -7.105E-14 3.857E-08 3.804E-12
+ 
+ At SCF step    4       vres2   =  3.80E-12 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -1.03096530E-07  sigma(3 2)= -2.43656904E-08
+  sigma(2 2)=  7.27019121E-08  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  7.27019121E-08  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75129116
+    2        2.00000          1.75129083
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.16867730552557E-02  3.26852279593101E-17  2.08166817117217E-17
+  2.53145743711156E+00  2.58319851149952E+00  2.58319851149952E+00
+ Reduced coordinates (xred)
+ -5.00240837310739E-03  5.00240837310740E-03 -5.00240837310740E-03
+  2.45002408373107E-01  2.54997591626893E-01  2.45002408373107E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 3.86979E-06 2.23422E-06 (free atoms)
+  3.86979096204262E-06 -2.11758236813575E-22  2.11758236813575E-22
+ -3.86979096204262E-06  2.11758236813575E-22 -2.11758236813575E-22
+ Reduced forces (fred)
+ -1.99920710493823E-05  0.00000000000000E+00 -1.99920710493823E-05
+  1.99920710493823E-05  0.00000000000000E+00  1.99920710493823E-05
+ Scale of Primitive Cell (acell) [bohr]
+  7.30627095733718E+00  7.30638873852923E+00  7.30627095733718E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16618888345064E+00  5.16643859160367E+00 -4.15686046295954E-05
+  0.00000000000000E+00  5.16639702299905E+00  5.16639702299905E+00
+  5.16618888345064E+00 -4.15686046296323E-05  5.16643859160367E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75792733700840E+02
+ Angles (23,13,12)= [degrees]
+  5.99994667346774E+01  6.00021311887510E+01  5.99994667346774E+01
+ Lengths [Bohr]
+  7.30627095733718E+00  7.30638873852923E+00  7.30627095733718E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -1.03096530259476E-07  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  7.27019121280793E-08 -2.43656903921915E-08
+  0.00000000000000E+00 -2.43656903921915E-08  7.27019121285130E-08
+ Total energy (etotal) [Ha]= -8.45806765861066E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-4.77195E-10
+           Relative     =-5.64189E-11
+ 
+--- Iteration: (13/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676589092    -8.458E+00 3.411E-08 4.115E-07
+ ETOT  2  -8.4580676589239    -1.467E-11 3.000E-08 1.407E-09
+ ETOT  3  -8.4580676589242    -3.517E-13 5.314E-08 1.626E-10
+ ETOT  4  -8.4580676589243    -6.395E-14 2.644E-08 2.217E-12
+ 
+ At SCF step    4       vres2   =  2.22E-12 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -9.56316640E-08  sigma(3 2)= -5.14807292E-08
+  sigma(2 2)=  4.33685219E-08  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  4.33685219E-08  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75128629
+    2        2.00000          1.75128637
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.16750918526887E-02  3.30336496682073E-17  2.77555756156289E-17
+  2.53145814431561E+00  2.58318103954176E+00  2.58318103954176E+00
+ Reduced coordinates (xred)
+ -5.00125284440815E-03  5.00125284440816E-03 -5.00125284440815E-03
+  2.45001252844408E-01  2.54998747155592E-01  2.45001252844408E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 4.23367E-08 2.44431E-08 (free atoms)
+  4.23366519049015E-08  0.00000000000000E+00  0.00000000000000E+00
+ -4.23366519049015E-08  0.00000000000000E+00  0.00000000000000E+00
+ Reduced forces (fred)
+ -2.18720233107910E-07  0.00000000000000E+00 -2.18720233107910E-07
+  2.18720233107910E-07  0.00000000000000E+00  2.18720233107910E-07
+ Scale of Primitive Cell (acell) [bohr]
+  7.30627049105729E+00  7.30633932036997E+00  7.30627049105729E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16621469263108E+00  5.16641212405987E+00 -5.00449763500948E-05
+  0.00000000000000E+00  5.16636207908352E+00  5.16636207908352E+00
+  5.16621469263108E+00 -5.00449763500962E-05  5.16641212405987E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75791285728333E+02
+ Angles (23,13,12)= [degrees]
+  5.99996883692010E+01  6.00019050150689E+01  5.99996883692010E+01
+ Lengths [Bohr]
+  7.30627049105729E+00  7.30633932036997E+00  7.30627049105729E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -9.56316639996214E-08  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  4.33685218748266E-08 -5.14807291858866E-08
+  0.00000000000000E+00 -5.14807291858866E-08  4.33685218756939E-08
+ Total energy (etotal) [Ha]= -8.45806765892431E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-3.13648E-10
+           Relative     =-3.70827E-11
+ 
+--- Iteration: (14/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676592689    -8.458E+00 2.499E-08 3.962E-07
+ ETOT  2  -8.4580676592733    -4.379E-12 2.241E-08 8.410E-10
+ ETOT  3  -8.4580676592735    -2.096E-13 3.699E-08 9.235E-11
+ 
+ At SCF step    3       vres2   =  9.24E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -6.66772365E-08  sigma(3 2)= -5.52745943E-08
+  sigma(2 2)=  1.00010491E-08  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)=  1.00010491E-08  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75128294
+    2        2.00000          1.75128328
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.16635873290393E-02  3.51115803064997E-17  2.08166817117217E-17
+  2.53147181674580E+00  2.58316750096572E+00  2.58316750096572E+00
+ Reduced coordinates (xred)
+ -5.00008864067915E-03  5.00008864067916E-03 -5.00008864067915E-03
+  2.45000088640679E-01  2.54999911359321E-01  2.45000088640679E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 2.60072E-06 1.50153E-06 (free atoms)
+ -2.60071774646810E-06  0.00000000000000E+00  0.00000000000000E+00
+  2.60071774646810E-06  0.00000000000000E+00  0.00000000000000E+00
+ Reduced forces (fred)
+  1.34360026460038E-05  0.00000000000000E+00  1.34360026460038E-05
+ -1.34360026460038E-05  0.00000000000000E+00 -1.34360026460038E-05
+ Scale of Primitive Cell (acell) [bohr]
+  7.30628222019732E+00  7.30630102749426E+00  7.30628222019733E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16626714461826E+00  5.16637626096930E+00 -4.12590378671086E-05
+  0.00000000000000E+00  5.16633500193143E+00  5.16633500193143E+00
+  5.16626714461826E+00 -4.12590378671905E-05  5.16637626096930E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75790256930951E+02
+ Angles (23,13,12)= [degrees]
+  5.99999148485340E+01  6.00012270259695E+01  5.99999148485340E+01
+ Lengths [Bohr]
+  7.30628222019732E+00  7.30630102749426E+00  7.30628222019733E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -6.66772364764888E-08  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00  1.00010491147287E-08 -5.52745943213466E-08
+  0.00000000000000E+00 -5.52745943213466E-08  1.00010491147287E-08
+ Total energy (etotal) [Ha]= -8.45806765927352E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-3.49216E-10
+           Relative     =-4.12879E-11
+ 
+--- Iteration: (15/15) Internal Cycle: (1/1)
+--------------------------------------------------------------------------------
+ 
+---SELF-CONSISTENT-FIELD CONVERGENCE--------------------------------------------
+ 
+     iter   Etot(hartree)      deltaE(h)  residm     vres2
+ ETOT  1  -8.4580676594768    -8.458E+00 3.286E-08 1.226E-07
+ ETOT  2  -8.4580676594988    -2.204E-11 2.868E-08 5.626E-10
+ ETOT  3  -8.4580676594990    -1.652E-13 1.843E-08 4.607E-11
+ 
+ At SCF step    3       vres2   =  4.61E-11 < tolvrs=  1.00E-10 =>converged.
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.30246706E-08  sigma(3 2)= -3.06848074E-08
+  sigma(2 2)= -6.64069167E-09  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -6.64069167E-09  sigma(2 1)=  0.00000000E+00
+ 
+ Integrated electronic density in atomic spheres:
+ ------------------------------------------------
+ Atom  Sphere_radius  Integrated_density
+    1        2.00000          1.75128370
+    2        2.00000          1.75128397
+ 
+---OUTPUT-----------------------------------------------------------------------
+ 
+ Cartesian coordinates (xcart) [bohr]
+ -5.16588568662329E-02  4.05685900691855E-17  3.12250225675825E-17
+  2.53149523741140E+00  2.58316572627147E+00  2.58316572627147E+00
+ Reduced coordinates (xred)
+ -4.99957406269292E-03  4.99957406269292E-03 -4.99957406269292E-03
+  2.44999574062693E-01  2.55000425937307E-01  2.44999574062693E-01
+ Cartesian forces (fcart) [Ha/bohr]; max,rms= 2.42778E-06 1.40168E-06 (free atoms)
+ -2.42777794484046E-06 -1.05879118406788E-22  1.05879118406788E-22
+  2.42777794484046E-06  1.05879118406788E-22 -1.05879118406788E-22
+ Reduced forces (fred)
+  1.25426918156261E-05  0.00000000000000E+00  1.25426918156261E-05
+ -1.25426918156261E-05  0.00000000000000E+00 -1.25426918156261E-05
+ Scale of Primitive Cell (acell) [bohr]
+  7.30630459860201E+00  7.30629600790091E+00  7.30630459860201E+00
+ Real space primitive translations (rprimd) [bohr]
+  5.16632579280243E+00  5.16634926131210E+00 -1.78087691641644E-05
+  0.00000000000000E+00  5.16633145254294E+00  5.16633145254294E+00
+  5.16632579280243E+00 -1.78087691641548E-05  5.16634926131210E+00
+ Unitary Cell Volume (ucvol) [Bohr^3]=  2.75790505151046E+02
+ Angles (23,13,12)= [degrees]
+  6.00000388949085E+01  6.00003783242365E+01  6.00000388949085E+01
+ Lengths [Bohr]
+  7.30630459860201E+00  7.30629600790091E+00  7.30630459860201E+00
+ Stress tensor in cartesian coordinates (strten) [Ha/bohr^3]
+ -2.30246705841888E-08  0.00000000000000E+00  0.00000000000000E+00
+  0.00000000000000E+00 -6.64069166756570E-09 -3.06848073811962E-08
+  0.00000000000000E+00 -3.06848073811962E-08 -6.64069166799938E-09
+ Total energy (etotal) [Ha]= -8.45806765949898E+00
+ 
+ Difference of energy with previous step (new-old):
+           Absolute (Ha)=-2.25452E-10
+           Relative     =-2.66552E-11
+ 
+ fconv : WARNING -
+  ntime=   15 was not enough Broyd/MD steps to converge gradients: 
+  max grad (force/stress) = 3.0685E-06 > tolmxf= 1.0000E-08 ha/bohr (free atoms)
+ 
+================================================================================
+ 
+ ----iterations are completed or convergence reached----
+ 
+ Mean square residual over all n,k,spin=   78.686E-12; max=  18.426E-09
+ reduced coordinates (array xred) for    2 atoms
+      -0.004999574063      0.004999574063     -0.004999574063
+       0.244999574063      0.255000425937      0.244999574063
+ rms dE/dt=  1.0241E-05; max dE/dt=  1.2543E-05; dE/dt below (all hartree)
+    1       0.000012542692      0.000000000000      0.000012542692
+    2      -0.000012542692     -0.000000000000     -0.000012542692
+ 
+ cartesian coordinates (angstrom) at end:
+    1     -0.02733668967542     0.00000000000000     0.00000000000000
+    2      1.33960958329224     1.36695242835369     1.36695242835369
+ 
+ cartesian forces (hartree/bohr) at end:
+    1     -0.00000242777794    -0.00000000000000     0.00000000000000
+    2      0.00000242777794     0.00000000000000    -0.00000000000000
+ frms,max,avg= 1.4016782E-06 2.4277779E-06   0.000E+00  0.000E+00  0.000E+00 h/b
+ 
+ cartesian forces (eV/Angstrom) at end:
+    1     -0.00012484135090    -0.00000000000000     0.00000000000000
+    2      0.00012484135090     0.00000000000000    -0.00000000000000
+ frms,max,avg= 7.2077188E-05 1.2484135E-04   0.000E+00  0.000E+00  0.000E+00 e/A
+ length scales=  7.306304598602  7.306296007901  7.306304598602 bohr
+              =  3.866329872596  3.866325326593  3.866329872596 angstroms
+ prteigrs : about to open file opto_EIG
+ Fermi (or HOMO) energy (hartree) =   0.14331   Average Vxc (hartree)=  -0.33858
+ Eigenvalues (hartree) for nkpt=  40  k points:
+ kpt#   1, nband=  6, wtk=  0.03125, kpt= -0.1250 -0.2500  0.0000 (reduced coord)
+  -0.25402    0.03586    0.10599    0.10851    0.23308    0.28727
+ prteigrs : prtvol=0 or 1, do not print more k-points.
+ 
+ 
+--------------------------------------------------------------------------------
+ Components of total free energy (in Hartree) :
+ 
+    Kinetic energy  =  3.03491283945008E+00
+    Hartree energy  =  5.55269154031883E-01
+    XC energy       = -3.07977123465370E+00
+    Ewald energy    = -8.34137365209661E+00
+    PspCore energy  =  5.42047202647634E-01
+    Loc. psp. energy= -2.31892941448359E+00
+    NL   psp  energy=  1.14977744560533E+00
+    >>>>>>>>> Etotal= -8.45806765949898E+00
+ 
+ Other information on the energy :
+    Total energy(eV)= -2.30155725796478E+02 ; Band energy (Ha)=  -2.4265639032E-01
+--------------------------------------------------------------------------------
+ 
+ 
+ rms coord change=  4.9996E-03   atom, delta coord (reduced):
+     1       -0.004999574063      0.004999574063     -0.004999574063
+     2        0.004999574063     -0.004999574063      0.004999574063
+ 
+ Cartesian components of stress tensor (hartree/bohr^3)
+  sigma(1 1)= -2.30246706E-08  sigma(3 2)= -3.06848074E-08
+  sigma(2 2)= -6.64069167E-09  sigma(3 1)=  0.00000000E+00
+  sigma(3 3)= -6.64069167E-09  sigma(2 1)=  0.00000000E+00
+ 
+-Cartesian components of stress tensor (GPa)         [Pressure=  3.5605E-04 GPa]
+- sigma(1 1)= -6.77409082E-04  sigma(3 2)= -9.02778049E-04
+- sigma(2 2)= -1.95375861E-04  sigma(3 1)=  0.00000000E+00
+- sigma(3 3)= -1.95375861E-04  sigma(2 1)=  0.00000000E+00
+ 
+== END DATASET(S) ==============================================================
+================================================================================
+  
+ -outvars: echo values of variables after computation  --------
+            acell      7.3063045986E+00  7.3062960079E+00  7.3063045986E+00 Bohr
+              amu      2.80855000E+01
+          dilatmx      1.05000000E+00
+             ecut      8.00000000E+00 Hartree
+           ecutsm      5.00000000E-01 Hartree
+           etotal     -8.4580676595E+00
+            fcart     -2.4277779448E-06 -1.0587911841E-22  1.0587911841E-22
+                       2.4277779448E-06  1.0587911841E-22 -1.0587911841E-22
+-          fftalg         312
+           ionmov           2
+              ixc          11
+              kpt     -1.25000000E-01 -2.50000000E-01  0.00000000E+00
+                      -2.50000000E-01 -1.25000000E-01  0.00000000E+00
+                      -1.25000000E-01  5.00000000E-01  0.00000000E+00
+                      -2.50000000E-01 -3.75000000E-01  0.00000000E+00
+                      -1.25000000E-01 -3.75000000E-01  1.25000000E-01
+                      -3.75000000E-01 -2.50000000E-01  0.00000000E+00
+                      -1.25000000E-01 -2.50000000E-01  2.50000000E-01
+                       5.00000000E-01 -1.25000000E-01  0.00000000E+00
+                      -3.75000000E-01 -1.25000000E-01  1.25000000E-01
+                      -1.25000000E-01  2.50000000E-01  0.00000000E+00
+                      -2.50000000E-01  3.75000000E-01  0.00000000E+00
+                      -3.75000000E-01  5.00000000E-01  0.00000000E+00
+                      -2.50000000E-01  5.00000000E-01  1.25000000E-01
+                       5.00000000E-01 -3.75000000E-01  0.00000000E+00
+                      -2.50000000E-01 -3.75000000E-01  2.50000000E-01
+                       3.75000000E-01 -2.50000000E-01  0.00000000E+00
+                       5.00000000E-01 -2.50000000E-01  1.25000000E-01
+                       2.50000000E-01 -1.25000000E-01  0.00000000E+00
+                       3.75000000E-01 -1.25000000E-01  1.25000000E-01
+                       5.00000000E-01 -1.25000000E-01  2.50000000E-01
+                      -1.25000000E-01  0.00000000E+00  0.00000000E+00
+                       3.75000000E-01 -3.75000000E-01  1.25000000E-01
+                       2.50000000E-01 -2.50000000E-01  1.25000000E-01
+                       3.75000000E-01 -2.50000000E-01  2.50000000E-01
+                       0.00000000E+00 -1.25000000E-01  0.00000000E+00
+                       1.25000000E-01 -1.25000000E-01  1.25000000E-01
+                       2.50000000E-01 -1.25000000E-01  2.50000000E-01
+                       3.75000000E-01 -1.25000000E-01  3.75000000E-01
+                      -3.75000000E-01  0.00000000E+00  0.00000000E+00
+                      -2.50000000E-01  0.00000000E+00  1.25000000E-01
+                       2.50000000E-01  5.00000000E-01  1.25000000E-01
+                       0.00000000E+00 -3.75000000E-01  0.00000000E+00
+                       1.25000000E-01 -3.75000000E-01  1.25000000E-01
+                       2.50000000E-01 -3.75000000E-01  2.50000000E-01
+                      -2.50000000E-01 -3.75000000E-01 -2.50000000E-01
+                       5.00000000E-01  0.00000000E+00  1.25000000E-01
+                      -3.75000000E-01  0.00000000E+00  2.50000000E-01
+                       2.50000000E-01  0.00000000E+00  1.25000000E-01
+                       3.75000000E-01  0.00000000E+00  2.50000000E-01
+                       5.00000000E-01  0.00000000E+00  3.75000000E-01
+         kptrlatt        4   -4    4     -4    4    4     -4   -4    4
+          kptrlen      4.53534272E+01
+P           mkmem           7
+            natom           2
+            nband           6
+            ngfft          24      24      24
+             nkpt          40
+             nsym           8
+            ntime          15
+           ntypat           1
+              occ      2.000000  2.000000  2.000000  2.000000  0.000000  0.000000
+          optcell           2
+            rprim      7.0710517514E-01  7.0710838723E-01 -2.4374523295E-06
+                       0.0000000000E+00  7.0710678119E-01  7.0710678119E-01
+                       7.0710517514E-01 -2.4374523295E-06  7.0710838723E-01
+           shiftk      5.00000000E-01  5.00000000E-01  5.00000000E-01
+          spgroup          74
+           strten     -2.3024670584E-08 -6.6406916676E-09 -6.6406916680E-09
+                      -3.0684807381E-08  0.0000000000E+00  0.0000000000E+00
+           symrel      1  0  0   0  1  0   0  0  1      -1  0  0   0 -1  0   0  0 -1
+                       0 -1  1   0 -1  0   1 -1  0       0  1 -1   0  1  0  -1  1  0
+                       0  0  1   0  1  0   1  0  0       0  0 -1   0 -1  0  -1  0  0
+                       1 -1  0   0 -1  0   0 -1  1      -1  1  0   0  1  0   0  1 -1
+            tnons      0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+                       0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+                       0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+                       0.0000000  0.0000000  0.0000000     0.2400000  0.2600000  0.2400000
+           tolmxf      1.00000000E-08
+           tolvrs      1.00000000E-10
+            typat      1  1
+              wtk        0.03125    0.03125    0.03125    0.03125    0.03125    0.03125
+                         0.03125    0.03125    0.03125    0.03125    0.03125    0.03125
+                         0.03125    0.03125    0.03125    0.03125    0.03125    0.03125
+                         0.03125    0.03125    0.01563    0.03125    0.03125    0.03125
+                         0.01563    0.01563    0.01563    0.01563    0.01563    0.01563
+                         0.03125    0.01563    0.01563    0.01563    0.01563    0.01563
+                         0.01563    0.01563    0.01563    0.01563
+           xangst     -2.7336689675E-02  2.1467973249E-17  1.6523570280E-17
+                       1.3396095833E+00  1.3669524284E+00  1.3669524284E+00
+            xcart     -5.1658856866E-02  4.0568590069E-17  3.1225022568E-17
+                       2.5314952374E+00  2.5831657263E+00  2.5831657263E+00
+             xred     -4.9995740627E-03  4.9995740627E-03 -4.9995740627E-03
+                       2.4499957406E-01  2.5500042594E-01  2.4499957406E-01
+            znucl       14.00000
+ 
+================================================================================
+
+
+- Timing analysis has been suppressed with timopt=0
+
+
+
+================================================================================
+
+ Suggested references for the acknowledgment of ABINIT usage.
+
+ The users of ABINIT have little formal obligations with respect to the ABINIT group
+ (those specified in the GNU General Public License, http://www.gnu.org/copyleft/gpl.txt).
+ However, it is common practice in the scientific literature,
+ to acknowledge the efforts of people that have made the research possible.
+ In this spirit, please find below suggested citations of work written by ABINIT developers,
+ corresponding to implementations inside of ABINIT that you have used in the present run.
+ Note also that it will be of great value to readers of publications presenting these results,
+ to read papers enabling them to understand the theoretical formalism and details
+ of the ABINIT implementation.
+ For information on why they are suggested, see also https://docs.abinit.org/theory/acknowledgments.
+-
+- [1] Recent developments in the ABINIT software package.
+- Computer Phys. Comm. 205, 106 (2016).
+- X.Gonze, F.Jollet, F.Abreu Araujo, D.Adams, B.Amadon, T.Applencourt,
+- C.Audouze, J.-M.Beuken, J.Bieder, A.Bokhanchuk, E.Bousquet, F.Bruneval
+- D.Caliste, M.Cote, F.Dahm, F.Da Pieve, M.Delaveau, M.Di Gennaro,
+- B.Dorado, C.Espejo, G.Geneste, L.Genovese, A.Gerossier, M.Giantomassi,
+- Y.Gillet, D.R.Hamann, L.He, G.Jomard, J.Laflamme Janssen, S.Le Roux,
+- A.Levitt, A.Lherbier, F.Liu, I.Lukacevic, A.Martin, C.Martins,
+- M.J.T.Oliveira, S.Ponce, Y.Pouillon, T.Rangel, G.-M.Rignanese,
+- A.H.Romero, B.Rousseau, O.Rubel, A.A.Shukri, M.Stankovski, M.Torrent,
+- M.J.Van Setten, B.Van Troeye, M.J.Verstraete, D.Waroquier, J.Wiktor,
+- B.Xu, A.Zhou, J.W.Zwanziger.
+- Comment: the fourth generic paper describing the ABINIT project.
+- Note that a version of this paper, that is not formatted for Computer Phys. Comm. 
+- is available at https://www.abinit.org/about/ABINIT16.pdf .
+- The licence allows the authors to put it on the Web.
+- DOI and bibtex: see https://docs.abinit.org/theory/bibliography/#gonze2016
+-
+- [2] Optimized norm-conserving Vanderbilt pseudopotentials.
+- D.R. Hamann, Phys. Rev. B 88, 085117 (2013).
+- Comment: Some pseudopotential generated using the ONCVPSP code were used.
+- DOI and bibtex: see https://docs.abinit.org/theory/bibliography/#hamann2013
+-
+- [3] ABINIT: First-principles approach of materials and nanosystem properties.
+- Computer Phys. Comm. 180, 2582-2615 (2009).
+- X. Gonze, B. Amadon, P.-M. Anglade, J.-M. Beuken, F. Bottin, P. Boulanger, F. Bruneval,
+- D. Caliste, R. Caracas, M. Cote, T. Deutsch, L. Genovese, Ph. Ghosez, M. Giantomassi
+- S. Goedecker, D.R. Hamann, P. Hermet, F. Jollet, G. Jomard, S. Leroux, M. Mancini, S. Mazevet,
+- M.J.T. Oliveira, G. Onida, Y. Pouillon, T. Rangel, G.-M. Rignanese, D. Sangalli, R. Shaltaf,
+- M. Torrent, M.J. Verstraete, G. Zerah, J.W. Zwanziger
+- Comment: the third generic paper describing the ABINIT project.
+- Note that a version of this paper, that is not formatted for Computer Phys. Comm. 
+- is available at https://www.abinit.org/about/ABINIT_CPC_v10.pdf .
+- The licence allows the authors to put it on the Web.
+- DOI and bibtex: see https://docs.abinit.org/theory/bibliography/#gonze2009
+-
+- [4] A brief introduction to the ABINIT software package.
+- Z. Kristallogr. 220, 558-562 (2005).
+- X. Gonze, G.-M. Rignanese, M. Verstraete, J.-M. Beuken, Y. Pouillon, R. Caracas, F. Jollet,
+- M. Torrent, G. Zerah, M. Mikami, Ph. Ghosez, M. Veithen, J.-Y. Raty, V. Olevano, F. Bruneval,
+- L. Reining, R. Godby, G. Onida, D.R. Hamann, and D.C. Allan.
+- Comment: the second generic paper describing the ABINIT project. Note that this paper
+- should be cited especially if you are using the GW part of ABINIT, as several authors
+- of this part are not in the list of authors of the first or third paper.
+- The .pdf of the latter paper is available at https://www.abinit.org/about/zfk_0505-06_558-562.pdf.
+- Note that it should not redistributed (Copyright by Oldenburg Wissenshaftverlag,
+- the licence allows the authors to put it on the Web).
+- DOI and bibtex: see https://docs.abinit.org/theory/bibliography/#gonze2005
+-
+- And optionally:
+-
+- [5] First-principles computation of material properties: the ABINIT software project. 
+- X. Gonze, J.-M. Beuken, R. Caracas, F. Detraux, M. Fuchs, G.-M. Rignanese, L. Sindic,
+- M. Verstraete, G. Zerah, F. Jollet, M. Torrent, A. Roy, M. Mikami, Ph. Ghosez, J.-Y. Raty, D.C. Allan.
+- Computational Materials Science 25, 478-492 (2002). http://dx.doi.org/10.1016/S0927-0256(02)00325-7
+- Comment: the original paper describing the ABINIT project.
+- DOI and bibtex : see https://docs.abinit.org/theory/bibliography/#gonze2002
+-
+- Proc.   0 individual time (sec): cpu=         23.3  wall=         34.2
+ 
+================================================================================
+ 
+ Calculation completed.
+.Delivered  13 WARNINGs and  16 COMMENTs to log file.
++Overall time at end (sec) : cpu=        168.7  wall=        205.3
+
+External calculated distance:
+distance  4.4741675665742795
