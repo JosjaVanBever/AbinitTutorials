@@ -1,0 +1,52 @@
+## CaTiO3 or perovskite
+
+# general remarks:
+#  - geometry < https://materialsproject.org/materials/mp-149/#
+#  - pseudopotentials < http://www.pseudo-dojo.org/
+
+# Ground state relaxation
+
+# algorithm
+optcell  2     # positions + volume
+ionmov   2     # BFGS algorithm
+dilatmx  1.05  # memory expansion
+tolvrs   1e-8  # accracy monitored on potential = most important in 2ndP
+
+# cell
+acell    *5.46954486
+rprim    0.5  0.5  0.0
+         0.0  0.5  0.5
+         0.5  0.0  0.5
+
+# atom types
+ntypat   1
+znucl    14
+
+# atoms
+natom    2
+typat    *1
+xred
+  # Si
+  0.0000   0.0000   0.0000
+  1/4      1/4      1/4
+
+# valence bands
+# given by (sum_atoms zion) / 2
+nband    4
+
+# Ground state calculation
+
+kptopt  1              # full symmetry
+
+# Monkhorst-pack kptgrid generation
+nshiftk 4
+shiftk
+  0.5 0.5 0.5
+  0.5 0.0 0.0
+  0.0 0.5 0.0
+  0.0 0.0 0.5
+
+
+# SCANNING:
+ecut 40
+ngkpt *4

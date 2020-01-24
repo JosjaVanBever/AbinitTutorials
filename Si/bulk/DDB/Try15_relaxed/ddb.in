@@ -1,0 +1,176 @@
+## dymond like Si
+
+# general remarks:
+#  - geometry < https://materialsproject.org/materials/mp-149/#
+#  - pseudopotentials < http://www.pseudo-dojo.org/
+
+# Ground state relaxation
+
+ndtset  38 
+
+# # algorithm
+# optcell1  2     # positions + volume
+# ionmov1   2     # BFGS algorithm
+# ntime1    15
+# dilatmx1  1.05  # memory expansion
+# ecutsm1   0.5   # avoid abrupt cut-off changes
+# tolmxf1   1e-8
+
+nsym     1        # DISABLE SYMMETRY FOR TESTING
+
+# set default values
+
+getwfk   1             # get wavefunction
+kptopt   3             # no symmetry
+rfphon   1             # enable phonons
+nqpt     1             # consider a given phonon wave vector
+rfatpol  1 2           # consider all atoms
+rfdir    1 1 1         # consider all directions
+tolvrs   1.0e-8        # tolerance on potential
+
+
+# GROUND STATE calculation
+
+kptopt1  1              # full symmetry
+tolvrs1  1e-10          # for 2ndP => accuracy on V
+
+nqpt1    0              # cancel nqpt
+rfphon1  0              # cancel default
+getwfk1  0              # cancel default
+
+
+# RESPONSE FUNCTIONS: d/dk
+
+rfelfd2  2              # d/dk
+kptopt2  2              # only t-reversal
+iscf2    -3             # for ddk, see doc
+tolwfr2  1e-20          # stopping criterium for non-scf
+
+rfphon2  0              # cancel default
+
+# RESPONS FUNCTIONS: electric field, phonons, strain derivatives
+
+rfelfd3  3              # electric field
+getddk3  -1             # get ddk
+kptopt3  2              # only time reversal
+rfstrs3  3              # strain derivatives
+
+# phonon wave vectors
+
+# preserving time-reversal
+qpt2     0.00000000E+00  0.00000000E+00  0.00000000E+00
+qpt3     0.00000000E+00  0.00000000E+00  0.00000000E+00
+
+# breaking time-reversal
+# qpt4     2.50000000E-01  0.00000000E+00  0.00000000E+00
+# qpt5     5.00000000E-01  0.00000000E+00  0.00000000E+00
+# qpt6     2.50000000E-01  2.50000000E-01  0.00000000E+00
+# qpt7     5.00000000E-01  2.50000000E-01  0.00000000E+00
+# qpt8    -2.50000000E-01  2.50000000E-01  0.00000000E+00
+# qpt9     5.00000000E-01  5.00000000E-01  0.00000000E+00
+# qpt10   -2.50000000E-01  5.00000000E-01  2.50000000E-01
+
+# qpt4     2.50000000E-01  0.00000000E+00  0.00000000E+00
+# qpt5     5.00000000E-01  0.00000000E+00  0.00000000E+00
+# qpt6     0.00000000E+00  2.50000000E-01  0.00000000E+00
+# qpt7     2.50000000E-01  2.50000000E-01  0.00000000E+00
+# qpt8     5.00000000E-01  2.50000000E-01  0.00000000E+00
+# qpt9    -2.50000000E-01  2.50000000E-01  0.00000000E+00
+# qpt10    0.00000000E+00  5.00000000E-01  0.00000000E+00
+# qpt11    2.50000000E-01  5.00000000E-01  0.00000000E+00
+# qpt12    5.00000000E-01  5.00000000E-01  0.00000000E+00
+# qpt13    2.50000000E-01  0.00000000E+00  2.50000000E-01
+# qpt14    5.00000000E-01  0.00000000E+00  2.50000000E-01
+# qpt15   -2.50000000E-01  0.00000000E+00  2.50000000E-01
+# qpt16    2.50000000E-01  5.00000000E-01  2.50000000E-01
+# qpt17   -2.50000000E-01  5.00000000E-01  2.50000000E-01
+# qpt18    2.50000000E-01 -2.50000000E-01  2.50000000E-01
+# qpt19    5.00000000E-01 -2.50000000E-01  2.50000000E-01
+# qpt20    5.00000000E-01  0.00000000E+00  5.00000000E-01
+
+qpt4      2.50000000E-01  0.00000000E+00  0.00000000E+00
+qpt5      5.00000000E-01  0.00000000E+00  0.00000000E+00
+qpt6      0.00000000E+00  2.50000000E-01  0.00000000E+00
+qpt7      2.50000000E-01  2.50000000E-01  0.00000000E+00
+qpt8      5.00000000E-01  2.50000000E-01  0.00000000E+00
+qpt9     -2.50000000E-01  2.50000000E-01  0.00000000E+00
+qpt10     0.00000000E+00  5.00000000E-01  0.00000000E+00
+qpt11     2.50000000E-01  5.00000000E-01  0.00000000E+00
+qpt12     5.00000000E-01  5.00000000E-01  0.00000000E+00
+qpt13     0.00000000E+00  0.00000000E+00  2.50000000E-01
+qpt14     2.50000000E-01  0.00000000E+00  2.50000000E-01
+qpt15     5.00000000E-01  0.00000000E+00  2.50000000E-01
+qpt16    -2.50000000E-01  0.00000000E+00  2.50000000E-01
+qpt17     0.00000000E+00  2.50000000E-01  2.50000000E-01
+qpt18     2.50000000E-01  2.50000000E-01  2.50000000E-01
+qpt19     5.00000000E-01  2.50000000E-01  2.50000000E-01
+qpt20    -2.50000000E-01  2.50000000E-01  2.50000000E-01
+qpt21     0.00000000E+00  5.00000000E-01  2.50000000E-01
+qpt22     2.50000000E-01  5.00000000E-01  2.50000000E-01
+qpt23     5.00000000E-01  5.00000000E-01  2.50000000E-01
+qpt24    -2.50000000E-01  5.00000000E-01  2.50000000E-01
+qpt25     0.00000000E+00 -2.50000000E-01  2.50000000E-01
+qpt26     2.50000000E-01 -2.50000000E-01  2.50000000E-01
+qpt27     5.00000000E-01 -2.50000000E-01  2.50000000E-01
+qpt28    -2.50000000E-01 -2.50000000E-01  2.50000000E-01
+qpt29     0.00000000E+00  0.00000000E+00  5.00000000E-01
+qpt30     2.50000000E-01  0.00000000E+00  5.00000000E-01
+qpt31     5.00000000E-01  0.00000000E+00  5.00000000E-01
+qpt32     0.00000000E+00  2.50000000E-01  5.00000000E-01
+qpt33     2.50000000E-01  2.50000000E-01  5.00000000E-01
+qpt34     5.00000000E-01  2.50000000E-01  5.00000000E-01
+qpt35    -2.50000000E-01  2.50000000E-01  5.00000000E-01
+qpt36     0.00000000E+00  5.00000000E-01  5.00000000E-01
+qpt37     2.50000000E-01  5.00000000E-01  5.00000000E-01
+qpt38     5.00000000E-01  5.00000000E-01  5.00000000E-01
+
+
+#### COMMON INPUT ####
+
+# SCANNING (from optimized geometry)
+ecut 16
+ngkpt *4
+
+# unit cell (from optimized geometry)
+# acell    *5.46954486 Angstr
+# rprim    0.5  0.5  0.0
+#          0.0  0.5  0.5
+#          0.5  0.0  0.5
+acell    7.3076524878E+00  7.3076524882E+00  7.3076524889E+00 Bohr
+rprim    7.0710678120E-01  7.0710678117E-01  6.9650239756E-11
+         3.1527828871E-11  7.0710678117E-01  7.0710678120E-01
+         7.0710678119E-01 -2.1777182160E-11  7.0710678119E-01
+
+
+# atom types
+ntypat   1
+znucl    14
+
+# atoms
+natom    2
+typat    *1
+xred
+  # Si
+#  0.0000   0.0000   0.0000
+#  1/4      1/4      1/4
+          3.8076535396E-11 -5.6571522372E-12  4.4847551496E-12
+          2.4999999996E-01  2.5000000001E-01  2.5000000000E-01
+
+# valence bands
+# -> given by (sum_atoms zion) / 2
+nband    4
+
+# k-point lattice
+nshiftk  4
+shiftk
+  0.5 0.5 0.5
+  0.5 0.0 0.0
+  0.0 0.5 0.0
+  0.0 0.0 0.5
+
+# scf procedure
+nstep    40
+diemac   12
+
+
+
