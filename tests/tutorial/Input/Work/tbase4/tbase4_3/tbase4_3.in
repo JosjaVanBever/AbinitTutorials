@@ -18,10 +18,10 @@ rprim  0.0  0.5  0.5   # FCC primitive vectors (to be scaled by acell)
 
 #Optimization of the lattice parameters
 optcell 1         # volume only
-ionmov  2         # BFGS algo
-ntime  10
-dilatmx 1.05
-ecutsm  0.5
+ionmov  2         # BFGS algorithm
+ntime  10         # amount of steps in structural relaxation
+dilatmx 1.05      # allowed memory expansion of basis set (to compensate for Pulay effect)
+ecutsm  0.5       # smoothening in ecut to compensate for abrupt basis set changes
 
 #Definition of the atom types
 ntypat 1          # There is only one type of atom
@@ -36,7 +36,7 @@ natom 1           # There is only one atom per cell
 typat 1           # This atom is of type 1, that is, Aluminum
 xred              # This keyword indicate that the location of the atoms
                   # will follow, one triplet of number for each atom
-   0.0  0.0  0.0     # Triplet giving the REDUCED coordinate of atom 1.
+   0.0  0.0  0.0  # Triplet giving the REDUCED coordinate of atom 1.
 
 #Definition of the planewave basis set
 ecut  6.0         # Maximal kinetic energy cut-off, in Hartree
@@ -49,10 +49,9 @@ ngkpt1? 2 2 2       # This is a 2x2x2 FCC grid, based on the primitive vectors
 ngkpt2? 4 4 4
 ngkpt3? 6 6 6
 # ngkpt4 8 8 8
-nshiftk 4         # of the reciprocal space. For a FCC real space lattice,
-                  # like the present one, it actually corresponds to the
-                  # so-called 4x4x4 Monkhorst-Pack grid, if the following shifts
-                  # are used :
+nshiftk 4         # shifts of the reciprocal space. For a FCC real space lattice,
+                  # like the present one, homogeneous Monk-horst pack grids are
+                  # generated (https://docs.abinit.org/variables/basic/#shiftk):
 shiftk 0.5 0.5 0.5
        0.5 0.0 0.0
        0.0 0.5 0.0
